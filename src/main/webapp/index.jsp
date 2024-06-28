@@ -17,7 +17,7 @@
         <div class="width-1280px">
             <div class="topHeader">
                 <div>
-                    <a href="/semi/catrgoryPage">재능사조</a>
+                    <a href="categoryPage.jsp">재능사조</a>
                     <input type="text" id="searchBar" placeholder="재능을 입력해주세요.">
                 </div>
                 <div>
@@ -38,7 +38,7 @@
             <div class="categoryBarDetail width-1280px margin-auto">
                 <div class="categoryDetail">
                     <span>실무·취업·자기계발</span>
-                    <a href="categoryPage.html">직무역량</a>
+                    <a href="/WEB-INF/views/categoryPage.jsp">직무역량</a>
                     <a href="">필수역량</a>
                     <a href="">자기계발</a>
                     <a href="">취업·이직</a>

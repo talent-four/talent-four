@@ -5,7 +5,7 @@
 }
 
 div {
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 /* chosenCategory */
@@ -21,6 +21,10 @@ div {
   background-color: white;
 }
 
+.headCategoryBar > div:last-child {
+  height: auto;
+}
+
 .headCategoryBar > div > div {
     margin: 5px 10px;
     padding: 0 20px;
@@ -30,28 +34,29 @@ div {
   cursor: pointer;
 }
 
-#scorollChosenCatergoryMenu {
+#scrollChosenCategoryMenu {
   height: 300px;
   margin: 10px;
   overflow-y: scroll;
+  padding-right: 20px;
+  border-right: 1px solid gray;
 }
 
-#scorollChosenCatergoryMenu li {
-  font-size: 14px;
+#scrollChosenCategoryMenu input[type="radio"]{
+  display: none;
 }
 
-#scorollChosenCatergoryMenu::-webkit-scrollbar {
+#scrollChosenCategoryMenu::-webkit-scrollbar {
   display: none;
 }
 
 #scrollChosenCategoryMenu li .selected {
-  background-color: rgba(244, 244, 244);
+  background-color: #F5F5F5;
   color: white;
 }
 
 #chosenCategoryMenu {
   display: none;
-  height: 500px;
   background-color: white;
   position: absolute;
   top: 50px;
@@ -67,7 +72,7 @@ div {
   padding: 20px 0 20px 10px;
 }
 
-#scorollChosenCatergoryMenuBox {
+#scrollChosenCategoryMenuBox {
   display: flex;
   flex-direction: row;
 }
@@ -78,9 +83,11 @@ div {
   display: block;
 }
 
-#scorollChosenCatergoryMenu li{
-  margin: 10px 0;
-  padding: 5px 0;
+#scrollChosenCategoryMenu li{
+  margin: 10px 5px;
+  padding: 5px 5px;
+  font-size: 14px;
+  border-radius: 10px;
 }
 
 .category li{
@@ -88,12 +95,17 @@ div {
   padding: 5px 0;
 }
 
-#chosenCategoryMenu div {
+#chosenCategoryMenu > div {
   padding: 0;
 }
 
-.category {
-  display: flex;
+#chosenCategoryMenu > div:last-of-type {
+  padding: 10px;
+}
+
+.category li:first-of-type {
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .category label {
@@ -101,12 +113,50 @@ div {
 }
 
 #chosenCategoryDetail {
-  height: 300px;
-  margin: 10px;
+  min-height: 300px;
+  margin: 10px 5px;
+}
+
+#chosenCategoryDetail > div {
+  display: none;
 }
 
 #chosenCategoryDetail ul {
-  margin: 0 10px;
+  margin-right: 50px;
+  float: left;
+}
+
+/* 카테고리 드롭다운 아래 부분 */
+#ChosenCategoryMenuBottom {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid gray;
+}
+
+#ChosenCategoryMenuBottom > div {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  cursor: pointer;
+}
+
+#ChosenCategoryMenuBottom > div:first-child {
+  margin-left: 10px;
+}
+
+#ChosenCategoryMenuBottom > div:last-child {
+  margin-right: 10px;
+  background-color: #FF1058;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  font-weight: bold;
+  transition-duration: 0.1s;
+}
+
+#ChosenCategoryMenuBottom > div:last-child:hover {
+  background-color: #EE0656;
 }
 
 /* chosenCategoryName */

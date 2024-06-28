@@ -5,7 +5,6 @@ $(function(){
     const slideCount = $slides.length;
     let currentIndex = 0;
     const slideWidth = 1280;
-    // const slideWidth = $(".infinitySlider").width();
     console.log(slideWidth);
     setInterval(showNextSlide, 2000);
 
