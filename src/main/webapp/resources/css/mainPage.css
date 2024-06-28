@@ -1,0 +1,206 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+}
+
+/* 상단 슬라이드 */
+.infinitySlider img {
+  width: 100%;
+}
+
+.infinitySlider ul {
+  white-space: nowrap;
+  transition: 0.5s;
+  font-size: 0;
+  width: 1280px;
+}
+
+.infinitySlider li {
+  display: inline-block;
+}
+
+/* 콘텐츠 목록 헤더 */
+.contentHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contentHeader div {
+  margin: 0 10px;
+}
+
+/* 콘텐츠 목록 헤더 타이틀 */
+.contentHeaderTitle {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* 콘텐츠 목록리스트 한줄, ContentWrapper */
+.contentBoxs {
+  border: 2px solid black;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.contentWrapper {
+  position: relative;
+  width: 1280px;
+  margin: 30px auto;
+  overflow: hidden;
+}
+
+.contentBoxsSet {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+}
+
+.contentBoxs {
+  display: flex;
+  height: 280px;
+  width: 100%;
+  justify-content: space-around;
+  white-space: nowrap;
+  position: relative;
+  border: 0;
+  transition: 0.5s;
+}
+
+.contentBox {
+  width: 250px;
+  margin: 10px 5px;
+  border: 0;
+  transition: 0.2s;
+}
+
+.contentBox:hover {
+  transform: scale(1.05);
+}
+
+.contentBox img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* 콘텐츠 목록리스트 좌우 버튼 */
+
+.slideButton {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 40px;
+  background-color: rgba(255, 255, 255);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+}
+
+#leftButton {
+  left: 0px;
+}
+
+#rightButton {
+  right: 0;
+}
+
+.leftButton {
+  left: 0px;
+}
+.rightButton {
+  right: 0px;
+}
+
+
+
+/* 가로 리스트 */
+.barContentWrapper {
+  display: flex;
+  margin: auto;
+  padding: 40px;
+  justify-content: space-around;
+}
+.barContentLeft {
+  flex-basis: 25%;
+  margin-top: 12px;
+  padding-left: 20px;
+}
+
+.barContentRight {
+  flex-basis: 70%;
+}
+
+.barContentBox {
+  display: flex;
+  align-items: center;
+  padding: 10px 5px;
+  margin: 10px 0px;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0px 0px 5px gray;
+}
+
+.barContentBox > * {
+  margin: 0px 15px;
+}
+
+.barContentBox img {
+  width: 150px;
+  border-radius: 10px;
+}
+
+.rank {
+  font-size: 34px;
+  font-weight: bolder;
+}
+
+.barContentTitle {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.barContentsubTitle {
+  font-size: 16px;
+}
+
+.barContentMore {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.barContentMore div {
+  width: 200px;
+  height: 50px;
+  display: flex;
+  border: 1px solid black;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: white;
+  transition: 0.3s;
+}
+
+.barContentMore > div:hover {
+  background-color: rgb(240, 240, 240);
+}
+
+.barContentLeftTitle {
+  font-size: 24px;
+  font-weight: bold;
+}
