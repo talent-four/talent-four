@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>찜</title>
+    <link rel="stylesheet" href="css/찜.css">
+    <script src="https://kit.fontawesome.com/71eaa9d255.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>header</header>
+    <main> <!-- 메인 -->
+        <section class="sideP"> <!-- 카테고리 사이드바 -->
+            <article class="profileP"> <!-- 프로필 사진 / 이름 -->
+                <div class="profile-areaP"> <!-- 프로필 사진 -->
+                    <img src="img/profile-default.jpg" id="profile-img">
+                </div>
+                <div class="nameP"> <!-- 이름 -->
+                    <span id="idP">OOO</span>
+                </div>
+            </article>
+            <article class="category-areaP"> <!-- 카테고리 -->
+                <table class="category-tableP">
+                    <tr class="categoryP" id="category-firstP">
+                        <td><a href="강사 대시보드.html" class="category-textP">프로필</a></td>
+                    </tr>
+                    <tr class="categoryP" id="category-secondP">
+                        <td><a href="강사 내 클래스.html" class="category-textP">결제 내역</a></td>
+                    </tr>
+                    <tr class="categoryP" id="category-thirdP">
+                        <td><a href="강사 클래스 관리.html" class="category-textP">찜</a></td>
+                    </tr>
+                    <tr class="categoryP" id="category-fourthP">
+                        <td><a href="강사 클래스 판매 현황.html" class="category-textP">리뷰</a></td>
+                    </tr>
+                    <tr class="categoryP" id="category-fifthP">
+                        <td><a href="강사 리뷰Q&A.html" class="category-textP">Q&A</a></td>
+                    </tr>
+                    <tr class="categoryP" id="category-sixthP">
+                        <td><a href="강사 정산 신청.html" class="category-textP">포인트</a></td>
+                    </tr>
+                    <tr class="categoryP" id="category-seventhP">
+                        <td><a href="강사 메시지.html" class="category-textP">설정</a></td>
+                    </tr>
+                </table>
+            </article>
+        </section>
+        <div class="favorites-containerH"> <!-- 메인 내용 -->
+            <div id="favorites-main-1">
+                <div>내 찜 클래스</div>
+            </div>
+            <div id="favorites-main-2">
+                <div id="favorites-main-2-1">찜한 클래스 : {user.favorites.num}개</div>
+            </div>
+            <div id="favorites-main-3">
+                <div id="favorites-main-3-1">
+                    <div id="favorites-main-3-1-1">
+                        <img src="img/class.jpg">
+                    </div>
+                    <div id="favorites-main-3-1-2">
+                        <p>VOD</p>
+                        <p>취업에 필수! 포트폴리오 10분만에 노션 만들기</p>
+                        <p>월 <b>667</b>원</p>
+                    </div>
+                    <div id="favorites-main-3-1-3">
+                        <button>♥</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>footer</footer>
+    <script src="js/강사 대시보드.js"></script>
+</body>
+</html>

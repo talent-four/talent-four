@@ -1,0 +1,251 @@
+*{box-sizing: border-box;
+    /* border: 1px solid black; */
+}
+
+body{
+    width: 1880px;
+    height: 1300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header{
+    width: 1280px;
+    height: 120px;
+}
+
+footer{
+    width: 1280px;
+    height: 180px;
+}
+/* ----------------------------------------------------------------------------------- */
+main{ /* 메인 */
+    width: 1280px;
+    height: 1000px;
+    /* background-color: aliceblue; */
+    display: flex;
+}
+
+.sideP{ /* 카테고리 사이드바 */
+    width: 300px;
+    height: 1000px;
+    /* background-color: aquamarine; */
+    border-right: 1px solid rgb(243, 243, 243);
+}
+
+.profileP{ /* 프로필 사진 / 이름 영역 */
+    width: 300px;
+    height: 150px;
+    display: flex;
+}
+
+.profile-areaP{ /* 프로필 사진 영역*/
+    width: 110px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#profile-img{ /* 프로필 사진 */
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.nameP{ /* 이름 */
+    width: 190px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 15px 0 0;
+}
+
+#idP{
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0 8px 0 0;
+}
+
+#fixP{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+
+.category-areaP{ /* 카테고리 */
+    width: 300px;
+    height: 850px;
+}
+
+.category-tableP{
+    margin: 30px 0 0 10px;
+    border-spacing: 0px;
+}
+
+.categoryP{
+    width: 300px;
+    height: 60px;
+}
+
+.categoryP:hover{
+    background-color: rgb(249, 249, 249);
+}
+
+.categoryP>td{
+    font-size: 20px;
+}
+
+#class3{font-size: 22px;}
+#class4{font-size: 31px;}
+
+.categoryP a{
+    margin: 0 3px 0 3px;
+    text-decoration: none;
+    color: rgb(153, 153, 153);
+}
+
+/* ------------------------------------------------------------------------------------- */
+#category-firstP{
+    background-color: rgb(249, 249, 249);
+}
+
+#category-firstP a{
+    color: rgb(255, 16, 88);
+}
+/* ------------------------------------------------------------------------------------- */
+
+.containerP{ /* 메인 내용 */
+    width: 980px;
+    height: 1000px;
+    border-radius: 10px;
+    /* border: 1px solid gray; */
+}
+
+.titleP{
+    width: 980px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+}
+
+.titleP>span{
+    font-size: 40px;
+    font-weight: bold;
+    margin: 0 0 0 30px;
+}
+
+/*-------------------------------------------------------------------------------*/
+.subtitleP{
+    width: 980px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    /* background-color: bisque; */
+}
+
+.subtitleP>span{
+    font-size: 25px;
+    font-weight: bold;
+    margin: 10px 0 0 30px;
+}
+
+/*-------------------------------------------------------------------------------*/
+
+.areaP{
+    width: 980px;
+    height: 150px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    /* background-color: antiquewhite; */
+    
+}
+
+.data-areaP{
+    width: 300px;
+    height: 90px;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+
+.data-nameP{
+    width: 300px;
+    height: 30px;
+    display: flex;
+    align-items: end;
+}
+
+.data-nameP>span{
+    font-size: 15px;
+    color: gray;
+    margin: 0 0 0 15px;
+}
+
+.dataP{
+    width: 300px;
+    height: 60px;
+    display: flex;
+}
+
+.dataP>span{
+    font-size: 40px;
+    font-weight: bold;
+    margin: 0 0 0 15px;
+}
+
+/*-------------------------------------------------------------------------------*/
+.graph-allP{
+    width: 980px;
+    height: 650px;
+    display: flex;
+    justify-content: center;
+    /* background-color: aquamarine; */
+}
+
+.graph-areaP{
+    width: 940px;
+    height: 400px;
+    margin: 10px 0 0 0;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+
+.graph-titleP{
+    width: 940px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.graph-titleP>span{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 0 0 10px;
+}
+
+.graph-dataP{
+    width: 940px;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.graphP{
+    width: 900px;
+    height: 330px;
+    border: 1px dashed gray;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.graphP>span{
+    font-size: 15px;
+    color: gray;
+}
