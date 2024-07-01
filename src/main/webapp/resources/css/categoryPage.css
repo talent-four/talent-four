@@ -4,21 +4,22 @@
     box-sizing: border-box;
 }
 
-div {
-  border: 1px solid black;
-}
-
 /* chosenCategory */
 .headCategoryBar {
   position: sticky;
   top: 120px;
   z-index: 1;
+  background-color: #FFFFFF;
 }
 
 .headCategoryBar > div {
   height: 50px;
   display: flex;
   background-color: white;
+}
+
+.headCategoryBar > div:last-child {
+  height: auto;
 }
 
 .headCategoryBar > div > div {
@@ -30,28 +31,29 @@ div {
   cursor: pointer;
 }
 
-#scorollChosenCatergoryMenu {
+#scrollChosenCategoryMenu {
   height: 300px;
   margin: 10px;
   overflow-y: scroll;
+  padding-right: 20px;
+  border-right: 1px solid gray;
 }
 
-#scorollChosenCatergoryMenu li {
-  font-size: 14px;
+#scrollChosenCategoryMenu input[type="radio"]{
+  /* display: none; */
 }
 
-#scorollChosenCatergoryMenu::-webkit-scrollbar {
+#scrollChosenCategoryMenu::-webkit-scrollbar {
   display: none;
 }
 
 #scrollChosenCategoryMenu li .selected {
-  background-color: rgba(244, 244, 244);
+  background-color: #F5F5F5;
   color: white;
 }
 
 #chosenCategoryMenu {
   display: none;
-  height: 500px;
   background-color: white;
   position: absolute;
   top: 50px;
@@ -67,7 +69,7 @@ div {
   padding: 20px 0 20px 10px;
 }
 
-#scorollChosenCatergoryMenuBox {
+#scrollChosenCategoryMenuBox {
   display: flex;
   flex-direction: row;
 }
@@ -78,9 +80,11 @@ div {
   display: block;
 }
 
-#scorollChosenCatergoryMenu li{
-  margin: 10px 0;
-  padding: 5px 0;
+#scrollChosenCategoryMenu li{
+  margin: 10px 5px;
+  padding: 5px 5px;
+  font-size: 14px;
+  border-radius: 10px;
 }
 
 .category li{
@@ -88,12 +92,17 @@ div {
   padding: 5px 0;
 }
 
-#chosenCategoryMenu div {
+#chosenCategoryMenu > div {
   padding: 0;
 }
 
-.category {
-  display: flex;
+#chosenCategoryMenu > div:last-of-type {
+  padding: 10px;
+}
+
+.category li:first-of-type {
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .category label {
@@ -101,112 +110,59 @@ div {
 }
 
 #chosenCategoryDetail {
-  height: 300px;
-  margin: 10px;
+  min-height: 300px;
+  margin: 10px 5px;
+}
+
+#chosenCategoryDetail > div {
+  display: none;
 }
 
 #chosenCategoryDetail ul {
-  margin: 0 10px;
+  margin-right: 50px;
+  float: left;
+}
+
+/* 카테고리 드롭다운 아래 부분 */
+#ChosenCategoryMenuBottom {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid gray;
+}
+
+#ChosenCategoryMenuBottom > div {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  cursor: pointer;
+}
+
+#ChosenCategoryMenuBottom > div:first-child {
+  margin-left: 10px;
+}
+
+#ChosenCategoryMenuBottom > div:last-child {
+  margin-right: 10px;
+  background-color: #FF1058;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  font-weight: bold;
+  transition-duration: 0.1s;
+}
+
+#ChosenCategoryMenuBottom > div:last-child:hover {
+  background-color: #EE0656;
 }
 
 /* chosenCategoryName */
+#chosenCategoryName {
+  margin-top: 20px;
+}
 
-/* 콘텐츠 목록 헤더 */
-.contentHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .contentHeader div {
-    margin: 0 10px;
-  }
-  
-  /* 콘텐츠 목록 헤더 타이틀 */
-  .contentHeaderTitle {
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  /* 콘텐츠 목록리스트 한줄, ContentWrapper */
-  .contentBoxs {
-    border: 2px solid black;
-    width: 100%;
-    margin: 0 auto;
-    position: relative;
-  }
-  
-  .contentWrapper {
-    position: relative;
-    width: 1280px;
-    margin: 30px auto;
-    overflow: hidden;
-  }
-  
-  .contentBoxsSet {
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
-    flex-wrap: nowrap;
-  }
-  
-  .contentBoxs {
-    display: flex;
-    height: 280px;
-    width: 100%;
-    justify-content: space-around;
-    white-space: nowrap;
-    position: relative;
-    border: 0;
-    transition: 0.5s;
-  }
-  
-  .contentBox {
-    width: 250px;
-    margin: 10px 5px;
-    border: 0;
-    transition: 0.2s;
-  }
-  
-  
-  .contentBox img {
-    width: 100%;
-    border-radius: 10px;
-  }
+.category > ul:first-child > li:nth-child(2) {
+  background-color: red;
+}
 
-  .contentBox:hover {
-    transform: scale(1.05);
-  }
-  
-  /* 콘텐츠 목록리스트 좌우 버튼 */
-  
-  .slideButton {
-    cursor: pointer;
-    position: absolute;
-    top: 40%;
-    transform: translateY(-50%);
-    width: 30px;
-    height: 40px;
-    background-color: rgba(255, 255, 255);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid black;
-  }
-  
-  #leftButton {
-    left: 0px;
-  }
-  
-  #rightButton {
-    right: 0;
-  }
-  
-  .leftButton {
-    left: 0px;
-  }
-  .rightButton {
-    right: 0px;
-  }
-  
+
