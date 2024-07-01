@@ -1,0 +1,181 @@
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 100;
+    src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff2) format('woff2'),
+         url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff) format('woff'),
+         url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.otf) format('opentype');
+}
+
+* {
+    
+    box-sizing: border-box;
+}
+
+body{
+    background: #222D32;
+}
+
+#findPw{
+    margin:20px;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    display: flex;
+    height:800px;
+
+}
+
+#findPw>fieldset{
+    border:0;
+    border-radius: 20px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width:500px;
+    height:500px;
+   
+}
+
+
+
+#findPw>fieldset p:nth-of-type(1){
+    text-align: center;
+    font-size: 20px;
+
+}
+
+
+
+#findPw>fieldset form{
+ 
+    display: flex;
+}
+#emailConfirm{
+    width:240px;
+}
+
+#confirmNum{
+    width:420px;
+}
+
+#findPw>fieldset input{
+    border: 0;
+    outline: none;
+    padding: 10px;
+
+}
+
+
+
+
+
+
+
+#findPw>fieldset> div{
+    margin:20px;
+    border: 1px solid #6d6d6d;
+    
+}
+
+
+
+
+.findPw-space{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+
+}
+
+.findPw-space>span:nth-child(2)>a{
+    font-size:10px;
+    color:#6d6d6d;
+    text-decoration: 0;
+}
+
+#findPwBtn{
+    margin-top:30px;
+    cursor: pointer;
+    width: 420px;
+    background: rgb(255 0 69);
+    border: 0;
+    padding:15px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color:white;
+
+
+}
+
+.findPw-space{
+    display: flex;
+    
+}
+
+.findPw-border1{
+    background-color: white;
+    margin-bottom:10px;
+    border : 1px solid #ddd;
+    width:250px;
+ 
+}
+
+#ck-numBtn{
+    width: 150px;
+    margin-left:10px;
+    padding:9.2px;
+    border:0;
+    background: rgb(255 0 69);
+    color:white;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    
+}
+
+.fpemail-confirm{
+    display: flex;
+    margin-top: 10px;
+
+}
+
+
+.findPw-border2{
+    background-color: white;
+    margin-bottom:10px;
+    border : 1px solid #ddd;
+}
+
+
+
+
+#findPw h3{
+    margin:0;
+}
+
+#findPw h3>a{
+    color:#222D32;
+    text-decoration: 0;
+}
+
+.findPw{
+    width:400px;
+    display: flex;
+    justify-content: right;
+}
+
+.findPw a{
+    color:#222D32;
+
+    text-decoration: 0;
+    font-weight: bold;
+}
+
+.findPw a span{
+    color:#ff1058;
+}

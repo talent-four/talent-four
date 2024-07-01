@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원 가입</title>
+    <link rel="stylesheet" href="../css/signUp.css">
+    <script src="https://kit.fontawesome.com/6c46ba8282.js" crossorigin="anonymous"></script>
+
+
+</head>
+<body>
+  
+    <main id="signUp">
+   
+        <fieldset>
+            <h3><a href="index.jsp">재능사조</a></h3>
+     
+           <br>
+            <from action="#" >
+
+                <div class="signUp-space">
+                    <span>아이디</span>
+                   
+                </div>
+                <div class="fpemail-confirm">
+                    <div class="signUp-border1">
+                
+                        <input type="text"  name="id" autocomplete="off" confirm maxlength="30">
+                
+                    </div>
+                    <div>
+                        <button type="button" id="ck-idBtn">중복확인</button>
+                    </div>
+                </div>
+
+                <div class="signUp-space">
+                    <span>비밀번호</span>
+                   
+                </div>
+                <div class="signUp-border2">
+                    
+                    <input type="password" name="password"  autocomplete="off" confirm maxlength="30">
+               
+                </div>
+
+                <div class="signUp-space">
+                    <span>비밀번호 확인</span>
+                   
+                </div>
+                <div class="signUp-border2">
+                    
+                    <input type="password" autocomplete="off" confirm maxlength="30">
+               
+                </div>
+
+                <div class="signUp-space">
+                    <span>가입한 이메일을 입력해 주세요. 인증번호를 보내드립니다.</span>
+                 
+                   
+                </div>
+
+                <div class="fpemail-confirm">
+                    <div class="signUp-border1">
+                
+                        <input type="text" id="emailConfirm" name="email" autocomplete="off" confirm >
+                
+                    </div>
+                    <div>
+                        <button type="button" id="ck-numBtn">인증번호받기</button>
+                    </div>
+                </div>
+
+                <div class="signUp-space">
+                    <span>이메일 인증번호 입력</span>
+                   
+                </div>
+
+                <div class="signUp-border2">
+            
+                    <input type="text" id="confirmNum" name="confirm"  autocomplete="off" confirm maxlength="10">
+               
+                </div>
+
+                <div class="signUp-space">
+                    <span>보안문자 입력</span>
+                   
+                </div>
+
+                <div>
+                <img id="captchaImg" src="/captcha/getImg.do?width=100&height=30" alt="스팸방지코드">
+                <input type="text" name="" id="captcha" class="">
+                <input type="button" id="reLoad" value="새로고침">
+                </div>
+
+            </from>
+            
+            <button type="submit" name="find-id" id="signUpBtn">회원가입 하기</button>
+            <span class="signUp"> <a href="#" ><span>로그인</span> 하러가기</a></span>
+
+            <article>
+        
+            </article>
+        </fieldset>
+    
+
+    </main>
+
+</body>
+</html>
