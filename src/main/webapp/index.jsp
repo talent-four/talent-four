@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>재능사조</title>
+    <title>Document</title>
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/6e9a783fd9.js" crossorigin="anonymous"></script>
@@ -17,12 +17,16 @@
         <div class="width-1280px">
             <div class="topHeader">
                 <div>
-                    <a href="categoryPage.jsp">재능사조</a>
+                    <a href="mainPage.html">재능사조</a>
                     <input type="text" id="searchBar" placeholder="재능을 입력해주세요.">
                 </div>
-                <div>
+                <div id="loginBox">
                     <div>로그인</div>
                     <div>회원가입</div>
+
+                    <div>채팅아이콘</div>
+                    <div>이름</div>
+                    <div>마이페이지드롭다운</div>
                 </div>
             </div>
             <div class="bottomHeader">
@@ -38,7 +42,7 @@
             <div class="categoryBarDetail width-1280px margin-auto">
                 <div class="categoryDetail">
                     <span>실무·취업·자기계발</span>
-                    <a href="/WEB-INF/views/categoryPage.jsp">직무역량</a>
+                    <a href="/semi/categoryPage">직무역량</a>
                     <a href="">필수역량</a>
                     <a href="">자기계발</a>
                     <a href="">취업·이직</a>
@@ -554,7 +558,7 @@
     <link rel="stylesheet" href="resources/css/mainPage.css">
     <link rel="stylesheet" href="resources/css/hf.css">
     <script src="resources/js/mainPage.js"></script>
-    <script src="resources/js//slider.js"></script>
+    <script src="resources/js/slider.js"></script>
     <script src="resources/js/hf.js"></script>
 </body>
 

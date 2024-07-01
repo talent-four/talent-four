@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,9 +7,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../css/hf.css">
-    <link rel="stylesheet" href="../css/categoryPage.css">
-    <link rel="stylesheet" href="../css/slider.css">
+    <link rel="stylesheet" href="/semi/resources/css/hf.css">
+    <link rel="stylesheet" href="/semi/resources/css/categoryPage.css">
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/6e9a783fd9.js" crossorigin="anonymous"></script>
@@ -18,7 +19,7 @@
         <div class="width-1280px">
             <div class="topHeader">
                 <div>
-                    <a href="mainPage.html">재능사조</a>
+                    <a href="/semi">재능사조</a>
                     <input type="text" id="searchBar" placeholder="재능을 입력해주세요.">
                 </div>
                 <div>
@@ -66,12 +67,12 @@
     </header>
     <div class="headCategoryBar width-1280px margin-auto">
         <div id="chosenCategory">
-            <div id="chosenCategoryButton"><span class="categoryNameDetail"></span></div>
+            <div id="chosenCategoryButton"><span class="categoryNameDetail">영상 3D</span></div>
             <div>초기화</div>
         </div>
         <div id="chosenCategoryName">
-            <div><span id="categoryName"></span></div>
-            <div><span class="categoryNameDetail"></span></div>
+            <div><span id="categoryName">영상 3D</span></div>
+            <div><span id="categoryNameDetail">영상학</span></div>
         </div>
         <div id="chosenCategoryMenu">
             <div>
@@ -309,9 +310,9 @@
             (주) 재능사조는 통신판개중개자로서 거래 당사자가 아니므로, 튜터가 등록한 상품정보를 책임지지 않습니다.<br>
             Copyright @ 2024 Inc. All rights reserved.</P>
     </footer>
-    <script src="../js/categoryPage.js"></script>
-    <script src="../js/slider.js"></script>
-    <script src="../js/hf.js"></script>
+    <script src="/semi/resources/js/categoryPage.js"></script>
+    <script src="/semi/resources/js/slider.js"></script>
+    <script src="/semi/resources/js/hf.js"></script>
 </body>
 
 </html>
