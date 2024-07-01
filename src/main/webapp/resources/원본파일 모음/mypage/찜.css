@@ -1,0 +1,252 @@
+* {
+    box-sizing: border-box;
+    border: 1px solid black;
+}
+
+body {
+    width: 1880px;
+    height: 1300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    width: 1280px;
+    height: 120px;
+}
+
+footer {
+    width: 1280px;
+    height: 180px;
+}
+
+/* ----------------------------------------------------------------------------------- */
+main {
+    /* 메인 */
+    width: 1280px;
+    height: 1000px;
+    /* background-color: aliceblue; */
+    display: flex;
+}
+
+.sideP {
+    /* 카테고리 사이드바 */
+    width: 300px;
+    height: 1000px;
+    /* background-color: aquamarine; */
+    border-right: 1px solid rgb(243, 243, 243);
+}
+
+.profileP {
+    /* 프로필 사진 / 이름 영역 */
+    width: 300px;
+    height: 150px;
+    display: flex;
+}
+
+.profile-areaP {
+    /* 프로필 사진 영역*/
+    width: 110px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#profile-img {
+    /* 프로필 사진 */
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.nameP {
+    /* 이름 */
+    width: 190px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 15px 0 0;
+}
+
+#idP {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0 8px 0 0;
+}
+
+#fixP {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+
+.category-areaP {
+    /* 카테고리 */
+    width: 300px;
+    height: 850px;
+}
+
+.category-tableP {
+    border-spacing: 0px;
+    margin-top: 15px;
+}
+
+.categoryP {
+    width: 300px;
+    height: 60px;
+}
+
+.categoryP:hover {
+    background-color: rgb(249, 249, 249);
+}
+
+.categoryP>td {
+    font-size: 20px;
+    width: 300px;
+}
+
+#class3 {
+    font-size: 22px;
+}
+
+#class4 {
+    font-size: 31px;
+}
+
+.categoryP a {
+    margin: 0 3px 0 3px;
+    text-decoration: none;
+    color: rgb(153, 153, 153);
+}
+
+/* ------------------------------------------------------------------------------------- */
+#category-firstP {
+    background-color: rgb(249, 249, 249);
+}
+
+#category-firstP a {
+    color: rgb(255, 16, 88);
+}
+
+/* ------------------------------------------------------------------------------------- */
+
+.favorites-containerH {
+    /* 메인 내용 */
+    width: 980px;
+    height: 1000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+}
+
+#favorites-main-1 {
+    height: 140px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    font-size: 18pt;
+    font-weight: 700;
+    border-bottom: 1px solid rgb(230, 230, 230);
+}
+
+#favorites-main-2 {
+    height: 80px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    font-size: 11pt;
+    border-bottom: 1px solid rgb(230, 230, 230);
+}
+
+#favorites-main-2-1 {
+    color: grey;
+}
+
+
+#favorites-main-3 {
+    height: 400px;
+    width: 80%;
+    display: flex;
+    font-size: 11pt;
+    border-bottom: 1px solid rgb(230, 230, 230);
+    overflow: hidden;
+    flex-direction: column;
+    align-items: center;
+}
+
+#favorites-main-3-1 {
+    width: 95%;
+    height: 110px;
+    margin: 15px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+#favorites-main-3-1:hover {
+    transform: scale(1.02);
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+#favorites-main-3-1-1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#favorites-main-3-1-1 img {
+    width: 180px;
+    height: 90px;
+    border-radius: 20px;
+    border: none;
+}
+
+#favorites-main-3-1-2 {
+    width: 300px;
+    height: 90px;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+#favorites-main-3-1-2 p:nth-child(1) {
+    font-size: 11pt;
+    font-weight: bold;
+    margin: 0;
+
+}
+
+#favorites-main-3-1-2 p:nth-child(2) {
+    font-size: 9pt;
+    margin: 0;
+    margin-top: 5px;
+}
+
+#favorites-main-3-1-2 p:nth-child(3) {
+    font-size: 11pt;
+    margin-top: 15px;
+}
+
+#favorites-main-3-1-3 {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
+#favorites-main-3-1-3 button {
+    background-color: white;
+    border: none;
+    color: red;
+}
+
+#favorites-main-3-1-3 button:hover {
+    cursor: pointer;
+}

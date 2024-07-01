@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>내 프로필</title>
+    <link rel="stylesheet" href="css/내 프로필.css">
+    <script src="https://kit.fontawesome.com/71eaa9d255.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>header</header>
+    <main> <!-- 메인 -->
+        <section class="sideP"> <!-- 카테고리 사이드바 -->
+            <article class="profileP"> <!-- 프로필 사진 / 이름 -->
+                <div class="profile-areaP"> <!-- 프로필 사진 -->
+                    <img src="img/profile-default.jpg" id="profile-img">
+                </div>
+                <div class="nameP"> <!-- 이름 -->
+                    <span id="idP">OOO</span>
+                </div>
+            </article>
+            <article class="category-areaP"> <!-- 카테고리 -->
+                <table class="category-tableP">
+                    <tr class="categoryP" id="category-firstP">
+                        <td><a href="강사 대시보드.html" class="category-textP">프로필</a></td>
+                    </tr>
+                    <tr class="categoryP" id="category-secondP">
+                        <td><a href="강사 내 클래스.html" class="category-textP">결제 내역</a></td>
+                    </tr>
+                    <tr class="categoryP" id="category-thirdP">
+                        <td><a href="강사 클래스 관리.html" class="category-textP">찜</a></td>
+                    </tr>
+                    <tr class="categoryP" id="category-fourthP">
+                        <td><a href="강사 클래스 판매 현황.html" class="category-textP">리뷰</a></td>
+                    </tr>
+                    <tr class="categoryP" id="category-fifthP">
+                        <td><a href="강사 리뷰Q&A.html" class="category-textP">Q&A</a></td>
+                    </tr>
+                    <tr class="categoryP" id="category-sixthP">
+                        <td><a href="강사 정산 신청.html" class="category-textP">포인트</a></td>
+                    </tr>
+                    <tr class="categoryP" id="category-seventhP">
+                        <td><a href="강사 메시지.html" class="category-textP">설정</a></td>
+                    </tr>
+                </table>
+            </article>
+        </section>
+        <div class="containerH"> <!-- 메인 내용 -->
+            <div id="main-1">
+                <div>내 프로필</div>
+            </div>
+            <div id="main-2">
+                <div id="main-2-1">닉네임(별명)</div>
+                <div id="main-2-2"><p>${user.name}</p><button id="main-2-2-write" class="fa-regular fa-pen-to-square"></button></div>
+            </div>
+            <div id="main-3">
+                <div id="main-3-1">프로필이미지</div>
+                <div id="main-3-2">
+                    <img src="img/profile-default.jpg" id="profile-img">
+                    <label for="main-3-2-btn-2">
+                        <div id="main-3-2-btn-1" class="fa-solid fa-camera"></div>
+                    </label>
+                  <input type="file" name="main-3-2-btn-2" id="main-3-2-btn-2"></div>
+            </div>
+            <div id="main-4">
+                <div id="main-4-1">이메일(로그인ID)</div>
+                <div id="main-4-2">${user.email}</div>
+            </div>
+            <div id="main-5">
+                <div id="main-5-1">전화번호</div>
+                <div id="main-5-2">${user.tel}</div>
+            </div>
+        </div>
+    </main>
+    <footer>footer</footer>
+    <script src="js/강사 대시보드.js"></script>
+</body>
+</html>
