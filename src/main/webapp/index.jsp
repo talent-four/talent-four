@@ -7,9 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="resources/css/hf.css">
-    <link rel="stylesheet" href="resources/css/mainPage.css">
-    <link rel="stylesheet" href="resources/css/slider.css">
+
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/6e9a783fd9.js" crossorigin="anonymous"></script>
@@ -498,11 +496,13 @@
     </div>
    	<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
     
-    <link rel="stylesheet" href="resources/css/mainPage.css">
-    <link rel="stylesheet" href="resources/css/hf.css">
-    <script src="resources/js/mainPage.js"></script>
-    <script src="resources/js/slider.js"></script>
-    <script src="resources/js/hf.js"></script>
+    <link rel="stylesheet" href="${contextPath}/resources/css/common/hf.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/pages/mainPage.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/common/slider.css">
+
+    <script src="${contextPath}/resources/js/pages/mainPage.js"></script>
+    <script src="${contextPath}/resources/js/common/slider.js"></script>
+    <script src="${contextPath}/resources/js/common/hf.js"></script>
 </body>
 
 </html>

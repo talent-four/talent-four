@@ -1,4 +1,3 @@
-<%@page import="java.io.Console"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <header>
@@ -29,8 +28,11 @@
 	<div class="categoryBar">
 		<div class="categoryBarDetail width-1280px margin-auto">
 			<div class="categoryDetail">
-				<span>실무·취업·자기계발</span> <a href="/semi/categoryPage">직무역량</a> <a
-					href="">필수역량</a> <a href="">자기계발</a> <a href="">취업·이직</a>
+				<span>실무·취업·자기계발</span>
+				<a href="/semi/categoryPage">카테고리페이지</a>
+				<a href="/semi/class/sugang">수강페이지</a>
+				<a href="">자기계발</a>
+				<a href="">취업·이직</a>
 			</div>
 			<div class="categoryDetail">
 				<span>데이터·개발</span> <a href="">데이터·개발</a> <a href="">개발·테크</a> <a
