@@ -7,66 +7,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="resources/css/hf.css">
+    <link rel="stylesheet" href="resources/css/mainPage.css">
+    <link rel="stylesheet" href="resources/css/slider.css">
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/6e9a783fd9.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <header>
-        <div class="width-1280px">
-            <div class="topHeader">
-                <div>
-                    <a href="mainPage.html">재능사조</a>
-                    <input type="text" id="searchBar" placeholder="재능을 입력해주세요.">
-                </div>
-                <div id="loginBox">
-                    <div>로그인</div>
-                    <div>회원가입</div>
-
-                    <div>채팅아이콘</div>
-                    <div>이름</div>
-                    <div>마이페이지드롭다운</div>
-                </div>
-            </div>
-            <div class="bottomHeader">
-                <div id="showCategoryBar">
-                    <div class="fa-solid fa-bars"></div>
-                    <div>카테고리</div>
-                </div>
-                <div>실시간 HOT</div>
-                <div>주간 베스트</div>
-            </div>
-        </div>
-        <div class="categoryBar">
-            <div class="categoryBarDetail width-1280px margin-auto">
-                <div class="categoryDetail">
-                    <span>실무·취업·자기계발</span>
-                    <a href="/semi/categoryPage">직무역량</a>
-                    <a href="">필수역량</a>
-                    <a href="">자기계발</a>
-                    <a href="">취업·이직</a>
-                </div>
-                <div class="categoryDetail">
-                    <span>데이터·개발</span>
-                    <a href="">데이터·개발</a>
-                    <a href="">개발·테크</a>
-                    <a href="">데이터</a>
-                </div>
-                <div class="categoryDetail">
-                    <span>재테크·투자</span>
-                    <a href="">재테크</a>
-                    <a href="">투잡·창업</a>
-                </div>
-                <div class="categoryDetail">
-                    <span>드로잉·사진·글</span>
-                    <a href="">글쓰기</a>
-                    <a href="">사진</a>
-                    <a href="">드로잉·미술</a>
-                </div>
-            </div>
-        </div>
-    </header>
+	<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 
     <div class="infinitySlider contentWrapper">
         <ul>
@@ -546,15 +496,8 @@
         <div class="slideButton fa-solid fa-chevron-left" id="leftButton"></div>
         <div class="slideButton fa-solid fa-chevron-right" id="rightButton"></div>
     </div>
-    <footer>
-        <P>통신판매 신고번호 : 1234-서울강남-12345<br>
-            상호 : 재능사조<br>
-            주소 : 서울특별시 강남구 역삼역<br>
-            고객센터 : 1234-1234 <br>
-            
-            (주) 재능사조는 통신판개중개자로서 거래 당사자가 아니므로, 튜터가 등록한 상품정보를 책임지지 않습니다.<br>
-            Copyright @ 2024 Inc. All rights reserved.</P>
-    </footer>
+   	<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
+    
     <link rel="stylesheet" href="resources/css/mainPage.css">
     <link rel="stylesheet" href="resources/css/hf.css">
     <script src="resources/js/mainPage.js"></script>
