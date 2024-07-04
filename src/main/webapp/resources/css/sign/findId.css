@@ -49,10 +49,7 @@ body{
 
 
 
-#findId>fieldset form{
- 
-    display: flex;
-}
+
 #emailConfirm{
     width:240px;
 

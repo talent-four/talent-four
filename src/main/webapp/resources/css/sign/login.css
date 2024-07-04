@@ -49,10 +49,7 @@ body{
 
 
 
-#tlogin>fieldset form{
- 
-    display: flex;
-}
+
 
 #tlogin>fieldset input{
     border: 0;
