@@ -61,7 +61,7 @@ document.getElementById("inputId").addEventListener("keyup",function(){
     const idCkText = document.getElementById("idCkText");
     const regExp =/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{5,15}$/;
 
-    if(this.value.length==0){
+    if(this.value.trim().length==0){
         idCkText.innerText ="영문+숫자 5~15자로 입력";
         idCkText.classList.remove("sign-green"); 
         idCkText.classList.remove("sign-red"); 
@@ -90,7 +90,7 @@ document.getElementById("inputPw").addEventListener("keyup",function(){
    
     const regExp = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!~_])[A-Za-z\d!~_]{5,15}$/;
 
-    if(this.value.length==0){
+    if(this.value.trim().length==0){
         pwCkText.innerText="영문+숫자+특수문자(!,_,~)를  포함한 5~15자";
         pwCkText.classList.remove("sign-green"); 
         pwCkText.classList.remove("sign-red"); 
@@ -134,7 +134,7 @@ document.getElementById("inputEmail").addEventListener("keyup",function(){
     const emailCkText = document.getElementById("emailCkText");
     const regExp =/\w+@(\w+\.)+\w+/;
 
-    if(this.value.length==0){
+    if(this.value.trim().length==0){
         emailCkText.innerText ="";
         emailCkText.classList.remove("sign-green"); 
         emailCkText.classList.remove("sign-red"); 
@@ -154,6 +154,27 @@ document.getElementById("inputEmail").addEventListener("keyup",function(){
 
 });
 
+//닉네임 유효성 검사
+document.getElementById("nickName").addEventListener("keyup",function(){
+    const nickNameCkText = document.getElementById("nickNameCkText");
+    const regExpNick = /^[가-힣]{2,8}$/;
 
+    if(this.value.trim().length==0){
+        emailCkText.innerText ="";
+        emailCkText.classList.remove("sign-green"); 
+        emailCkText.classList.remove("sign-red"); 
+        return;
+    }
 
+    if(regExp.test(this.value)){
+        emailCkText.innerText="유효한 이메일 입니다.";
+        emailCkText.classList.add("sign-green");
+        emailCkText.classList.remove("sign-red"); 
+
+    }else{
+        emailCkText.innerText="이메일을 확인하세요.(aa@aa.com형식)";
+        emailCkText.classList.add("sign-red");
+
+    }
+})
 
