@@ -102,7 +102,6 @@ profile.addEventListener('click', () => {
 
 });
 
-
 payment.addEventListener('click', () => {
 
     menu.forEach((a) => {
@@ -111,27 +110,24 @@ payment.addEventListener('click', () => {
 
     payment.classList.add('selected');
 
-    container.innerHTML = `<div id="favorites-main-1">
+    container.innerHTML = `<div id="payment-main-1">
                 <div>결제 내역</div>
             </div>
-            <div id="favorites-main-2">
-                <div id="favorites-main-2-1">결제 클래스 : ${user.favorites.length}개</div>
+            <div id="payment-main-2">
+                <div id="payment-main-2-1">결제 클래스 : ${user.favorites.length}개</div>
             </div>
-            <div id="favorites-main-3">
-                <div id="favorites-main-3-1">
-                    <div id="favorites-main-3-1-container">
-                        <div id="favorites-main-3-1-1">
-                            <img src="/img/img1.jpg">
-                        </div>
-                        <div id="favorites-main-3-1-2">
-                            <p>VOD</p>
-                            <p>취업에 필수! 포트폴리오 10분만에 노션 만들기</p>
-                            <p>월 <b>667</b>원</p>
-                        </div>
+            <div id="payment-main-3">
+                <div id="payment-main-3-1-container">
+                    <div id="payment-main-3-2-title">
+                        <span>썸네일</span>
+                        <span>클래스명</span>
+                        <span>수강기간</span>
                     </div>
-
-                    <div id="favorites-main-3-1-3">
-                        <button>♥</button>
+                    <div id="payment-main-3-2-item">
+                    </div>
+                    <div id="payment-main-3-2-item">
+                    </div>
+                    <div id="payment-main-3-2-item">
                     </div>
                 </div>
             </div>`;
@@ -155,8 +151,39 @@ review.addEventListener('click', () => {
             </div>
             <div id="review-main-3">
                 <div id="review-main-3-1">
-                    <p>작성한 리뷰가 없어요</p>
-                    <div id="review-main-3-1-1"></div> <!-- 작성하면 추가-->
+                    <div id="review-main-3-1-1">
+                        <img src="/img/profile-default.jpg" id="profile-img" class="profile-review">
+                        <span id="review-nick">닉네임</span>
+                        <span id="review-star">★★★★★ / 5.0</span>
+                        <span id="review-title">강의명강의명강의명강의명강의명강의명강의명강의명</span>
+                        <div id="review-description">강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용</div>
+                    </div>
+
+                    <div id="review-main-3-1-1">
+                        <img src="/img/profile-default.jpg" id="profile-img" class="profile-review">
+                        <span id="review-nick">닉네임</span>
+                        <span id="review-star">★★★★★ / 5.0</span>
+                        <span id="review-title">강의명강의명강의명강의명강의명강의명강의명강의명</span>
+                        <div id="review-description">강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용</div>
+                    </div> 
+    
+                    <div id="review-main-3-1-1">
+                        <img src="/img/profile-default.jpg" id="profile-img" class="profile-review">
+                        <span id="review-nick">닉네임</span>
+                        <span id="review-star">★★★★★ / 5.0</span>
+                        <span id="review-title">강의명강의명강의명강의명강의명강의명강의명강의명</span>
+                        <div id="review-description">강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용</div>
+                    </div>
+                    
+                    <div id="review-main-3-1-1">
+                        <img src="/img/profile-default.jpg" id="profile-img" class="profile-review">
+                        <span id="review-nick">닉네임</span>
+                        <span id="review-star">★★★★★ / 5.0</span>
+                        <span id="review-title">강의명강의명강의명강의명강의명강의명강의명강의명</span>
+                        <div id="review-description">강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용</div>
+                    </div>
+                    <!-- <p>작성한 리뷰가 없어요</p> 리뷰 갯수에 따라 상태 변경-->    
+                    <!-- 작성하면 추가-->
                 </div>
             </div>`;
 });
@@ -169,15 +196,42 @@ QA.addEventListener('click', () => {
 
     QA.classList.add('selected');
 
-    container.innerHTML = `<div id="qa-main-1">내가 작성한 Q&A <p><b>0</b></p>
+    container.innerHTML = `<div id="qa-main-1">내가 작성한 Q&A <p></p>
             </div>
             <div id="qa-main-2">
                 <div id="qa-main-2-1">Q&A 작성하러 가기</div>
             </div>
             <div id="qa-main-3">
                 <div id="qa-main-3-1">
-                    <p>작성한 Q&A가 없어요</p>
-                    <div id="qa-main-3-1-1"></div> <!-- 작성하면 추가-->
+                    <!-- <p>작성한 Q&A가 없어요</p> -->
+                    <div id="qa-main-3-1-box">
+                        <img src="/img/class.jpg" class="profile-QA">
+                        <span id="QA-title">강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명</span>
+                        <span id="QA-star">★★★★★</span>
+                        <textarea type="text" id="QA-description" maxlength="300"></textarea>
+                        <button id="QA-btn">작성하기</button>
+                    </div>
+                    <div id="qa-main-3-1-box">
+                        <img src="/img/class.jpg" class="profile-QA">
+                        <span id="QA-title">강의명</span>
+                        <span id="QA-star">★★★★★</span>
+                        <textarea type="text" id="QA-description" maxlength="300"></textarea>
+                        <button id="QA-btn">작성하기</button>                    
+                    </div>
+                    <div id="qa-main-3-1-box">
+                        <img src="/img/class.jpg" class="profile-QA">
+                        <span id="QA-title">강의명</span>
+                        <span id="QA-star">★★★★★</span>
+                        <textarea type="text" id="QA-description" maxlength="300"></textarea>
+                        <button id="QA-btn">작성하기</button>                    
+                    </div>
+                    <div id="qa-main-3-1-box">
+                        <img src="/img/class.jpg" class="profile-QA">
+                        <span id="QA-title">강의명</span>
+                        <span id="QA-star">★★★★★</span>
+                        <textarea type="text" id="QA-description" maxlength="300"></textarea>
+                        <button id="QA-btn">작성하기</button>                    
+                    </div>
                 </div>
             </div>`;
 
