@@ -1,5 +1,18 @@
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 100;
+    src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff2) format('woff2'),
+         url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff) format('woff'),
+         url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.otf) format('opentype');
+}
+
 *{box-sizing: border-box;
     /* border: 1px solid black; */
+    font-family: 'Noto Sans KR', sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    letter-spacing: 0.5px;
 }
 
 body{
@@ -344,10 +357,10 @@ main{ /* 메인 */
     cursor: pointer;
 }
 
+
 /* payment css */
 
-
-#payment-main-1{
+#payment-main-1 {
     height: 140px;
     width: 80%;
     display: flex;
@@ -356,7 +369,8 @@ main{ /* 메인 */
     font-weight: 700;
     border-bottom: 1px solid rgb(230, 230, 230);
 }
-#payment-main-2{
+
+#payment-main-2 {
     height: 80px;
     width: 80%;
     display: flex;
@@ -365,164 +379,68 @@ main{ /* 메인 */
     border-bottom: 1px solid rgb(230, 230, 230);
 }
 
-#payment-main-2-1{
-    height: 40px;
-    border-radius: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin : 0 10px;
-    padding : 0 10px;
-    border: 1px solid rgb(200,200,200);
+#payment-main-2-1 {
     color: grey;
 }
 
-.payment-main-2-1{
-    background-color: red !important;
-    color:white !important;
-}
 
-#payment-main-3{
-    height: 140px;
+#payment-main-3 {
+    min-height: 400px;
     width: 80%;
     display: flex;
     font-size: 11pt;
-    justify-content: center;
     border-bottom: 1px solid rgb(230, 230, 230);
+    flex-direction: column;
+    align-items: center;
+
 }
 
-#payment-main-3-1{
-    background-color: rgb(240,240,240);
+#payment-main-3-1-container{
     width: 750px;
-    height: 100px;
+    min-height: 150px;
+    display: flex;
     margin-top: 20px;
-    border: none;
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#payment-main-3-1 p {
-    color: grey;
-}
-
-
-/* favorites css */
-
-#favorites-main-1 {
-    height: 140px;
-    width: 80%;
-    display: flex;
-    align-items: center;
-    font-size: 18pt;
-    font-weight: 700;
-    border-bottom: 1px solid rgb(230, 230, 230);
-}
-
-#favorites-main-2 {
-    height: 80px;
-    width: 80%;
-    display: flex;
-    align-items: center;
-    font-size: 11pt;
-    border-bottom: 1px solid rgb(230, 230, 230);
-}
-
-#favorites-main-2-1 {
-    color: grey;
-}
-
-
-#favorites-main-3 {
-    height: 400px;
-    width: 80%;
-    display: flex;
-    font-size: 11pt;
-    border-bottom: 1px solid rgb(230, 230, 230);
-    overflow: hidden;
-    flex-direction: column;
-    align-items: center;
-}
-
-#favorites-main-3-1-container{
-    width: 95%;
-    height: 110px;
-    display: flex;
-}
-
-#favorites-main-3-1 {
-    width: 200px;
-    height: 110px;
-    margin: 15px;
-    display: flex;
-    align-items: center;
-    position: relative;
-}
-
-#favorites-main-3-1:hover {
-    transform: scale(1.02);
-    transition: 0.2s;
-    cursor: pointer;
-}
-
-#favorites-main-3-1-1 {
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
-}
-
-
-#favorites-main-3-1-1 img {
-    width: 180px;
-    height: 90px;
-    border-radius: 20px;
-    border: none;
-}
-
-#favorites-main-3-1-2 {
-    width: 300px;
-    height: 90px;
-    margin-left: 10px;
     display: flex;
     flex-direction: column;
+    align-items: center;
+
 }
 
-
-#favorites-main-3-1-2 p:nth-child(1) {
-    font-size: 11pt;
+#payment-main-3-2-title{
+    width: 750px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid grey;
+}
+#payment-main-3-2-title > span:first-child{
+    display: inline-block;
+    width: 20%;
+    font-size: 24px;
     font-weight: bold;
-    margin: 0;
+}
+#payment-main-3-2-title > span:nth-child(2){
+    display: inline-block;
+    width: 50%;
+    font-size: 24px;
+    font-weight: bold;
+}
+#payment-main-3-2-title > span:nth-child(3){
+    display: inline-block;
+    width: 20%;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#payment-main-3-2-item{
+    width: 750px;
+    height: 80px;
+    margin:30px;
+    border: 1px solid black;
 
 }
 
-#favorites-main-3-1-2 p:nth-child(2) {
-    font-size: 9pt;
-    margin: 0;
-    margin-top: 5px;
-}
-
-#favorites-main-3-1-2 p:nth-child(3) {
-    font-size: 11pt;
-    margin-top: 15px;
-}
-
-#favorites-main-3-1-3 {
-    position: absolute;
-    right: 5px;
-    top: 5px;
-}
-
-#favorites-main-3-1-3 button {
-    background-color: white;
-    border: none;
-    color: red;
-    font-size: 20pt;
-}
-
-#favorites-main-3-1-3 button:hover {
-    cursor: pointer;
-}
 
 /* review css */
 
@@ -567,29 +485,85 @@ main{ /* 메인 */
 
 
 #review-main-3 {
-    height: 400px;
-    width: 80%;
+    min-height: 400px;
+    overflow-y: auto;
+    width: 900px;
     display: flex;
     font-size: 11pt;
     border-bottom: 1px solid rgb(230, 230, 230);
-    overflow: hidden;
     flex-direction: column;
     align-items: center;
 }
 
 #review-main-3-1{
     width: 100%;
-    height: 150px;
+    min-height: 150px;
+    max-height: 1000px;
+    flex-shrink: 0;
     background-color: rgb(249, 249, 249);
     margin-top: 15px;
     border-radius: 15px;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #review-main-3-1 p{
     position: absolute;
     top:50px;
     left:300px;
+}
+
+#review-main-3-1-1{
+    /* border: 1px solid black; */
+    width: 720px;
+    height: 200px;
+    margin: 20px;
+    background-color: white;
+    position: relative;
+}
+
+.profile-review{
+    margin-left: 20px;
+}
+
+#review-nick{
+    position: absolute;
+    top: 10px;
+    left:130px;
+    font-size: 18px;
+    color: grey;
+    font-size: 14px;
+    /* border: 1px solid black; */
+}
+
+#review-star{
+    position: absolute;
+    top: 45px;
+    left:130px;
+    font-size: 12px;
+}
+
+#review-title{
+    position: absolute;
+    top: 15px;
+    left:300px;
+    font-size: 30px;
+    font-weight: 700;
+    text-overflow: ellipsis; /* 초과 시 생략 표시 */
+    white-space: nowrap; /* 줄 바꿈 방지 */
+    overflow: hidden;
+    max-width: 450px;
+}
+
+#review-description{
+    position: absolute;
+    top: 100px;
+    left:50px;
+    /* border: 1px solid black; */
+    width: 600px;
+    height: 80px;
 }
 
 /* QA CSS */
@@ -639,29 +613,102 @@ main{ /* 메인 */
 
 
 #qa-main-3 {
-    height: 400px;
+    min-height: 400px;
+    overflow: auto;
     width: 80%;
     display: flex;
     font-size: 11pt;
     border-bottom: 1px solid rgb(230, 230, 230);
-    overflow: hidden;
     flex-direction: column;
     align-items: center;
 }
 
 #qa-main-3-1{
     width: 100%;
-    height: 150px;
+    min-height: 150px;
+    max-height: 1000px;
+    flex-shrink: 0;
     background-color: rgb(249, 249, 249);
     margin-top: 15px;
     border-radius: 15px;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #qa-main-3-1 p{
     position: absolute;
     top:50px;
     left:300px;
+}
+
+
+#qa-main-3-1-box{
+    border: 2px solid rgb(230, 230, 230);
+    width: 720px;
+    height: 250px;
+    margin-top: 20px;
+    position: relative;
+}
+
+.profile-QA{
+    width: 270px;
+    height: 100px;
+    margin-top: 20px;
+    margin-left: 20px;
+    border-radius: 15px;
+}
+
+#QA-title{
+    position: absolute;
+    top: 30px;
+    left:300px;
+    font-size: 30px;
+    font-weight: 700;
+    text-overflow: ellipsis; /* 초과 시 생략 표시 */
+    white-space: nowrap; /* 줄 바꿈 방지 */
+    overflow: hidden;
+    max-width: 450px;
+}
+
+#QA-star{
+    position: absolute;
+    top: 75px;
+    left:305px;
+    font-size: 12px;
+}
+
+
+
+#QA-description{
+    position: absolute;
+    top: 140px;
+    left:30px;
+    /* border: 1px solid black; */
+    width: 550px;
+    height: 80px;
+    border: none;
+    resize: none;
+
+}
+
+#QA-description:focus{
+    outline: 1px solid grey;
+    border-radius: 15px;
+}
+#QA-btn{
+    position: absolute;
+    bottom: 30px;
+    right:30px;
+    background-color: white;
+    border-radius: 20px;
+    width: 80px;
+    height: 30px;
+    margin-left: 10px;
+    border: none;
+    box-shadow: 2px 2px 2px 2px rgb(200, 200, 200);
+    cursor: pointer;
 }
 
 
