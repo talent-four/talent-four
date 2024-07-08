@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스터디 모집</title>
+    <link rel="stylesheet" href="../../css/studyGroup/createGroup.css">
+    <script src="https://kit.fontawesome.com/71eaa9d255.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>header</header>
+    <main>
+        <section>
+            <div>
+                <a href="#"><i class="fa-solid fa-xmark"></i></a>
+                <span>모임만들기</span>
+            </div>
+            <div>
+                <span class="star">*</span><span>필수</span>
+            </div>
+        </section>
+        <form action="#">
+            <section class="essentialArea">
+                <article>
+                    <div class="categoryTitle">
+                        <span>모임명<span class="star">*</span></span> 
+                        <span class="countinput"> <span>0</span>/30</span>
+                    </div>
+                    <div>
+                        <input type="text" placeholder="제목을 입력하세요">
+                    </div>
+                </article>
+                <article>
+                    <div class="categoryTitle">
+                        <span>모임소개<span class="star">*</span></span> 
+                        <span class="countinput"> <span>0</span>/1000</span>
+                    </div>
+                    <div>
+                        <textarea name="" id="" placeholder="모임 소개글을 작성하세요"></textarea>
+                    </div>
+                </article>
+                <article class="inputTime">
+                    <div class="categoryTitle">
+                        <span>일시<span class="star">*</span></span> 
+                    </div>
+                    <div>
+                        <div>
+                            <div>시작</div>
+                            <input type="datetime-local">
+                        </div>
+                        <div>
+                            <div>종료</div>
+                            <input type="datetime-local">
+                        </div>
+                    </div>
+                </article>
+                <article class="inputNumber">
+                    <div class="categoryTitle">
+                        <span>인원<span class="star">*</span></span> 
+                    </div>
+                    <div>
+                        <span>모집인원</span>
+                        <input type="number" placeholder="0">
+                    </div>
+                    <div>
+                        <span class="input-info">※ 스터디 개설자 포함 인원수로 작성해주세요.</span>
+                    </div>
+                </article>
+                <article class="inputLocation">
+                    <div class="categoryTitle">
+                        <span>모임장소<span class="star">*</span></span> 
+                    </div>
+                    <div>
+                        <label for="offline"><input type="radio" name="meetvalue" id="offline">오프라인</label>
+                        <label for="online"><input type="radio" name="meetvalue" id="online">온라인</label> <br>
+                        <input type="text" placeholder="위치를 검색하세요">
+                        <input type="text" placeholder="장소이름을 입력하세요">
+                        <div>
+                            <span class="input-info">※ 상세주소를 입력하세요.</span>
+                        </div>
+                    </div>
+                </article>
+                <article>
+                    <div class="categoryTitle">
+                        <span>연락처<span class="star">*</span></span> 
+                    </div>
+                    <div>
+                        <input type="text" placeholder="연락방법을 입력하세요">
+                    </div>
+                    <div>
+                        <span class="input-info">※ 연락방법 / 오픈톡방 링크,전화번호 SNS ID등을 입력하세요.</span>
+                    </div>
+                </article>
+            </section>
+            <section class="essentialArea">
+                <article>
+                    <div class="categoryTitle">
+                        <span>비용</span> 
+                    </div>
+                    <div>
+                        <input type="text" placeholder="ex) 스터디룸 비용 1/N">
+                    </div>
+                </article>
+                <article class="inputTag">
+                    <div class="categoryTitle">
+                        <span>태그</span> 
+                    </div>
+                    <div>
+                        <div><input type="text"></div>
+                        <div><input type="text"></div>
+                        <div><input type="text"></div>
+                        <div><input type="text"></div>
+                        <div><input type="text"></div>
+                        <div><input type="text"></div>
+                        <div><input type="text"></div>
+                    </div>
+                    <div>
+                        <span class="input-info">※ 태그는 7개까지 입력가능 합니다.</span>
+                    </div>
+                </article>
+            </section>
+            <section>
+                <button type="button">취소</button>
+                <button id="finish-btn">작성완료</button>
+            </section>
+        </form>
+    </main>
+    <footer>
+        <P>통신판매 신고번호 : 1234-서울강남-12345<br>
+            상호 : 재능사조<br>
+            주소 : 서울특별시 강남구 역삼역<br>
+            고객센터 : 1234-1234 <br>
+            
+            (주) 재능사조는 통신판개중개자로서 거래 당사자가 아니므로, 튜터가 등록한 상품정보를 책임지지 않습니다.<br>
+            Copyright @ 2024 Inc. All rights reserved.</P>
+    </footer>
+    <script src="../../js/studyGroup/createGroup.js"></script>
+</body>
+</html>

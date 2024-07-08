@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>강사 클래스 관리</title>
+    <link rel="stylesheet" href="../../css/tutor/tutorClasses.css">
+    <script src="../../js/tutor/jquery-3.7.1.min.js"></script>
+    <script src="https://kit.fontawesome.com/71eaa9d255.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="width-1280px">
+            <div class="topHeader">
+                <div>
+                    <a href="mainPage.html">재능사조</a>
+                    <input type="text" id="searchBar" placeholder="재능을 입력해주세요.">
+                </div>
+                <div>
+                    <div>로그인</div>
+                    <div>회원가입</div>
+                </div>
+            </div>
+            <div class="bottomHeader">
+                <div id="showCategoryBar">
+                    <div class="fa-solid fa-bars"></div>
+                    <div>카테고리</div>
+                </div>
+                <div>실시간 HOT</div>
+                <div>주간 베스트</div>
+            </div>
+        </div>
+        <div class="categoryBar">
+            <div class="categoryBarDetail width-1280px margin-auto">
+                <div class="categoryDetail">
+                    <span>실무·취업·자기계발</span>
+                    <a href="">직무역량</a>
+                    <a href="">필수역량</a>
+                    <a href="">자기계발</a>
+                    <a href="">취업·이직</a>
+                </div>
+                <div class="categoryDetail">
+                    <span>데이터·개발</span>
+                    <a href="">데이터·개발</a>
+                    <a href="">개발·테크</a>
+                    <a href="">데이터</a>
+                </div>
+                <div class="categoryDetail">
+                    <span>재테크·투자</span>
+                    <a href="">재테크</a>
+                    <a href="">투잡·창업</a>
+                </div>
+                <div class="categoryDetail">
+                    <span>드로잉·사진·글</span>
+                    <a href="">글쓰기</a>
+                    <a href="">사진</a>
+                    <a href="">드로잉·미술</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main> <!-- 메인 -->
+        <section class="sideP">  <!-- 사이드-->
+            <div class="side-topP"> <!-- 사이드 위쪽-->
+                <div>
+                    <img src="../../img/cat1.jpg" id="profile-imgP"> <!-- 사이드 프로필 사진 -->
+                </div>
+                <div>
+                    <span id="profile-idP">OOO</span>
+                    <span>튜터</span>
+                </div>
+            </div>
+            <div class="side-bottomP"> <!-- 사이드 아래쪽-->
+                <div class="side-categoryP"> <!-- 카테고리 전체-->
+                    <div class="activeP"> <!-- 카테고리 1 -->
+                        <a href="tutorDashboard.html"><span><i class="fa-solid fa-box"></i>대시보드</span></a>
+                    </div>
+                    <div class="activeP"> <!-- 카테고리 2 -->
+                        <a href="tutorProfile.html"><span><i class="fa-solid fa-user"></i>내 프로필</span></a>
+                    </div>
+                    <div class="activeP"> <!-- 카테고리 3 -->
+                        <a href="tutorClasses.html"><span><i class="fa-solid fa-folder-open"></i>클래스 관리</span></a>
+                    </div>
+                    <div class="activeP"> <!-- 카테고리 4 -->
+                        <a href="tutorClassSell.html"><span><i class="fa-solid fa-clipboard-list"></i>클래스 판매 현황</span></a>
+                    </div>
+                    <div class="activeP"> <!-- 카테고리 5 -->
+                        <a href="tutorReviewQA.html"><span><i class="fa-solid fa-pen"></i>리뷰 Q&A</span></a>
+                    </div>
+                    <div class="activeP"> <!-- 카테고리 6 -->
+                        <a href="tutorCalculate.html"><span><i class="fa-regular fa-money-bill-1"></i>정산 신청</span></a>
+                    </div>
+                    <div class="activeP"> <!-- 카테고리 7 -->
+                        <a href="tutorMessage.html"><span><i class="fa-solid fa-message"></i>메시지</span></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="mainsectionsP" id="dashboardP"> <!-- 대시 보드 -->
+        </section>
+        <section class="mainsectionsP" id="profileP"> <!-- 내 프로필 -->
+        </section>
+        <section class="mainsectionsP" id="classesP"> <!-- 클래스 관리 -->
+            <article class="titleP"><span>내 클래스</span></article>
+            <article class="class-subtitleP">
+                <span>운영 중인 클래스</span>
+                <button>클래스 만들기</button>
+            </article>
+            <article class="class-areaP">
+                <div class="class-menuP">
+                    <div><span>썸네일</span></div>
+                    <div><span>클래스명</span></div>
+                    <div><span>운영 상태</span></div>
+                    <div><span>등록일</span></div>
+                </div>
+                <div class="class-textP">
+                    <div class="class-rowP">
+                        <div><img src="../../img/cat1.jpg" class="class-thumbnail"></div>
+                        <div><a href="#">고양이는 매우매우 귀여운 생물이다!</a></div>
+                        <div><div><span>운영 중</span></div></div>
+                        <div><span>2023-07-26</span></div>
+                    </div>
+                    <div class="class-rowP">
+                        <div><img src="../../img/cat1.jpg" class="class-thumbnail"></div>
+                        <div><a href="#">고양이는 매우매우 귀여운 생물이다!</a></div>
+                        <div><div><span>운영 중</span></div></div>
+                        <div><span>2023-07-26</span></div>
+                    </div>
+                    <div class="class-rowP">
+                        <div><img src="../../img/cat1.jpg" class="class-thumbnail"></div>
+                        <div><a href="#">고양이는 매우매우 귀여운 생물이다!</a></div>
+                        <div><div><span>운영 중</span></div></div>
+                        <div><span>2023-07-26</span></div>
+                    </div>
+                    <div class="class-rowP">
+                        <div><img src="../../img/cat1.jpg" class="class-thumbnail"></div>
+                        <div><a href="#">고양이는 매우매우 귀여운 생물이다!</a></div>
+                        <div><div><span>운영 중</span></div></div>
+                        <div><span>2023-07-26</span></div>
+                    </div>
+                    <div class="class-rowP">
+                        <div><img src="../../img/cat1.jpg" class="class-thumbnail"></div>
+                        <div><a href="#">고양이는 매우매우 귀여운 생물이다!</a></div>
+                        <div><div><span>운영 중</span></div></div>
+                        <div><span>2023-07-26</span></div>
+                    </div>
+                    <div class="class-rowP">
+                        <div><img src="../../img/cat1.jpg" class="class-thumbnail"></div>
+                        <div><a href="#">고양이는 매우매우 귀여운 생물이다!</a></div>
+                        <div><div><span>운영 중</span></div></div>
+                        <div><span>2023-07-26</span></div>
+                    </div>
+                    <div class="class-rowP">
+                        <div><img src="../../img/cat1.jpg" class="class-thumbnail"></div>
+                        <div><a href="#">고양이는 매우매우 귀여운 생물이다!</a></div>
+                        <div><div><span>운영 중</span></div></div>
+                        <div><span>2023-07-26</span></div>
+                    </div>
+                    <div class="class-rowP">
+                        <div><img src="../../img/cat1.jpg" class="class-thumbnail"></div>
+                        <div><a href="#">고양이는 매우매우 귀여운 생물이다!</a></div>
+                        <div><div><span>운영 중</span></div></div>
+                        <div><span>2023-07-26</span></div>
+                    </div>
+                    <div class="class-rowP">
+                        <div><img src="../../img/cat1.jpg" class="class-thumbnail"></div>
+                        <div><a href="#">고양이는 매우매우 귀여운 생물이다!</a></div>
+                        <div><div><span>운영 중</span></div></div>
+                        <div><span>2023-07-26</span></div>
+                    </div>
+                    <div class="class-rowP">
+                        <div><img src="../../img/cat1.jpg" class="class-thumbnail"></div>
+                        <div><a href="#">고양이는 매우매우 귀여운 생물이다!</a></div>
+                        <div><div><span>운영 중</span></div></div>
+                        <div><span>2023-07-26</span></div>
+                    </div>
+                    <div class="class-rowP">
+                        <div><img src="../../img/cat1.jpg" class="class-thumbnail"></div>
+                        <div><a href="#">고양이는 매우매우 귀여운 생물이다!</a></div>
+                        <div><div><span>운영 중</span></div></div>
+                        <div><span>2023-07-26</span></div>
+                    </div>
+                    <div class="class-rowP">
+                        <div><img src="../../img/cat1.jpg" class="class-thumbnail"></div>
+                        <div><a href="#">고양이는 매우매우 귀여운 생물이다!</a></div>
+                        <div><div><span>운영 중</span></div></div>
+                        <div><span>2023-07-26</span></div>
+                    </div>
+                    <div class="class-rowP">
+                        <div><img src="../../img/cat1.jpg" class="class-thumbnail"></div>
+                        <div><a href="#">고양이는 매우매우 귀여운 생물이다!</a></div>
+                        <div><div><span>운영 중</span></div></div>
+                        <div><span>2023-07-26</span></div>
+                    </div>
+                    
+                    
+                </div>
+                <div class="class-btn-areaP">
+                    <span>총 </span>
+                    <span id="now-class-countP">O</span>
+                    <span>개, </span>
+                    <span id="now-class-page-countP">O</span>
+                    <span>페이지</span>
+                    <button><i class="fa-solid fa-angle-left"></i></button>
+                    <button><i class="fa-solid fa-angle-right"></i></button>
+                </div>
+            </article>
+            <article class="class-subtitleP"><span>모든 클래스</span></article>
+            <article class="class-areaP">
+                <div class="class-menuP">
+                    <div><span>썸네일</span></div>
+                    <div><span>클래스명</span></div>
+                    <div><span>운영 상태</span></div>
+                    <div><span>등록일</span></div>
+                </div>
+                <div class="class-textP">
+                    <div class="class-rowP">
+                        <div><img src="../../img/cat1.jpg" class="class-thumbnail"></div>
+                        <div><a href="#">고양이는 매우매우 귀여운 생물이다!</a></div>
+                        <div><div><span>운영 중</span></div></div>
+                        <div><span>2023-07-26</span></div>
+                    </div>
+                    
+                </div>
+                <div class="class-btn-areaP">
+                    <span>총 </span>
+                    <span id="finished-class-countP">O</span>
+                    <span>개, </span>
+                    <span id="finished-class-page-countP">O</span>
+                    <span>페이지</span>
+                    <button><i class="fa-solid fa-angle-left"></i></button>
+                    <button><i class="fa-solid fa-angle-right"></i></button>
+                </div>
+            </article>
+        </section>
+        <section class="mainsectionsP" id="classsellP"> <!-- 클래스 판매 현황 -->
+        </section>
+        <section class="mainsectionsP" id="reviewP"> <!-- 리뷰 -->
+        </section>
+        <section class="mainsectionsP" id="calculateP"> <!-- 정산 신청 -->
+        </section>
+        <section class="mainsectionsP" id="messageP"> <!-- 매세지 -->
+        </section>
+
+
+
+
+    </main>
+    <footer>
+        <P>통신판매 신고번호 : 1234-서울강남-12345<br>
+            상호 : 재능사조<br>
+            주소 : 서울특별시 강남구 역삼역<br>
+            고객센터 : 1234-1234 <br>
+            
+            (주) 재능사조는 통신판개중개자로서 거래 당사자가 아니므로, 튜터가 등록한 상품정보를 책임지지 않습니다.<br>
+            Copyright @ 2024 Inc. All rights reserved.</P>
+    </footer>
+    <script src="../../js/tutor/tutorClasses.js"></script>
+</body>
+</html>

@@ -5,7 +5,6 @@ $("#showCategoryBar").on("click", function(){
         $(".categoryBar").slideUp(200);
     }
 })
-      
 
 const sideCategory = document.querySelectorAll('.activeP'); /* 사이드 카테고리 영역 모음 */
 const mainSection = document.querySelectorAll('.mainsectionsP'); /* 사이드 카테고리 영역 모음 */
