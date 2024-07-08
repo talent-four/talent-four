@@ -49,10 +49,7 @@ body{
 
 
 
-#findPw>fieldset form{
- 
-    display: flex;
-}
+
 #emailConfirm{
     width:240px;
 }

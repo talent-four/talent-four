@@ -1,0 +1,129 @@
+*{box-sizing: border-box;
+    border: 1px solid black;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+
+}
+
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 100;
+    src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff2) format('woff2'),
+         url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff) format('woff'),
+         url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.otf) format('opentype');
+}
+
+html{border: none;}
+
+
+body{
+    width: 1880px;
+    height: 2000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+footer{
+    width: 1280px;
+    font-size:12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#afafaf;
+    text-align: center;
+
+  
+}
+/* body, header, footer */
+/*------------------------------------------------------------------------------*/
+/* main */
+
+main{
+    width: 1280px;
+    height: 1700px;
+}
+
+.main-menu{
+    width: 1280px;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0 0 0;
+    border-bottom: 1px solid black;
+}
+
+.main-menu>span{
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 0 0 0 20px;
+}
+
+.main-menu>span>i{
+    margin: 0 7px 0 7px;
+}
+
+.main-menu>span>i:nth-child(1){
+    color: black;
+}
+
+.main-menu>fieldset{
+    border-radius: 20px;
+}
+
+
+.main-menu>fieldset>input{
+    width: 700px;
+    font-size: 20px;
+    outline: none;
+    border: none;
+}
+
+.main-menu>fieldset>i{
+    margin: 6px 0 0 0;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.main-menu>div{
+    width: 100px;
+    display: flex;
+    justify-content: space-around;
+    padding: 0 10px 0 0;
+}
+
+.main-menu>div>a{
+    font-size: 28px;
+    color: black;
+}
+/*----------------------------------------------------------------------------------*/
+/*높이 1630 남음*/
+
+.change-type{
+    width: 1280px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+}
+
+.change-type>div{
+    margin: 20px 0 0 0;
+    width: 80px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid black;
+}
+
+/* 모집 중 / 모집완료 선택 영역 */
+/*----------------------------------------------------------------------------------*/
+/*높이 1570 남음*/
+

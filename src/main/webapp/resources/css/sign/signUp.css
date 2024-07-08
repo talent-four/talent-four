@@ -26,7 +26,13 @@ body{
 
 }
 
+#signLogo{
+    margin-top:100px;
+}
+
 #signUp>fieldset{
+    margin-top:200px;
+
     border:0;
     border-radius: 20px;
     background-color: white;
@@ -35,7 +41,7 @@ body{
     align-items: center;
     flex-direction: column;
     width:500px;
-    height:800px;
+    height:1000px;
    
 }
 
@@ -49,10 +55,7 @@ body{
 
 
 
-#signUp>fieldset form{
- 
-    display: flex;
-}
+
 #emailConfirm{
     width:240px;
 }
@@ -261,3 +264,9 @@ body{
 }
 
 .sign-font{font-size:10px;}
+
+/* 동의합니다 부분 */
+.agreeCk{
+    width:430px;
+    border:1px solid #ddd;
+}
