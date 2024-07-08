@@ -7,9 +7,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="resources/css/hf.css">
-    <link rel="stylesheet" href="resources/css/categoryPage.css">
-    <link rel="stylesheet" href="resources/css/slider.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/common/hf.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/pages/categoryPage.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/common/slider.css">
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/6e9a783fd9.js" crossorigin="anonymous"></script>
@@ -17,14 +17,14 @@
 
 <body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
-    <div class="headCategoryBar width-1280px margin-auto">
+        <div class="headCategoryBar width-1280px margin-auto">
         <div id="chosenCategory">
-            <div id="chosenCategoryButton"><span class="categoryNameDetail">영상 3D</span></div>
+            <div id="chosenCategoryButton"><span class="categoryNameDetail"></span><i class="fa-solid fa-angle-down" id="CategoryBoxdown"></i><i class="fa-solid fa-angle-up" id="CategoryBoxUp"></i></div>
             <div>초기화</div>
         </div>
         <div id="chosenCategoryName">
-            <div><span id="categoryName">영상 3D</span></div>
-            <div><span class="categoryNameDetail">영상학</span></div>
+            <div><span id="categoryName"></span></div>
+            <div><span class="categoryNameDetail"></span></div>
         </div>
         <div id="chosenCategoryMenu">
             <div>
@@ -35,17 +35,16 @@
                     <ul>
                         <li><label>실무·취업·자기계발<input type="radio" name="category" value="실무·취업·자기계발"></label></li>
                         <li><label>데이터·개발<input type="radio" name="category" value="데이터·개발"></label></li>
-                        <li><label>재테크·투자<input type="radio" name="category" value="재테크·투자"></label></li>
+                        <li><label>재테크·투잡<input type="radio" name="category" value="재테크·투잡"></label></li>
                         <li><label>드로잉·사진·글<input type="radio" name="category" value="드로잉·사진·글"></label></li>
-                        <li><label>드로잉·사진·글<input type="radio" name="category" value="드로잉·사진·글"></label></li>
-                        <li><label>드로잉·사진·글<input type="radio" name="category" value="드로잉·사진·글"></label></li>
-                        <li><label>드로잉·사진·글<input type="radio" name="category" value="드로잉·사진·글"></label></li>
-                        <li><label>드로잉·사진·글<input type="radio" name="category" value="드로잉·사진·글"></label></li>
-                        <li><label>드로잉·사진·글<input type="radio" name="category" value="드로잉·사진·글"></label></li>
-                        <li><label>드로잉·사진·글<input type="radio" name="category" value="드로잉·사진·글"></label></li>
-                        <li><label>드로잉·사진·글<input type="radio" name="category" value="드로잉·사진·글"></label></li>
-                        <li><label>드로잉·사진·글<input type="radio" name="category" value="드로잉·사진·글"></label></li>
-                        <li><label>드로잉·사진·글<input type="radio" name="category" value="드로잉·사진·글"></label></li>
+                        <li><label>더미 데이터<input type="radio" name="category" value="더미데이터"></label></li>
+                        <li><label>더미 데이터<input type="radio" name="category" value="더미데이터"></label></li>
+                        <li><label>더미 데이터<input type="radio" name="category" value="더미데이터"></label></li>
+                        <li><label>더미 데이터<input type="radio" name="category" value="더미데이터"></label></li>
+                        <li><label>더미 데이터<input type="radio" name="category" value="더미데이터"></label></li>
+                        <li><label>더미 데이터<input type="radio" name="category" value="더미데이터"></label></li>
+                        <li><label>더미 데이터<input type="radio" name="category" value="더미데이터"></label></li>
+                        <li><label>더미 데이터<input type="radio" name="category" value="더미데이터"></label></li>
                     </ul>
                 </div>
                 <div id="chosenCategoryDetail">
@@ -87,7 +86,7 @@
                         <ul>
                             <li>개발·테크</li>
                             <li><label><input type="radio" name="categoryDetail" value="개발·테크 전체">개발·테크 전체</label></li>
-                            <li><label><input type="radio" name="categoryDetail" value="공통">개발 공통</label></li>
+                            <li><label><input type="radio" name="categoryDetail" value="개발 공통">개발 공통</label></li>
                             <li><label><input type="radio" name="categoryDetail" value="ML·AL">ML·AL</label></li>
                             <li><label><input type="radio" name="categoryDetail" value="모바일">모바일</label></li>
                             <li><label><input type="radio" name="categoryDetail" value="프론트엔드">프론트엔드</label></li>
@@ -101,6 +100,44 @@
                             <li><label><input type="radio" name="categoryDetail" value="Python·R">Python·R</label></li>
                             <li><label><input type="radio" name="categoryDetail" value="SQL">SQL</label></li>
                             <li><label><input type="radio" name="categoryDetail" value="업무 자동화">업무 자동화</label></li>
+                        </ul>
+                    </div>
+                    <div id="재테크·투잡" class="category">
+                        <ul>
+                            <li>재테크</li>
+                            <li><label><input type="radio" name="categoryDetail" value="재테크 전체">재테크 전체</label></li>
+                            <li><label><input type="radio" name="categoryDetail" value="가상 자산">가상 자산</label></li>
+                            <li><label><input type="radio" name="categoryDetail" value="금융지식">금융지식</label></li>
+                            <li><label><input type="radio" name="categoryDetail" value="주식">주식</label></li>
+                            <li><label><input type="radio" name="categoryDetail" value="부동산">부동산</label></li>
+                        </ul>
+                        <ul>
+                            <li>투잡·창업</li>
+                            <li><label><input type="radio" name="categoryDetail" value="투잡·창업 전체">투잡·창업 전체</label></li>
+                            <li><label><input type="radio" name="categoryDetail" value="블로그·인스타">블로그·인스타</label></li>
+                            <li><label><input type="radio" name="categoryDetail" value="다양한 투잡">다양한 투잡</label></li>
+                            <li><label><input type="radio" name="categoryDetail" value="쇼핑몰">쇼핑몰</label></li>
+                            <li><label><input type="radio" name="categoryDetail" value="창업">창업</label></li>
+                        </ul>
+                    </div>
+                    <div id="드로잉·사진·글" class="category">
+                        <ul>
+                            <li>글쓰기</li>
+                            <li><label><input type="radio" name="categoryDetail" value="글쓰기 전체">글쓰기 전체</label></li>
+                            <li><label><input type="radio" name="categoryDetail" value="글쓰기">글쓰기</label></li>
+                            <li><label><input type="radio" name="categoryDetail" value="출판">출판</label></li>
+                        </ul>
+                        <ul>
+                            <li>사진</li>
+                            <li><label><input type="radio" name="categoryDetail" value="사진 전체">사진 전체</label></li>
+                            <li><label><input type="radio" name="categoryDetail" value="사진">사진</label></li>
+                        </ul>
+                        <ul>
+                            <li>드로잉·미술</li>
+                            <li><label><input type="radio" name="categoryDetail" value="드로잉·미술 전체">드로잉·미술 전체</label></li>
+                            <li><label><input type="radio" name="categoryDetail" value="취미미술">취미미술</label></li>
+                            <li><label><input type="radio" name="categoryDetail" value="디지털드로잉">디지털드로잉</label></li>
+                            <li><label><input type="radio" name="categoryDetail" value="캘리그래피">캘리그래피</label></li>
                         </ul>
                     </div>
                 </div>
@@ -253,11 +290,11 @@
             </div>
         </div>
     </div>
-    <jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
+    <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
     
-    <script src="resources/js/categoryPage.js"></script>
-    <script src="resources/js/slider.js"></script>
-    <script src="resources/js/hf.js"></script>
+    <script src="${contextPath}/resources/js/pages/categoryPage.js"></script>
+    <script src="${contextPath}/resources/js/common/slider.js"></script>
+    <script src="${contextPath}/resources/js/common/hf.js"></script>
 </body>
 
 </html>

@@ -40,7 +40,6 @@ function changeSelected(item) {
   $("#categoryName").text(selected);
 
   // 변경된 대분류의 소분류 미리 선택하기
-  console.log("이벤트 발생")
   changeDetailSelected($("#"+selected+">ul:first-child > li:nth-child(2)"));
 
   // 선택한 대분류 색상 변경
