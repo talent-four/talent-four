@@ -7,12 +7,16 @@
        url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Normal.otf) format('opentype');
 }
 
+div {
+  border: 1px solid black;
+}
+
 *{box-sizing: border-box;
-  /* border: 1px solid black; */
   font-family: 'Noto Sans KR', sans-serif;
   font-style: normal;
   font-weight: 900;
   letter-spacing: 0.5px;
+  color: rgb(26, 26, 26);
 }
 
 
@@ -41,12 +45,25 @@ header {
     width: 1280px;
   }
   
+/* 로고 */
+#logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#logo img {
+  width: 50px;
+}
+
   /* 헤더 위쪽 */
   .topHeader {
-    height: 50px;
+    height: 80px;
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
+    background-color: #023047;
+    padding: 15px 0;
   }
   
   .topHeader > div {
@@ -54,19 +71,43 @@ header {
     align-items: center;
   }
   
-  .topHeader > div > * {
-    margin: auto 10px;
-    padding: 10px;
-    height: 100%;
-  }
-  
   #searchBar {
     height: 100%;
     width: 300px;
   }
   
+  /* categoryBar */
+  #categoryBar li {
+    list-style: none;
+    display: flex;
+    align-items: center;
+  }
+
+  #categoryBar ul {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #categoryBar ul > li > a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 5px;
+    color: white;
+    transition-duration: 0.2s;
+  }
+
+  #categoryBar ul > li > a:hover {
+    background-color: #219EBC;
+  }
+
+
   /* 헤더 아래 */
-  .bottomHeader {
+  /* .bottomHeader {
     height: 50px;
     display: flex;
     font-size: 24px;
@@ -87,10 +128,10 @@ header {
   
   #showCategoryBar {
     cursor: pointer;
-  }
+  } */
   
   /* 헤더 카테고리 바 */
-  .categoryBar {
+  /* .categoryBar {
     position: relative;
     z-index: 2;
     background-color: rgba(255, 255, 255, 1);
@@ -124,14 +165,14 @@ header {
   .categoryDetail span {
     font-weight: bold;
     color: gray;
-  }
+  } */
   
 
-  footer{
+  /* footer{
     font-size:12px;
     display: flex;
     justify-content: center;
     align-items: center;
     color:#afafaf;
     text-align: center;
-    }
+    } */

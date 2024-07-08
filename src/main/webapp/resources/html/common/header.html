@@ -7,7 +7,7 @@
 <!-- css, js, header 다 넣어서 사용해주세요 -->
 
 <!-- CSS -->
-    <link rel="stylesheet" href="../css/hf.css">
+    <link rel="stylesheet" href="../../css/common/hf.css">
 <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.7.1.js"
     integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
@@ -20,9 +20,17 @@
     <div class="width-1280px">
         <div class="topHeader">
             <div>
-                <a href="mainPage.html">재능사조</a>
-                <input type="text" id="searchBar" placeholder="재능을 입력해주세요.">
+                <a href="mainPage.html" id = "logo"><img src="../../img/smile.png" alt=""></a>
             </div>
+            <div id="categoryBar">
+                <ul>
+                    <li><a href="">클래스</a></li>
+                    <li><a href="">스터디 모집</a></li>
+                    <li><a href="">수강 후기</a></li>
+                    <li><a href="">궁금해요</a></li>
+                </ul>
+            </div>
+            <input type="text" id="searchBar" placeholder="재능을 입력해주세요.">
             <div id="loginBox">
                 <div>로그인</div>
                 <div>회원가입</div>
@@ -65,7 +73,7 @@
             </div>
         </div>
     </div>
-    <script src="../js/hf.js"></script>
+    <script src="../../js/common/hf.js"></script>
 </header>
 </body>
 </html>
