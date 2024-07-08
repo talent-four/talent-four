@@ -1,8 +1,9 @@
 // 무한 슬라이드
 $(function(){
-    var $slides = $(this).find('li');
+    var $slides = $("#categoryBar").find('li');
     const $contentSlider = $(".infinitySlider > ul");
     const slideCount = $slides.length;
+    console.log(slideCount);
     let currentIndex = 0;
     const slideWidth = 1280;
     setInterval(showNextSlide, 2000);

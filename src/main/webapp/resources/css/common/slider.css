@@ -40,7 +40,7 @@
   .contentBoxs {
     display: flex;
     height: 280px;
-    width: 100%;
+    width: 1280px;
     justify-content: space-around;
     white-space: nowrap;
     position: relative;
