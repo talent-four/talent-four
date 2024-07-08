@@ -1,0 +1,98 @@
+/* 콘텐츠 목록 헤더 */
+.contentHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .contentHeader div {
+    margin: 0 10px;
+  }
+  
+  /* 콘텐츠 목록 헤더 타이틀 */
+  .contentHeaderTitle {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  /* 콘텐츠 목록리스트 한줄, ContentWrapper */
+  .contentBoxs {
+    border: 2px solid black;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+  }
+  
+  .contentWrapper {
+    position: relative;
+    width: 1280px;
+    margin: 30px auto;
+    overflow: hidden;
+  }
+  
+  .contentBoxsSet {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+  }
+  
+  .contentBoxs {
+    display: flex;
+    height: 280px;
+    width: 100%;
+    justify-content: space-around;
+    white-space: nowrap;
+    position: relative;
+    border: 0;
+    transition: 0.5s;
+  }
+  
+  .contentBox {
+    width: 250px;
+    margin: 10px 5px;
+    border: 0;
+    transition: 0.2s;
+  }
+  
+  
+  .contentBox img {
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  .contentBox:hover {
+    transform: scale(1.05);
+  }
+  
+  /* 콘텐츠 목록리스트 좌우 버튼 */
+  
+  .slideButton {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 40px;
+    background-color: rgba(255, 255, 255);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+  }
+  
+  #leftButton {
+    left: 0px;
+  }
+  
+  #rightButton {
+    right: 0;
+  }
+  
+  .leftButton {
+    left: 0px;
+  }
+  .rightButton {
+    right: 0px;
+  }
