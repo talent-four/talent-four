@@ -27,7 +27,6 @@ public class common extends HttpFilter implements Filter {
 		ServletContext application = request.getServletContext();
 		String contextPath = ((HttpServletRequest)request).getContextPath();
 		application.setAttribute("contextPath", contextPath);
-		System.out.println("contextPath : " + contextPath);
 		chain.doFilter(request, response);
 	}
 	

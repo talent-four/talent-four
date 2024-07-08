@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <header>
 	<div class="width-1280px">
 		<div class="topHeader">
@@ -8,12 +8,19 @@
 					placeholder="재능을 입력해주세요.">
 			</div>
 			<div id="loginBox">
-				<div>로그인</div>
-				<div>회원가입</div>
-
-				<div>채팅아이콘</div>
-				<div>이름</div>
-				<div>마이페이지드롭다운</div>
+			<c:choose>
+				<%-- 로그인이 되어있지 않은 경우 --%>
+				<c:when test="${empty sessionScope.loginMember}">
+					<a href="${contextPath}/login">로그인</a>
+					<div>회원가입</div>
+				</c:when>
+				
+				<%-- 로그인 된 경우 --%>
+				<c:otherwise>
+					<div>${sessionScope.loginMember}님</div>
+					<a>마이페이지</a>
+				</c:otherwise>
+			</c:choose>
 			</div>
 		</div>
 		<div class="bottomHeader">
@@ -29,8 +36,8 @@
 		<div class="categoryBarDetail width-1280px margin-auto">
 			<div class="categoryDetail">
 				<span>실무·취업·자기계발</span>
-				<a href="/semi/categoryPage">카테고리페이지</a>
-				<a href="/semi/class/sugang">수강페이지</a>
+				<a href="${contextPath}/categoryPage">카테고리페이지</a>
+				<a href="${contextPath}/class/sugang">수강페이지</a>
 				<a href="">자기계발</a>
 				<a href="">취업·이직</a>
 			</div>
