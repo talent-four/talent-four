@@ -1,5 +1,5 @@
 @font-face {
-  font-family: 'Noto Sans KR';
+  font-family:'Noto Sans KR';
   font-style: normal;
   font-weight: 100;
   src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Normal.woff2) format('woff2'),
@@ -7,30 +7,23 @@
        url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Normal.otf) format('opentype');
 }
 
-*{box-sizing: border-box;
-  /* border: 1px solid black; */
-  font-family: 'Noto Sans KR', sans-serif;
-  font-style: normal;
-  font-weight: 900;
-  letter-spacing: 0.5px;
+* {
+	font-family: 'Noto Sans KR', sans-serif;
+	font-style: normal;
+	font-weight: bold;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
-
 
 /* 헤더 */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
 header {
-    height: 120px;
-    min-width: 1280px;
-    margin: auto;
     position: sticky;
+    width: 100%;
     top: 0;
     z-index: 2;
-    background-color: rgba(255, 255, 255, 1);
+    background-color: #023047;
   }
   
   header > div {
@@ -41,12 +34,19 @@ header {
     width: 1280px;
   }
   
+/* 로고 */
+#logo img {
+  height: 70px;
+}
+
   /* 헤더 위쪽 */
   .topHeader {
-    height: 50px;
+    height: 80px;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 10px;
+    background-color: #023047;
+    padding: 5px 0;
+    align-items: center;
   }
   
   .topHeader > div {
@@ -54,84 +54,73 @@ header {
     align-items: center;
   }
   
-  .topHeader > div > * {
-    margin: auto 10px;
-    padding: 10px;
-    height: 100%;
-  }
-  
   #searchBar {
-    height: 100%;
+    height: 50px;
     width: 300px;
   }
   
-  /* 헤더 아래 */
-  .bottomHeader {
-    height: 50px;
+  /* categoryBar */
+  .topHeader li {
+    list-style: none;
     display: flex;
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .bottomHeader > div {
-    display: flex;
-    justify-content: center;
     align-items: center;
-    padding: 0px 10px;
   }
-  
-  .fa-bars {
-    font-size: 42px;
-    margin-right: 20px;
-  }
-  
-  #showCategoryBar {
-    cursor: pointer;
-  }
-  
-  /* 헤더 카테고리 바 */
-  .categoryBar {
-    position: relative;
-    z-index: 2;
-    background-color: rgba(255, 255, 255, 1);
-    display: none;
-    box-shadow: 0px 5px 5px gray;
-  }
-  
-  .categoryBarDetail {
-    padding: 20px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  }
-  
-  .margin-auto {
-    margin: auto;
-  }
-  
-  .categoryDetail {
-    display: flex;
-    margin: 0 10px;
-    flex-direction: column;
-  }
-  
-  .categoryDetail > * {
-    font-size: 20px;
-    margin: 5px 0px;
-    text-decoration: none;
-    color: black;
-  }
-  
-  .categoryDetail span {
-    font-weight: bold;
-    color: gray;
-  }
-  
 
-  footer{
-    font-size:12px;
+.topHeader ul {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+.topHeader ul > li > a {
+    display: block;
+    padding: 15px 30px;
+    text-decoration: none;
+    width: 100%;
+    border-radius: 5px;
+    color: white;
+    transition-duration: 0.2s;
+  }
+
+  .topHeader ul > li > a:hover {
+    background-color: #219EBC;
+  }
+
+/* 입력바 */
+#searchBar {
+  padding-left: 10px;
+  font-size: 16px;
+  border-radius: 20px;
+  border: 0;
+  outline: 0;
+}
+
+  /* 로그인/회원가입 */
+#loginBox > a {
+  display: inline-block;
+}
+
+/* footer */
+.footer{
+    font-size: 14px;
     display: flex;
     justify-content: center;
     align-items: center;
-    color:#afafaf;
+    color :white;
+    background-color: #023047;
     text-align: center;
-    }
+    padding: 30px 0;
+}
+
+/* 고객센터 */
+.callServiceCenter {
+  position: fixed;
+  font-size: 32px;
+  width: 50px;
+  height: 50px;
+  top: 90%;
+  right: 5%;
+  background-color: #b7def0;
+  border-radius: 50%;
+}
