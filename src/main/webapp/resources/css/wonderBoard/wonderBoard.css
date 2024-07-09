@@ -7,6 +7,11 @@
          url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Normal.otf) format('opentype');
   }
 
+*{  margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 main{
     margin:0 auto;
     width:1280px;
@@ -37,7 +42,11 @@ main h1{
     border-radius: 10px;
 }
 
-.bestQ a{  
+.bestQ>h2{
+    margin-bottom: 30px;
+}
+
+.bestQ>ul:nth-of-type(1) a{  
     text-align: left;
     font-size: 18px;
     color: #023047;
@@ -53,8 +62,16 @@ main h1{
 
 .more{
     display: flex;
+    justify-content: right;
+   
 }
 
-.more ul li{
-    
+.more 
+
+.more a{
+    color:#023047;
+    text-decoration: 0;
+    margin: 10;
+    padding:0;
+   
 }
