@@ -33,6 +33,10 @@ header {
   .width-1280px {
     width: 1280px;
   }
+
+  .margin-auto {
+    margin: 0 auto;
+  }
   
 /* 로고 */
 #logo img {
