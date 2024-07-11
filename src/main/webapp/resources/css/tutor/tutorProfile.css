@@ -257,7 +257,7 @@ main{ /* 메인 */
 }
 
 .a-style>a>span{
-    color: #023047;
+    color: #219ebc;
 }
 
 /*---------------------------------------------------------------------------------------*/
@@ -350,7 +350,7 @@ main{ /* 메인 */
 }
 
 #Nchange-inputP:focus{
-    border-bottom: 1px solid rgb(255, 16, 88);
+    border-bottom: 2px solid #219ebc;
     
 }
 
@@ -397,7 +397,7 @@ main{ /* 메인 */
     border-radius: 50%;
     top: 55px;
     left: 340px;
-    background-color: rgb(255, 16, 88);
+    background-color: #219ebc;
     border: none;
 }
 
@@ -512,10 +512,8 @@ main{ /* 메인 */
     top: 80px;
 }
 
-
-
 #info-textareaP:focus{
-    border-bottom: 1px solid rgb(255, 16, 88);
+    border-bottom: 2px solid #219ebc;
 }
 
 #info-write-btnP{

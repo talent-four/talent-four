@@ -256,7 +256,7 @@ main{ /* 메인 */
 }
 
 .a-style>a>span{
-    color: #fb8500;
+    color: #219ebc;
 }
 
 
@@ -312,7 +312,12 @@ main{ /* 메인 */
     
 }
 
-.data-areaP>div{
+.data-areaP>a{
+    text-decoration: none;
+}
+
+
+.data-areaP>a>div{
     width: 300px;
     height: 90px;
     border: 1px solid gray;
@@ -322,17 +327,18 @@ main{ /* 메인 */
     flex-direction: column;
 }
 
-.data-areaP>div>span:nth-child(1){
+.data-areaP>a>div>span:nth-child(1){
     font-size: 15px;
     color: gray;
     padding: 3px 0 0 12px;
 }
 
-.data-areaP>div>span:nth-child(2){
+.data-areaP>a>div>span:nth-child(2){
     width: 10px;
     font-size: 30px;
     font-weight: bold;
     padding: 0 5px 0 15px;
+    color: black;
 }
 
 /*-------------------------------------------------------------------------------*/
