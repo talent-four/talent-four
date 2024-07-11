@@ -20,7 +20,7 @@
                     <img src="/img/profile-default.jpg" id="profile-img">
                 </div>
                 <div class="nameP"> <!-- 이름 -->
-                    <span id="idP">OOO</span>
+                    <span id="idP">홍길동</span>
                 </div>
             </article>
             <article class="category-areaH"> <!-- 카테고리 -->
@@ -54,52 +54,7 @@
             </article>
         </section>
         <div class="containerH"> <!-- 메인 내용 -->
-            <div id="main-1">
-                <div>내 프로필</div>
-            </div>
-            <div id="main-2">
-                <div id="main-2-1">닉네임(별명)</div>
-                <div id="main-2-2">
-                    <p>${user.name}</p><button id="main-2-2-write" class="fa-regular fa-pen-to-square"></button>
-                </div>
-            </div>
-            <div id="main-3">
-                <div id="main-3-1">프로필이미지</div>
-                <div id="main-3-2">
-                    <img src="/img/profile-default.jpg" id="profile-img">
-                    <label for="main-3-2-btn-2">
-                        <div id="main-3-2-btn-1" class="fa-solid fa-camera"></div>
-                    </label>
-                    <input type="file" name="main-3-2-btn-2" id="main-3-2-btn-2">
-                </div>
-            </div>
-            <div id="main-4">
-                <div id="main-4-1">이메일(로그인ID)</div>
-                <div id="main-4-2">${user.email}<button id="main-4-2-write">이메일 인증하기</button></div>
-            </div>
-            <div id="main-5">
-                <div id="main-5-1">전화번호</div>
-                <div id="main-5-2">${user.tel}</div>
-            </div>
-            <div id="main-6">
-                <div id="main-6-1">
-                    <button id="main-6-1-btn">비밀번호 변경</button>
-                </div>
-            </div>
-            <!-- 모달 관련 div -->
-            <div id="background-modal" hidden></div>
-            <div id="changePw-modal" hidden>
-                <div id="changePw-modal-container">
-                    <form action="">
-                        <p>비밀번호 변경</p><br>
-                        <span>현재 비밀번호</span><input type="password"><br>
-                        <span>새 비밀번호 </span><input type="password"><br>
-                        <span>비밀번호 확인 </span><input type="password">
-                        <button>수정</button>
-                        <button style="background-color: white; border: 1px solid rgb(33,33,33); color: rgb(33,33,33);">취소</button>
-                    </form>
-                </div>
-            </div>
+            
         </div>
     </main>
     <footer>footer</footer>

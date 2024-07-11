@@ -1,11 +1,5 @@
-@font-face {
-    font-family: 'Noto Sans KR';
-    font-style: normal;
-    font-weight: 100;
-    src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-normal.woff2) format('woff2'),
-        url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-normal.woff) format('woff'),
-        url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-normal.otf) format('opentype');
-}
+@font-face {font-family: 'Noto Sans KR';font-style: normal;font-weight: 400;src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff2) format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.otf) format('opentype');}
+
 
 * {
     box-sizing: border-box;
@@ -144,14 +138,14 @@ main {
 #main-header {
     margin-top: 40px;
     height: 80px;
-    width: 1150px;
+    width: 1250px;
     display: flex;
     align-items: center;
     margin-bottom: -40px;
 }
 
 .headerbtn {
-    width: 160px;
+    width: 130px;
     height: 60px;
     display: flex;
     justify-content: center;
@@ -162,7 +156,7 @@ main {
     border: none;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
     letter-spacing: 1px;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 400;
     cursor: pointer;
 }
@@ -176,16 +170,51 @@ main {
 }
 
 .btn3{
-    margin-left: 600px;
+    margin-left: 480px;
 }
 
+.searchBox{
+    width: 300px;
+    height: 60px;
+    margin-left: 30px;
+    border-radius: 15px;
+    border: 1px solid #ffb703;
+    box-sizing: border-box;
+    display: flex;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
 
+.searchBox input{
+    width: 70%;
+    height: 100%;
+    border: none;
+    background-color: transparent;
+    box-sizing: border-box;
+    font-size: 20px;
+}
 
+.searchBox input:hover{
+    outline: none;
+}
+
+.searchBox button{
+    flex: 1;
+    width: 30%;
+    height: 100%;
+    border: none;
+    background-color: #ffb703;
+    border-radius: 15px;
+    cursor: pointer;
+    box-sizing: border-box;
+    color: white;
+    font-size:24px;
+}
 
 #main-box {
     height: 900px;
     width: 1280px;
-    margin-top: 70px;
+    margin-top: 60px;
+    margin-bottom: 35px;
     border: 1px solid #ffb703;
     border-radius: 15px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.01);
@@ -215,6 +244,29 @@ main {
     max-width: 200px;
 }
 
+.updateBtn{
+    width: 130px;
+    height: 60px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    background-color: #ffb703;
+    color: white;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    letter-spacing: 1px;
+    font-size: 20px;
+    font-weight: 400;
+    cursor: pointer;
+    margin-left: 50px;
+
+
+    /* position: absolute;
+    top:10px;
+    left:500px; */
+}
+
 .lecturer{
     font-size: 18px;
     color:#737373;
@@ -232,22 +284,57 @@ main {
     bottom: 0px;
 }
 
-/* 
+
 .classimgcontainer{
-    width: 1050px;
+    width: 700px;
     height: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-     border: 1px solid black; 
-}  */
+    border: 1px solid #737373; 
+    border-radius: 15px;
+} 
 
 .classimg{
-    width: 1050px;
-    height: 300px;
+    max-width: 1000px;
+    max-height: 300px;
     display: block;
     border-radius: 20px;
+}
+
+.recommend-btn{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    right:100px;
+    bottom:-270px;
+    border-radius: 100%;
+    border: none;
+    background-color: #ffb703;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.declaration-btn{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    right:40px;
+    bottom:-270px;
+    border-radius: 100%;
+    border: none;
+    background-color: #ffb703;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .reviewcontentbox{
@@ -339,11 +426,18 @@ main {
     height: 260px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: left;
+    flex-direction: column;
+    position: relative;
 }
 .reviewcontext{
     width: 1000px;
-    height: 200px;
+    height: 150px;
+}
+
+.reviewtag {
+    margin-top: 10px;
+    font-size: 24px;
 }
 
 
@@ -359,7 +453,7 @@ main {
     z-index: 1;
 }
 
-#changePw-modal{
+#write-modal{
     position: fixed;
     top: 50%;
     left: 50%;
@@ -369,65 +463,188 @@ main {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     z-index: 2;
-    width: 400px;
-    height: 500px;
+    width: 900px;
+    height: 900px;
+    border: 2px solid #ffb703;
+    background-color: rgb(243,243,243);
     /* display: flex;
     justify-content: center;
     align-items: center; */
 }
 
-#changePw-modal-container{
-    width: 300px;
-    height: 400px;
-    text-align: center;
-    margin-left: 20px;
+.write-wrapper{
+    width: 900px;
+    height: 850px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 
+}
+
+.write-lecture{
+    width: 700px;
+    height: 100px;
+    margin-bottom: 15px;
+    margin-top: -50px;
+    font-size: 32px;
+    font-weight: bold;
+    position: relative;
+    background-color: white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.01);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.selectBox{
+    width: 250px;
+    height: 30px;
+    font-size: 16px;
+    margin-left: 20px;
+}
+
+.write-tag{
+    width: 700px;
+    height: 250px;
+}
+
+.write-content{
+    width: 700px;
+    height: 300px;
+    position: relative;
+}
+
+.write-tag{
+    background-color: white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.01);
+    border-radius: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.write-content{
+    background-color: white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.01);
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+.write-tag-question{
+    padding-top :20px;
+    padding-left: 60px;
+    font-size: 24px;
+}
+
+.write-tag-select{
+    width: 700px;
+    height: 200px;
+    display: flex;
+    flex-wrap: wrap;
     
 }
 
-#changePw-modal-container p{
-    font-size: 32px;
-    padding-top: 20px;
-    font-weight: 700;
-    height: 90px;
-    display: inline-block;
-}
-
-#changePw-modal-container span{
-    margin: 10px;
-    width: 120px;
-    height: 40px;
-    font-size: 15px;
-    text-align: center;
-    display: inline-block;
-    color: rgb(150,150,150);
-}
-
-#changePw-modal-container input{
+.radio-button{
+    margin-left: 60px;
+    margin-top: 10px;
     width: 160px;
     height: 40px;
-    border: none;
-    border-bottom: 1px solid rgb(255, 16, 88);
+    border: 1px solid rgb(190,190,190);
+    border-radius: 15px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.01);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+
 }
 
-#changePw-modal-container :focus-within{
-    border: none;
+
+.radio-button.selected {
+    background-color: #ffb703;
+    color: #fff;
+    border-color: #ffb703;
+    
 }
 
-#changePw-modal-container button{
-    width: 125px;
-    height: 50px;
-    margin: 10px;
-    margin-top:50px;
-    background-color:rgb(255, 16, 88);
+#write-btn1{
+    position: absolute;
+    width: 100px;
+    height: 40px;
+    left:250px;
+    bottom:20px;
+    border-radius: 5px;
     border: none;
-    border-radius: 10px;
+    background-color: #ffb703;
     color: white;
     font-size: 16px;
-    font-weight: bold;
     cursor: pointer;
 }
 
+#write-btn2{
+    position: absolute;
+    left:400px;
+    bottom:20px;
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    background-color: #ffb703;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.writestarbox{
+    position: relative;
+
+}
+
+.starsel{
+    direction: rtl;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    margin-left: 55px;
+
+}
+
+.starsel label{
+    font-size: 12px;
+    color: rgb(190,190,190);
+
+}
+
+.starsel label:hover{
+    color: #ffb703;
+}
+
+.starsel label:hover ~ label{
+    color: #ffb703;
+}
+
+.starsel input[type=radio]:checked ~ label{
+    color: #ffb703;
+}
+
+.starseltext{
+    margin-left: 50px;
+}
+
+#writecontext{
+    margin-top: 50px;
+    margin-left: 65px;
+    resize: none;
+    font-size: 18px;
+}
+
+#writecontext:focus {
+    outline: none; 
+}
 
 /* footer */
 

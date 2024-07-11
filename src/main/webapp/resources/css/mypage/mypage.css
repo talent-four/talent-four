@@ -166,7 +166,7 @@ main{ /* 메인 */
     align-items: center;
     font-size: 11pt;
     border-bottom: 1px solid rgb(230, 230, 230);
-
+    position: relative;
 }
 
 #main-2-2{
@@ -196,6 +196,21 @@ main{ /* 메인 */
     border-top: none;
     border-right: none;
     border-left: none;
+}
+
+#main-2-3{
+    position: absolute;
+    left:280px;
+    top:53px;
+    font-size: 14px;
+}
+
+.itsok{
+    color:green;
+}
+
+.itsbad{
+    color:red;
 }
 
 #input-check{
@@ -346,12 +361,23 @@ main{ /* 메인 */
     width: 80%;
 } */
 
-#main-6-1-btn{
+#main-6-1-btn-1{
     background-color: white;
     border-radius: 20px;
     width: 130px;
     height: 30px;
     margin-left: 10px;
+    border: none;
+    box-shadow: 2px 2px 2px 2px rgb(200, 200, 200);
+    cursor: pointer;
+}
+
+#main-6-1-btn-2{
+    background-color: white;
+    border-radius: 20px;
+    width: 130px;
+    height: 30px;
+    margin-left: 40px;
     border: none;
     box-shadow: 2px 2px 2px 2px rgb(200, 200, 200);
     cursor: pointer;
@@ -392,10 +418,12 @@ main{ /* 메인 */
     border-bottom: 1px solid rgb(230, 230, 230);
     flex-direction: column;
     align-items: center;
+    overflow: auto;
 
 }
 
 #payment-main-3-1-container{
+    
     width: 750px;
     min-height: 150px;
     display: flex;
@@ -433,12 +461,52 @@ main{ /* 메인 */
     font-weight: bold;
 }
 
-#payment-main-3-2-item{
-    width: 750px;
-    height: 80px;
-    margin:30px;
-    border: 1px solid black;
 
+#payment-main-3-1-box{
+    border: 2px solid rgb(230, 230, 230);
+    width: 750px;
+    height: 120px;
+    margin-top: 20px;
+    position: relative;
+    border-radius: 15px;
+}
+
+.profile-payment{
+    width: 100px;
+    height: 100px;
+    margin-top: 10px;
+    margin-left: 10px;
+    border-radius: 15px;
+}
+
+#payment-title{
+    position: absolute;
+    top: 30px;
+    left:180px;
+    font-size: 30px;
+    font-weight: 700;
+    text-overflow: ellipsis; /* 초과 시 생략 표시 */
+    white-space: nowrap; /* 줄 바꿈 방지 */
+    overflow: hidden;
+    max-width: 380px;
+}
+
+#payment-date{
+    position: absolute;
+    top: 40px;
+    left:630px;
+    font-size: 20px;
+    font-weight: 700;
+    text-overflow: ellipsis; /* 초과 시 생략 표시 */
+    white-space: nowrap; /* 줄 바꿈 방지 */
+    overflow: hidden;
+}
+
+#payment-star{
+    position: absolute;
+    top: 75px;
+    left:305px;
+    font-size: 12px;
 }
 
 
@@ -794,3 +862,83 @@ main{ /* 메인 */
     font-weight: bold;
     cursor: pointer;
 }
+
+/* 회원탈퇴 modal */
+
+
+#resign-modal{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    width: 400px;
+    height: 420px;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+#resign-modal-container{
+    width: 300px;
+    height: 400px;
+    text-align: center;
+    margin-left: 20px;
+
+    
+}
+
+#resign-modal-container p:first-child{
+    font-size: 32px;
+    padding-top: 20px;
+    font-weight: 700;
+    height: 90px;
+    display: inline-block;
+}
+
+#resign-modal-container span{
+    margin: 10px;
+    width: 120px;
+    height: 40px;
+    font-size: 15px;
+    text-align: center;
+    display: inline-block;
+    color: rgb(150,150,150);
+}
+
+#real{
+    margin-top: -30px;
+    margin-bottom: 30px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#resign-modal-container input{
+    width: 160px;
+    height: 40px;
+    border: none;
+    border-bottom: 1px solid rgb(255, 16, 88);
+}
+
+#resign-modal-container :focus-within{
+    border: none;
+}
+
+#resign-modal-container button{
+    width: 125px;
+    height: 50px;
+    margin: 10px;
+    margin-top:50px;
+    background-color:rgb(255, 16, 88);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
