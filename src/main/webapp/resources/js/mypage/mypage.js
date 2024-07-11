@@ -46,6 +46,70 @@ let user = {
 
 // if 문으로 0개 일시 출력문구 변경
 
+document.addEventListener('DOMContentLoaded', () => {
+
+    profile.classList.add('selected');
+
+    container.innerHTML = `<div id="main-1">
+                <div>내 프로필</div>
+            </div>
+            <div id="main-2">
+                <div id="main-2-1">닉네임(별명)</div>
+                <div id="main-2-2"><p>${user.nickname}</p><button id="main-2-2-write" class="fa-regular fa-pen-to-square"></button></div>
+                <div id="main-2-3"></div>
+            </div>
+            <div id="main-3">
+                <div id="main-3-1">프로필이미지</div>
+                <div id="main-3-2">
+                    <img src="/img/profile-default.jpg" id="profile-img">
+                    <label for="main-3-2-btn-2">
+                        <div id="main-3-2-btn-1" class="fa-solid fa-camera"></div>
+                    </label>
+                  <input type="file" name="main-3-2-btn-2" id="main-3-2-btn-2"></div>
+            </div>
+            <div id="main-4">
+                <div id="main-4-1">이메일(로그인ID)</div>
+                <div id="main-4-2">${user.email}<button id="main-4-2-write">이메일 인증하기</button></div></div>
+            </div>
+            <div id="main-5">
+                <div id="main-5-1">전화번호</div>
+                <div id="main-5-2">${user.tel}</div>
+            </div>
+            <div id="main-6">
+                <div id="main-6-1">
+                    <button id="main-6-1-btn-1">비밀번호 변경</button>
+                    <button id="main-6-1-btn-2">회원 탈퇴</button>
+                </div>
+            </div>
+            <div id="background-modal" hidden></div>
+            <div id="changePw-modal" hidden>
+                <div id="changePw-modal-container">
+                    <form action="">
+                        <p>비밀번호 변경</p><br>
+                        <span>현재 비밀번호</span><input type="password"><br>
+                        <span>새 비밀번호 </span><input type="password"><br>
+                        <span>비밀번호 확인 </span><input type="password">
+                        <button type="submit" id="modal-btn1">수정</button>
+                        <button id="modal-btn2" style="background-color: white; border: 1px solid rgb(33,33,33); color: rgb(33,33,33);">취소</button>
+                    </form>
+                </div>
+            </div>
+            <div id="resign-modal" hidden>
+                <div id="resign-modal-container">
+                    <form action="">
+                        <p>회원 탈퇴</p><br>
+                        <div id="real">정말 탈퇴하시겠습니까?</div>
+                        <span>비밀번호</span><input type="password"><br>
+                        <button type="submit" id="modal-btn1">회원 탈퇴</button>
+                        <button id="modal-btn2" style="background-color: white; border: 1px solid rgb(33,33,33); color: rgb(33,33,33);">취소</button>
+                    </form>
+                </div>
+            </div>
+            `;
+
+});
+
+
 
 profile.addEventListener('click', () => {
 
@@ -82,7 +146,8 @@ profile.addEventListener('click', () => {
             </div>
             <div id="main-6">
                 <div id="main-6-1">
-                    <button id="main-6-1-btn">비밀번호 변경</button>
+                    <button id="main-6-1-btn-1">비밀번호 변경</button>
+                    <button id="main-6-1-btn-2">회원 탈퇴</button>
                 </div>
             </div>
             <div id="background-modal" hidden></div>
@@ -93,8 +158,19 @@ profile.addEventListener('click', () => {
                         <span>현재 비밀번호</span><input type="password"><br>
                         <span>새 비밀번호 </span><input type="password"><br>
                         <span>비밀번호 확인 </span><input type="password">
-                        <button>수정</button>
-                        <button style="background-color: white; border: 1px solid rgb(33,33,33); color: rgb(33,33,33);">취소</button>
+                        <button type="submit" id="modal-btn1">수정</button>
+                        <button id="modal-btn2" style="background-color: white; border: 1px solid rgb(33,33,33); color: rgb(33,33,33);">취소</button>
+                    </form>
+                </div>
+            </div>
+            <div id="resign-modal" hidden>
+                <div id="resign-modal-container">
+                    <form action="">
+                        <p>회원 탈퇴</p><br>
+                        <div id="real">정말 탈퇴하시겠습니까?</div>
+                        <span>비밀번호</span><input type="password"><br>
+                        <button type="submit" id="modal-btn1">회원 탈퇴</button>
+                        <button id="modal-btn2" style="background-color: white; border: 1px solid rgb(33,33,33); color: rgb(33,33,33);">취소</button>
                     </form>
                 </div>
             </div>
@@ -121,13 +197,62 @@ payment.addEventListener('click', () => {
                     <div id="payment-main-3-2-title">
                         <span>썸네일</span>
                         <span>클래스명</span>
-                        <span>수강기간</span>
+                        <span>결제일</span>
                     </div>
-                    <div id="payment-main-3-2-item">
+                    <div id="payment-main-3-1-box">
+                        <img src="/img/class.jpg" class="profile-payment">
+                        <span id="payment-title">강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명</span>
+                        <span id="payment-date">2024-07-09</span>
                     </div>
-                    <div id="payment-main-3-2-item">
+                    <div id="payment-main-3-1-box">
+                        <img src="/img/class.jpg" class="profile-payment">
+                        <span id="payment-title">강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명</span>
+                        <span id="payment-date">2024-07-09</span>
                     </div>
-                    <div id="payment-main-3-2-item">
+                    <div id="payment-main-3-1-box">
+                        <img src="/img/class.jpg" class="profile-payment">
+                        <span id="payment-title">강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명</span>
+                        <span id="payment-date">2024-07-09</span>
+                    </div>
+                    <div id="payment-main-3-1-box">
+                        <img src="/img/class.jpg" class="profile-payment">
+                        <span id="payment-title">강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명</span>
+                        <span id="payment-date">2024-07-09</span>
+                    </div>
+                    <div id="payment-main-3-1-box">
+                        <img src="/img/class.jpg" class="profile-payment">
+                        <span id="payment-title">강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명</span>
+                        <span id="payment-date">2024-07-09</span>
+                    </div>
+                    <div id="payment-main-3-1-box">
+                        <img src="/img/class.jpg" class="profile-payment">
+                        <span id="payment-title">강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명</span>
+                        <span id="payment-date">2024-07-09</span>
+                    </div>
+                    <div id="payment-main-3-1-box">
+                        <img src="/img/class.jpg" class="profile-payment">
+                        <span id="payment-title">강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명</span>
+                        <span id="payment-date">2024-07-09</span>
+                    </div>
+                    <div id="payment-main-3-1-box">
+                        <img src="/img/class.jpg" class="profile-payment">
+                        <span id="payment-title">강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명</span>
+                        <span id="payment-date">2024-07-09</span>
+                    </div>
+                    <div id="payment-main-3-1-box">
+                        <img src="/img/class.jpg" class="profile-payment">
+                        <span id="payment-title">강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명</span>
+                        <span id="payment-date">2024-07-09</span>
+                    </div>
+                    <div id="payment-main-3-1-box">
+                        <img src="/img/class.jpg" class="profile-payment">
+                        <span id="payment-title">강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명</span>
+                        <span id="payment-date">2024-07-09</span>
+                    </div>
+                    <div id="payment-main-3-1-box">
+                        <img src="/img/class.jpg" class="profile-payment">
+                        <span id="payment-title">강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명</span>
+                        <span id="payment-date">2024-07-09</span>
                     </div>
                 </div>
             </div>`;
@@ -269,20 +394,40 @@ document.querySelector('.containerH').addEventListener('click', (e) => {
         }
     };
 
-
+    
+    // 중복 검사
     if (e.target.id == 'input-check') {
+
         let input = document.querySelector("#main-2-2-inputId").value;
-        user.name = input;
-        document.querySelector("#main-2-2").innerHTML = `<p>${input}</p><button id="main-2-2-write" class="fa-regular fa-pen-to-square"></button>`;
+        if (input == '바뀜') {
+            user.name = input;
+            document.querySelector("#main-2-2").innerHTML = `<p>${input}</p><button id="main-2-2-write" class="fa-regular fa-pen-to-square"></button>`;
+            document.querySelector("#main-2-3").innerText = ``;
+        } else {
+            document.querySelector("#main-2-3").innerText = `중복된 닉네임 입니다.`;
+            document.querySelector("#main-2-3").classList.add("itsbad");
+        }
     }
     if (e.target.id == 'input-cancle') {
         document.querySelector("#main-2-2").innerHTML = `<p>${user.name}</p><button id="main-2-2-write" class="fa-regular fa-pen-to-square"></button>`;
+        document.querySelector("#main-2-3").innerText = ``;
     };
     // 모달 관련 js
-    if (e.target.id == 'main-6-1-btn') {
+    if (e.target.id == 'main-6-1-btn-1') {
         document.querySelector("#changePw-modal").hidden = false;
         document.querySelector("#background-modal").hidden = false;
     }
+
+    if (e.target.id == 'main-6-1-btn-2') {
+        document.querySelector("#resign-modal").hidden = false;
+        document.querySelector("#background-modal").hidden = false;
+    }
+
+    if (e.target.id == 'modal-btn2') {
+        document.querySelector("#resign-modal").hidden = true;
+        document.querySelector("#background-modal").hidden = true;
+    }
+
 });
 
 document.querySelector('.containerH').addEventListener('change', (e) => {
@@ -291,6 +436,7 @@ document.querySelector('.containerH').addEventListener('change', (e) => {
         const image = document.querySelector('#main-3-2-btn-2');
         const preview = document.querySelectorAll('#profile-img');
         const imageSrc = URL.createObjectURL(image.files[0]);
+        preview[0].src = imageSrc;
         preview[1].src = imageSrc;
     }
 });
@@ -321,7 +467,7 @@ async function SendVerifyEmail(emailAddress) {
                 if (res.ok) {
                     console.log('보내짐');
                 } else {
-                    console.log('실패함ㅅㅂ' + res.statusText);
+                    console.log('실패함' + res.statusText);
                 }
             })
 
