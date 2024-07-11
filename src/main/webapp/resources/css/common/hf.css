@@ -77,7 +77,7 @@ header {
     justify-content: center;
   }
 
-.topHeader ul > li > a {
+.topHeader ul > li > * {
     display: block;
     padding: 15px 30px;
     text-decoration: none;
@@ -103,6 +103,11 @@ header {
   /* 로그인/회원가입 */
 #loginBox > a {
   display: inline-block;
+}
+
+/* 로그인시, 드롭박스 */
+#headerBox {
+	
 }
 
 /* footer */

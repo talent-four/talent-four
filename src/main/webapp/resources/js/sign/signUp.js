@@ -160,21 +160,20 @@ document.getElementById("nickName").addEventListener("keyup",function(){
     const regExpNick = /^[가-힣]{2,8}$/;
 
     if(this.value.trim().length==0){
-        emailCkText.innerText ="";
-        emailCkText.classList.remove("sign-green"); 
-        emailCkText.classList.remove("sign-red"); 
+        nickNameCkText.innerText ="";
+        nickNameCkText.classList.remove("sign-green"); 
+        nickNameCkText.classList.remove("sign-red"); 
         return;
     }
 
-    if(regExp.test(this.value)){
-        emailCkText.innerText="유효한 이메일 입니다.";
-        emailCkText.classList.add("sign-green");
-        emailCkText.classList.remove("sign-red"); 
+    if(regExpNick.test(this.value)){
+        nickNameCkText.innerText="유효한 닉네임 입니다.";
+        nickNameCkText.classList.add("sign-green");
+        nickNameCkText.classList.remove("sign-red"); 
 
     }else{
-        emailCkText.innerText="이메일을 확인하세요.(aa@aa.com형식)";
-        emailCkText.classList.add("sign-red");
-
+        nickNameCkText.innerText="닉네임을 확인하세요.";
+        nickNameCkText.classList.add("sign-red");
     }
 })
 

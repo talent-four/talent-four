@@ -16,14 +16,27 @@
             </div>
             <input type="text" id="searchBar" placeholder="재능을 입력해주세요.">
             <ul>
-                <li>
-                    <a href="#">로그인</a>
-                </li>
-                <li>
-                    <a href="#">회원가입</a>
-                </li>
+            	<c:choose>
+            		<c:when test="${empty sessionScope.loginMember}">
+		            	<li>
+		                    <a href="${contextPath}/login">로그인</a>
+		                </li>
+		                <li>
+		                    <a href="${contextPath}/signUp">회원가입</a>
+		                </li>
+            		</c:when>
+            		<c:otherwise>
+		            	<li>
+		                    <a href="#">${sessionScope.loginMember}님</a>
+		                </li>
+		                <li>
+		                    <div id="headerBox">마이 메뉴 <i class="fa-solid fa-bars"></i></div>
+		                </li>
+            		</c:otherwise>
+            	</c:choose>
             </ul>
-            
+        </div>
+        <div>
         </div>
     </div>
 </header>

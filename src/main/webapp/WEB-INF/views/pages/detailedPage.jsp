@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,15 +7,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>상세페이지</title>
-    <link rel="stylesheet" href="../../css/pages/detialedPage.css">
-    <script src="https://kit.fontawesome.com/6c46ba8282.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="${contextPath}/resources/css/common/hf.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/pages/detialedPage.css">
+     	
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/6e9a783fd9.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+	<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
+
     <main id="detailed">
         <section class="upper">
             <div class="upperWrapper">
-                <img src="../../img/art/copywriting.png">
+                <img src="${contextPath}/resources/img/art/copywriting.png">
                 <div class="classInfo">
                     <div class="classCategory"><span>대분류</span> / <span>소분류</span></div>
                     <div class="classTitle">강의 이름</div>
@@ -177,7 +185,7 @@
                     <span class="boxTitle">튜터님을 소개합니다!</span>
                     <div>
                         <div class="tutorInfoSmallBox">
-                            <img src="../../img/profile_tutor.png">
+                            <img src="${contextPath}/resources/img/profile_tutor.png">
                             <div class="introduceTutor">
                                 <span>이승용 튜터</span>
                                 <div></div>
@@ -226,7 +234,7 @@
     
                         <div>
     
-                            <img src="../../img/profile_all_re.PNG">
+                            <img src="${contextPath}/resources/img/profile_all_re.PNG">
                             <p>
                                 <span class="dp-date-review">2021-06-27</span>
                                 <span>이름
@@ -245,28 +253,7 @@
     
                     <div class="d-review">
                         <div>
-                            <img src="../../img/profile_all_re.PNG">
-                            <p>
-                                <span class="dp-date-review">2021-06-27</span>
-                                <span>이름
-                                </span>
-                                <span> ★★★★★ 5.0</span>
-                            </p>
-    
-                        </div>
-    
-                        <p class="d-review-content">
-                            댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글
-                            댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글
-                            댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글
-                        </p>
-                    </div>
-    
-                    <div class="d-review">
-    
-                        <div>
-    
-                            <img src="../../img/profile_all_re.PNG">
+                            <img src="${contextPath}/resources/img/profile_all_re.PNG">
                             <p>
                                 <span class="dp-date-review">2021-06-27</span>
                                 <span>이름
@@ -287,7 +274,28 @@
     
                         <div>
     
-                            <img src="../../img/profile_all_re.PNG">
+                            <img src="${contextPath}/resources/img/profile_all_re.PNG">
+                            <p>
+                                <span class="dp-date-review">2021-06-27</span>
+                                <span>이름
+                                </span>
+                                <span> ★★★★★ 5.0</span>
+                            </p>
+    
+                        </div>
+    
+                        <p class="d-review-content">
+                            댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글
+                            댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글
+                            댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글
+                        </p>
+                    </div>
+    
+                    <div class="d-review">
+    
+                        <div>
+    
+                            <img src="${contextPath}/resources/img/profile_all_re.PNG">
                             <p>
                                 <span class="dp-date-review">2021-06-27</span>
                                 <span>이름
@@ -314,7 +322,7 @@
                     <span class="boxTitle">비슷한 클래스예요</span>
     
                     <div id="d-similarC-1">
-                        <img src="../../img/art/samsamC.PNG">
+                        <img src="${contextPath}/resources/img/art/samsamC.PNG">
                         <div>
                             <strong>VOD</strong>
                             <span>일글강 -일하고 글쓰는 사람들을 위한 강의</span>
@@ -328,7 +336,7 @@
                     <span class="boxTitle">이런 클래스 어때요?</span>
     
                     <div id="d-similarC-1">
-                        <img src="../../img/art/suggestC2.PNG">
+                        <img src="${contextPath}/resources/img/art/suggestC2.PNG">
                         <div>
                             <strong>VOD</strong>
                             <span>회사에선 안 알려주는 진짜 현장 엑셀</span>
@@ -364,18 +372,19 @@
                     </div>
     
                     <div class="detailedPageBrn">
-                        <a href="#" class="chatBtn"><img src="../../img/chat.png"></a>
-                        <form>
-                            <button type="submit" class="creditBtnSub">
-                                클래스 결제하기
-                            </button>
-                        </form>
+                        <a href="#" class="chatBtn"><img src="${contextPath}/resources/img/chat.png"></a>
+	                        <a class="creditBtnSub" href="${contextPath}/approval">클래스 결제하기</a>
+	                            
+
                     </div>
             </section>
 
         </section>
 
     </main>
+    <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
+    
+    <script src="${contextPath}/resources/js/common/hf.js"></script>
 </body>
 
 </html>

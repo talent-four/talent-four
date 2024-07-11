@@ -1,47 +1,132 @@
+@font-face {font-family: 'Noto Sans KR';font-style: normal;font-weight: 400;src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff2) format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.otf) format('opentype');}
+
+
 *{  
+    padding: 0;
+    margin: 0;
     box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
-
-
+/* 메인 페이지 */
 #detailed{
     width:1280px;
     margin: 0 auto;
-    display: grid;
     grid-template-columns: 70% 30%;  
-    height: 100px;
+}
 
+/* 위쪽 부분 */
+.classInfo {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
+.classInfo > div {
+  width: 100%;
+  padding: 10px 10px;
+}
+
+/* classInfo 서식 */
+.classCategory {
+  font-size: 14px;
+}
+
+.classTitle {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.classEvaluation {
+  font-size: 16px
 }
 
 
 
-#detailed>section:nth-child(1)>div>img{
-    width:850px;
+.upperWrapper {
+  width: 1280px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
-.detailedNav>ul{
+.upperWrapper img {
+  width: 800px;
+  height: 400px;
+}
+
+/* 상단바 아래 부분 */
+.lower {
+  display: flex;
+}
+
+.introduceBox {
+  width: 850px;
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+}
+
+.detailedNav {
+  margin: 10px 0;
+  border-bottom: 2px solid #ccc;
+  width: 850px;
+}
+
+.detailedNav > ul{
     list-style: none;
     display: flex;
+    justify-content: space-between;
+    margin: 0;
+}
 
+/* 클래스 본문 */
+#classDetail {
+  display: inline-block;
+  width: 100%;
+  padding: 80px 30px;
+  padding-bottom: 10px;
+
+  font-size: 16px;
+}
+
+.classDetailBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .detailedNav>ul li a{
-    text-decoration: none;
-    color:black;
-    font-weight: bold;
+  display: inline-block;
+  width: 150px;
+  height: 50px;
 
+  color:black;
+  text-decoration: none;
+  font-weight: bold;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+.detailedNav>ul li a:hover {
+  background-color: #b7def0;
+}
 
+/* 버튼 서식 */
+.btnClass {
+  margin-bottom: 50px;
+}
 
+/* bottomBox 서식 */
+.bottomBox {
+  padding: 0 30px;
+}
 
-
-.detailedNav>ul li{
-   padding:50px;
-   
-
-    
+/* curriculumBox */
+.curriculumBox {
+  margin: 15px 0;
 }
 
 .nav-min-15{
@@ -51,12 +136,12 @@
 
 .creditBtnSub{
     display: inline;
+    text-align: center;
     width:250px;
     padding:15px;
     cursor: pointer;
-    background-color: #ff1058;
+    background-color: #ffb703;
     border:0;
-    margin-top: 20px;
     border-radius: 10px;
     color:white;
     font-size: 20px;
@@ -78,14 +163,10 @@
     padding:10px;
     display: flex;
     flex-direction: column;
-
-
 }
 
 #detailedSide{
-    position: sticky;
-    top:20px;
- 
+ width: 480px;
 }
 
 #detailedSilde>section{
@@ -106,9 +187,8 @@
 
 #detailedSide-d1{
     position: sticky;
-    top: 30px;
+    top: 10%;
   
-    padding: 30px;
    
 }
 
@@ -128,11 +208,8 @@
 }
 
 
-
-
 #d-classInfoBtn{
-    margin:40px 80px;
-    width:820px;
+    width:800px;
     padding:12px;
     background-color: white;
     border: 1px solid #bbb;
@@ -146,42 +223,53 @@
 }
 
 /* 튜터소개 */
-.detialedPage-tutorInfo{
-    display: flex;
-    flex-direction: column;
-    margin-left: 80px;
-    
- 
+.introduceTutor span {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.introduceTutor {
+  width: 100%;
+  margin-left: 10px;
+}
+
+.detialedPage-tutorInfo img{
+  width: 50px;
+  height: 50px;
+  margin: auto 0;
+}
+
+.tutorInfoSmallBox {
+  display: flex;
+  align-content: center;
+}
+
+.tutorIntroduce {
+  margin-top: 20px;
+}
+
+.tutorIntroduce pre {
+  white-space: pre-wrap;
+}
+
+/* 각 영역 제목 */
+.boxTitle {
+  font-size: 24px;
+  font-weight: bold;
+  display: block;
+  margin: 20px 0;
 }
 
 
+/* 몰라 여긴 */
 .detialedPage-tutorInfo>div:nth-of-type(1){
     display: flex;
     flex-direction: column;
     border:1px solid #ddd;
-    height: 200px;
     padding:30px;
     border-radius: 5px;
     justify-content: center;
-    
-    
 }
-
-.detialedPage-tutorInfo>div>img{
-   width:80px;
-    
-}
-
-.detialedPage-tutorInfo>div>div{
-   display: flex;
-
- }
-
- /* 커리큘럼 */
- #d-curriculum{
-    margin-left:80px;
- }
-
 
 
  #d-curriculum>div>h4{
@@ -202,7 +290,7 @@
 
   #d-curriculumBtn{
     margin:40px 0;
-    width:840px;
+    width:800px;
     padding:12px;
     background-color: white;
     border: 1px solid #bbb;
@@ -219,26 +307,13 @@
   
 
   /* 리뷰 */
-
-  #dp-review{
-    margin: 100px 0;
-  }
-
-
   #dp-review>div:nth-child(1){
-    margin-top:40px;
     display: flex;
     align-items: center;
-    margin-left:80px;
+    justify-content: space-between;
   }
   #dp-review>div:nth-child(1)>h3{
     width:300px;
-  }
-
-  #dp-review>div:nth-child(1)>div{
-    display: flex;
-    justify-content: right;
-    width: 720px;
   }
 
   #dp-review>div:nth-child(1)>div>a{
@@ -254,27 +329,23 @@
 
   .d-review{
     border:1px solid #ddd;
-    height:200px;
     display: flex;
-    padding:20px;
-    margin-left:80px;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 30px;
     margin-bottom: 20px;
   }
 
   .d-review>div{
     display: flex;
     align-items: center;
+    margin-top: 10px;
   }
 
   .d-review>div>p{
     display: flex;
     flex-direction: column;
    
-  }
-  .d-review>div>img{
-    margin-top:20px;
   }
 
 
@@ -290,17 +361,15 @@
   }
 
   .d-review-content{
-    margin-left:20px;
+    margin: 0 40px ;
   }
 
   #d-reviewBtn{
-    margin:30px 0;
+    margin-top: 25px;
     background-color: white;
     border: 1px solid #bbb;
-    padding:10px;
+    padding: 10px;
     cursor: pointer;
-    
-
   }
 
   #d-reviewBtn:hover{
@@ -310,10 +379,9 @@
   /* 비슷한 클래스 */
 
   #d-similarClass{
-    margin-top:40px;
-    margin-left:80px;
     font-size:14px;
-   
+    display: flex;
+    flex-direction: column;
   }
   
   #d-similarClass>div>img{
@@ -328,7 +396,7 @@
   #d-similarClass>div>div{
     display: flex;
     flex-direction: column;
-    margin-left:20px;
+    margin-left:10px;
 
   }
   #d-similarClass>div>div>strong{
@@ -347,7 +415,6 @@
   
 #d-similarBtn{
     margin:40px 0;
-    width:840px;
     padding:12px;
     background-color: white;
     border: 1px solid #bbb;
@@ -366,7 +433,6 @@ background-color: #ddd;
 
 #d-suggestBtn{
     margin:40px 0;
-    width:840px;
     padding:12px;
     background-color: white;
     border: 1px solid #bbb;
@@ -377,7 +443,6 @@ background-color: #ddd;
 }
 
 #d-suggestBtn:hover{
-
 background-color: #ddd;
 }
 
