@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>강사 클래스 관리</title>
     <link rel="stylesheet" href="../../css/tutor/tutorClasses.css">
-    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../../js/tutor/jquery-3.7.1.min.js"></script>
     <script src="https://kit.fontawesome.com/71eaa9d255.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -85,19 +85,26 @@
                         <a href="tutorClassSell.html"><span><i class="fa-solid fa-clipboard-list"></i>클래스 판매 현황</span></a>
                     </div>
                     <div class="activeP"> <!-- 카테고리 5 -->
-                        <a href="tutorCalculate.html"><span><i class="fa-regular fa-money-bill-1"></i>정산 신청</span></a>
+                        <a href="tutorReviewQA.html"><span><i class="fa-solid fa-pen"></i>리뷰 Q&A</span></a>
                     </div>
                     <div class="activeP"> <!-- 카테고리 6 -->
+                        <a href="tutorCalculate.html"><span><i class="fa-regular fa-money-bill-1"></i>정산 신청</span></a>
+                    </div>
+                    <div class="activeP"> <!-- 카테고리 7 -->
                         <a href="tutorMessage.html"><span><i class="fa-solid fa-message"></i>메시지</span></a>
                     </div>
                 </div>
             </div>
         </section>
+        <section class="mainsectionsP" id="dashboardP"> <!-- 대시 보드 -->
+        </section>
+        <section class="mainsectionsP" id="profileP"> <!-- 내 프로필 -->
+        </section>
         <section class="mainsectionsP" id="classesP"> <!-- 클래스 관리 -->
             <article class="titleP"><span>내 클래스</span></article>
             <article class="class-subtitleP">
                 <span>운영 중인 클래스</span>
-                <button type="button"><a href="#">클래스 만들기</a></button>
+                <button>클래스 만들기</button>
             </article>
             <article class="class-areaP">
                 <div class="class-menuP">
@@ -191,7 +198,11 @@
                 <div class="class-btn-areaP">
                     <span>총 </span>
                     <span id="now-class-countP">O</span>
-                    <span>개</span>
+                    <span>개, </span>
+                    <span id="now-class-page-countP">O</span>
+                    <span>페이지</span>
+                    <button><i class="fa-solid fa-angle-left"></i></button>
+                    <button><i class="fa-solid fa-angle-right"></i></button>
                 </div>
             </article>
             <article class="class-subtitleP"><span>모든 클래스</span></article>
@@ -214,10 +225,26 @@
                 <div class="class-btn-areaP">
                     <span>총 </span>
                     <span id="finished-class-countP">O</span>
-                    <span>개</span>
+                    <span>개, </span>
+                    <span id="finished-class-page-countP">O</span>
+                    <span>페이지</span>
+                    <button><i class="fa-solid fa-angle-left"></i></button>
+                    <button><i class="fa-solid fa-angle-right"></i></button>
                 </div>
             </article>
         </section>
+        <section class="mainsectionsP" id="classsellP"> <!-- 클래스 판매 현황 -->
+        </section>
+        <section class="mainsectionsP" id="reviewP"> <!-- 리뷰 -->
+        </section>
+        <section class="mainsectionsP" id="calculateP"> <!-- 정산 신청 -->
+        </section>
+        <section class="mainsectionsP" id="messageP"> <!-- 매세지 -->
+        </section>
+
+
+
+
     </main>
     <footer>
         <P>통신판매 신고번호 : 1234-서울강남-12345<br>

@@ -15,8 +15,9 @@ const thirdCategory = sideCategory[2];
 const fourthCategory = sideCategory[3];
 const fifthCategory = sideCategory[4];
 const sixthCategory = sideCategory[5];
+const seventhCategory = sideCategory[6];
 /*------------------------------------------------------------------------------------*/
-fifthCategory.classList.add('a-style');
+sixthCategory.classList.add('a-style');
 
 /*-******************************************************************************/ 
 /*-******************************************************************************/ 

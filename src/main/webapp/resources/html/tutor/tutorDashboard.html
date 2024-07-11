@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>대시보드</title>
     <link rel="stylesheet" href="../../css/tutor/tutorDashboard.css">
-    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../../js/tutor/jquery-3.7.1.min.js"></script>
     <script src="https://kit.fontawesome.com/71eaa9d255.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -85,6 +85,9 @@
                     <div class="activeP"> <!-- 카테고리 4 -->
                         <a href="tutorClassSell.html"><span><i class="fa-solid fa-clipboard-list"></i>클래스 판매 현황</span></a>
                     </div>
+                    <div class="activeP"> <!-- 카테고리 5 -->
+                        <a href="tutorReviewQA.html"><span><i class="fa-solid fa-pen"></i>리뷰 Q&A</span></a>
+                    </div>
                     <div class="activeP"> <!-- 카테고리 6 -->
                         <a href="tutorCalculate.html"><span><i class="fa-regular fa-money-bill-1"></i>정산 신청</span></a>
                     </div>
@@ -98,24 +101,18 @@
             <article class="titleP"><span>대시보드</span></article>
             <article class="subtitleP"><span>클래스 분석</span></article>
             <article class="data-areaP">
-                <a href="#">
-                    <div>
-                        <span>조회수</span>
-                        <span id="view-count">0</span>
-                    </div>
-                </a>
-                <a href="">
-                    <div>
-                        <span>결제수</span>
-                        <span id="calaulate-count">0</span>
-                    </div>
-                </a>
-                <a href="">
-                    <div>
-                        <span>결제율</span>
-                        <span id="calculate-persent">0<span>%</span></span>
-                    </div>  
-                </a>
+                <div>
+                    <span>조회수</span>
+                    <span id="view-count">0</span>
+                </div>
+                <div>
+                    <span>결제수</span>
+                    <span id="calaulate-count">0</span>
+                </div>
+                <div>
+                    <span>결제율</span>
+                    <span id="calculate-persent">0<span>%</span></span>
+                </div>  
             </article>
             <article class="graph-areaP">
                 <div>

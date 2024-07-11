@@ -256,7 +256,7 @@ main{ /* 메인 */
 }
 
 .a-style>a>span{
-    color: #219ebc;
+    color: rgb(255, 16, 88);
 }
 
 /*---------------------------------------------------------------------------------------*/
@@ -364,7 +364,7 @@ main{ /* 메인 */
 #calculate-btnP{
     width: 90px;
     height: 35px;
-    background-color: #219ebc;
+    background-color: rgb(255, 16, 88);
     color: white;
     font-size: 16px;
     border: none;
@@ -394,8 +394,8 @@ main{ /* 메인 */
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #023047;
-    background-color: #b7def0;
+    color: rgb(153, 27, 27);
+    background-color: rgb(254, 242, 242);
     border: none;
     border-radius: 5px;
 }
@@ -478,7 +478,7 @@ main{ /* 메인 */
 }
 
 #save-btnP{
-    background-color: #219ebc;
+    background-color: rgb(255, 16, 88);
     color: white;
     width: 230px;
     height: 30px;
