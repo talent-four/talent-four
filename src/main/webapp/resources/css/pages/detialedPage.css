@@ -18,6 +18,7 @@
 /* 위쪽 부분 */
 .classInfo {
   height: 100%;
+  margin-left: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
