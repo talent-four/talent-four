@@ -1,11 +1,14 @@
+@font-face {font-family: 'Noto Sans KR';font-style: normal;font-weight: 400;src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff2) format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.otf) format('opentype');}
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 div {
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 html, body {
@@ -22,7 +25,7 @@ html, body {
 
 /* 왼쪽 */
 
-.leftSide {
+#leftSide {
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -30,43 +33,83 @@ html, body {
 }
 
 .leftSideWrapper {
-    display: flex;
-    height: 5%;
+    height: 50px;
+    background-color: #023047;
+    color: white;
 }
 
 .logo {
-    width: 10%;
+    float: left;
+    height: 50px;
+}
+
+.logo a {
+    display: inline-block;
+    height: 50px;
+}
+
+.logo img {
+    height: 50px;
 }
 
 .title {
-    width: 90%;
+    float: left;
+    width: 80%;
+    padding: 13px;
+    margin-left: 20px;
+    font-size: 16px;
+    font-weight: bold;
 }
 
-.video {
-    height: 95%;
+#video {
+    height: 100%;
+    border: 0;
+}
+
+/* 사이드 바 버튼 */
+#sideBarBtn {
+    float: right;
+    width: 30px;
+    height: 30px;
+    margin: 10px 0px;
+    border: 0;
+    color: white;
+    background-color: #219EBC;
+    cursor: pointer;
+}
+
+#sideBarBtn:hover {
+    color: #219EBC;
+    background-color: white;
 }
 
 /* 오른쪽 */
 
-.rightSide {
+#rightSide {
     width: 25%;
     height: 100%;
     background-color: #f5f5f5;
+    padding: 20px;
 }
 
 .index {
     height: 20%;
+
 }
 
-.subClassScroll {
+#subClassScroll {
     overflow: auto;
     height: 80%;
 }
 
 .subClass {
+    display: inline-block;
     height: 80px;
-    background-color: yellow;
+    width: 100%;
+    background-color: #ccc;
     padding: 5px 0;
+    border: 1px solid black;
+    cursor: pointer;
 }
 
 .subClass:hover {
@@ -75,22 +118,26 @@ html, body {
 
 
 /* 스크롤바 */
-.subClassScroll::-webkit-scrollbar {
+#subClassScroll {
+    border: 3px solid #023047;
+}
+
+#subClassScroll::-webkit-scrollbar {
     width: 10px;
     height: 0;
 }
 
-.subClassScroll::-webkit-scrollbar-track {
+#subClassScroll::-webkit-scrollbar-track {
     background-color: white;
 }
-.subClassScroll::-webkit-scrollbar-thumb { 
+#subClassScroll::-webkit-scrollbar-thumb { 
     background-color: #FF1058;
 
 }
-.subClassScroll::-webkit-scrollbar-button {
+#subClassScroll::-webkit-scrollbar-button {
     display: none;
 }
-.subClassScroll::-webkit-scrollbar-thumb,
-.subClassScroll::-webkit-scrollbar-track{
+#subClassScroll::-webkit-scrollbar-thumb,
+#subClassScroll::-webkit-scrollbar-track{
     border-radius: 10px;
 }
