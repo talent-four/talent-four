@@ -16,22 +16,12 @@
 }
 
 body{
-    width: 1880px;
-    height: 1300px;
+    width: 100%;
+    max-height: 1300px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-header{
-    width: 1280px;
-    height: 120px;
-}
-
-footer{
-    width: 1280px;
-    height: 180px;
 }
 /* ----------------------------------------------------------------------------------- */
 main{ /* 메인 */
@@ -418,7 +408,6 @@ main{ /* 메인 */
     border-bottom: 1px solid rgb(230, 230, 230);
     flex-direction: column;
     align-items: center;
-    overflow: auto;
 
 }
 
@@ -942,3 +931,7 @@ main{ /* 메인 */
     cursor: pointer;
 }
 
+
+.footer{
+    margin-top: 30px;
+}
