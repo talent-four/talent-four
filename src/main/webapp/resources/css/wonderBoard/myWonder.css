@@ -106,22 +106,64 @@
     margin: 0 auto;
     width:1080px;
     display: flex;
+    justify-content: space-around;
 }
 
 /* btn */
+
 #myWonder{
     display: grid;
-    
-
+    grid-template-columns: 1fr 1fr;
     border:1px solid #ddd;
     width:250px;
+    justify-items: center;
+    padding:10px;
+    border-radius: 10px;
+    height:105px;
+  
 }
+
+#myWonder>div>span:nth-child(1){
+    font-size: 20px;
+    display: block;
+    margin-top:15px;
+   
+}
+
+
+#myWonder>div>span:nth-child(2){
+    display: block;
+    color:#9D9D9D;
+   
+}
+
+#myWonder>span:nth-child(1){
+    width:100px;
+}
+    
+
 
 #myWonder img{
-    width:100px;
+    width:80px;
     border-radius: 50px;
+  
+    
 }
 
+.myQBtn>button{
+    width: 250px;
+    height:105px;
+    background-color: #219EBC;
+    border-radius: 10px;
+    font-size:20px;
+    color:white;
+    border: 0;
+    cursor: pointer;
+}
+
+.myQBtn>button:hover{
+    background-color: #023047;
+}
 
 
 
