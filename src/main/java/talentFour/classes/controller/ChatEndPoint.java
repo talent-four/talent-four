@@ -71,17 +71,23 @@ public class ChatEndPoint {
 //           sessions.get(msg.getToId()).getBasicRemote().sendText(msg.getMessage());
            
            
-           // 특정 유저에게 메세지 보내기 (보낸 사람 포함)
+           if(sessions.get(msg.getToId())==null) {
+        	   // sql을 통해서 메시지 저장
+        	   
+           } else { // 상대 유저 접속중
+        	// 특정 유저에게 메세지 보내기 (보낸 사람 포함)
+               sessions.get(msg.getToId()).getBasicRemote().sendText(gson.toJson(msg)); 
 
-           sessions.get(msg.getToId()).getBasicRemote().sendText(gson.toJson(msg));
-
-           
+           }
+           // 보낸사람에게도 메시지 전송
+           sessions.get(msg.getFromId()).getBasicRemote().sendText(gson.toJson(msg));
+ 
            
         } catch(Exception e) {
            e.printStackTrace();
         }
-        // null 값처리랑 close exception처리 자신을 제외하는 처리 해야함
 //        "backend: " + message 처리하면 onmessage 메소드에 대한 리턴값으로 감
+        // '내가 보낸 메시지 : ㅁㅁㅁ' 가 리턴값으로 들어가야함
         return null;
     }
 
