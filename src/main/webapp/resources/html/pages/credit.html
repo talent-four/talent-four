@@ -6,6 +6,9 @@
     <title>클래스 결제</title>
     <link rel="stylesheet" href="../../css/pages/credit.css">
     <script src="https://kit.fontawesome.com/6c46ba8282.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+    <script src="../../js/pages/credit.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
 </head>
 <body>
     <header></header>
@@ -118,7 +121,7 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <button id="btnCredit" >결제하기</button>
+                            <button id="btnCredit" onclick="requestPay()">결제하기</button>
                         </td>
                     </tr>
                 </table>

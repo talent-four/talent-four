@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix ="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,36 +16,8 @@
     <script src="https://kit.fontawesome.com/6e9a783fd9.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header>
-        <div class="width-1280px">
-            <div class="topHeader">
-                <div>
-                    <a href="mainPage.html" id = "logo"><img src="../../img/logo2.png" alt=""></a>
-                </div>
-                <div id="categoryBar">
-                    <ul>
-                        <li><a href="">클래스</a></li>
-                        <li><a href="">스터디 모집</a></li>
-                        <li><a href="">수강 후기</a></li>
-                        <li><a href="">궁금해요</a></li>
-                    </ul>
-                </div>
-                <input type="text" id="searchBar" placeholder="재능을 입력해주세요.">
-                <ul>
-                    <li>
-                        <a href="#">로그인</a>
-                    </li>
-                    <li>
-                        <a href="#">회원가입</a>
-                    </li>
-                </ul>
-                
-            </div>
-        </div>
-    </header>
-    
-          
-    
+   <jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
+   
     <main class="wonder-main" id="wonder-main">
         <h1>궁 금 해 요 !!</h1>
         <section id="wonder-top">
@@ -228,6 +202,6 @@
             <a href="#wonder-main" class="wonderTopBtn">TOP</a>
         </div>
     </main>
-    
+    <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
 </body>
 </html>
