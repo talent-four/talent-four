@@ -10,13 +10,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>my page</title>
     <link rel="stylesheet" href="${contextPath}/resources/css/mypage/mypage.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/common/hf.css">
     <script src="https://kit.fontawesome.com/71eaa9d255.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
 
     <!-- 찜 삭제하고, 찜의 내용 -> 결제내역으로 -->
-    <header>header</header>
+	<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
     <main> <!-- 메인 -->
         <section class="sideP"> <!-- 카테고리 사이드바 -->
             <article class="profileP"> <!-- 프로필 사진 / 이름 -->
@@ -61,7 +62,7 @@
             
         </div>
     </main>
-    <footer>footer</footer>
+	<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
     <script src="../../js/mypage/mypage.js"></script>
     <script src="${contextPath}/resources/js/mypage/mypage.js"></script>
 </body>
