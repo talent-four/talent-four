@@ -13,6 +13,7 @@
     font-style: normal;
     font-weight: 900;
     letter-spacing: 0.5px;
+    /* color: #272727; */
 }
 
 body{
@@ -934,4 +935,5 @@ main{ /* 메인 */
 
 .footer{
     margin-top: 30px;
+    width: 100%;
 }

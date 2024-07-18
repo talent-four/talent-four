@@ -11,9 +11,7 @@
     <title>Review</title>
     <!-- css, js, header 다 넣어서 사용해주세요 -->
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="${contextPath}/resources/css/review/review.css">
-    <link rel="stylesheet" href="${contextPath}/resources/css/common/hf.css">
+
 
 
     <!-- JS -->
@@ -222,7 +220,9 @@
         </div>
     </main>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
-
+    <!-- CSS -->
+    <link rel="stylesheet" href="${contextPath}/resources/css/review/review.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/common/hf.css">
     <script src="${contextPath}/resources/js/review/review.js"></script>
 </body>
 

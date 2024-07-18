@@ -441,43 +441,43 @@ document.querySelector('.containerH').addEventListener('change', (e) => {
     }
 });
 
-async function SendVerifyEmail(emailAddress) {
+// async function SendVerifyEmail(emailAddress) {
 
-    let verifyCode = 10000 + (Math.floor(Math.random() * 89999));
-    let data = {
-        service_id: 'service_8lls798',
-        template_id: 'template_uywyx8m',
-        user_id: '5Vm42iOtNtSnQK34-',
-        template_params: {
-            to_email: emailAddress,
-            message: verifyCode
-        }
-    };
+//     let verifyCode = 10000 + (Math.floor(Math.random() * 89999));
+//     let data = {
+//         service_id: 'service_8lls798',
+//         template_id: 'template_uywyx8m',
+//         user_id: '5Vm42iOtNtSnQK34-',
+//         template_params: {
+//             to_email: emailAddress,
+//             message: verifyCode
+//         }
+//     };
 
-    try {
-        await fetch('https://api.emailjs.com/api/v1.0/email/send', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
+//     try {
+//         await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json'
+//             },
+//             body: JSON.stringify(data)
+//         })
 
-            .then(function (res) {
-                if (res.ok) {
-                    console.log('보내짐');
-                } else {
-                    console.log('실패함' + res.statusText);
-                }
-            })
+//             .then(function (res) {
+//                 if (res.ok) {
+//                     console.log('보내짐');
+//                 } else {
+//                     console.log('실패함' + res.statusText);
+//                 }
+//             })
 
-    } catch (err) {
-        console.log('err발생', err);
-    }
-    console.log(verifyCode)
-    return verifyCode;
+//     } catch (err) {
+//         console.log('err발생', err);
+//     }
+//     console.log(verifyCode)
+//     return verifyCode;
 
-}
+// }
 
 
 
