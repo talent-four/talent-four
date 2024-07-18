@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/classPage/sugang.css">
         <script src="https://code.jquery.com/jquery-3.7.1.js"
     integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-        <script src="https://apis.google.com/js/api.js"></script>
+	<script src = 'https://www.youtube.com/iframe_api'></script>
+	
 </head>
 <body>
     <div class="wrapper">
@@ -24,7 +25,7 @@
                     &gt;
                 </button>
             </div>
-            <iframe id="video"></iframe>
+            <div id="player"></div>
         </div>
     	
         <div id="rightSide">
