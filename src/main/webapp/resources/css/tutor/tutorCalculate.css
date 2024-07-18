@@ -256,7 +256,7 @@ main{ /* 메인 */
 }
 
 .a-style>a>span{
-    color: rgb(255, 16, 88);
+    color: #219ebc;
 }
 
 /*---------------------------------------------------------------------------------------*/
@@ -295,7 +295,7 @@ main{ /* 메인 */
 }
 
 #calculateP>article:nth-child(2)>div{ /* 각 정산 금액 영역  */
-    width: 400px;
+    width: 510px;
     height: 110px;
     margin: 0 0 0 10px;
     border: 1px solid rgb(220, 220, 220);
@@ -359,12 +359,17 @@ main{ /* 메인 */
     height: 70px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
+/* 정산요청 버튼, 계좌 정보, 계좌 변경 버튼 */
+.btn-info-area{display: flex;}
+
+/* 정산요청 버튼 */
 #calculate-btnP{
     width: 90px;
     height: 35px;
-    background-color: rgb(255, 16, 88);
+    background-color: #219ebc;
     color: white;
     font-size: 16px;
     border: none;
@@ -373,42 +378,23 @@ main{ /* 메인 */
     border-radius: 5px;
 }
 
-#input-infoP{
-    width: 100px;
+/* 계좌 정보 영역 */
+.btn-info-area>div{
+    min-width: 200px;
+    max-width: 600px;
     height: 35px;
-    margin: 0 10px 0 10px;
+    margin: 0 0 0 10px;
+    padding: 5px 10px 0 10px;
     border: 1px solid rgb(220, 220, 220);
-    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-    background-color: transparent;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#input-infoP>i{
-    margin: 0 5px 0 5px;
-}
-
-#before-input-infoP{
-    width: 500px;
-    height: 35px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: rgb(153, 27, 27);
-    background-color: rgb(254, 242, 242);
-    border: none;
     border-radius: 5px;
 }
 
-#before-input-infoP>i{
-    margin: 2px 5px 0 1px;
+.btn-info-area>div>i{
+    font-size: 20px;
 }
 
-/*---------------------------------*/
-/*계좌 입력*/
-   
-#change-account-btnP{ /* 계좌번호 변경 버튼 */
-    display: none;
+/* 계좌번호 변경 버튼 */
+#change-account-btnP{ 
     width: 35px;
     height: 35px;
     font-size: 20px;
@@ -420,7 +406,11 @@ main{ /* 메인 */
     cursor: pointer;
 }
 
-#background-div{ /* 정보 입력시 배경색 어둡게 */
+/* ------------------------------------------------------------------------------------------------ */
+/* 숨겨진 영역 */
+
+/* 정보 입력시 배경색 어둡게 */
+#background-div{ 
     display: none;
     position: fixed;
     top: 0;
@@ -431,6 +421,7 @@ main{ /* 메인 */
     z-index: 3;
 }
 
+/* 계좌 수정 영역 */
 #account-input-areaP{
     display: none;
     position: fixed;
@@ -444,8 +435,8 @@ main{ /* 메인 */
     z-index: 4;
     width: 400px;
 }
-
-#account-input-areaP>div:nth-child(1){
+/* 계좌정보라는 span */
+#account-input-areaP>span:nth-child(1){
     font-size: 26px;
     margin-bottom: 20px;
     font-weight: bold;
@@ -470,15 +461,22 @@ main{ /* 메인 */
     border: 1px solid rgb(153, 153, 153);
     border-radius: 5px;
 }
-
+/* 은행명 선택 */
+#banknameP{
+    width: 200px;
+    height: 30px;
+    border: 1px solid rgb(153, 153, 153);
+    border-radius: 5px;
+}
+/* 저장 / 취소 버튼 영역 */
 #account-input-areaP>div:nth-child(3){
     display: flex;
     justify-content: space-between;
     width: 350px;
 }
-
+/* 저장버튼 */
 #save-btnP{
-    background-color: rgb(255, 16, 88);
+    background-color: #219ebc;
     color: white;
     width: 230px;
     height: 30px;
@@ -486,7 +484,7 @@ main{ /* 메인 */
     border: none;
     cursor: pointer;
 }
-
+/* 취소버튼 */
 #cancel-btnP{
     background-color: transparent;
     width: 100px;
@@ -495,21 +493,28 @@ main{ /* 메인 */
     border-radius: 5px;
     cursor: pointer;
 }
+/* ----------------------------------------------------------------------------------------------- */
 
-#account-info-areaP{
-    min-width: 200px;
-    max-width: 350px;
-    height: 35px;
-    display: none;
-    margin: 0 0 0 10px;
-    padding: 5px 10px 0 10px;
-    border: 1px solid rgb(220, 220, 220);
-    border-radius: 5px;
-
+/* 정산 상태 영역 */
+.type-area{
+    width: 220px;
+    display: flex;
 }
 
-#account-info-areaP>i{
+/* 정산 상태 */
+.calculate-status{
+    width: 100px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px 0 0;
     font-size: 20px;
+    cursor: pointer;
+}
+
+.choiced{
+    border-bottom: 2px solid #219ebc;
 }
 
 /*-------------------------------------------------------------------------------------------*/

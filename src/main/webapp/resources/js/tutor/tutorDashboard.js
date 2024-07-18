@@ -14,7 +14,6 @@ const thirdCategory = sideCategory[2];
 const fourthCategory = sideCategory[3];
 const fifthCategory = sideCategory[4];
 const sixthCategory = sideCategory[5];
-const seventhCategory = sideCategory[6];
 /*------------------------------------------------------------------------------------*/
 
 firstCategory.classList.add('a-style');
@@ -27,10 +26,10 @@ firstCategory.classList.add('a-style');
 /* 대시보드 시작*/
 
 // 캔버스 요소를 선택합니다.
-var ctx = document.getElementById('myLineChart').getContext('2d');
+var ctx = document.getElementById('viewsChart').getContext('2d');
     
 // 데이터 및 옵션을 정의합니다.
-var myLineChart = new Chart(ctx, {
+var viewsChart = new Chart(ctx, {
     type: 'line', // 그래프의 유형: 'line'
     data: {
         labels: ['24-06-24', '24-06-25', '24-06-26', '24-06-27', '24-06-28', '24-06-29', '24-06-30'], // x축 레이블
@@ -85,6 +84,20 @@ var myLineChart = new Chart(ctx, {
         }
     }
 });
+
+const title = document.getElementById("title")
+
+document.getElementById("views").addEventListener("click",function(){
+    title.innerText ="클래스 조회수"
+})
+
+document.getElementById("calculate").addEventListener("click",function(){
+    title.innerText ="클래스 결제수"
+})
+
+document.getElementById("persent").addEventListener("click",function(){
+    title.innerText ="클래스 결제율"
+})
 
 /* 대시보드 끝 */
 /* --------------------------------------------------------------------------------------------------- */

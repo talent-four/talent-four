@@ -16,7 +16,6 @@ const thirdCategory = sideCategory[2];
 const fourthCategory = sideCategory[3];
 const fifthCategory = sideCategory[4];
 const sixthCategory = sideCategory[5];
-const seventhCategory = sideCategory[6];
 /*------------------------------------------------------------------------------------*/
 
 secondCategory.classList.add('a-style');
@@ -31,26 +30,24 @@ const NhideArea = document.getElementById("Nhide-areaP")
 const changeArea = document.getElementById("change-areaP")
 const Ncheck = document.getElementById("NcheckP")
 const Ncancel = document.getElementById("NcancelP")
-const NP = document.getElementById("NP")
 const Nchangeinput = document.getElementById("Nchange-inputP")
 const Nchangecount = document.getElementById("Nchange-countP")
 
 NchangeBtn.addEventListener("click",function(){
-    changeArea.style.display ='none'
+    // changeArea.style.display ='none'
     NhideArea.style.display ='block'
     Nchangeinput.value = NP.innerText;
 })
 
 Ncancel.addEventListener("click",function(){
-    changeArea.style.display ='block'
+    // changeArea.style.display ='block'
     NhideArea.style.display ='none'
     Nchangeinput.value =""
 })
 
 Ncheck.addEventListener("click",function(){
-    changeArea.style.display ='block'
+    // changeArea.style.display ='block'
     NhideArea.style.display ='none'
-    NP.innerText = Nchangeinput.value;
     Nchangeinput.value =""
 })
 
@@ -71,50 +68,21 @@ Nchangeinput.addEventListener("input",function(){
 /* -----------------------------------------------------------------------------------------------*/
 /* 튜터 소개 시작 */ 
 
-const Infowrite = document.getElementById("info-write-btnP")
-const Infocheck = document.getElementById("info-check-btnP")
-const Infocancel = document.getElementById("info-error-btnP")
-const Infocount = document.getElementById("input-countP")
-const Infocountarea = document.getElementById("info-count-areaP")
-const Infotextarea = document.getElementById("info-textareaP")
-const Infoinput = document.getElementById("info-inputP")
-const Infoinputarea = document.getElementById("info-input-areaP")
+const changeIntro = document.getElementById("change-introduce")
+const checkIntro = document.getElementById("check-introduce")
+const cancelIntro = document.getElementById("cancel-introduce")
+const introduce = document.getElementById("introduce")
+const hiddenArea2 = document.getElementById("hiddenArea2")
 
-function Infoadd(){
-    Infocheck.style.display ='block'
-    Infocancel.style.display ='block'
-    Infotextarea.style.display ='block'
-    Infocountarea.style.display ='block'
-}
-
-function Inforemove(){
-    Infocheck.style.display ='none'
-    Infocancel.style.display ='none'
-    Infotextarea.style.display ='none'
-    Infocountarea.style.display ='none'
-}
-
-Infowrite.addEventListener("click",function(){
-    Infoadd()
-    Infoinputarea.style.height = '220px';
-    Infowrite.style.display='none'
-    const str = Infoinput.innerText
-    Infotextarea.value = str
+changeIntro.addEventListener("click",function(){
+    this.style.display = 'none';
+    hiddenArea2.style.display = 'block';
+    introduce.focus();
 })
 
-Infocheck.addEventListener("click",function(){
-    Inforemove()
-    Infoinputarea.style.height = '80px';
-    Infowrite.style.display ='block'
-    const Info = Infotextarea.value
-    Infoinput.innerText = Info
-})
+checkIntro.addEventListener("click",function(){
+    hiddenArea2.style.display = 'none';
 
-Infocancel.addEventListener("click",function(){
-    Inforemove()    
-    Infoinputarea.style.height = '80px';
-    Infowrite.style.display ='block'
-    Infotextarea.value =""
 })
 
 Infotextarea.addEventListener("keyup",function(){

@@ -256,7 +256,7 @@ main{ /* 메인 */
 }
 
 .a-style>a>span{
-    color: #fb8500;
+    color: #219ebc;
 }
 
 
@@ -320,6 +320,7 @@ main{ /* 메인 */
     padding: 8px 0 0 10px;
     display: flex;
     flex-direction: column;
+    cursor: pointer;
 }
 
 .data-areaP>div>span:nth-child(1){
@@ -333,6 +334,7 @@ main{ /* 메인 */
     font-size: 30px;
     font-weight: bold;
     padding: 0 5px 0 15px;
+    color: black;
 }
 
 /*-------------------------------------------------------------------------------*/
@@ -341,10 +343,9 @@ main{ /* 메인 */
     height: 650px;
     display: flex;
     justify-content: center;
-    /* background-color: aquamarine; */
 }
 
-.graph-areaP>div{
+.div1{
     width: 940px;
     height: 400px;
     margin: 10px 0 0 0;
@@ -382,3 +383,5 @@ main{ /* 메인 */
     align-items: center;
     justify-content: center;
 }
+
+/* -------------------------------------------------------------------------------------------------------- */
