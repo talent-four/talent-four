@@ -122,7 +122,7 @@ main>section:nth-child(1) a{
 
 .study-info{
     width: 1000px;
-    height: 220px;
+    height: 270px;
     border: 1px solid rgb(220, 220, 220);
     border-radius: 20px;
 }
@@ -166,7 +166,30 @@ main>section:nth-child(1) a{
     padding-left: 10px;
 }
 
-/*1150 남음*/
+.study-info>div:nth-child(2)>ul>li:nth-child(5){
+    display: flex;
+    height: 26px;
+}
+
+
+.study-info>div:nth-child(2)>ul>li:nth-child(5)>i{
+    text-align: center;
+    margin-top: 7px;
+}
+
+.study-info>div:nth-child(2)>ul>li>div>img{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin-top: 5px;
+    margin-left: 7px;
+}
+
+.study-info>div:nth-child(2)>ul>li>a{
+    font-size: 16px;
+    color: #219ebc;
+}
+/*1100 남음*/
 
 .pre-area{
     min-height: 500px;
@@ -190,12 +213,19 @@ main>section:nth-child(1) a{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 30px;
+    height: 50px;
     width: 100px;
     margin: 0 10px 0 10px;
     border: 2px solid #219ebc;
     border-radius: 20px;
 }
+
+.tag-area>div>img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
 
 /*  지도  */
 
