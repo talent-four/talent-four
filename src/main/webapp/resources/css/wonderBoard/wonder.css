@@ -192,4 +192,50 @@
 .wonderSection>h2{
     font-size:50px;
     font-weight: 500;
+    
+}
+
+#wthumbup{
+    background-color: #B7DEF0;
+    width:80px;
+    border: 0;
+    margin-left:20px;
+}
+
+.wonder-info{
+    display: flex;
+    justify-content: space-between;
+}
+
+.wonder-info>div:nth-child(1)>span{
+    margin-right:10px;
+    color:#828282;
+    padding-left:60px;
+
+}
+
+.wonder-info>div:nth-child(2)>span{
+    padding-left:20px;
+    color:#828282;
+}
+
+.wonderContent{
+    width:900px;
+    border-top:1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding:30px;
+    margin:20px;
+}
+
+.wonder-Tag>a{
+    font-size: 10px;
+    background-color: #B7DEF0;
+    padding:10px 20px;
+    border-radius: 15px;
+    cursor: pointer;
+    margin:5px;
+}
+
+.wonder-Tag{
+    margin-top:20px;
 }
