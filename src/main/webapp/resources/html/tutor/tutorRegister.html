@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>튜터 등록</title>
     <link rel="stylesheet" href="../../css/tutor/tutorRegister.css">
-    <script src="../../js/tutor/jquery-3.7.1.min.js"></script>
+    <script src="../../js/jquery-3.7.1.min.js"></script>
     <script src="https://kit.fontawesome.com/71eaa9d255.js" crossorigin="anonymous"></script>
 
 </head>
@@ -66,6 +66,7 @@
                 <span>튜터등록</span>
                 <span>*<span>필수</span></span>
             </section>
+
             <section class="regist-img-areaP">
                 <div class="side-textP">
                     <span>프로필사진</span><span>*</span>
@@ -90,27 +91,57 @@
                     </div>
                     <div class="confirm-imgP">
                         <img src="../../img/cat1.jpg" id="profile-imgP">
-                        <input type="file" id="change-img-btnP">
+                        <input type="file" id="change-img-btnP" name="inputImage">
                         <label for="change-img-btnP" id="upload-imgP"><i class="fa-solid fa-camera"></i></label>
                     </div>
                 </div>
             </section>
-            <section class="regist-name-areaP">
-                <div class="side-textP">
-                    <span>별명</span><span>*</span>
-                </div>
-                <div>
-                    <input type="text" id="input-nameP" placeholder="별명입니다.">
-                </div>
-            </section>
+
             <section class="regist-tel-areaP">
                 <div class="side-textP">
                     <span>전화번호</span><span>*</span>
                 </div>
                 <div>
-                    <input type="text" id="input-telP" maxlength="11" placeholder="(-제외 입력하시오.)">
+                    <input type="text" id="input-telP" name="inputTel" maxlength="11" placeholder="(-제외 입력하시오.)">
                 </div>
             </section>
+
+            <section class="regist-introduce-area">
+                <div class="side-textP">
+                    <span>튜터소개</span><span>*</span>
+                </div>
+                <div>
+                    <textarea name="inputIntroduce" id="inputIntroduce" placeholder="소개글을 작성하시오."></textarea><br>
+                    <span>0<span>/300</span></span>
+                </div>
+            </section>
+
+            <section class="regist-account-area">
+                <div class="side-textP">
+                    <span>계좌등록</span><span>*</span>
+                </div>
+                <div>
+                    <div>
+                        <span>예금주명</span>
+                        <input type="text">
+                    </div>
+                    <div>
+                        <span>은행명</span>
+                        <select name="bankName" id="bankName">
+                            <option value="">국민은행</option>
+                            <option value="">농협은행</option>
+                            <option value="">신한은행</option>
+                            <option value="">IBK기업은행</option>
+                            <option value="">우리은행</option>
+                        </select>
+                    </div>
+                    <div>
+                        <span>계좌번호</span>
+                        <input type="text">
+                    </div>
+                </div>
+            </section>
+
             <section class="regist-career-areaP">
                 <div class="side-textP">
                     <span>인증</span><span>*</span>
