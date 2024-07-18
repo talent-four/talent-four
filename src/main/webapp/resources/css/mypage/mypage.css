@@ -1,0 +1,939 @@
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 100;
+    src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff2) format('woff2'),
+         url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff) format('woff'),
+         url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.otf) format('opentype');
+}
+
+*{box-sizing: border-box;
+    /* border: 1px solid black; */
+    font-family: 'Noto Sans KR', sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+    /* color: #272727; */
+}
+
+body{
+    width: 100%;
+    max-height: 1300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+/* ----------------------------------------------------------------------------------- */
+main{ /* 메인 */
+    width: 1280px;
+    height: 1000px;
+    /* background-color: aliceblue; */
+    display: flex;
+}
+
+.sideP{ /* 카테고리 사이드바 */
+    width: 300px;
+    height: 1000px;
+    /* background-color: aquamarine; */
+    border-right: 1px solid rgb(243, 243, 243);
+}
+
+.profileP{ /* 프로필 사진 / 이름 영역 */
+    width: 300px;
+    height: 150px;
+    display: flex;
+}
+
+.profile-areaP{ /* 프로필 사진 영역*/
+    width: 110px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#profile-img{ /* 프로필 사진 */
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.nameP{ /* 이름 */
+    width: 190px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 15px 0 0;
+}
+
+#idP{
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0 8px 0 0;
+}
+
+#fixP{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+
+.category-areaH{ /* 카테고리 */
+    width: 300px;
+    height: 850px;
+}
+
+.category-tableH{
+    border-spacing: 0px;
+    margin-top: 15px;
+}
+
+.categoryH{
+    width: 300px;
+    height: 60px;
+    cursor: pointer;
+}
+
+.categoryH:hover{
+    background-color: rgb(249, 249, 249);
+}
+
+
+.categoryH td{
+    font-size: 20px;
+    width: 300px;
+}
+
+#tutor-btn{
+    width: 280px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 0.5px solid grey;
+    background-color: white;
+}
+
+#tutor-btn:hover{
+    background-color: rgb(230, 230, 230);
+    transition: 0.5s;
+}
+
+#class3{font-size: 22px;}
+#class4{font-size: 31px;}
+
+/* ------------------------------------------------------------------------------------- */
+.selected{
+    background-color: rgb(249, 249, 249);
+    color: rgb(255, 16, 88);
+}
+
+/* ------------------------------------------------------------------------------------- */
+
+.containerH{ /* 메인 내용 */
+    width: 980px;
+    height: 1000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+}
+
+#main-1{
+    height: 140px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    font-size: 18pt;
+    font-weight: 700;
+    border-bottom: 1px solid rgb(230, 230, 230);
+}
+#main-2{
+    height: 80px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    font-size: 11pt;
+    border-bottom: 1px solid rgb(230, 230, 230);
+    position: relative;
+}
+
+#main-2-2{
+    margin-left: 200px;
+    display: flex;
+    align-items: center;
+}
+
+#main-2-2-write{
+    background-color: white;
+    border-radius: 100%;
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    border: none;
+    box-shadow: 2px 2px 2px 2px rgb(200, 200, 200);
+    cursor: pointer;
+}
+
+#main-2-2-write:hover{
+    background-color: rgb(240, 240, 240);
+}
+
+#main-2-2-inputId{
+    width: 400px;
+    height: 30px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+}
+
+#main-2-3{
+    position: absolute;
+    left:280px;
+    top:53px;
+    font-size: 14px;
+}
+
+.itsok{
+    color:green;
+}
+
+.itsbad{
+    color:red;
+}
+
+#input-check{
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}
+#input-check:hover{
+    background-color: rgb(240, 240, 240);
+}
+#input-cancle{
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}
+
+#input-cancle:hover{
+    background-color: rgb(240, 240, 240);
+}
+
+#main-3{
+    height: 140px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    font-size: 11pt;
+    border-bottom: 1px solid rgb(230, 230, 230);
+}
+
+#main-3-2{
+    margin-left: 196px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+#main-3-2-btn-1{
+    font-size: 15pt;
+    position: absolute;
+    color:white;
+    background-color: red;
+    height: 35px;
+    width: 35px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: -10px;
+    bottom: -10px;
+    border: none;
+}
+#main-3-2-btn-1:hover{
+    cursor: pointer;
+}
+
+#main-3-2-btn-2{
+    display: none;
+}
+
+#main-4{
+    height: 80px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    font-size: 11pt;
+    border-bottom: 1px solid rgb(230, 230, 230);
+}
+
+#main-4-2{
+    margin-left: 172px;
+}
+
+#main-4-2-write{
+    background-color: white;
+    border-radius: 20px;
+    width: 130px;
+    height: 30px;
+    margin-left: 10px;
+    border: none;
+    box-shadow: 2px 2px 2px 2px rgb(200, 200, 200);
+    cursor: pointer;
+}
+
+#main-4-2-write:hover{
+    background-color: rgb(240,240,240);
+    transition: 0.5s;
+
+}
+
+#main-4-2-inputId{
+    width: 400px;
+    height: 30px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+}
+
+#main-4-2-span{
+    font-size: 8pt;
+    color: red;
+}
+
+#input2-verify{
+    margin-left: 20px;
+    margin-right: 10px;
+    width: 70px;
+}
+
+#input2-check{
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}
+
+#input2-cancle{
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}
+
+#main-5{
+    height: 150px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    font-size: 11pt;
+}
+
+#main-5-2{
+    margin-left: 224px;
+
+}
+
+/* #main-6{
+    height: 100px;
+    width: 80%;
+} */
+
+#main-6-1-btn-1{
+    background-color: white;
+    border-radius: 20px;
+    width: 130px;
+    height: 30px;
+    margin-left: 10px;
+    border: none;
+    box-shadow: 2px 2px 2px 2px rgb(200, 200, 200);
+    cursor: pointer;
+}
+
+#main-6-1-btn-2{
+    background-color: white;
+    border-radius: 20px;
+    width: 130px;
+    height: 30px;
+    margin-left: 40px;
+    border: none;
+    box-shadow: 2px 2px 2px 2px rgb(200, 200, 200);
+    cursor: pointer;
+}
+
+
+/* payment css */
+
+#payment-main-1 {
+    height: 140px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    font-size: 18pt;
+    font-weight: 700;
+    border-bottom: 1px solid rgb(230, 230, 230);
+}
+
+#payment-main-2 {
+    height: 80px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    font-size: 11pt;
+    border-bottom: 1px solid rgb(230, 230, 230);
+}
+
+#payment-main-2-1 {
+    color: grey;
+}
+
+
+#payment-main-3 {
+    min-height: 400px;
+    width: 80%;
+    display: flex;
+    font-size: 11pt;
+    border-bottom: 1px solid rgb(230, 230, 230);
+    flex-direction: column;
+    align-items: center;
+
+}
+
+#payment-main-3-1-container{
+    
+    width: 750px;
+    min-height: 150px;
+    display: flex;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+#payment-main-3-2-title{
+    width: 750px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid grey;
+}
+#payment-main-3-2-title > span:first-child{
+    display: inline-block;
+    width: 20%;
+    font-size: 24px;
+    font-weight: bold;
+}
+#payment-main-3-2-title > span:nth-child(2){
+    display: inline-block;
+    width: 50%;
+    font-size: 24px;
+    font-weight: bold;
+}
+#payment-main-3-2-title > span:nth-child(3){
+    display: inline-block;
+    width: 20%;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+#payment-main-3-1-box{
+    border: 2px solid rgb(230, 230, 230);
+    width: 750px;
+    height: 120px;
+    margin-top: 20px;
+    position: relative;
+    border-radius: 15px;
+}
+
+.profile-payment{
+    width: 100px;
+    height: 100px;
+    margin-top: 10px;
+    margin-left: 10px;
+    border-radius: 15px;
+}
+
+#payment-title{
+    position: absolute;
+    top: 30px;
+    left:180px;
+    font-size: 30px;
+    font-weight: 700;
+    text-overflow: ellipsis; /* 초과 시 생략 표시 */
+    white-space: nowrap; /* 줄 바꿈 방지 */
+    overflow: hidden;
+    max-width: 380px;
+}
+
+#payment-date{
+    position: absolute;
+    top: 40px;
+    left:630px;
+    font-size: 20px;
+    font-weight: 700;
+    text-overflow: ellipsis; /* 초과 시 생략 표시 */
+    white-space: nowrap; /* 줄 바꿈 방지 */
+    overflow: hidden;
+}
+
+#payment-star{
+    position: absolute;
+    top: 75px;
+    left:305px;
+    font-size: 12px;
+}
+
+
+/* review css */
+
+
+#review-main-1 {
+    height: 140px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    font-size: 18pt;
+    font-weight: 700;
+    border-bottom: 1px solid rgb(230, 230, 230);
+}
+
+#review-main-2 {
+    height: 80px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    font-size: 11pt;
+    border-bottom: 1px solid rgb(230, 230, 230);
+    position: relative;
+}
+
+#review-main-2-1{
+
+    position: absolute;
+    right: 0px;
+    width: 130px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgb(230, 230, 230);
+    border-radius: 10px;
+    font-size: 9pt;
+    color: grey;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+
+
+#review-main-3 {
+    min-height: 400px;
+    overflow-y: auto;
+    width: 900px;
+    display: flex;
+    font-size: 11pt;
+    border-bottom: 1px solid rgb(230, 230, 230);
+    flex-direction: column;
+    align-items: center;
+}
+
+#review-main-3-1{
+    width: 100%;
+    min-height: 150px;
+    max-height: 1000px;
+    flex-shrink: 0;
+    background-color: rgb(249, 249, 249);
+    margin-top: 15px;
+    border-radius: 15px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#review-main-3-1 p{
+    position: absolute;
+    top:50px;
+    left:300px;
+}
+
+#review-main-3-1-1{
+    /* border: 1px solid black; */
+    width: 720px;
+    height: 200px;
+    margin: 20px;
+    background-color: white;
+    position: relative;
+}
+
+.profile-review{
+    margin-left: 20px;
+}
+
+#review-nick{
+    position: absolute;
+    top: 10px;
+    left:130px;
+    font-size: 18px;
+    color: grey;
+    font-size: 14px;
+    /* border: 1px solid black; */
+}
+
+#review-star{
+    position: absolute;
+    top: 45px;
+    left:130px;
+    font-size: 12px;
+}
+
+#review-title{
+    position: absolute;
+    top: 15px;
+    left:300px;
+    font-size: 30px;
+    font-weight: 700;
+    text-overflow: ellipsis; /* 초과 시 생략 표시 */
+    white-space: nowrap; /* 줄 바꿈 방지 */
+    overflow: hidden;
+    max-width: 450px;
+}
+
+#review-description{
+    position: absolute;
+    top: 100px;
+    left:50px;
+    /* border: 1px solid black; */
+    width: 600px;
+    height: 80px;
+}
+
+/* QA CSS */
+
+
+#qa-main-1 {
+    height: 140px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    font-size: 18pt;
+    font-weight: 700;
+    border-bottom: 1px solid rgb(230, 230, 230);
+}
+
+#qa-main-1 p{
+    margin-left: 15px;
+}
+
+#qa-main-2 {
+    height: 80px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    font-size: 11pt;
+    border-bottom: 1px solid rgb(230, 230, 230);
+    position: relative;
+}
+
+#qa-main-2-1{
+
+    position: absolute;
+    right: 0px;
+    width: 130px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgb(230, 230, 230);
+    border-radius: 10px;
+    font-size: 9pt;
+    color: grey;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+
+
+#qa-main-3 {
+    min-height: 400px;
+    overflow: auto;
+    width: 80%;
+    display: flex;
+    font-size: 11pt;
+    border-bottom: 1px solid rgb(230, 230, 230);
+    flex-direction: column;
+    align-items: center;
+}
+
+#qa-main-3-1{
+    width: 100%;
+    min-height: 150px;
+    max-height: 1000px;
+    flex-shrink: 0;
+    background-color: rgb(249, 249, 249);
+    margin-top: 15px;
+    border-radius: 15px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#qa-main-3-1 p{
+    position: absolute;
+    top:50px;
+    left:300px;
+}
+
+
+#qa-main-3-1-box{
+    border: 2px solid rgb(230, 230, 230);
+    width: 720px;
+    height: 250px;
+    margin-top: 20px;
+    position: relative;
+}
+
+.profile-QA{
+    width: 270px;
+    height: 100px;
+    margin-top: 20px;
+    margin-left: 20px;
+    border-radius: 15px;
+}
+
+#QA-title{
+    position: absolute;
+    top: 30px;
+    left:300px;
+    font-size: 30px;
+    font-weight: 700;
+    text-overflow: ellipsis; /* 초과 시 생략 표시 */
+    white-space: nowrap; /* 줄 바꿈 방지 */
+    overflow: hidden;
+    max-width: 450px;
+}
+
+#QA-star{
+    position: absolute;
+    top: 75px;
+    left:305px;
+    font-size: 12px;
+}
+
+
+
+#QA-description{
+    position: absolute;
+    top: 140px;
+    left:30px;
+    /* border: 1px solid black; */
+    width: 550px;
+    height: 80px;
+    border: none;
+    resize: none;
+
+}
+
+#QA-description:focus{
+    outline: 1px solid grey;
+    border-radius: 15px;
+}
+#QA-btn{
+    position: absolute;
+    bottom: 30px;
+    right:30px;
+    background-color: white;
+    border-radius: 20px;
+    width: 80px;
+    height: 30px;
+    margin-left: 10px;
+    border: none;
+    box-shadow: 2px 2px 2px 2px rgb(200, 200, 200);
+    cursor: pointer;
+}
+
+
+
+
+/* modal 관련 태그 */
+
+#background-modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+#changePw-modal{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    width: 400px;
+    height: 500px;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+#changePw-modal-container{
+    width: 300px;
+    height: 400px;
+    text-align: center;
+    margin-left: 20px;
+
+    
+}
+
+#changePw-modal-container p{
+    font-size: 32px;
+    padding-top: 20px;
+    font-weight: 700;
+    height: 90px;
+    display: inline-block;
+}
+
+#changePw-modal-container span{
+    margin: 10px;
+    width: 120px;
+    height: 40px;
+    font-size: 15px;
+    text-align: center;
+    display: inline-block;
+    color: rgb(150,150,150);
+}
+
+#changePw-modal-container input{
+    width: 160px;
+    height: 40px;
+    border: none;
+    border-bottom: 1px solid rgb(255, 16, 88);
+}
+
+#changePw-modal-container :focus-within{
+    border: none;
+}
+
+#changePw-modal-container button{
+    width: 125px;
+    height: 50px;
+    margin: 10px;
+    margin-top:50px;
+    background-color:rgb(255, 16, 88);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* 회원탈퇴 modal */
+
+
+#resign-modal{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    width: 400px;
+    height: 420px;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+#resign-modal-container{
+    width: 300px;
+    height: 400px;
+    text-align: center;
+    margin-left: 20px;
+
+    
+}
+
+#resign-modal-container p:first-child{
+    font-size: 32px;
+    padding-top: 20px;
+    font-weight: 700;
+    height: 90px;
+    display: inline-block;
+}
+
+#resign-modal-container span{
+    margin: 10px;
+    width: 120px;
+    height: 40px;
+    font-size: 15px;
+    text-align: center;
+    display: inline-block;
+    color: rgb(150,150,150);
+}
+
+#real{
+    margin-top: -30px;
+    margin-bottom: 30px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#resign-modal-container input{
+    width: 160px;
+    height: 40px;
+    border: none;
+    border-bottom: 1px solid rgb(255, 16, 88);
+}
+
+#resign-modal-container :focus-within{
+    border: none;
+}
+
+#resign-modal-container button{
+    width: 125px;
+    height: 50px;
+    margin: 10px;
+    margin-top:50px;
+    background-color:rgb(255, 16, 88);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+.footer{
+    margin-top: 30px;
+    width: 100%;
+}

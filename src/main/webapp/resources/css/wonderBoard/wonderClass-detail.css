@@ -1,0 +1,111 @@
+@font-face {font-family: 'Noto Sans KR';font-style: normal;font-weight: 100;src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff2) format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.otf) format('opentype');}
+@font-face {font-family: 'Noto Sans KR';font-style: normal;font-weight: 400;src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff2) format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.otf) format('opentype');}
+
+*{  
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wonder-main{
+    margin:0 auto;
+    width:1280px;
+}
+
+.wonder-main h1{
+    margin:30px;
+    text-align: center;
+    font-size: 60px;
+
+}
+
+.wonder-container>form{
+    display: flex;
+    flex-direction: column;
+}
+
+#wonder-classSelect{
+    height: 50px;
+    width: 1000px;
+    font-size: 20px;
+    text-align: center;
+    background-color: white;
+}
+
+.wonder-detal1{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.wonder-detal1>div{
+    display: flex;
+    align-content: center;
+   
+
+}
+
+.wonder-detal1>div>label{
+    font-size: 18px;
+    margin-left:80px;
+    margin-right:20px;
+}
+
+.wonder-detal1>div>label{
+    font-size: 20px;
+}
+
+.wonder-detal1>div>input[type="checkbox"]{
+    padding:20px;
+    height: 30px;
+    width:30px;
+}
+
+#title{
+    width:1230px;
+    height:50px;
+    font-size: 30px;
+    margin-bottom: 10px;
+    outline: none;
+}
+
+#tags{
+    width:1230px;
+    height:50px;
+    font-size:30px;
+    margin-bottom:10px;
+    outline: none;
+}
+
+#content{
+    width:1230px;
+    height:500px;
+    font-size:20px;
+    margin-bottom:20px;
+    resize: none;
+    outline: none;
+}
+
+.wonder-button{
+    width:1230px;
+    display: flex;
+    justify-content: right;
+}
+
+.wonder-button>button{
+    width:200px;
+    height: 50px;
+    background-color: #219EBC;
+    border:0;
+    color:white;
+    margin:10px;
+    cursor: pointer;
+    font-size:18px;
+}
+
+.wonder-button>button:hover{
+  
+    background-color: #023047;
+   
+}
