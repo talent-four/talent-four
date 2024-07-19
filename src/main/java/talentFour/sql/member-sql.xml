@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>member-sql.xml</comment>
+
+	<entry key="login">
+		SELECT MEMBER_NO, MEMBER_EMAIL, MEMBER_NM, MEMBER_PW, MEMBER_ST, MEMBER_PROFILE FROM MEMBER WHERE MEMBER_NM=? AND MEMBER_PW=? AND SECESSION_FL='N'
+	</entry>
+
+</properties>
