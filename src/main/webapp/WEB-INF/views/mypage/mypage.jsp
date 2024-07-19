@@ -25,7 +25,7 @@
                     <img src="${contextPath}/resources/img/profile-default.jpg" id="profile-img">
                 </div>
                 <div class="nameP"> <!-- 이름 -->
-                    <span id="idP">홍길동</span>
+                    <span id="idP">${loginMember.memberNickname}</span>
                 </div>
             </article>
             <article class="category-areaH"> <!-- 카테고리 -->
@@ -65,6 +65,13 @@
 
     </main>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        const memberEmail = "${loginMember.memberEmail}";
+        const memberNickname = "${loginMember.memberNickname}";
+        console.log("${loginMember}");
+        const contextPath = "${contextPath}";
+    </script>
     <script src="${contextPath}/resources/js/mypage/mypage.js"></script>
 </body>
 
