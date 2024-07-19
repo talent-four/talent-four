@@ -61,4 +61,57 @@ public class MemberDAO {
 		return loginMember;
 	}
 
+
+	/** 아이디 체크
+	 * @param conn
+	 * @param id
+	 * @return result
+	 * @throws Exception
+	 */
+	public int checkId(Connection conn, String id) throws Exception {
+		int result = 0;
+		try {
+			
+			String sql = prop.getProperty("checkId");
+			
+			pstmt=conn.prepareStatement(sql);
+			
+			pstmt.setString(1, id);
+			
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) {
+				result = rs.getInt(1);
+			}
+			
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+
+	public int updateId(Connection conn, String id, String memberNickname) throws Exception {
+		int result = 0;
+		
+		try {
+			
+			String sql = prop.getProperty("updateId");
+			
+			pstmt=conn.prepareStatement(sql);
+			
+			pstmt.setString(1, id);
+			pstmt.setString(2, memberNickname);
+			
+			result = pstmt.executeUpdate();
+			
+		}finally {
+			close(pstmt);
+		}
+		
+		
+		return result;
+	}
+
 }

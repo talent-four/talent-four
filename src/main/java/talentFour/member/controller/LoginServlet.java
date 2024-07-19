@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -48,8 +49,10 @@ public class LoginServlet extends HttpServlet {
 				path = "login";
 			} else {
 				System.out.println("나는 sql이 가져온 멤버야"+loginMember);
-				session.setAttribute("loginMember", id);
+				session.setAttribute("message", "로그인이 성공하였습니다.");
+				session.setAttribute("loginMember", loginMember);
 				path = req.getContextPath();
+				session.setMaxInactiveInterval(3600); 
 			}
 			resp.sendRedirect(path);
 			
