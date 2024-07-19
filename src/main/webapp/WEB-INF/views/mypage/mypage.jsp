@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>my page</title>
+    <title>this</title>
     <link rel="stylesheet" href="${contextPath}/resources/css/mypage/mypage.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/common/hf.css">
     <script src="https://kit.fontawesome.com/71eaa9d255.js" crossorigin="anonymous"></script>
@@ -22,7 +22,7 @@
         <section class="sideP"> <!-- 카테고리 사이드바 -->
             <article class="profileP"> <!-- 프로필 사진 / 이름 -->
                 <div class="profile-areaP"> <!-- 프로필 사진 -->
-                    <img src="/img/profile-default.jpg" id="profile-img">
+                    <img src="${contextPath}/resources/img/profile-default.jpg" id="profile-img">
                 </div>
                 <div class="nameP"> <!-- 이름 -->
                     <span id="idP">홍길동</span>
@@ -32,7 +32,7 @@
                 <table class="category-tableH">
                     <tr class="categoryH">
                         <td><button id="tutor-btn"><i class="fa-solid fa-rocket"
-                                    style="color : rgb(255, 16, 88) ;font-size:15pt; padding-right: 5px;"></i> <b>튜터 신청
+                                    style="color : #219EBC ;font-size:15pt; padding-right: 5px;"></i> <b>튜터 신청
                                     하기</b></button></td>
                     </tr>
                     <tr class="categoryH selected" id="category-profile">
@@ -61,9 +61,10 @@
         <div class="containerH"> <!-- 메인 내용 -->
             
         </div>
+
+
     </main>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
-    <script src="../../js/mypage/mypage.js"></script>
     <script src="${contextPath}/resources/js/mypage/mypage.js"></script>
 </body>
 

@@ -12,7 +12,7 @@ import javax.websocket.server.ServerEndpoint;
 
 import com.google.gson.Gson;
 
-import talentFour.classes.controller.vo.Message;
+import talentFour.classes.model.vo.Message;
 
 
 
@@ -32,6 +32,13 @@ public class ChatEndPoint {
         System.out.println(session);
         System.out.println(session.getId());
 
+        // sql에서 
+        // SELECT CHAT_ROOM FROM CHATTING WHERE CHAT_FROM = clientId OR CHAT_TO = clientId
+        // 이후 CHAT_ROOM을 받아와서
+        // SELECT CHAT_MESSAGE, CHAT_FROM , CHAT_TO FROM CHATTING WHERE CHAT_ROOM = ? 
+        // 을 통해서 채팅방에 대한 정보를 받아옴
+        // 대화 RS를 리스트로 받아온 다음,
+        // CLIENTID와 LOGINMEMBER이 일치하면 우측, 다르면 좌측에 메시지를 배치하는 화면을 구성한다.
         try {
            if (clientId != null) {
                sessions.put(clientId, session);
@@ -49,7 +56,7 @@ public class ChatEndPoint {
     public String onMessage(String message, Session session) {
         System.out.println("Received message: " + message);
 
-        
+
 
 
         
@@ -71,14 +78,22 @@ public class ChatEndPoint {
 //           sessions.get(msg.getToId()).getBasicRemote().sendText(msg.getMessage());
            
            
+           
+           //  CHAT_FROM/CHAT_TO msg.getToId() / msg.getFromId() 넣어 DB에 INSERT시킨다.
+           //
+           
+           // 받는 사람이 접속중이지 않다면(msg.getToId()) 
            if(sessions.get(msg.getToId())==null) {
-        	   // sql을 통해서 메시지 저장
+        	   //메시지를 보내지 않는다.
         	   
            } else { // 상대 유저 접속중
-        	// 특정 유저에게 메세지 보내기 (보낸 사람 포함)
+        	   // 메세지를 보낸다 (보낸 사람 포함)
                sessions.get(msg.getToId()).getBasicRemote().sendText(gson.toJson(msg)); 
 
            }
+           
+           
+           
            // 보낸사람에게도 메시지 전송
            sessions.get(msg.getFromId()).getBasicRemote().sendText(gson.toJson(msg));
  

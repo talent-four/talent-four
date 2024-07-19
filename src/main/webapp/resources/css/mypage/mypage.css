@@ -13,7 +13,7 @@
     font-style: normal;
     font-weight: 900;
     letter-spacing: 0.5px;
-    /* color: #272727; */
+    color: #272727;
 }
 
 body{
@@ -30,6 +30,7 @@ main{ /* 메인 */
     height: 1000px;
     /* background-color: aliceblue; */
     display: flex;
+    position: relative;
 }
 
 .sideP{ /* 카테고리 사이드바 */
@@ -125,9 +126,12 @@ main{ /* 메인 */
 #class4{font-size: 31px;}
 
 /* ------------------------------------------------------------------------------------- */
+.selected td p {
+    background-color: rgb(249, 249, 249);
+    color: #219EBC;
+}
 .selected{
     background-color: rgb(249, 249, 249);
-    color: rgb(255, 16, 88);
 }
 
 /* ------------------------------------------------------------------------------------- */
@@ -248,7 +252,7 @@ main{ /* 메인 */
     font-size: 15pt;
     position: absolute;
     color:white;
-    background-color: red;
+    background-color: #219EBC;
     height: 35px;
     width: 35px;
     border-radius: 100%;
@@ -307,7 +311,7 @@ main{ /* 메인 */
 
 #main-4-2-span{
     font-size: 8pt;
-    color: red;
+    color: #219EBC;
 }
 
 #input2-verify{
@@ -414,14 +418,15 @@ main{ /* 메인 */
 
 #payment-main-3-1-container{
     
-    width: 750px;
+    width: 100%;
     min-height: 150px;
     display: flex;
     margin-top: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 #payment-main-3-2-title{
@@ -832,7 +837,7 @@ main{ /* 메인 */
     width: 160px;
     height: 40px;
     border: none;
-    border-bottom: 1px solid rgb(255, 16, 88);
+    border-bottom: 1px solid #219EBC;
 }
 
 #changePw-modal-container :focus-within{
@@ -844,7 +849,7 @@ main{ /* 메인 */
     height: 50px;
     margin: 10px;
     margin-top:50px;
-    background-color:rgb(255, 16, 88);
+    background-color:#219EBC;
     border: none;
     border-radius: 10px;
     color: white;
@@ -911,7 +916,7 @@ main{ /* 메인 */
     width: 160px;
     height: 40px;
     border: none;
-    border-bottom: 1px solid rgb(255, 16, 88);
+    border-bottom: 1px solid #219EBC;
 }
 
 #resign-modal-container :focus-within{
@@ -923,7 +928,7 @@ main{ /* 메인 */
     height: 50px;
     margin: 10px;
     margin-top:50px;
-    background-color:rgb(255, 16, 88);
+    background-color:#219EBC;
     border: none;
     border-radius: 10px;
     color: white;
@@ -932,8 +937,8 @@ main{ /* 메인 */
     cursor: pointer;
 }
 
-
 .footer{
     margin-top: 30px;
     width: 100%;
 }
+

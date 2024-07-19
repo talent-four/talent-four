@@ -1,4 +1,4 @@
-package talentFour.classes.controller.vo;
+package talentFour.classes.model.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

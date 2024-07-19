@@ -1,4 +1,4 @@
-package talentFour.classes.controller;
+package talentFour.member.controller;
 
 import java.io.IOException;
 
@@ -8,9 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/myPage")
-public class myPageServlet extends HttpServlet {
 
+@WebServlet("/mypage")
+public class myPageServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 

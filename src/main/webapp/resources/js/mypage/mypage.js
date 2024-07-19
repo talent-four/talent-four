@@ -272,7 +272,7 @@ review.addEventListener('click', () => {
     container.innerHTML = `<div id="review-main-1">내 리뷰
             </div>
             <div id="review-main-2">
-                <div id="review-main-2-1">리뷰 작성하러 가기</div>
+                <div id="review-main-2-1">리뷰 작성하기</div>
             </div>
             <div id="review-main-3">
                 <div id="review-main-3-1">
@@ -478,9 +478,6 @@ document.querySelector('.containerH').addEventListener('change', (e) => {
 //     return verifyCode;
 
 // }
-
-
-
 
 
 

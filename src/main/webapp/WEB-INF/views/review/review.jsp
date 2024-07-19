@@ -48,11 +48,11 @@
                     <div class="declaration-btn">신고</div>
                 </div>
                 <div class="classimgcontainer">
-                    <img src="../../img/img4.png" class="classimg">
+                    <img src="${contextPath}/resources/img/class.jpg" class="classimg">
                 </div>
                 <div class="reviewcontentbox">
                     <div class="reviewtitle">
-                        <img src="../../img/img1.jpg" class="profileimg">
+                        <img src="${contextPath}/resources/img/profile-default.jpg" class="profileimg">
                         <div class="name1">
                             <div class="reviewer">황건하(wh****)</div>
                             <div class="reviewScore">
@@ -130,10 +130,10 @@
                     <span class="lecturer">강사</span>
                     <span class="name">강사명</span>
                 </div>
-                <img src="../../img/class.jpg" class="classimg">
+                <img src="${contextPath}/resources/img/class" class="classimg">
                 <div class="reviewcontentbox">
                     <div class="reviewtitle">
-                        <img src="../../img/img1.jpg" class="profileimg">
+                        <img src="${contextPath}/resources/img/profile-default" class="profileimg">
                         <div class="name1">
                             <div class="reviewer">황건하(wh****)</div>
                             <div class="reviewScore">
@@ -211,7 +211,8 @@
                                     name="writestar" value="1" id="star5" hidden><label for="star5">★ </label>
                                 별점을 선택해주세요
                             </div>
-                            <textarea name="writetext" cols="60" rows="6" id="writecontext" maxlength="300"></textarea>
+                            <input type="text" placeholder="제목을 입력해주세요" id="writeTitle" name="writeTitle">
+                            <textarea name="writetext" cols="60" rows="6" id="writecontext" maxlength="300" placeholder="내용을 입력해주세요"></textarea>
                         </div>
                         <button id="write-btn1" type="submit">글 쓰기</button>
                         <button id="write-btn2" type="button">취소</button>
