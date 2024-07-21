@@ -70,16 +70,16 @@ public class myPageController extends HttpServlet{
 			}
 			
 			
-			if(command.equals("/changePw")) {
-
-				String newPw1 = req.getParameter("newPw1");
-				String newPw2 = req.getParameter("newPw2");
-				String currentPw = req.getParameter("currentPw");
-				
-				//현재 비밀번호 검사
-				int result = service.checkPw(currentPw, loginMember);
-				
-			}
+//			if(command.equals("/changePw")) {
+//
+//				String newPw1 = req.getParameter("newPw1");
+//				String newPw2 = req.getParameter("newPw2");
+//				String currentPw = req.getParameter("currentPw");
+//				
+//				//현재 비밀번호 검사
+//				int result = service.checkPw(currentPw, loginMember);
+//				
+//			}
 		
 			
 			
