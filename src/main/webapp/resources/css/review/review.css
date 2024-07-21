@@ -10,118 +10,9 @@
     letter-spacing: 0px;
     margin: 0;
     padding: 0;
-    color: #272727;
+    /* color: #272727; */
 }
 
-
-/* 헤더 */
-
-
-header {
-    height: 120px;
-    min-width: 1280px;
-    margin: auto;
-    position: sticky;
-    top: 0;
-    z-index: 2;
-    background-color: rgba(255, 255, 255, 1);
-}
-
-header>div {
-    margin: auto;
-}
-
-.width-1280px {
-    width: 1280px;
-
-}
-
-/* 헤더 위쪽 */
-.topHeader {
-    height: 50px;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-}
-
-.topHeader>div {
-    display: flex;
-    align-items: center;
-}
-
-.topHeader>div>* {
-    margin: auto 10px;
-    padding: 10px;
-    height: 100%;
-}
-
-#searchBar {
-    height: 100%;
-    width: 300px;
-}
-
-/* 헤더 아래 */
-.bottomHeader {
-    height: 50px;
-    display: flex;
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.bottomHeader>div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0px 10px;
-}
-
-.fa-bars {
-    font-size: 42px;
-    margin-right: 20px;
-}
-
-#showCategoryBar {
-    cursor: pointer;
-}
-
-/* 헤더 카테고리 바 */
-.categoryBar {
-    position: relative;
-    z-index: 2;
-    background-color: rgba(255, 255, 255, 1);
-    display: none;
-    box-shadow: 0px 5px 5px gray;
-}
-
-.categoryBarDetail {
-    padding: 20px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-}
-
-.margin-auto {
-    margin: auto;
-}
-
-.categoryDetail {
-    display: flex;
-    margin: 0 10px;
-    flex-direction: column;
-}
-
-.categoryDetail>* {
-    font-size: 20px;
-    margin: 5px 0px;
-    text-decoration: none;
-    color: black;
-}
-
-.categoryDetail span {
-    font-weight: bold;
-    color: gray;
-}
-
-/* header fin */
 
 /* main */
 
@@ -513,7 +404,7 @@ main {
 
 .write-content{
     width: 700px;
-    height: 300px;
+    height: 340px;
     position: relative;
 }
 
@@ -576,7 +467,7 @@ main {
     width: 100px;
     height: 40px;
     left:250px;
-    bottom:20px;
+    bottom:25px;
     border-radius: 5px;
     border: none;
     background-color: #ffb703;
@@ -588,7 +479,7 @@ main {
 #write-btn2{
     position: absolute;
     left:400px;
-    bottom:20px;
+    bottom:25px;
     width: 100px;
     height: 40px;
     border-radius: 5px;
@@ -635,8 +526,15 @@ main {
     margin-left: 50px;
 }
 
+#writeTitle{
+    margin-left: 65px;
+    margin-top: 45px;
+    width: 300px;
+    height: 30px;
+}
+
 #writecontext{
-    margin-top: 50px;
+    margin-top: 20px;
     margin-left: 65px;
     resize: none;
     font-size: 18px;
@@ -648,11 +546,13 @@ main {
 
 /* footer */
 
-footer {
+.footer {
     font-size: 12px;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #afafaf;
+    color: white;
     text-align: center;
+    margin-top: 30px;
+
 }

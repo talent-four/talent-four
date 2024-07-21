@@ -11,9 +11,8 @@
     <title>Review</title>
     <!-- css, js, header 다 넣어서 사용해주세요 -->
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="../../css/review/review.css">
-    <link rel="stylesheet" href="${contextPath}/resources/css/review/review.css">
+
+
 
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.7.1.js"
@@ -24,56 +23,7 @@
 <body>
 
     <!-- header -->
-    <header>
-        <div class="width-1280px">
-            <div class="topHeader">
-                <div>
-                    <a href="mainPage.html">재능사조</a>
-                    <input type="text" id="searchBar" placeholder="재능을 입력해주세요.">
-                </div>
-                <div id="loginBox">
-                    <div>로그인</div>
-                    <div>회원가입</div>
-                </div>
-            </div>
-            <div class="bottomHeader">
-                <div id="showCategoryBar">
-                    <div class="fa-solid fa-bars"></div>
-                    <div>카테고리</div>
-                </div>
-                <div>실시간 HOT</div>
-                <div>주간 베스트</div>
-            </div>
-        </div>
-        <div class="categoryBar">
-            <div class="categoryBarDetail width-1280px margin-auto">
-                <div class="categoryDetail">
-                    <span>실무·취업·자기계발</span>
-                    <a href="categoryPage.html">직무역량</a>
-                    <a href="">필수역량</a>
-                    <a href="">자기계발</a>
-                    <a href="">취업·이직</a>
-                </div>
-                <div class="categoryDetail">
-                    <span>데이터·개발</span>
-                    <a href="">데이터·개발</a>
-                    <a href="">개발·테크</a>
-                    <a href="">데이터</a>
-                </div>
-                <div class="categoryDetail">
-                    <span>재테크·투자</span>
-                    <a href="">재테크</a>
-                    <a href="">투잡·창업</a>
-                </div>
-                <div class="categoryDetail">
-                    <span>드로잉·사진·글</span>
-                    <a href="">글쓰기</a>
-                    <a href="">사진</a>
-                    <a href="">드로잉·미술</a>
-                </div>
-            </div>
-        </div>
-    </header>
+	<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 
     <main>
         <div id="main-header">
@@ -98,11 +48,11 @@
                     <div class="declaration-btn">신고</div>
                 </div>
                 <div class="classimgcontainer">
-                    <img src="../../img/img4.png" class="classimg">
+                    <img src="${contextPath}/resources/img/class.jpg" class="classimg">
                 </div>
                 <div class="reviewcontentbox">
                     <div class="reviewtitle">
-                        <img src="../../img/img1.jpg" class="profileimg">
+                        <img src="${contextPath}/resources/img/profile-default.jpg" class="profileimg">
                         <div class="name1">
                             <div class="reviewer">황건하(wh****)</div>
                             <div class="reviewScore">
@@ -180,10 +130,10 @@
                     <span class="lecturer">강사</span>
                     <span class="name">강사명</span>
                 </div>
-                <img src="../../img/class.jpg" class="classimg">
+                <img src="${contextPath}/resources/img/class" class="classimg">
                 <div class="reviewcontentbox">
                     <div class="reviewtitle">
-                        <img src="../../img/img1.jpg" class="profileimg">
+                        <img src="${contextPath}/resources/img/profile-default" class="profileimg">
                         <div class="name1">
                             <div class="reviewer">황건하(wh****)</div>
                             <div class="reviewScore">
@@ -261,7 +211,8 @@
                                     name="writestar" value="1" id="star5" hidden><label for="star5">★ </label>
                                 별점을 선택해주세요
                             </div>
-                            <textarea name="writetext" cols="60" rows="6" id="writecontext" maxlength="300"></textarea>
+                            <input type="text" placeholder="제목을 입력해주세요" id="writeTitle" name="writeTitle">
+                            <textarea name="writetext" cols="60" rows="6" id="writecontext" maxlength="300" placeholder="내용을 입력해주세요"></textarea>
                         </div>
                         <button id="write-btn1" type="submit">글 쓰기</button>
                         <button id="write-btn2" type="button">취소</button>
@@ -269,16 +220,10 @@
             </div>
         </div>
     </main>
-    <footer>
-        <P>통신판매 신고번호 : 1234-서울강남-12345<br>
-            상호 : 재능사조<br>
-            주소 : 서울특별시 강남구 역삼역<br>
-            고객센터 : 1234-1234 <br>
-
-            (주) 재능사조는 통신판개중개자로서 거래 당사자가 아니므로, 튜터가 등록한 상품정보를 책임지지 않습니다.<br>
-            Copyright @ 2024 Inc. All rights reserved.</P>
-    </footer>
-
+	<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
+    <!-- CSS -->
+    <link rel="stylesheet" href="${contextPath}/resources/css/review/review.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/common/hf.css">
     <script src="${contextPath}/resources/js/review/review.js"></script>
 </body>
 

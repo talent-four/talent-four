@@ -107,5 +107,4 @@ replay_pid*
 .project
 .classpath
 .settings/
-classes/
 src/main/webapp/META-INF

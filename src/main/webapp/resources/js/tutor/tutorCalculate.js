@@ -15,29 +15,24 @@ const thirdCategory = sideCategory[2];
 const fourthCategory = sideCategory[3];
 const fifthCategory = sideCategory[4];
 const sixthCategory = sideCategory[5];
-const seventhCategory = sideCategory[6];
 /*------------------------------------------------------------------------------------*/
-sixthCategory.classList.add('a-style');
+fifthCategory.classList.add('a-style');
 
 /*-******************************************************************************/ 
 /*-******************************************************************************/ 
 /* 정산하기 시작 */
 
 const calbtn = document.getElementById("calculate-btnP")
-const inputinfo = document.getElementById("input-infoP")
-const beforeinput = document.getElementById("before-input-infoP")
 const accountinputarea = document.getElementById("account-input-areaP")
 const backgrounddiv = document.getElementById("background-div")
 const savebtn = document.getElementById("save-btnP")
 const cancelbtn = document.getElementById("cancel-btnP")
 const changebtn = document.getElementById("change-account-btnP")
 
-const accountinfoarea = document.getElementById("account-info-areaP")
 const accountinfo = document.getElementById("account-infoP")
 const bankname = document.getElementById("banknameP")
 const account = document.getElementById("accountP")
 const username = document.getElementById("usernameP")
-const usernumber = document.getElementById("usernumber1P")
 
 
 function addaccount(){
@@ -50,23 +45,14 @@ function removeaccount(){
     accountinputarea.style.display ='none';
 }
 
-inputinfo.addEventListener("click",function(){
-    addaccount()
-})
-
 cancelbtn.addEventListener("click",function(){
     removeaccount()
 })
 
 savebtn.addEventListener("click",function(){
     removeaccount()
-    inputinfo.style.display = 'none';
-    beforeinput.style.display = 'none';
-    changebtn.style.display = 'block';
-    accountinfoarea.style.display = 'block';
     accountinfo.innerText = bankname.value + " " + account.value + " " + username.value;
 })
-
 
 changebtn.addEventListener("click",function(){
     addaccount()

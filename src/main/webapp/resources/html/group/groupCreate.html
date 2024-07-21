@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스터디 모집</title>
+    <link rel="stylesheet" href="../../css/group/groupCreate.css">
+    <script src="https://kit.fontawesome.com/71eaa9d255.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>header</header>
+    <main>
+        <section>
+            <div>
+                <a href="groupMain.html"><i class="fa-solid fa-xmark"></i></a>
+                <span>모임만들기</span>
+            </div>
+            <div>
+                <span class="star">*</span><span>필수</span>
+            </div>
+        </section>
+        <form action="#">
+            <section class="essentialArea">
+                <article>
+                    <div class="categoryTitle">
+                        <span>모임명<span class="star">*</span></span> 
+                        <span class="countinput"> <span>0</span>/30</span>
+                    </div>
+                    <div>
+                        <input type="text" placeholder="제목을 입력하세요" maxlength="30px">
+                    </div>
+                </article>
+                <article>
+                    <div class="categoryTitle">
+                        <span>모임소개<span class="star">*</span></span> 
+                        <span class="countinput"> <span>0</span>/1000</span>
+                    </div>
+                    <div>
+                        <textarea name="" id="" placeholder="모임 소개글을 작성하세요" maxlength="1000"></textarea>
+                    </div>
+                </article>
+                <article class="inputTime">
+                    <div class="categoryTitle">
+                        <span>일시<span class="star">*</span></span> 
+                    </div>
+                    <div>
+                        <div>
+                            <div>시작</div>
+                            <input type="datetime-local">
+                        </div>
+                        <div>
+                            <div>종료</div>
+                            <input type="datetime-local">
+                        </div>
+                    </div>
+                </article>
+                <article class="inputNumber">
+                    <div class="categoryTitle">
+                        <span>인원<span class="star">*</span></span> 
+                    </div>
+                    <div>
+                        <span>모집인원</span>
+                        <input type="number" placeholder="2" min="2">
+                    </div>
+                    <div>
+                        <span class="input-info">※ 스터디 개설자 포함 인원수로 작성해주세요.</span>
+                    </div>
+                </article>
+                <article class="inputLocation">
+                    <div class="categoryTitle">
+                        <span>모임장소<span class="star">*</span></span> 
+                    </div>
+                    <div>   
+                        <label for="offline"><input type="radio" name="meetvalue" id="offline" checked>오프라인</label>
+                        <label for="online"><input type="radio" name="meetvalue" id="online">온라인</label> <br>
+                        <input type="text" placeholder="위치를 검색하세요" id="locate1">
+                        <input type="text" placeholder="장소이름을 입력하세요" id="locate2">
+                        <div>
+                            <span class="input-info">※ 상세주소를 입력하세요.</span>
+                        </div>
+                        <div id="selectlocation">
+                        </div>
+                    </div>
+                </article>
+                <article>
+                    <div class="categoryTitle">
+                        <span>연락처<span class="star">*</span></span> 
+                    </div>
+                    <div>
+                        <input type="text" placeholder="연락방법을 입력하세요">
+                    </div>
+                    <div>
+                        <span class="input-info">※ 연락방법 / 오픈톡방 링크,전화번호 SNS ID등을 입력하세요.</span>
+                    </div>
+                </article>
+            </section>
+            <section class="choiceArea">
+                <article class="groupmoney">
+                    <div class="categoryTitle">
+                        <span>비용</span> 
+                    </div>
+                    <div>
+                        <input type="text" placeholder="ex) 스터디룸 비용 1/N">
+                    </div>
+                </article>
+                <article class="inputTag">
+                    <div class="categoryTitle">
+                        <span>태그</span> 
+                    </div>
+                    <div>
+                        <label>
+                            <div class="tagDiv">
+                                <img src="../../img/group/javascript.svg" alt="">
+                                <input type="checkbox"><span>JavaScript</span>
+                            </div>
+                        </label>
+                        <label>
+                            <div class="tagDiv">
+                                <img src="../../img/group/typescript.svg" alt="">
+                                <input type="checkbox"><span>TypeScript</span>
+                            </div>
+                        </label>
+                        <label>
+                            <div class="tagDiv">
+                                <img src="../../img/group/react.svg" alt="">
+                                <input type="checkbox"><span>React</span>
+                            </div>
+                        </label>
+                        <label>
+                            <div class="tagDiv">
+                                <img src="../../img/group/vue.svg" alt="">
+                                <input type="checkbox"><span>Vue</span>
+                            </div>
+                        </label>
+                        <label>
+                            <div class="tagDiv">
+                                <img src="../../img/group/svelte.svg" alt="">
+                                <input type="checkbox"><span>Svelet</span>
+                            </div>
+                        </label>
+                        <label>
+                            <div class="tagDiv">
+                                <img src="../../img/group/nextjs.svg" alt="">
+                                <input type="checkbox"><span>Nextjs</span>
+                            </div>
+                        </label>
+                        <label>
+                            <div class="tagDiv">
+                                <img src="../../img/group/go.svg" alt="">
+                                <input type="checkbox"><span>Go</span>
+                            </div>
+                        </label>
+                        <label>
+                            <div class="tagDiv">
+                                <img src="../../img/group/nodejs.svg" alt="">
+                                <input type="checkbox"><span>Nodejs</span>
+                            </div>
+                        </label>
+                        <label>
+                            <div class="tagDiv">
+                                <img src="../../img/group/java.svg" alt="">
+                                <input type="checkbox"><span>Java</span>
+                            </div>
+                        </label>
+                        <label>
+                            <div class="tagDiv">
+                                <img src="../../img/group/spring.svg" alt="">
+                                <input type="checkbox"><span>Spring</span>
+                            </div>
+                        </label>
+                        
+                        <label>
+                            <div class="tagDiv">
+                                <img src="../../img/group/nestjs.svg" alt="">
+                                <input type="checkbox"><span>Nestjs</span>
+                            </div>
+                        </label>
+                        <label>
+                            <div class="tagDiv">
+                                <img src="../../img/group/kotlin.svg" alt="">
+                                <input type="checkbox"><span>Kotlin</span>
+                            </div>
+                        </label>
+                        <label>
+                            <div class="tagDiv">
+                                <img src="../../img/group/express.svg" alt="">
+                                <input type="checkbox"><span>Express</span>
+                            </div>
+                        </label>
+                        <label>
+                            <div class="tagDiv">
+                                <img src="../../img/group/mysql.svg" alt="">
+                                <input type="checkbox"><span>MySql</span>
+                            </div>
+                        </label>
+                        <label>
+                            <div class="tagDiv">
+                                <img src="../../img/group/mongodb.svg" alt="">
+                                <input type="checkbox"><span>MongoDB</span>
+                            </div>
+                        </label>
+                        <label>
+                            <div class="tagDiv">
+                                <img src="../../img/group/python.svg" alt="">
+                                <input type="checkbox"><span>Python</span>
+                            </div>
+                        </label>
+                        <label>
+                            <div class="tagDiv">
+                                <img src="../../img/group/django.svg" alt="">
+                                <input type="checkbox"><span>Django</span>
+                            </div>
+                        </label>
+                        
+                        <label>
+                            <div class="tagDiv">   
+                                <img src="../../img/group/graphql.svg" alt="">
+                                <input type="checkbox"><span>GraphQL</span>
+                            </div>
+                        </label>
+                        <label>
+                            <div class="tagDiv">
+                                <img src="../../img/group/firebase.svg" alt="">
+                                <input type="checkbox"><span>Firebase</span>
+                            </div>
+                        </label>
+                        <label>
+                            <div class="tagDiv">
+                                <img src="../../img/group/flutter.svg" alt="">
+                                <input type="checkbox"><span>Flutter</span>
+                            </div>
+                        </label>
+                        <label>
+                            <div class="tagDiv">
+                                <img src="../../img/group/swift.svg" alt="">
+                                <input type="checkbox"><span>Swift</span>
+                            </div>
+                        </label>
+                        <label>
+                            <div class="tagDiv">
+                                <img src="../../img/group/unity.svg" alt="">
+                                <input type="checkbox"><span>Unity</span>
+                            </div>
+                        </label>
+                        <label>
+                            <div class="tagDiv">
+                                <img src="../../img/group/aws.svg" alt="">
+                                <input type="checkbox"><span>AWS</span>
+                            </div>
+                        </label>
+                        <label>
+                            <div class="tagDiv">
+                                <img src="../../img/group/kubernetes.svg" alt="">
+                                <input type="checkbox"><span>Kubernetes</span>
+                            </div>
+                        </label>
+                        <label>
+                            <div class="tagDiv">
+                                <img src="../../img/group/docker.svg" alt="">
+                                <input type="checkbox"><span>Docker</span>
+                            </div>
+                        </label>
+                        <label>
+                            <div class="tagDiv">
+                                <img src="../../img/group/git.svg" alt="">
+                                <input type="checkbox"><span>Git</span>
+                            </div>
+                        </label>
+                        <label>
+                            <div class="tagDiv">
+                                <img src="../../img/group/figma.svg" alt="">
+                                <input type="checkbox"><span>Figma</span>
+                            </div>
+                        </label>
+                        <label>
+                            <div class="tagDiv">
+                                <img src="../../img/group/zeplin.svg" alt="">
+                                <input type="checkbox"><span>Zeplin</span>
+                            </div>
+                        </label>
+                        <label>
+                            <div class="tagDiv">
+                                <img src="../../img/group/jest.svg" alt="">
+                                <input type="checkbox"><span>Jest</span>
+                            </div>
+                        </label>
+                        <label>
+                            <div class="tagDiv">
+                                <img src="../../img/group/php.svg" alt="">
+                                <input type="checkbox"><span>php</span>
+                            </div>
+                        </label>
+                        <label>
+                            <div class="tagDiv">
+                                <img src="../../img/group/reactnative.svg" alt="">
+                                <input type="checkbox"><span>ReactNative</span>
+                            </div>
+                        </label>
+                    </div>
+                    <div>
+                        <span class="input-info">※ 태그는 7개까지 입력가능 합니다.</span>
+                    </div>
+                </article>
+            </section>
+            <section>
+                <button type="button">취소</button>
+                <button id="finish-btn">작성완료</button>
+            </section>
+        </form>
+    </main>
+    <footer>
+        <P>통신판매 신고번호 : 1234-서울강남-12345<br>
+            상호 : 재능사조<br>
+            주소 : 서울특별시 강남구 역삼역<br>
+            고객센터 : 1234-1234 <br>
+            
+            (주) 재능사조는 통신판개중개자로서 거래 당사자가 아니므로, 튜터가 등록한 상품정보를 책임지지 않습니다.<br>
+            Copyright @ 2024 Inc. All rights reserved.</P>
+    </footer>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1c527d868a1b47c46db5e096db9fda2e&libraries=LIBRARY"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1c527d868a1b47c46db5e096db9fda2e"></script>
+    <script src="../../js/group/groupCreate.js"></script>
+</body>
+</html>

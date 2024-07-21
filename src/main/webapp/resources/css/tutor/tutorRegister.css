@@ -4,7 +4,7 @@
 
 body{
     width: 1880px;
-    height: 1900px;
+    height: 2400px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -125,7 +125,7 @@ footer{
 /* ----------------------------------------------------------------------------------------- */
 main{
     width: 1280px;
-    height: 1600px;
+    height: 2100px;
 }
 
 .titleP{
@@ -198,7 +198,7 @@ main{
 .example-areaP{
     width: 980px;
     height: 200px;
-    background-color: rgb(251, 235, 231);
+    background-color: #b7def0;
     border-radius: 15px;
 }
 
@@ -216,7 +216,7 @@ main{
 
 .example-areaP>div:nth-child(1)>span:nth-child(1){
     font-weight: bold;
-    color: #219ebc;
+    color: red;
 }
 
 .example-imgP{
@@ -304,42 +304,6 @@ main{
 /*----------------------------------------------------------------------------------------*/
 /*----------------------------------------------------------------------------------------*/
 /*----------------------------------------------------------------------------------------*/
-/* 930 남음 */
-/* 별명 */
-
-.regist-name-areaP{
-    width: 1280px;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid rgb(153, 153, 153);
-}
-
-
-.regist-name-areaP>div:nth-child(2){
-    width: 980px;
-    height: 80px;
-    display: flex;
-    align-items: center;
-}
-
-#input-nameP{
-    width: 600px;
-    height: 50px;
-    font-size: 20px;
-    border-radius: 10px;
-    border: 1px solid rgb(220, 220, 220);
-    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-    outline: none;
-}
-
-#input-nameP::placeholder{
-    padding: 0 0 0 10px;
-}
-
-/*----------------------------------------------------------------------------------------*/
-/*----------------------------------------------------------------------------------------*/
-/*----------------------------------------------------------------------------------------*/
 /*전화 번호*/
 .regist-tel-areaP{
     width: 1280px;
@@ -370,7 +334,80 @@ main{
 #input-telP::placeholder{
     padding: 0 0 0 10px;
 }
+/* 전화번호 끝 */
+/*----------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------*/
+/* 튜터소개 시작 */
 
+.regist-introduce-area{
+    height: 400px;
+    display: flex;
+    border-bottom: 1px solid rgb(153, 153, 153);
+}
+
+#inputIntroduce{
+    margin-top: 20px;
+    resize: none;
+    width: 800px;
+    height: 350px;
+    font-size: 20px;
+    border-radius: 10px;
+    border: 1px solid rgb(220, 220, 220);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    outline: none;
+}
+.regist-introduce-area>div:nth-child(2)>span{
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* 튜터소개 끝 */
+/*----------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------*/
+/* 계좌등록 시작 */
+
+.regist-account-area{
+    height: 200px;
+    display: flex;
+    border-bottom: 1px solid rgb(153, 153, 153);
+}
+.regist-account-area>div:nth-child(2){
+    margin-top: 20px;
+}
+
+.regist-account-area>div:nth-child(2)>div>span{
+    font-size: 20px;
+    display: inline-block;
+    width: 100px;
+    margin-bottom: 25px;
+}
+
+.regist-account-area>div:nth-child(2)>div>input{
+    width: 250px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid rgb(220, 220, 220);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    outline: none;
+    font-size: 20px;
+}
+
+.regist-account-area>div:nth-child(2)>div>select{
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid rgb(220, 220, 220);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    outline: none;
+    font-size: 20px;
+}
+
+option{
+    padding: 0 5px;
+}
+
+/* 계좌등록 끝 */
 /*----------------------------------------------------------------------------------------*/
 /*----------------------------------------------------------------------------------------*/
 /*----------------------------------------------------------------------------------------*/
@@ -589,8 +626,6 @@ input[type='file']{
 }
 /*-------------------------------------------------------------------------------*/
 /*110*/
-
-
 
 
 /*-----------------------------------------------------------------------------------------*/

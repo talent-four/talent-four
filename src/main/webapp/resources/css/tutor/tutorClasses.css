@@ -1,28 +1,22 @@
-*{box-sizing: border-box;
-    /* border: 1px solid black; */
+*{  
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
     font-family: 'Noto Sans KR', sans-serif;
-    font-style: normal;
-    font-weight: 900;
-    letter-spacing: 0.5px;
-
 }
 
 @font-face {
     font-family: 'Noto Sans KR';
     font-style: normal;
     font-weight: 100;
-    src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff2) format('woff2'),
-         url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff) format('woff'),
-         url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.otf) format('opentype');
+    src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Normal.woff2) format('woff2'),
+         url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Normal.woff) format('woff'),
+         url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Normal.otf) format('opentype');
 }
 
-html{border: none;
-min-height: 1700px;
-max-height: 2000px;}
-
 body{
-    width: 1880px;
-    min-height: 1700px;
+    width: 100%;
+    min-height: 1000px;
     max-height: 2000px;
     display: flex;
     flex-direction: column;
@@ -30,118 +24,9 @@ body{
     align-items: center;
 }
 
-/* 헤더 */
-header {
+footer{
     width: 100%;
-    height: 120px;
-    position: sticky;
-    top: 0;
-    z-index: 2;
-    background-color: rgba(255, 255, 255, 1);
-  }
-    
-  header > div {
-    margin: auto;
-  }
-  
-  .width-1280px {
-    width: 1280px;
-  }
-  
-  /* 헤더 위쪽 */
-  .topHeader {
-    height: 50px;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-  }
-  
-  .topHeader > div {
-    display: flex;
-    align-items: center;
-  }
-  
-  .topHeader > div > * {
-    margin: auto 10px;
-    padding: 10px;
-    height: 100%;
-  }
-  
-  #searchBar {
-    height: 100%;
-    width: 300px;
-  }
-  
-  /* 헤더 아래 */
-  .bottomHeader {
-    height: 50px;
-    display: flex;
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .bottomHeader > div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0px 10px;
-  }
-  
-  .fa-bars {
-    font-size: 42px;
-    margin-right: 20px;
-  }
-  
-  #showCategoryBar {
-    cursor: pointer;
-  }
-  
-  /* 헤더 카테고리 바 */
-  .categoryBar {
-    position: relative;
-    z-index: 2;
-    background-color: rgba(255, 255, 255, 1);
-    display: none;
-    box-shadow: 0px 5px 5px gray;
-  }
-  
-  .categoryBarDetail {
-    padding: 20px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  }
-  
-  .margin-auto {
-    margin: auto;
-  }
-  
-  .categoryDetail {
-    display: flex;
-    margin: 0 10px;
-    flex-direction: column;
-  }
-  
-  .categoryDetail > * {
-    font-size: 20px;
-    margin: 5px 0px;
-    text-decoration: none;
-    color: black;
-  }
-  
-  .categoryDetail span {
-    font-weight: bold;
-    color: gray;
-  }
-  
-  
-  footer{
-    font-size:12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color:#afafaf;
-    text-align: center;
-  }
+}
 /* ----------------------------------------------------------------------------------- */
 main{ /* 메인 */
     width: 1280px;
@@ -259,7 +144,7 @@ main{ /* 메인 */
 }
 
 .a-style>a>span{
-    color: rgb(255, 16, 88);
+    color: #219Ebc;
 }
 
 /*---------------------------------------------------------------------------------------*/
@@ -297,7 +182,7 @@ main{ /* 메인 */
     height: 50px;
     display: flex;
     align-items: center;
-    border-bottom: 3px solid rgb(255, 16, 88);
+    border-bottom: 3px solid #219Ebc;
     /* background-color: bisque; */
     justify-content: space-between;
 }
@@ -306,16 +191,21 @@ main{ /* 메인 */
     font-size: 20px;
     font-weight: bold;
     margin: 10px 0 0 30px;
-    color: rgb(253, 55, 114);
+    color: #219Ebc;
 }
 
 .class-subtitleP>button{
     background-color: transparent;
-    border: 1px solid rgb(220, 220, 220);
+    border: 2px solid #219Ebc;
     border-radius: 20px;
     cursor: pointer;
     width: 110px;
     height: 30px;
+}
+
+.class-subtitleP>button>a{
+    text-decoration: none;
+    color: black;
 }
 
 /* ------------------------------------------------------------------------------------- */
