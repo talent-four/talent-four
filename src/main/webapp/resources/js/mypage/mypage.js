@@ -55,13 +55,13 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             <div id="main-2">
                 <div id="main-2-1">닉네임(별명)</div>
-                <div id="main-2-2"><p>${user.nickname}</p><button id="main-2-2-write" class="fa-regular fa-pen-to-square"></button></div>
+                <div id="main-2-2"><p>${memberNickname}</p><button id="main-2-2-write" class="fa-regular fa-pen-to-square"></button></div>
                 <div id="main-2-3"></div>
             </div>
             <div id="main-3">
                 <div id="main-3-1">프로필이미지</div>
                 <div id="main-3-2">
-                    <img src="/img/profile-default.jpg" id="profile-img">
+                    <img src="${contextPath}/resources/img/profile-default.jpg" id="profile-img">
                     <label for="main-3-2-btn-2">
                         <div id="main-3-2-btn-1" class="fa-solid fa-camera"></div>
                     </label>
@@ -69,11 +69,11 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             <div id="main-4">
                 <div id="main-4-1">이메일(로그인ID)</div>
-                <div id="main-4-2">${user.email}<button id="main-4-2-write">이메일 인증하기</button></div></div>
+                <div id="main-4-2">${memberEmail}<button id="main-4-2-write">이메일 인증하기</button></div></div>
             </div>
             <div id="main-5">
                 <div id="main-5-1">전화번호</div>
-                <div id="main-5-2">${user.tel}</div>
+                <div id="main-5-2">폐쇄 예정</div>
             </div>
             <div id="main-6">
                 <div id="main-6-1">
@@ -84,13 +84,15 @@ document.addEventListener('DOMContentLoaded', () => {
             <div id="background-modal" hidden></div>
             <div id="changePw-modal" hidden>
                 <div id="changePw-modal-container">
-                    <form action="">
+                    <form action="${contextPath}/mypage/changePw" method="POST">
                         <p>비밀번호 변경</p><br>
-                        <span>현재 비밀번호</span><input type="password"><br>
-                        <span>새 비밀번호 </span><input type="password"><br>
-                        <span>비밀번호 확인 </span><input type="password">
+                        <span>현재 비밀번호</span><input type="password" name="currentPw" id="currentPw"><br>
+                        <div id="pwCheck1" hidden>현재 비밀번호가 일치하지 않습니다.</div>
+                        <span>새 비밀번호 </span><input type="password" name="newPw1" id="newPw1"><br>
+                        <div id="pwCheck2" hidden>새 비밀번호와 비밀번호 확인이 일치하지 않습니다.</div>
+                        <span>비밀번호 확인 </span><input type="password" name="newPw2" id="newPw2">
                         <button type="submit" id="modal-btn1">수정</button>
-                        <button id="modal-btn2" style="background-color: white; border: 1px solid rgb(33,33,33); color: rgb(33,33,33);">취소</button>
+                        <button id="modal-btn2" type="button" style="background-color: white; border: 1px solid rgb(33,33,33); color: rgb(33,33,33);">취소</button>
                     </form>
                 </div>
             </div>
@@ -125,12 +127,13 @@ profile.addEventListener('click', () => {
             </div>
             <div id="main-2">
                 <div id="main-2-1">닉네임(별명)</div>
-                <div id="main-2-2"><p>${user.nickname}</p><button id="main-2-2-write" class="fa-regular fa-pen-to-square"></button></div>
+                <div id="main-2-2"><p>${memberNickname}</p><button id="main-2-2-write" class="fa-regular fa-pen-to-square"></button></div>
+                        <div id="main-2-3"></div>
             </div>
             <div id="main-3">
                 <div id="main-3-1">프로필이미지</div>
                 <div id="main-3-2">
-                    <img src="img/profile-default.jpg" id="profile-img">
+                    <img src="${contextPath}/resources/img/profile-default.jpg" id="profile-img">
                     <label for="main-3-2-btn-2">
                         <div id="main-3-2-btn-1" class="fa-solid fa-camera"></div>
                     </label>
@@ -138,11 +141,11 @@ profile.addEventListener('click', () => {
             </div>
             <div id="main-4">
                 <div id="main-4-1">이메일(로그인ID)</div>
-                <div id="main-4-2">${user.email}<button id="main-4-2-write">이메일 인증하기</button></div></div>
+                <div id="main-4-2">${memberEmail}<button id="main-4-2-write">이메일 인증하기</button></div></div>
             </div>
             <div id="main-5">
                 <div id="main-5-1">전화번호</div>
-                <div id="main-5-2">${user.tel}</div>
+                <div id="main-5-2">폐쇄예정</div>
             </div>
             <div id="main-6">
                 <div id="main-6-1">
@@ -159,7 +162,7 @@ profile.addEventListener('click', () => {
                         <span>새 비밀번호 </span><input type="password"><br>
                         <span>비밀번호 확인 </span><input type="password">
                         <button type="submit" id="modal-btn1">수정</button>
-                        <button id="modal-btn2" style="background-color: white; border: 1px solid rgb(33,33,33); color: rgb(33,33,33);">취소</button>
+                        <button id="modal-btn2" type="button" style="background-color: white; border: 1px solid rgb(33,33,33); color: rgb(33,33,33);">취소</button>
                     </form>
                 </div>
             </div>
@@ -272,7 +275,7 @@ review.addEventListener('click', () => {
     container.innerHTML = `<div id="review-main-1">내 리뷰
             </div>
             <div id="review-main-2">
-                <div id="review-main-2-1">리뷰 작성하러 가기</div>
+                <div id="review-main-2-1">리뷰 작성하기</div>
             </div>
             <div id="review-main-3">
                 <div id="review-main-3-1">
@@ -398,18 +401,14 @@ document.querySelector('.containerH').addEventListener('click', (e) => {
     // 중복 검사
     if (e.target.id == 'input-check') {
 
+
         let input = document.querySelector("#main-2-2-inputId").value;
-        if (input == '바뀜') {
-            user.name = input;
-            document.querySelector("#main-2-2").innerHTML = `<p>${input}</p><button id="main-2-2-write" class="fa-regular fa-pen-to-square"></button>`;
-            document.querySelector("#main-2-3").innerText = ``;
-        } else {
-            document.querySelector("#main-2-3").innerText = `중복된 닉네임 입니다.`;
-            document.querySelector("#main-2-3").classList.add("itsbad");
-        }
+
+        checkId(input);
+
     }
     if (e.target.id == 'input-cancle') {
-        document.querySelector("#main-2-2").innerHTML = `<p>${user.name}</p><button id="main-2-2-write" class="fa-regular fa-pen-to-square"></button>`;
+        document.querySelector("#main-2-2").innerHTML = `<p>${memberNickname}</p><button id="main-2-2-write" class="fa-regular fa-pen-to-square"></button>`;
         document.querySelector("#main-2-3").innerText = ``;
     };
     // 모달 관련 js
@@ -423,9 +422,27 @@ document.querySelector('.containerH').addEventListener('click', (e) => {
         document.querySelector("#background-modal").hidden = false;
     }
 
+
+    // 비밀번호 검사
+    if (e.target.id == 'modal-btn1') {
+        const currentPw = document.querySelector("#currentPw").value;
+        const newPw1 = document.querySelector("#newPw1").value;
+        const newPw2 = document.querySelector("#newPw2").value;
+        
+        if(newPw1==newPw2){
+            console.log("java를 통해서 db 검사 진행해도됨");
+        }else{
+            e.preventDefault();
+            document.querySelector("#pwCheck2").hidden=false;
+        }
+
+    }
+
+
     if (e.target.id == 'modal-btn2') {
         document.querySelector("#resign-modal").hidden = true;
         document.querySelector("#background-modal").hidden = true;
+        document.querySelector("#changePw-modal").hidden=true;
     }
 
 });
@@ -440,6 +457,33 @@ document.querySelector('.containerH').addEventListener('change', (e) => {
         preview[1].src = imageSrc;
     }
 });
+
+
+function checkId(id){
+    $.ajax({
+
+        url: contextPath + "/mypage/checkId",
+        data: {
+            "id": id,
+        },
+        type: "POST",
+        success(res) {
+            if (res == 1) {
+                alert("중복된 닉네임 입니다.");
+                document.querySelector("#main-2-3").innerText = `중복된 닉네임 입니다.`;
+                document.querySelector("#main-2-3").classList.add("itsbad");
+            } else {
+                alert("닉네임 변경 완료");
+                document.querySelector("#main-2-2").innerHTML = `<p>${id}</p><button id="main-2-2-write" class="fa-regular fa-pen-to-square"></button>`;
+                document.querySelector("#main-2-3").innerText = ``;
+            }
+        },
+        error() {
+            console.log("에러임");
+        }
+
+    });
+}
 
 // async function SendVerifyEmail(emailAddress) {
 
@@ -478,9 +522,6 @@ document.querySelector('.containerH').addEventListener('change', (e) => {
 //     return verifyCode;
 
 // }
-
-
-
 
 
 

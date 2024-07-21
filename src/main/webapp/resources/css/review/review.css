@@ -404,7 +404,7 @@ main {
 
 .write-content{
     width: 700px;
-    height: 300px;
+    height: 340px;
     position: relative;
 }
 
@@ -467,7 +467,7 @@ main {
     width: 100px;
     height: 40px;
     left:250px;
-    bottom:20px;
+    bottom:25px;
     border-radius: 5px;
     border: none;
     background-color: #ffb703;
@@ -479,7 +479,7 @@ main {
 #write-btn2{
     position: absolute;
     left:400px;
-    bottom:20px;
+    bottom:25px;
     width: 100px;
     height: 40px;
     border-radius: 5px;
@@ -526,8 +526,15 @@ main {
     margin-left: 50px;
 }
 
+#writeTitle{
+    margin-left: 65px;
+    margin-top: 45px;
+    width: 300px;
+    height: 30px;
+}
+
 #writecontext{
-    margin-top: 50px;
+    margin-top: 20px;
     margin-left: 65px;
     resize: none;
     font-size: 18px;
