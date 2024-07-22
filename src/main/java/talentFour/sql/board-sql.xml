@@ -2,4 +2,61 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 <comment>board-sql.xml</comment>
+
+	<!-- 대분류 가져오기 -->
+	<entry key="getMainCategory">
+		SELECT CATEGORY_CODE, CATEGORY_NAME
+		FROM CATEGORY
+		WHERE PARENT_ID IS NULL
+		ORDER BY CATEGORY_CODE
+	</entry>
+	
+	<!-- 소분류 가져오기 -->
+	<entry key="getSubCategory">
+		SELECT CATEGORY_CODE, CATEGORY_NAME, PARENT_ID
+		FROM CATEGORY
+		WHERE PARENT_ID = ?
+		ORDER BY CATEGORY_CODE
+	</entry>
+	
+	<!-- 클래스 전부 가져오기 -->
+	<entry key="getAllClasses">
+		SELECT C.*, M.MEMBER_NM
+		FROM CLASS C
+		JOIN MEMBER M ON C.MEMBER_NO = M.MEMBER_NO
+	</entry>
+	
+	
+	<!-- 대분류로 클래스 가져오기 -->
+	<entry key="getMainClasses">
+		SELECT C.*, M.MEMBER_NM
+		FROM CLASS C
+		JOIN MEMBER M ON C.MEMBER_NO = M.MEMBER_NO
+		WHERE C.CATEGORY_CODE IN (
+		    SELECT CATEGORY_CODE
+		    FROM CATEGORY
+		    WHERE PARENT_ID = ?
+		    )
+	</entry>
+	
+	<!-- 소분류로 클래스 가져오기 -->
+	<entry key="getClasses">
+		SELECT C.*, M.MEMBER_NM
+		FROM CLASS C
+		JOIN MEMBER M ON C.MEMBER_NO = M.MEMBER_NO
+		WHERE CATEGORY_CODE = ?
+	</entry>
+	
+	<!-- 클래스 디테일 페이지 조회 -->
+	<entry key="getClass">
+		SELECT C.*, M.MEMBER_NM, M.MEMBER_PROFILE, T.CATEGORY_NAME SUB,
+		    (SELECT CATEGORY_NAME
+		     FROM CATEGORY
+		     WHERE CATEGORY_CODE = T.PARENT_ID) AS MAIN
+		FROM CLASS C
+		JOIN MEMBER M ON M.MEMBER_NO = C.MEMBER_NO
+		JOIN CATEGORY T ON C.CATEGORY_CODE = T.CATEGORY_CODE
+		WHERE CLASS_NO = ?
+	</entry>
+	
 </properties>
