@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ taglib prefix ="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -54,25 +56,28 @@
                 <button>글쓰기</button>
             </div>
 
+            <c:if test="${empty freeList}">
+                <p>게시글이 없습니다.</p>
+            </c:if>
             <c:forEach var="board" items="${freeList}">
-            <div class=wonder-notice>
-                    <h2>${wonderBoard.boardTitle} <span class="noice-st">${wonderBoard.qaStatus}</span></h2>
-                    <p>${wonderBoard.boardContent}</p>
-                    <div class="wonder-Tag">
-                    <span>SQL</span>
-                    </div>
-                    <div class="wonder-count">
-                    <span>${wonderBoard.memberNickname} </span>
-                    <span>${wonderBoard.createDate}</span>
+            <div class="wonder-notice">
+                <h2>${board.boardTitle} <span class="notice-st">${board.qaStatus}</span></h2>
+                <p>${board.boardContent}</p>
+                <div class="wonder-Tag">
+                    <span>SQL</span> <!-- 추후에 실제 태그 내용으로 대체할 수 있습니다 -->
+                </div>
+                <div class="wonder-count">
+                    <span>${board.memberNickname} </span>
+                    <span>${board.createDate}</span>
                     <ul>
-                    <li>${wonderBoard.createDate}</li>
-                    <li>추천수 0</li>
-                    <li>답변수 0</li>
+                        <li>${board.createDate}</li>
+                        <li>추천수 0</li>
+                        <li>답변수 0</li>
                     </ul>
-                    </div>
                 </div>
             </div>
-            </c:forEach>
+        </c:forEach>
+
             <!-- <div class=wonder-notice>
                 <h2>제목제목제목제목 <span class="noice-st2">미해결</span></h2>
                 <p>내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용</p>

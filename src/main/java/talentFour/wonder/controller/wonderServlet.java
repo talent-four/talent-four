@@ -20,13 +20,12 @@ public class wonderServlet extends HttpServlet{
 		String command = uri.substring(  (contextPath + "/wonder/").length()  );
 		
 		WonderService service = new WonderService();
-		resp.setContentType("text/html;charset=UTF-8");
+
 		try {
 			if(command.equals("free")) {
-				req.getRequestDispatcher("/WEB-INF/views/wonder/wonderFree.jsp").forward(req, resp);
-				
 				List<wonderBoard> freeList = service.selectlistFree();
                 req.setAttribute("freeList", freeList);
+                req.getRequestDispatcher("/WEB-INF/views/wonder/wonderFree.jsp").forward(req, resp);
 
 				System.out.println(freeList);
 			}
