@@ -56,16 +56,16 @@
 
             <c:forEach var="board" items="${freeList}">
             <div class=wonder-notice>
-                    <h2>${board.boardTitle} <span class="noice-st">${board.qaStatus}</span></h2>
-                    <p>${board.boardContent}</p>
+                    <h2>${wonderBoard.boardTitle} <span class="noice-st">${wonderBoard.qaStatus}</span></h2>
+                    <p>${wonderBoard.boardContent}</p>
                     <div class="wonder-Tag">
                     <span>SQL</span>
                     </div>
                     <div class="wonder-count">
-                    <span>${board.memberNickname} </span>
-                    <span>${board.createDate}</span>
+                    <span>${wonderBoard.memberNickname} </span>
+                    <span>${wonderBoard.createDate}</span>
                     <ul>
-                    <li>${board.createDate}</li>
+                    <li>${wonderBoard.createDate}</li>
                     <li>추천수 0</li>
                     <li>답변수 0</li>
                     </ul>
@@ -73,7 +73,7 @@
                 </div>
             </div>
             </c:forEach>
-            <div class=wonder-notice>
+            <!-- <div class=wonder-notice>
                 <h2>제목제목제목제목 <span class="noice-st2">미해결</span></h2>
                 <p>내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용</p>
                 <div class="wonder-Tag">
@@ -224,7 +224,7 @@
                         <li>답변수 0</li>
                     </ul>
                 </div>
-            </div>
+            </div> -->
         
             <div class="wonder-page-area">
                 <ul class="wonder-pagination">

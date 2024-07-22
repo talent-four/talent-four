@@ -62,7 +62,6 @@ public class wonderDAO {
 				wonderBoard.setMemberNickname("MEMBER_NM");
 				wonderBoard.setQaStatus(rs.getString("QA_STATUS"));
 				wonderBoard.setWonderType("WONDER_TYPE");
-				
 
 				wonderFreeList.add(wonderBoard);
 			}
