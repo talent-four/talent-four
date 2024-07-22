@@ -136,7 +136,7 @@ header {
 #chat-box{
   width: 400px;
   height: 700px;
-  position: absolute;
+  position: fixed;
   right: 200px;
   bottom: 40px;
   border-radius: 15px;

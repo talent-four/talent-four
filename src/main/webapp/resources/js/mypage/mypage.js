@@ -98,12 +98,12 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             <div id="resign-modal" hidden>
                 <div id="resign-modal-container">
-                    <form action="">
+                    <form action="${contextPath}/mypage/secession" method="POST"}>
                         <p>회원 탈퇴</p><br>
                         <div id="real">정말 탈퇴하시겠습니까?</div>
-                        <span>비밀번호</span><input type="password"><br>
+                        <span>비밀번호</span><input type="password" name="currentPw"><br>
                         <button type="submit" id="modal-btn1">회원 탈퇴</button>
-                        <button id="modal-btn2" style="background-color: white; border: 1px solid rgb(33,33,33); color: rgb(33,33,33);">취소</button>
+                        <button id="modal-btn2" type="button" style="background-color: white; border: 1px solid rgb(33,33,33); color: rgb(33,33,33);">취소</button>
                     </form>
                 </div>
             </div>
@@ -156,11 +156,13 @@ profile.addEventListener('click', () => {
             <div id="background-modal" hidden></div>
             <div id="changePw-modal" hidden>
                 <div id="changePw-modal-container">
-                    <form action="">
+                    <form action="${contextPath}/mypage/changePw" method="POST">
                         <p>비밀번호 변경</p><br>
-                        <span>현재 비밀번호</span><input type="password"><br>
-                        <span>새 비밀번호 </span><input type="password"><br>
-                        <span>비밀번호 확인 </span><input type="password">
+                        <span>현재 비밀번호</span><input type="password" name="currentPw" id="currentPw"><br>
+                        <div id="pwCheck1" hidden>현재 비밀번호가 일치하지 않습니다.</div>
+                        <span>새 비밀번호 </span><input type="password" name="newPw1" id="newPw1"><br>
+                        <div id="pwCheck2" hidden>새 비밀번호와 비밀번호 확인이 일치하지 않습니다.</div>
+                        <span>비밀번호 확인 </span><input type="password" name="newPw2" id="newPw2">
                         <button type="submit" id="modal-btn1">수정</button>
                         <button id="modal-btn2" type="button" style="background-color: white; border: 1px solid rgb(33,33,33); color: rgb(33,33,33);">취소</button>
                     </form>
@@ -168,12 +170,12 @@ profile.addEventListener('click', () => {
             </div>
             <div id="resign-modal" hidden>
                 <div id="resign-modal-container">
-                    <form action="">
+                    <form action="${contextPath}/mypage/secession">
                         <p>회원 탈퇴</p><br>
                         <div id="real">정말 탈퇴하시겠습니까?</div>
                         <span>비밀번호</span><input type="password"><br>
                         <button type="submit" id="modal-btn1">회원 탈퇴</button>
-                        <button id="modal-btn2" style="background-color: white; border: 1px solid rgb(33,33,33); color: rgb(33,33,33);">취소</button>
+                        <button id="modal-btn2" type="button" style="background-color: white; border: 1px solid rgb(33,33,33); color: rgb(33,33,33);">취소</button>
                     </form>
                 </div>
             </div>
@@ -188,12 +190,12 @@ payment.addEventListener('click', () => {
     })
 
     payment.classList.add('selected');
+    
+    selectPayment();
 
-    container.innerHTML = `<div id="payment-main-1">
+    container.innerHTML = 
+           `<div id="payment-main-1">
                 <div>결제 내역</div>
-            </div>
-            <div id="payment-main-2">
-                <div id="payment-main-2-1">결제 클래스 : ${user.favorites.length}개</div>
             </div>
             <div id="payment-main-3">
                 <div id="payment-main-3-1-container">
@@ -201,61 +203,6 @@ payment.addEventListener('click', () => {
                         <span>썸네일</span>
                         <span>클래스명</span>
                         <span>결제일</span>
-                    </div>
-                    <div id="payment-main-3-1-box">
-                        <img src="/img/class.jpg" class="profile-payment">
-                        <span id="payment-title">강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명</span>
-                        <span id="payment-date">2024-07-09</span>
-                    </div>
-                    <div id="payment-main-3-1-box">
-                        <img src="/img/class.jpg" class="profile-payment">
-                        <span id="payment-title">강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명</span>
-                        <span id="payment-date">2024-07-09</span>
-                    </div>
-                    <div id="payment-main-3-1-box">
-                        <img src="/img/class.jpg" class="profile-payment">
-                        <span id="payment-title">강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명</span>
-                        <span id="payment-date">2024-07-09</span>
-                    </div>
-                    <div id="payment-main-3-1-box">
-                        <img src="/img/class.jpg" class="profile-payment">
-                        <span id="payment-title">강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명</span>
-                        <span id="payment-date">2024-07-09</span>
-                    </div>
-                    <div id="payment-main-3-1-box">
-                        <img src="/img/class.jpg" class="profile-payment">
-                        <span id="payment-title">강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명</span>
-                        <span id="payment-date">2024-07-09</span>
-                    </div>
-                    <div id="payment-main-3-1-box">
-                        <img src="/img/class.jpg" class="profile-payment">
-                        <span id="payment-title">강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명</span>
-                        <span id="payment-date">2024-07-09</span>
-                    </div>
-                    <div id="payment-main-3-1-box">
-                        <img src="/img/class.jpg" class="profile-payment">
-                        <span id="payment-title">강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명</span>
-                        <span id="payment-date">2024-07-09</span>
-                    </div>
-                    <div id="payment-main-3-1-box">
-                        <img src="/img/class.jpg" class="profile-payment">
-                        <span id="payment-title">강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명</span>
-                        <span id="payment-date">2024-07-09</span>
-                    </div>
-                    <div id="payment-main-3-1-box">
-                        <img src="/img/class.jpg" class="profile-payment">
-                        <span id="payment-title">강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명</span>
-                        <span id="payment-date">2024-07-09</span>
-                    </div>
-                    <div id="payment-main-3-1-box">
-                        <img src="/img/class.jpg" class="profile-payment">
-                        <span id="payment-title">강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명</span>
-                        <span id="payment-date">2024-07-09</span>
-                    </div>
-                    <div id="payment-main-3-1-box">
-                        <img src="/img/class.jpg" class="profile-payment">
-                        <span id="payment-title">강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명강의명</span>
-                        <span id="payment-date">2024-07-09</span>
                     </div>
                 </div>
             </div>`;
@@ -272,6 +219,8 @@ review.addEventListener('click', () => {
 
     review.classList.add('selected');
 
+    selectReview();
+
     container.innerHTML = `<div id="review-main-1">내 리뷰
             </div>
             <div id="review-main-2">
@@ -279,39 +228,7 @@ review.addEventListener('click', () => {
             </div>
             <div id="review-main-3">
                 <div id="review-main-3-1">
-                    <div id="review-main-3-1-1">
-                        <img src="/img/profile-default.jpg" id="profile-img" class="profile-review">
-                        <span id="review-nick">닉네임</span>
-                        <span id="review-star">★★★★★ / 5.0</span>
-                        <span id="review-title">강의명강의명강의명강의명강의명강의명강의명강의명</span>
-                        <div id="review-description">강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용</div>
-                    </div>
 
-                    <div id="review-main-3-1-1">
-                        <img src="/img/profile-default.jpg" id="profile-img" class="profile-review">
-                        <span id="review-nick">닉네임</span>
-                        <span id="review-star">★★★★★ / 5.0</span>
-                        <span id="review-title">강의명강의명강의명강의명강의명강의명강의명강의명</span>
-                        <div id="review-description">강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용</div>
-                    </div> 
-    
-                    <div id="review-main-3-1-1">
-                        <img src="/img/profile-default.jpg" id="profile-img" class="profile-review">
-                        <span id="review-nick">닉네임</span>
-                        <span id="review-star">★★★★★ / 5.0</span>
-                        <span id="review-title">강의명강의명강의명강의명강의명강의명강의명강의명</span>
-                        <div id="review-description">강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용</div>
-                    </div>
-                    
-                    <div id="review-main-3-1-1">
-                        <img src="/img/profile-default.jpg" id="profile-img" class="profile-review">
-                        <span id="review-nick">닉네임</span>
-                        <span id="review-star">★★★★★ / 5.0</span>
-                        <span id="review-title">강의명강의명강의명강의명강의명강의명강의명강의명</span>
-                        <div id="review-description">강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용강의내용</div>
-                    </div>
-                    <!-- <p>작성한 리뷰가 없어요</p> 리뷰 갯수에 따라 상태 변경-->    
-                    <!-- 작성하면 추가-->
                 </div>
             </div>`;
 });
@@ -397,7 +314,7 @@ document.querySelector('.containerH').addEventListener('click', (e) => {
         }
     };
 
-    
+
     // 중복 검사
     if (e.target.id == 'input-check') {
 
@@ -428,12 +345,12 @@ document.querySelector('.containerH').addEventListener('click', (e) => {
         const currentPw = document.querySelector("#currentPw").value;
         const newPw1 = document.querySelector("#newPw1").value;
         const newPw2 = document.querySelector("#newPw2").value;
-        
-        if(newPw1==newPw2){
-            console.log("java를 통해서 db 검사 진행해도됨");
-        }else{
+
+        if (newPw1 == newPw2) {
+            console.log("db를 통한 검사 진행 가능, 패러미터는 newPw1만 넘김");
+        } else {
             e.preventDefault();
-            document.querySelector("#pwCheck2").hidden=false;
+            document.querySelector("#pwCheck2").hidden = false;
         }
 
     }
@@ -442,7 +359,7 @@ document.querySelector('.containerH').addEventListener('click', (e) => {
     if (e.target.id == 'modal-btn2') {
         document.querySelector("#resign-modal").hidden = true;
         document.querySelector("#background-modal").hidden = true;
-        document.querySelector("#changePw-modal").hidden=true;
+        document.querySelector("#changePw-modal").hidden = true;
     }
 
 });
@@ -459,7 +376,7 @@ document.querySelector('.containerH').addEventListener('change', (e) => {
 });
 
 
-function checkId(id){
+function checkId(id) {
     $.ajax({
 
         url: contextPath + "/mypage/checkId",
@@ -484,6 +401,96 @@ function checkId(id){
 
     });
 }
+
+function selectReview() {
+
+    $.ajax({
+
+        url: contextPath + "/mypage/selectReview",
+        type: "POST",
+        success(res) {
+
+            const result = JSON.parse(res);
+
+
+            result.forEach((review) => {
+               
+                if(review.reviewStar==1){
+                    review.reviewStar="★";
+                } else if(review.reviewStar==2){
+                    review.reviewStar="★★";
+                } else if(review.reviewStar==3){
+                    review.reviewStar="★★★";
+                } else if(review.reviewStar==4){
+                    review.reviewStar="★★★★";
+                } else if(review.reviewStar==5){
+                    review.reviewStar="★★★★★";
+                }
+
+                if(review.profileImage==null){
+                    review.profileImage="/resources/img/profile-default.jpg";
+                }
+
+                document.querySelector("#review-main-3-1").insertAdjacentHTML("afterbegin",
+                    `<div id="review-main-3-1-1"><img src="${contextPath}${review.profileImage}" id="profile-img" class="profile-review">
+                        <span id="review-nick">${review.memberNickname}</span>
+                        <span id="review-star">별점 :${review.reviewStar}</span>
+                        <span id="review-title">${review.boardTitle}</span>
+                        <div id="review-description">${review.boardContent}</div>
+                    </div>`
+                );
+
+            });
+
+            console.log("성공함");
+        },
+        error() {
+            console.log("에러임");
+        }
+
+    });
+}
+
+function selectPayment(){
+
+    $.ajax({
+
+        url:contextPath + "/mypage/payment",
+        type:"POST",
+        success(res){
+            const result = JSON.parse(res);
+
+            document.querySelector("#payment-main-1").insertAdjacentHTML("afterend", 
+                `<div id="payment-main-2">
+                    <div id="payment-main-2-1">결제 클래스 : ${result.length}개</div>
+                </div>`
+            );
+
+
+            result.forEach((payment)=>{
+                document.querySelector("#payment-main-3-2-title").insertAdjacentHTML("afterend",
+                    // 썸네일 설정해야함
+
+                    `<div id="payment-main-3-1-box">
+                        <img src="${contextPath}${payment.classURL}" class="profile-payment">
+                        <span id="payment-title">${payment.className}</span>
+                        <span id="payment-date">${payment.paymentDate}</span>
+                    </div>`
+                );
+            });
+
+        },
+        error(){
+            console.log("에러임");
+        }
+
+
+    });
+
+}
+
+
+
 
 // async function SendVerifyEmail(emailAddress) {
 
