@@ -19,33 +19,35 @@
         <section class="mainsectionsP" id="classsellP"> <!-- 클래스 판매 현황 -->
             <article class="titleP"><span>클래스 판매 현황</span></article>
             <article class="sell-class-areaP">
-                <div class="sell-class-menuP">
-                    <div><span>신청서 번호</span></div>
-                    <div><span>신청 시간</span></div>
-                    <div><span>수강생명</span></div>
-                    <div><span>클래스명</span></div>
-                    <div><span>수강권</span></div>
-                    <div><span>결제 상태</span></div>
-                </div>
-                <div class="sell-class-textP">
-                    <div class="sell-class-rowP">
-                        <div><span>240630</span></div>
-                        <div><span>2024-06-30</span></div>
-                        <div><span>김재능</span></div>
-                        <div><a href="#">DB연동 많이 힘들거같은데</a></div>
-                        <div><span>12개월</span></div>
-                        <div><span>결제 완료</span></div>
-                    </div>
-                </div>
-                <div class="sell-class-btn-areaP">
-                    <span>총 </span>
-                    <span id="sell-class-countP">O</span>
-                    <span>개, </span>
-                    <span id="sell-class-page-countP">O</span>
-                    <span>페이지</span>
-                    <button><i class="fa-solid fa-angle-left"></i></button>
-                    <button><i class="fa-solid fa-angle-right"></i></button>
-                </div>
+                <table class="classSell-table">
+                    <thead>
+                        <tr>
+                             <th>신청 시간</th>
+                             <th>수강생명</th>
+                             <th>클래스명</th>
+                             <th>결제상태</th>
+                        </tr> 
+                    </thead>
+                    <tbody class="sell-all-rows">
+                        <c:choose>
+                            <c:when test="${empty tutorclassSell}">
+                                <tr>
+                                    <th colspan="4" margin-top="200px"><h1>판매된 클래스가 존재하지 않습니다.</h1></th>
+                                </tr>
+                            </c:when>
+                            <c:otherwise>
+                                <c:forEach var="tutorclassSell"  items="${tutorclassSell}">
+                                    <tr class="sell-each-rows">
+                                        <td>${tutorclassSell.startDate}</td>
+                                        <td>${tutorclassSell.memberNickname}</td>
+                                        <td><a href="${contextPath}/tutor/register">${tutorclassSell.boardTitle}</a></td>
+                                        <td><div>${tutorclassSell.paymentStatus}</div></td>
+                                    </tr>
+                                </c:forEach>
+                            </c:otherwise>
+                        </c:choose>
+                    </tbody>
+                </table>
             </article>
         </section>
     </main>

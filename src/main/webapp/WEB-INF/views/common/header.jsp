@@ -9,7 +9,7 @@
 	        <div id="categoryBar">
 	            <ul>
 	                <li><a href="${contextPath}/classPage">클래스</a></li>
-	                <li><a href="">스터디 모집</a></li>
+	                <li><a href="${contextPath}/groupMain">스터디 모집</a></li>
 	                <li><a href="">수강 후기</a></li>
 	                <li><a href="">궁금해요</a></li>
 	            </ul>
