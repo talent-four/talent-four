@@ -77,7 +77,7 @@ public class myPageController extends HttpServlet{
 				String currentPw = req.getParameter("currentPw");
 				
 				//현재 비밀번호 검사
-				int result = service.checkPw(currentPw, loginMember);
+//				int result = service.checkPw(currentPw, loginMember);
 				
 			}
 		

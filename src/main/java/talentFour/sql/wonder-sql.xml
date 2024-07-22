@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+
+<properties>
+<comment>woder-sql.xml</comment>
+
+<entry key="selectlistFree">
+SELECT BOARD_NO,BOARD_TITLE,BOARD_CONTENT,CREATED_DT,READ_COUNT,MEMBER_NM,QA_STATUS,WONDER_TYPE FROM BOARD
+JOIN WONDER_BOARD USING(BOARD_NO)
+JOIN MEMBER USING(MEMBER_NO)
+WHERE WONDER_TYPE ='자유로운궁금증' AND BOARD_CD='4'
+
+</entry>
+
+</properties>
+
+

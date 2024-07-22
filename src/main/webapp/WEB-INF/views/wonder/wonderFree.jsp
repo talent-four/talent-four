@@ -7,9 +7,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>자유로운 궁금증</title>
-    <link rel="stylesheet" href="../../css/wonderBoard/wonderFree.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/wonderBoard/wonderFree.css">
     <!-- CSS -->
-    <link rel="stylesheet" href="../../css/common/hf.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/common/hf.css">
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.7.1.js"
     integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
@@ -54,23 +54,25 @@
                 <button>글쓰기</button>
             </div>
 
+            <c:forEach var="board" items="${freeList}">
             <div class=wonder-notice>
-                    <h2>제목제목제목제목 <span class="noice-st">해결</span></h2>
-                    <p>내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용</p>
+                    <h2>${board.boardTitle} <span class="noice-st">${board.qaStatus}</span></h2>
+                    <p>${board.boardContent}</p>
                     <div class="wonder-Tag">
                     <span>SQL</span>
                     </div>
                     <div class="wonder-count">
-                    <span>닉네임 </span>
-                    <span>2시간전</span>
+                    <span>${board.memberNickname} </span>
+                    <span>${board.createDate}</span>
                     <ul>
-                    <li>조회수 0</li>
+                    <li>${board.createDate}</li>
                     <li>추천수 0</li>
                     <li>답변수 0</li>
                     </ul>
                     </div>
                 </div>
             </div>
+            </c:forEach>
             <div class=wonder-notice>
                 <h2>제목제목제목제목 <span class="noice-st2">미해결</span></h2>
                 <p>내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용</p>

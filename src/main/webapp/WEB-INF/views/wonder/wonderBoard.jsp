@@ -7,9 +7,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>궁금해요!</title>
-    <link rel="stylesheet" href="../../css/wonderBoard/wonderBoard.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/wonderBoard/wonderBoard.css">
     <!-- CSS -->
-    <link rel="stylesheet" href="../../css/common/hf.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/common/hf.css">
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.7.1.js"
     integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
@@ -40,8 +40,8 @@
 
             </div>
             <div class="wonder-btn">
-                <button>강의가 궁금해요</button>
-                <button>자유로운 궁금증</button>
+                <button id="classBtn">강의가 궁금해요</button>
+                <button id="freeBtn">자유로운 궁금증</button>
             </div>
             <div class="wonder-bestTag">
                 <h3>인기태그</h3>
@@ -203,5 +203,6 @@
         </div>
     </main>
     <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
+    <script src="${contextPath}/resources/js/wonder/wonder.js"></script>
 </body>
 </html>
