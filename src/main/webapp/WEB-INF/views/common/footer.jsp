@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <footer class="footer">
-
         <div id="chat-box" hidden>
             <div id="chat-id">
                 <div id="chat-close">&times;</div>
@@ -35,8 +34,7 @@
             </div>
         </div>
 
-        <!-- <button class="fa-solid fa-headset callServiceCenter" id="chatBtn">OO</button> -->
-        <button class="callServiceCenter" id="chatBtn">O</button>
+        <button class="callServiceCenter" id="chatBtn"><i class="fa-solid fa-headset"></i></button> 
         <p>통신판매 신고번호 : 1234-서울강남-12345<br>
             상호 : 재능사조<br>
             주소 : 서울특별시 강남구 역삼역<br>

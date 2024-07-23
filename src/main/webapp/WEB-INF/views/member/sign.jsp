@@ -20,7 +20,7 @@
 
     <main id="tlogin">
         <fieldset>
-            <a href="index.jsp"><img src="${contextPath}/resources/img/logo_removebg.png"></a>
+            <a href="${contextPath }"><img src="${contextPath}/resources/img/logo_removebg.png"></a>
             <p>간편하게 로그인하고<br>
             다양한 클래스를 만나보세요</p>
            
@@ -49,7 +49,7 @@
                 </div>
             <button type="submit" name="login" id="tloginBtn">로그인</button>
             </form>
-            <span class="tlogin-join">아직 재능사조 회원이 아니시라면, <a href="${contextPath}/signUp" >회원가입</a> 해보세요</span>
+            <span class="tlogin-join">아직 재능사조 회원이 아니시라면, <a href="${contextPath}/member/signUp" >회원가입</a> 해보세요</span>
         </fieldset>
     </main>
 

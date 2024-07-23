@@ -76,7 +76,6 @@ public class myPageController extends HttpServlet{
 
 			}
 			
-			
 			if(command.equals("/changePw")) {
 
 				String newPw = Util.encodingPw(req.getParameter("newPw1"));
@@ -107,7 +106,7 @@ public class myPageController extends HttpServlet{
 					req.getRequestDispatcher("/WEB-INF/views/mypage/mypage.jsp").forward(req, resp);
 				}
 			}
-		
+
 			if(command.equals("/secession")) {
 				
 				String currentPw = Util.encodingPw(req.getParameter("currentPw"));
