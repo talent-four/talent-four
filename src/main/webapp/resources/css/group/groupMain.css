@@ -1,21 +1,22 @@
-*{box-sizing: border-box;
-    /* border: 1px solid black; */
+*{  
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
-@font-face {font-family: 'Noto Sans KR';
-            font-style: normal;
-            font-weight: 400;
-            src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff2) format('woff2'),
-            url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff) format('woff'),
-            url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.otf) format('opentype');}
-
-
-html{border: none;}
-
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 100;
+    src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Normal.woff2) format('woff2'),
+         url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Normal.woff) format('woff'),
+         url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Normal.otf) format('opentype');
+}
 
 body{
-    width: 1880px;
-    min-height: 1200px;
+    width: 100%;
+    min-height: 1000px;
     max-height: 2000px;
     display: flex;
     flex-direction: column;
@@ -23,18 +24,10 @@ body{
     align-items: center;
 }
 
-
 footer{
-    width: 1280px;
-    font-size:12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color:#afafaf;
-    text-align: center;
-
-  
+    width: 100%;
 }
+
 /* body, header, footer */
 /*------------------------------------------------------------------------------*/
 /* main */
@@ -66,6 +59,11 @@ main>section:nth-child(1)>span{
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.choice-type-area a{
+    text-decoration: none;
+    color: rgb(26, 26, 26);
 }
 
 .choice-type{
@@ -144,11 +142,178 @@ main>section:nth-child(3)>div>div>span>i{
     margin-left: 20px;
     color: rgb(180, 180, 180);
 }
+
 /* 숨겨진 영역 */
 #hidden-area{
+    position: relative;
+    width: 200px;
+}
+
+/* 지역 선택 영역 */
+#hidden-location-area{
+    position: absolute;
+    width: 370px;
+    height: 150px;
+    top: 80px;
+    right: 360px;
+    border: 1px solid rgb(220, 220, 220);
+    background-color: white;
+    border-radius: 10px;
+    display: none;
+    z-index: 3;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
+}
+
+#hidden-location-area>ul{
+    display: flex;
+    flex-wrap: wrap;
+}
+/* 각 지역li */
+.locationDiv{
+    width: 80px;
+    height: 40px;
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 10px;
+    margin: 5px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.locationDiv>input{
     display: none;
 }
 
+.locationDiv.selected {border: 2px solid #219ebc;}
+.stuckDiv.selected {border: 2px solid #219ebc;}
+.typeDiv.selected {border: 2px solid #219ebc;}
+
+/* 지역 검색 버튼 */
+#search-location{
+    width: 150px;
+    height: 30px;
+    margin: 5px 0 0 200px;
+    background-color: #219ebc;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+/* --------------------------------------------------------------------- */
+/* 언어 선택 영역 */
+#hidden-stack-area{
+    position: absolute;
+    width: 650px;
+    height: 200px;
+    top: 80px;
+    right: -100px;
+    border: 1px solid rgb(220, 220, 220);
+    background-color: white;
+    border-radius: 10px;
+    display: none;
+    z-index: 3;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
+}
+
+#hidden-stack-area>ul{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* 각 언어li */
+.stuckDiv{
+    height: 40px;
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 10px;
+    margin: 5px 5px;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+#hidden-stack-area>div{
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+#hidden-stack-area>div>span{
+    margin-left: 10px;
+    font-weight: bold;
+}
+.stuckDiv>img{
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+}
+
+.stuckDiv>input{display: none;}
+
+/* 언어 검색 버튼 */
+#search-stack{
+    width: 150px;
+    height: 30px;
+    background-color: #219ebc;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+/* ----------------------------------------------------------------------------------------------------- */
+/* 모집 형식 선택 영역 */
+#hidden-type-area{
+    border: 1px solid black;
+    position: absolute;
+    width: 150px;
+    height: 135px;
+    top: 80px;
+    left: -180px;
+    border: 1px solid rgb(220, 220, 220);
+    background-color: white;
+    border-radius: 10px;
+    display: none;
+    z-index: 3;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
+}
+
+/* 각 언어li */
+.typeDiv{
+    height: 40px;
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 10px;
+    margin: 5px 5px;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.typeDiv>input{display: none;}
+
+/* 방식 검색 버튼 */
+#search-type{
+    width: 80px;
+    height: 30px;
+    background-color: #219ebc;
+    margin: 5px 0 0 60px;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* ----------------------------------------------------------------------------------------------------- */
 /* 검색창 */
 fieldset{
     width: 500px;
