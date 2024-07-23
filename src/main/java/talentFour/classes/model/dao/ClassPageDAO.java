@@ -27,7 +27,7 @@ public class ClassPageDAO {
 		try {
 			prop = new Properties();
 			
-			String filePath = ClassPageDAO.class.getResource("/talentFour//sql/board-sql.xml").getPath();
+			String filePath = ClassPageDAO.class.getResource("/talentFour/sql/board-sql.xml").getPath();
 			prop.loadFromXML(new FileInputStream(filePath));
 			
 		} catch (Exception e) {
@@ -119,7 +119,6 @@ public class ClassPageDAO {
 			
 		} finally {
 			close(rs);
-			close(stmt);
 			close(pstmt);
 		}
 		
