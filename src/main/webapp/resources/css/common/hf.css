@@ -201,7 +201,7 @@ header {
 #chat-box{
   width: 400px;
   height: 700px;
-  position: fixed;
+  position: absolute;
   right: 200px;
   bottom: 40px;
   border-radius: 15px;
@@ -251,7 +251,7 @@ header {
   color: white;
 }
 
-#chat-message{
+.chat-message{
   width: 400px;
   height: 450px;
   background-color: #219EBC;
@@ -261,7 +261,7 @@ header {
 }
 
 
-#chat-tobox{
+.chat-tobox{
   width: 400px;
   min-height: 20px;
   margin-bottom: 6px;
@@ -270,7 +270,7 @@ header {
   flex-direction: row-reverse;
 }
 
-#chat-frombox{
+.chat-frombox{
   width: 400px;
   min-height: 20px;
   margin-bottom: 6px;
@@ -278,7 +278,7 @@ header {
   display: flex;
 }
 
-#chat-to{
+.chat-to{
   background-color: yellow;
   color: black;
   border-radius: 5px;
@@ -287,7 +287,7 @@ header {
   padding: 5px;
 }
 
-#chat-from{
+.chat-from{
   background-color: white;
   color: black;
   border-radius: 5px;

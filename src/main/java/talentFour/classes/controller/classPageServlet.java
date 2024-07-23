@@ -1,7 +1,6 @@
 package talentFour.classes.controller;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,29 +9,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import talentFour.classes.model.service.ClassPageService;
-import talentFour.classes.model.vo.Category;
-import talentFour.classes.model.vo.Class;
-
-@WebServlet("/classPage/*")
+@WebServlet("/classPage")
 public class classPageServlet extends HttpServlet {
-	
-	private List<Category> categoryList;
-	
-	@Override
-    public void init() throws ServletException {
-        try {
-            // 서블릿 초기화 시 카테고리 정보를 한 번만 가져옴
-            ClassPageService service = new ClassPageService();
-            categoryList = service.getCategory();
-            System.out.println("Initialized with categoryList: " + categoryList);
-        } catch (Exception e) {
-            throw new ServletException("Error initializing servlet", e);
-        }
-    }
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+<<<<<<< HEAD
 		String uri = req.getRequestURI();
 		String contextPath = req.getContextPath();
 		String command = uri.substring(  (contextPath + "/classPage/").length()  );
@@ -94,6 +76,10 @@ public class classPageServlet extends HttpServlet {
 		}
 		
 		
+=======
+		req.getRequestDispatcher("/WEB-INF/views/pages/classPage.jsp").forward(req, resp);
+		HttpSession session = req.getSession();
+		System.out.println(session.getAttribute("loginMember"));
+>>>>>>> origin/main
 	}
-	
 }
