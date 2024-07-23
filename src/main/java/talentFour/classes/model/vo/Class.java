@@ -18,7 +18,7 @@ public class Class {
 	private String classIntro;
 	private String classPhoto;
 	private String classUrl;
-	private String classCreateDt;
+	private String classCreateDt; 
 	private int classStatus;
 	private int classPrice;
 	private int memberNo;

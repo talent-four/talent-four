@@ -32,12 +32,13 @@
                 </div>
             </div>
             <nav class="detailedNav">
+            ${currUrl }
                 <ul>
-                    <li><a href="#">클래스 소개</a></li>
-                    <li><a href="#">커리큘럼</a></li>
-                    <li><a href="#">튜터 소개</a></li>
-                    <li><a href="#">리뷰<span class="nav-min-15">15</span></span></a></li>
-                    <li><a href="#">QnA<span class="nav-min-15">15</span></span></a></li>
+                    <li><a href="${currUrl}&type=classintro">클래스 소개</a></li>
+                    <li><a href="${currUrl}">커리큘럼</a></li>
+                    <li><a href="${currUrl}&type=tutorintro">튜터 소개</a></li>
+                    <li><a href="${currUrl}&type=review">리뷰<span class="nav-min-15">15</span></span></a></li>
+                    <li><a href="${currUrl}&type=QnA">QnA<span class="nav-min-15">15</span></span></a></li>
                 </ul>
             </nav>
         </section>

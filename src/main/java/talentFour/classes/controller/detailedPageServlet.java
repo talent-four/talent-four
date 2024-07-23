@@ -25,6 +25,8 @@ public class detailedPageServlet extends HttpServlet {
 			
 			if(c != null) {
 				req.setAttribute("classInfo", c);
+				String url = req.getRequestURI() + "?" + req.getQueryString();
+				req.setAttribute("currUrl", url);
 			} else {
 				req.setAttribute("message", "잘못된 요청");
 			}
