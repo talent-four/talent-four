@@ -20,8 +20,6 @@ public class TutorClass {
 	private String className;
 	private int classStatus ;
 	private String classCreateDate;
-	private int classcount;
-	
-	
+	private String classCount;
 	
 }

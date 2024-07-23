@@ -65,7 +65,7 @@
 	            	</c:forEach>
 	            </c:otherwise>
             </c:choose>
-            <a href="#">
+            <a href="${contextPath}/group/groupDetail">
                 <article class="each-board">
                     <div>
                         <div class="group-type ing">모집중</div>
@@ -78,6 +78,7 @@
                         <span class="group-content">스터디 모집 게시글 작성 내용입니다.</span>
                     </div>
                     <div class="tag-area">
+                        
                     </div>
                     <div class="etc-info">
                         <div class="nick-num-area">
@@ -91,110 +92,7 @@
                     </div>
                 </article>
             </a>
-            <a href="#">
-                <article class="each-board">
-                    <div>
-                        <div class="group-type ing">모집중</div>
-                        <div class="group-locate">서울 강남구</div>
-                    </div>
-                    <div class="group-date">
-                        <i class="fa-regular fa-calendar"></i><span>7월 15일 오전 10시</span>
-                    </div>
-                    <div class="group-title">
-                        <span class="group-content">스터디 모집 게시글 작성 내용입니다.</span>
-                    </div>
-                    <div class="tag-area">
-                    </div>
-                    <div class="etc-info">
-                        <div class="nick-num-area">
-                            <span>작성자 닉네임</span>
-                            <span>모집인원 : <span>0</span>명</span>
-                        </div>
-                        <div class="view-area">
-                            <i class="fa-regular fa-eye"></i>
-                            <span>10</span>
-                        </div>
-                    </div>
-                </article>
-            </a>
-            <a href="#">
-                <article class="each-board">
-                    <div>
-                        <div class="group-type ing">모집중</div>
-                        <div class="group-locate">서울 강남구</div>
-                    </div>
-                    <div class="group-date">
-                        <i class="fa-regular fa-calendar"></i><span>7월 15일 오전 10시</span>
-                    </div>
-                    <div class="group-title">
-                        <span class="group-content">스터디 모집 게시글 작성 내용입니다.</span>
-                    </div>
-                    <div class="tag-area">
-                    </div>
-                    <div class="etc-info">
-                        <div class="nick-num-area">
-                            <span>작성자 닉네임</span>
-                            <span>모집인원 : <span>0</span>명</span>
-                        </div>
-                        <div class="view-area">
-                            <i class="fa-regular fa-eye"></i>
-                            <span>10</span>
-                        </div>
-                    </div>
-                </article>
-            </a>
-            <a href="#">
-                <article class="each-board">
-                    <div>
-                        <div class="group-type ing">모집중</div>
-                        <div class="group-locate">서울 강남구</div>
-                    </div>
-                    <div class="group-date">
-                        <i class="fa-regular fa-calendar"></i><span>7월 15일 오전 10시</span>
-                    </div>
-                    <div class="group-title">
-                        <span class="group-content">스터디 모집 게시글 작성 내용입니다.</span>
-                    </div>
-                    <div class="tag-area">
-                    </div>
-                    <div class="etc-info">
-                        <div class="nick-num-area">
-                            <span>작성자 닉네임</span>
-                            <span>모집인원 : <span>0</span>명</span>
-                        </div>
-                        <div class="view-area">
-                            <i class="fa-regular fa-eye"></i>
-                            <span>10</span>
-                        </div>
-                    </div>
-                </article>
-            </a>
-            <a href="#">
-                <article class="each-board">
-                    <div>
-                        <div class="group-type ing">모집중</div>
-                        <div class="group-locate">서울 강남구</div>
-                    </div>
-                    <div class="group-date">
-                        <i class="fa-regular fa-calendar"></i><span>7월 15일 오전 10시</span>
-                    </div>
-                    <div class="group-title">
-                        <span class="group-content">스터디 모집 게시글 작성 내용입니다.</span>
-                    </div>
-                    <div class="tag-area">
-                    </div>
-                    <div class="etc-info">
-                        <div class="nick-num-area">
-                            <span>작성자 닉네임</span>
-                            <span>모집인원 : <span>0</span>명</span>
-                        </div>
-                        <div class="view-area">
-                            <i class="fa-regular fa-eye"></i>
-                            <span>10</span>
-                        </div>
-                    </div>
-                </article>
-            </a>
+            
             <a href="#">
                 <article class="each-board">
                     <div>

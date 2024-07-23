@@ -27,8 +27,6 @@ public class TutorcalculateServlet extends HttpServlet{
 			
 			req.setAttribute("tutorcalculateList", tutorcalculateList);
 			
-			
-			
 			req.getRequestDispatcher("/WEB-INF/views/tutor/calculate.jsp").forward(req, resp);
 		} catch (Exception e) {
 			e.printStackTrace();

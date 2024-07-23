@@ -8,11 +8,11 @@
 		FROM CLASS
 		WHERE CLASS_STATUS = ?
 	</entry>
-	
+ 
 	<entry key="classcount">
 		SELECT COUNT(*) FROM CLASS WHERE CLASS_STATUS = ?
 	</entry>
-	
+  
 	<entry key="selectClassSellList">
 		SELECT TO_CHAR(START_DATE,'YYYY.MM.DD'), MEMBER_NM, BOARD_TITLE, PAYMENT_STATUS
 		FROM BOARD
@@ -20,15 +20,14 @@
 		JOIN PAID USING(MEMBER_NO)
 	</entry>
 
-
-
-	<entry key="selectClassSellList">
+	<entry key="selectCalculateList">
 		SELECT SETTLE_STATUS, MEMBER_NM, BOARD_TITLE, CLASS_PRICE, COMMISSION, SETTLE_DATE
 		FROM SETTLE
 		JOIN MEMBER USING(MEMBER_NO)
 		JOIN BOARD USING(MEMBER_NO)
 		JOIN CLASS USING(MEMBER_NO)
 		WHERE SETTLE_STATUS = ?
+		AND MEMBER_NO = 2
 	</entry>
 
 

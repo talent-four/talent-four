@@ -7,7 +7,7 @@
 	       <img src="${contextPath}/resources/img/cat1.jpg" id="profile-imgP"> <!-- 사이드 프로필 사진 -->
 	    </div>
 	    <div>
-	        <span id="profile-idP">OOO</span>
+	        <span id="profile-idP">${loginmember.memberNickname}</span>
 	        <span>튜터</span>
 	    </div>
 	</div>

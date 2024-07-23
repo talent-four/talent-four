@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,7 +39,11 @@
                                 <div class="class-rowP">
                                     <div><img src="${tutorclasses.classPhoto}" class="class-thumbnail"></div>
                                     <div><a href="#">${tutorclasses.className}</a></div>
-                                    <div><div><span>${tutorclasses.classStatus}</span></div></div>
+                                    <div><div><span>
+                                        <c:if test="${tutorclasses.classStatus == 1}">
+                                            운영중
+                                        </c:if>
+                                    </span></div></div>
                                     <div><span>${tutorclasses.classCreateDate}</span></div>
                                 </div>
                             </c:forEach>
@@ -48,14 +53,7 @@
                 <div class="class-btn-areaP">
                     <span>총 </span>
                     <span id="now-class-countP">
-                        <c:choose>
-                            <c:when test="${empty tutorclasses}">
-                                0
-                            </c:when>
-                            <c:otherwise>
-                                ${tutorclasses.classcount}
-                            </c:otherwise>
-                        </c:choose>
+                        ${counting.classCount}
                     </span>
                     <span>개</span>
                 </div>
@@ -78,7 +76,11 @@
                                 <div class="class-rowP">
                                     <div><img src="${tutorclassesfin.classPhoto}" class="class-thumbnail"></div>
                                     <div><a href="#">${tutorclassesfin.className}</a></div>
-                                    <div><div><span>${tutorclassesfin.classStatus}</span></div></div>
+                                    <div><div id="finclassdiv"><span>
+                                        <c:if test="${tutorclassesfin.classStatus == 2}">
+                                            운영 종료
+                                        </c:if>
+                                    </span></div></div>
                                     <div><span>${tutorclassesfin.classCreateDate}</span></div>
                                 </div>
                             </c:forEach>
@@ -88,14 +90,7 @@
                 <div class="class-btn-areaP">
                     <span>총 </span>
                     <span id="now-class-countP">
-                        <c:choose>
-                            <c:when test="${empty tutorclasses}">
-                                0
-                            </c:when>
-                            <c:otherwise>
-                                ${tutorclassesfin.classcount}
-                            </c:otherwise>
-                        </c:choose>
+                        ${countfin.classCount}
                     </span>
                     <span>개</span>
                 </div>

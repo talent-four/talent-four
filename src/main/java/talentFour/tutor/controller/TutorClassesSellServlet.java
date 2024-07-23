@@ -20,13 +20,13 @@ public class TutorClassesSellServlet extends HttpServlet {
 		
 		try {
 			
-//			TutorService service = new TutorService();
-//			
-//			List<TutorClassSell> tutorclassSell = new ArrayList<>();
-//			
-//			tutorclassSell = service.selectClassSellList();
-//			
-//			req.setAttribute("tutorclassSell", tutorclassSell);
+			TutorService service = new TutorService();
+			
+			List<TutorClassSell> tutorclassSell = new ArrayList<>();
+			
+			tutorclassSell = service.selectClassSellList();
+			
+			req.setAttribute("tutorclassSell", tutorclassSell);
 			
 			req.getRequestDispatcher("/WEB-INF/views/tutor/classesSell.jsp").forward(req, resp);
 			
