@@ -9,10 +9,10 @@ import lombok.ToString;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
 @Setter
-@Builder
+@Getter
 @ToString
+@Builder
 public class Chatting {
 	private String fromName;
 	private String toName;

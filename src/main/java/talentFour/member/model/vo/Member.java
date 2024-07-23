@@ -8,12 +8,12 @@ import lombok.Setter;
 import lombok.ToString;
 
 
+@Builder
+@Setter
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
 @ToString
-@Builder
 public class Member {
 	private int memberNo;
 	private String memberEmail;

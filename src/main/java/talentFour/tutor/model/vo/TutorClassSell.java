@@ -10,9 +10,9 @@ import lombok.ToString;
 
 @Setter
 @Getter
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class TutorClassSell {
 	
 	private String startDate;

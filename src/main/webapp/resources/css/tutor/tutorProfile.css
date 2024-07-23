@@ -180,7 +180,7 @@ main {
 
 .text-areaP {
     width: 920px;
-    height: 700px;
+    height: 800px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -230,7 +230,7 @@ main {
     height: 30px;
     border-radius: 50%;
     top: 250px;
-    left: 950px;
+    left: 980px;
     border: none;
     background-color: #219ebc;
 }
@@ -261,7 +261,7 @@ main {
     width: 35px;
     height: 35px;
     font-size: 20px;
-    margin: 3px 0 0 15px;
+    margin: 0 0 0 15px;
     border-radius: 50%;
     background-color: transparent;
     border: none;
@@ -307,43 +307,43 @@ main {
 
 /* 전화 번호 끝  */
 /* --------------------------------------------------------------------------- */
-/* 이력 사항 */
+/* 정산 계좌 */
 
-.text-areaP>div:nth-child(4) {
-    display: flex;
-    justify-content: space-between;
+.text-areaP>div:nth-child(3){
+    height: 150px;
 }
-
-#careerP {
-    display: none;
-}
-
-#add-careerP {
+/* 계좌 입력 영역 */
+.text-areaP>div:nth-child(3)>div{ 
+    height: 150px;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    height: 33px;
-    width: 130px;
-    border-radius: 10px;
-    background-color: transparent;
+}
+
+.text-areaP>div:nth-child(3)>div>div{
+    margin: 10px 0;
+}
+/* 계좌 정보들 */
+.text-areaP>div:nth-child(3)>div>div>span{
+    display: inline-block;
+    width: 80px;
+}
+
+.text-areaP input{
+    outline: none;
+    width: 200px;
+    height: 35px;
     border: 1px solid rgb(220, 220, 220);
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-    font-size: 14px;
-    cursor: pointer;
-    margin: 0 10px 0 0;
+    border-radius: 5px;
 }
 
-#add-careerP>i {
-    font-size: 12px;
-    color: gray;
-    margin: 2px 5px 0 3px;
-}
-
+/* 정산 계좌 끝 */
 /*--------------------------------------------------------------------------------*/
 /* 튜터 소개 */
 
-.text-areaP>div:nth-child(5) {
-    height: 500px;
+.text-areaP>div:nth-child(4) {
+    height: 450px;
 }
 
 .text-areaP>div:nth-child(5)>div:nth-child(2) {
