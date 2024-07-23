@@ -17,7 +17,7 @@ import talentFour.member.model.vo.Member;
 @WebServlet("/member/*")
 public class MemberServlet extends HttpServlet {
 
-	
+	//test
 	// req 주면 command만 빼서 반환
 	public String getCommand(HttpServletRequest req){
 		String uri = req.getRequestURI();
