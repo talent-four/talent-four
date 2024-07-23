@@ -2,12 +2,14 @@
 const headerBoxBtn = document.getElementById("headerBoxBtn");
 const headerBox = document.getElementById("headerBox");
 
-headerBoxBtn.addEventListener("click", function(){
-    if (headerBox.style.display === "flex") {
-        headerBox.style.display = "none";
-        headerBoxBtn.style.backgroundColor = "";
-    } else {
-        headerBoxBtn.style.backgroundColor = "#219EBC";
-        headerBox.style.display = "flex";
-    }
-})
+if(headerBoxBtn != null){
+    headerBoxBtn.addEventListener("click", function(){
+        if (headerBox.style.display === "flex") {
+            headerBox.style.display = "none";
+            headerBoxBtn.style.backgroundColor = "";
+        } else {
+            headerBoxBtn.style.backgroundColor = "#219EBC";
+            headerBox.style.display = "flex";
+        }
+    })
+}

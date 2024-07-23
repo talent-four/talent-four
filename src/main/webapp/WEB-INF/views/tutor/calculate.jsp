@@ -21,14 +21,13 @@
             <article>
                 <div>
                     <div class="calculate-upP">
-                         <span>총 정산 금액</span>
+                        <div class="calculate-upP">
+                            <span>총 정산 금액</span>
+                        </div>
                     </div>
                     <div class="calculate-downP">
                         <span id="all-calculate-moneyP">0</span>
                         <span>원</span>
-                        <span>(</span>
-                        <span id="all-calculate-countP">0</span>
-                        <span>)건</span>
                     </div>
                 </div>
                 <div>
@@ -38,9 +37,6 @@
                     <div class="calculate-downP">
                         <span id="now-calculate-moneyP">0</span>
                         <span>원</span>
-                        <span>(</span>
-                        <span id="now-calculate-countP">0</span>
-                        <span>)건</span>
                     </div>
                 </div>
             </article>
@@ -89,56 +85,94 @@
 
                 <div class="type-area">
                     <div class="calculate-status choiced">
-                        <span>정산중</span>
+                        <a href="${contextPath}/tutor/calculate?cp=1" class="status-link" data-id="1">정산중</a>
                     </div>
                     <div class="calculate-status">
-                        <span>정산완료</span>
+                        <a href="${contextPath}/tutor/calculate?cp=2" class="status-link" data-id="2">정산완료</a>
                     </div>
                 </div>
 
             </article>
 
             <article class="calculate-all-areaP">
-                <table>
+                <table class="calculate-table">
                     <thead>
                         <tr>
                              <th><input type="checkbox" id="title-checkP"></th>
                              <th>정산상태</th>
+                             <th>수강생명</th>
                              <th>클래스명</th>
                              <th>정산 예정 금액</th>
                              <th>수수료율</th>
                              <th>정산 신청 시간</th>
                         </tr> 
                     </thead>
-                    <tbody>
-                        <tr>
-                            
+                    <tbody class="cal-all-rows">
+                        <tr class="cal-each-rows">
+                            <td><input type="checkbox" name="money"></td>
+                            <td><div class="cal-status">정산미신청</div></td>
+                            <td>김재능</td>
+                            <td>좋아하는 영화로 영어회화 따라잡기</td>
+                            <td>36,346원</td>
+                            <td>20%</td>
+                            <td>2024.07.15</td>
                         </tr>
+                        <tr class="cal-each-rows">
+                            <td><input type="checkbox" name="money"></td>
+                            <td><div class="cal-status ing">정산진행중</div></td>
+                            <td>김재능</td>
+                            <td>좋아하는 영화로 영어회화 따라잡기</td>
+                            <td>36,346원</td>
+                            <td>20%</td>
+                            <td>2024.07.15</td>
+                        </tr>
+                        <tr class="cal-each-rows">
+                            <td><input type="checkbox" name="money"></td>
+                            <td><div class="cal-status finished">정산완료</div></td>
+                            <td>김재능</td>
+                            <td>좋아하는 영화로 영어회화 따라잡기</td>
+                            <td>36,346원</td>
+                            <td>20%</td>
+                            <td>2024.07.15</td>
+                        </tr>
+                        <tr class="cal-each-rows">
+                            <td><input type="checkbox" name="money"></td>
+                            <td><div class="cal-status">정산미신청</div></td>
+                            <td>김재능</td>
+                            <td>좋아하는 영화로 영어회화 따라잡기</td>
+                            <td>36,346원</td>
+                            <td>20%</td>
+                            <td>2024.07.15</td>
+                        </tr>
+                        
                     </tbody>
                 </table>
-                
-                <div>
-                    <div class="calculate-each-contentP">
-                        <div><input type="checkbox" name="money"></div>
-                        <div><div class="calculate-borderP" id="calculate-borderP"><div class="circleP" id="circleP"></div><span>정산 미신청</span></div></div>
-                        <div><span>탈잉</span></div>
-                        <div><span>좋아하는 영화로 영어회화 따라잡기</span></div>
-                        <div><span>36,346원</span></div>
-                        <div><span>20%</span></div>
-                        <div><span>2024.02.16</span></div>
-                    </div>
-                    
-                    
-                </div>
             </article>
-            <div class="cal-btn-areaP">
-                <span>총 </span>
-                <span id="calculate-countP">O</span>
-                <span>개, </span>
-                <span id="calculate-page-countP">O</span>
-                <span>페이지</span>
-                <button id="cal-page-left-btnP" class="cal-page-change-btnP"><i class="fa-solid fa-angle-left"></i></button>
-                <button id="cal-page-right-btnP" class="cal-page-change-btnP"><i class="fa-solid fa-angle-right"></i></button>
+            <div class="pagination-area">
+
+                <!-- 페이지네이션 a 태그에 사용될 공통 주소를 저장할 변수 선언 -->
+                <c:set var="url" value="list?type=${param.type}&cp="/>
+
+                <ul class="pagination">
+                    <li><a href="${url}1">&lt;&lt;</a></li>
+                    <li><a href="${url}${pagination.prevPage}">&lt;</a></li>
+
+                    <!-- 범위가 정해진 일반 for문 사용 -->                    
+                    <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
+                        <c:choose>
+                            <c:when test="${i == pagination.currentPage}">
+                                <li><a class="current">${i}</a></li>
+                            </c:when>
+                            <c:otherwise>
+                                <li><a href="${url}${i}">${i}</a></li>
+                            </c:otherwise>
+                        </c:choose>
+
+                    </c:forEach>
+                    <!-- 위의 cp는 currentPage의 약자 -->
+                    <li><a href="${url}${pagination.nextPage}">&gt;</a></li>
+                    <li><a href="${url}${pagination.maxPage}">&gt;&gt;</a></li>
+                </ul>
             </div>
         </section>
        

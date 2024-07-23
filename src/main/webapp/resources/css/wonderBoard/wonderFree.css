@@ -265,8 +265,6 @@
 
 
 
-
-
 .wonder-count {
     font-size: 18px;
     color: #9D9D9D;
@@ -277,10 +275,6 @@
 
 .wonder-count>span{
     padding-right:20px;
-}
-
-.wonder-count>span:nth-child(2){
-    width:200px;
 }
 
 .wonder-count>ul{
@@ -314,11 +308,13 @@
     text-decoration: 0;
     position: fixed; 
     bottom: 80px;
-    right:150px;
+    right:20px;
     text-align: center;
     font-size: 20px;
 
+    
 }
+
 /* 페이지네이션 */
 
 .wonder-page-area{
