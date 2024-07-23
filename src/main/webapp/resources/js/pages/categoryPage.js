@@ -1,23 +1,25 @@
-// // 소분류 버튼 리스너
-// (function(){
-//   const subCategoryBtn = document.getElementsByClassName("subCategoryBtn");
-  
+function orderByRecommand() {
+    let url = window.location.pathname;
+    let command = url.substring(url.lastIndexOf('/') + 1); // "MAIN_1"
+    
+    console.log(url);
+    console.log(command);
+
+    $.ajax({
+        data : {"command" : command }
+    })
+}
 
 
+function orderByDate() {
 
-//   for(let subCate of subCategoryBtn){
-//     subCate.addEventListener("click", function(event){
-//         // 현재 URL 가져오기
-//         const currentUrl = window.location.href;
+}
 
-//         // URL을 '/'로 분리하여 배열로 만듦
-//         const urlParts = currentUrl.split('/');
-//       alert(currentUrl + urlParts);
-//     })
-  
-//   }
-// })();
+/* 
 
+SELECT *
+FROM CLASS
+WHERE CATEGORY_CODE = "SUB_1"
+ORDER BY CLASS_CREATE_DT
 
-
-  
+*/
