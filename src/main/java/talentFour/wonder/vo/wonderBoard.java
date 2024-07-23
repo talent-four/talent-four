@@ -24,5 +24,5 @@ public class wonderBoard {
     private int readCount;
     private int board_cd;
 	private String qaStatus;
-
+	
 }

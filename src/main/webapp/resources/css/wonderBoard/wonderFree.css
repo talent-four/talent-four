@@ -265,6 +265,8 @@
 
 
 
+
+
 .wonder-count {
     font-size: 18px;
     color: #9D9D9D;
@@ -275,6 +277,10 @@
 
 .wonder-count>span{
     padding-right:20px;
+}
+
+.wonder-count>span:nth-child(2){
+    width:200px;
 }
 
 .wonder-count>ul{

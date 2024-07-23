@@ -53,7 +53,6 @@ public class wonderDAO {
 			
 			while(rs.next()) {
 				wonderBoard wonderBoard = new wonderBoard();
-				
 				wonderBoard.setBoardNo(rs.getInt("BOARD_NO"));
 			    wonderBoard.setBoardTitle(rs.getString("BOARD_TITLE"));
 			    wonderBoard.setBoardContent(rs.getString("BOARD_CONTENT")); 
@@ -62,6 +61,7 @@ public class wonderDAO {
 			    wonderBoard.setMemberNickname(rs.getString("MEMBER_NM")); 
 			    wonderBoard.setQaStatus(rs.getString("QA_STATUS"));
 			    wonderBoard.setWonderType(rs.getString("WONDER_TYPE")); 
+			   
 
 
 				wonderFreeList.add(wonderBoard);
