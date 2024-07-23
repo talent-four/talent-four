@@ -15,7 +15,6 @@ public class JDBCTemplate {
 	public static Connection getConnection() {
 
 		try {
-
 			
 			Context initContext = new InitialContext();
 			

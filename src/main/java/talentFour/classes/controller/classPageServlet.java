@@ -14,8 +14,72 @@ public class classPageServlet extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+<<<<<<< HEAD
+		String uri = req.getRequestURI();
+		String contextPath = req.getContextPath();
+		String command = uri.substring(  (contextPath + "/classPage/").length()  );
+		System.out.println("doGet 실행");
+		
+		try {
+			req.setAttribute("categoryList", categoryList);
+			
+			// 맨 처음, all로 요청시,
+			if(command.equals("all")) {
+				 ClassPageService service = new ClassPageService();
+                 try {
+                 	List<Class> classList = service.getAllClasses();
+                 	req.setAttribute("classList", classList);
+                 } catch (Exception e) {
+                 	e.printStackTrace();
+ 				}
+			} else {
+				 // command 값을 기준으로 대분류와 소분류 처리
+	            String[] parts = command.split("/");
+	            
+	            // 대분류 선택 상태
+	            if (parts.length > 0) {
+	                String mainCategoryCode = parts[0]; // 대분류 코드
+	                for (Category category : categoryList) {
+	                    if (category.getCategoryCode().equals(mainCategoryCode)) {
+	                    	
+	                        ClassPageService service = new ClassPageService();
+	                        try {
+	                        	List<Class> classList = service.getMainClasses(mainCategoryCode);
+	                        	req.setAttribute("classList", classList);
+	                        	req.setAttribute("mainCategory", category);
+
+	                        } catch (Exception e) {
+	                        	e.printStackTrace();
+	        				}
+	                    	
+	                    }
+	                }
+	            }
+	            
+	            // 소분류 선택 상태
+	            if (parts.length > 1) {
+	                String subCategoryCode = parts[1]; // 소분류 코드
+	                
+	                ClassPageService service = new ClassPageService();
+	                try {
+	                	List<Class> classList = service.getClasses(subCategoryCode);
+	                	req.setAttribute("classList", classList);
+	                } catch (Exception e) {
+	                	e.printStackTrace();
+					}
+	            }
+			}
+            
+        	req.getRequestDispatcher("/WEB-INF/views/pages/classPage.jsp").forward(req, resp);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+=======
 		req.getRequestDispatcher("/WEB-INF/views/pages/classPage.jsp").forward(req, resp);
 		HttpSession session = req.getSession();
 		System.out.println(session.getAttribute("loginMember"));
+>>>>>>> origin/main
 	}
 }
