@@ -29,7 +29,7 @@ COMMENT ON COLUMN "MEMBER"."MEMBER_PW" IS '회원 비밀번호';
 
 COMMENT ON COLUMN "MEMBER"."ENROLL_DT" IS '회원가입일';
 
-COMMENT ON COLUMN "MEMBER"."SECESSION_FL" IS '회원 탈퇴(탈퇴시 Y)';
+COMMENT ON COLUMN "MEMBER"."SECESSION_FL" IS '회원 탈퇴(탈퇴시 'Y')';
 
 COMMENT ON COLUMN "MEMBER"."MEMBER_ST" IS '회원(1), 튜터(2), 관리자(3), 정지(4)';
 
@@ -523,18 +523,13 @@ REFERENCES "PAID" (
 	"CLASS_NO"
 );
 
---MEMBER_PW 크기 변경
-ALTER TABLE MEMBER MODIFY MEMBER_PW VARCHAR2(200);
-
 -- 멤버 시퀀스 생성
 CREATE SEQUENCE SEQ_MEMBER_NO;
 
 -- 유저 삽입
 
 -- 유저1
-INSERT INTO MEMBER VALUES (SEQ_MEMBER_NO.NEXTVAL, 'KH@NAVER.COM', 'USER1', 'TBSrjPXus0Ua1I39EDPUK9G4Ve5Sau9VmmErjnUxWAbV5SHSpfue1kAlA7wLThHkf7EhDmDpRC5jBij6KWiFOQ==', DEFAULT, 'N', '1', NULL);
---비밀번호 PASS1
-
+INSERT INTO MEMBER VALUES (SEQ_MEMBER_NO.NEXTVAL, 'KH@NAVER.COM', 'USER1', 'PASS1', DEFAULT, 'N', '1', NULL);
 --튜터1
 INSERT INTO MEMBER VALUES (SEQ_MEMBER_NO.NEXTVAL, 'KH2@NAVER.COM', 'USER2', 'PASS2', DEFAULT, 'N', '2', NULL);
 --관리자1
@@ -580,7 +575,7 @@ INSERT INTO BOARD VALUES (SEQ_BOARD_NO.NEXTVAL, '강의후기 제목2', '강의 
 INSERT INTO BOARD VALUES (SEQ_BOARD_NO.NEXTVAL, '강의후기 제목3', '강의 후기 내용입니다.', SYSDATE, SYSDATE, DEFAULT, DEFAULT,1,3);
 INSERT INTO BOARD VALUES (SEQ_BOARD_NO.NEXTVAL, '강의후기 제목4', '강의 후기 내용입니다.', SYSDATE, SYSDATE, DEFAULT, DEFAULT,1,3);
 INSERT INTO BOARD VALUES (SEQ_BOARD_NO.NEXTVAL, '강의후기 제목5', '강의 후기 내용입니다.', SYSDATE, SYSDATE, DEFAULT, DEFAULT,1,3);
-select * from board;
+
 
 -- 게시판 종류 
 INSERT INTO BOARD_TYPE VALUES (1, '클래스');
@@ -629,7 +624,6 @@ SELECT * FROM MEMBER;
 UPDATE MEMBER SET MEMBER_NM='USER1' WHERE MEMBER_NM='ASD'; 
 
 -- 비밀번호 검사 SQL문
-<<<<<<< HEAD
 SELECT COUNT(MEMBER_NO) FROM MEMBER WHERE MEMBER_PW='PASS1' AND MEMBER_NO=1;
 
 -- 궁금해요 게시판 
@@ -739,181 +733,3 @@ SELECT TAG_NAME, BOARD_NO FROM HASHTAG
 JOIN WONDER_BOARD USING(BOARD_NO)
 JOIN BOARD USING(BOARD_NO)
 WHERE  BOARD_ST= 1 AND BOARD_CD = 4 AND WONDER_TYPE ='자유로운궁금증';
-=======
-SELECT COUNT(MEMBER_NO) FROM MEMBER WHERE MEMBER_PW='PASS2' AND MEMBER_NO=2;
-
--- 비밀번호 변경
-UPDATE MEMBER SET MEMBER_PW='새로운 비밀번호' WHERE MEMBER_NO=2; 
-
--- KH@NAVER.COM 현재 비밀번호 p임
-
--- 회원 탈퇴
-UPDATE MEMBER SET SECESSION_FL='N' WHERE MEMBER_NO=1;
-commit;
-select * from member;
-
----------------------------------------------------------
--- 리뷰테이블 복합키로 클래스를 설정해야함
-
--- 리뷰 테이블 CLASS_NO 추가
-ALTER TABLE "REVIEW" ADD "CLASS_NO" NUMBER;
-update review set class_no =1;
-commit;
-select * from review;
-
-ALTER TABLE "REVIEW" ADD CONSTRAINT "FK_BOARD_TO_REVIEW_2" FOREIGN KEY (
-	"CLASS_NO"
-)
-REFERENCES "CLASS" (
-	"CLASS_NO"
-);
-
-ALTER TABLE "REVIEW" DROP PRIMARY KEY;
-
-ALTER TABLE "REVIEW" ADD CONSTRAINT pk_review PRIMARY KEY ("BOARD_NO", "CLASS_NO");
---------------------------------------------------------------------------------------
-	private int boardNo;
-	private String boardTitle;
-	private String boardContent;
-	private String createdDate;
-	private String updateDate;
-	private int readCount;
-	private int boardStatus;
-	private int memberNo; //게시글(리뷰) 작성자
-    -----
-	private double reviewStar;
-	private int parents; // 리뷰의 상위 게시글
-    ---
-	private String report;
-	---
-    private String thumb;
-	---
-    private String tag;
--- 리뷰 조회
-SELECT B.BOARD_NO, B.BOARD_TITLE, B.BOARD_CONTENT, B.CREATED_DT, B.UPDATE_DT, B.BOARD_ST, M.MEMBER_NM, R.REIVEW_STAR, R.CLASS_NO as parents , H.TAG_NAME , (SELECT COUNT(*) FROM REPORT WHERE B.BOARD_NO=BOARD_NO) AS REPORT, (SELECT COUNT(*) FROM THUMBS WHERE B.BOARD_NO=BOARD_NO) AS THUMBS, M.MEMBER_PROFILE
-FROM BOARD B
-JOIN REVIEW R ON (B.BOARD_NO=R.BOARD_NO)
-JOIN HASHTAG H ON (B.BOARD_NO=H.BOARD_NO)
-JOIN MEMBER M ON (B.MEMBER_NO=M.MEMBER_NO)
-WHERE B.MEMBER_NO=1
-AND BOARD_CD=3;
-
-
---비밀번호 컬럼 크기 변경
-ALTER TABLE MEMBER MODIFY MEMBER_PW VARCHAR2(200);
-
-select * from member;
-
--- 3번회원이 게시판 1번글을 신고(리뷰)추가
-INSERT INTO REPORT VALUES(1,3,'욕함', '욕했다니까');
--- 무결성 제약조건 오류 확인 (오류 나옴)
-
----- review 오타 수정해야함
--- HASHTAG 안의 것들 1:1대응으로 바꿀수있도록 BOARD_NO를 1234567로 변경
-select * from hashtag;
-update hashtag set board_no =6 where tag_no=11;
-commit;
-SELECT * FROM REPORT;
-SELECT * FROM REPORT WHERE BOARD_NO=1;
-
-
-
-
--- payment 테이블 조회
-
-SELECT CLASS_URL, CLASS_NAME, TO_CHAR(START_DATE, 'YY-MM-DD')
-FROM PAID P 
-JOIN CLASS C ON (P.CLASS_NO=C.CLASS_NO)
-WHERE P.MEMBER_NO=1;
--- 경로 추가 class url
-update class set class_url='/resources/img/class.jpg';
---------------------------- 제거 안됬음 다시 만들어서 PAID테이블 MEMBER_NO의 UNIQUE제약조건 삭제해야함---
---1번 회원이 2번 강의 결제 추가
-INSERT INTO PAID VALUES (1, 2, '무통장입금' , 'Y' , SYSDATE);
--- 추가하려면 PAID 테이블의 CLASS UNIQUE 속성 제거해야함
--- 제약 조건 이름 검색
-SELECT constraint_name
-FROM user_constraints
-WHERE table_name = 'PAID'
-  AND constraint_type = 'U';  -- 'U' stands for UNIQUE
-
--- 제약 조건 제거
-ALTER TABLE "PAID" DROP CONSTRAINT "UQ_PAID_CLASS_NO";
-
---참조키부터 제거해야 UQ제거 가능
--- 참조하는 외래키 제약조건 검색
-SELECT a.constraint_name
-FROM all_constraints a
-JOIN all_cons_columns c ON a.constraint_name = c.constraint_name
-WHERE a.constraint_type = 'R' -- R stands for Referential (Foreign Key)
-AND c.table_name = 'PAID'
-AND c.column_name = 'CLASS_NO';
--- 외래키 제약조건 제거
-ALTER TABLE PAID DROP CONSTRAINT FK_CLASS_TO_PAID_1;
--- 여기까지 완료 후 유니크 제약조건 제거
-
-------------------------------------------------------------------------------------------------------
--- 1번 클래스에 대한 리뷰 작성 (작성자 4번 회원)
-INSERT INTO BOARD VALUES (SEQ_BOARD_NO.NEXTVAL, '강의후기 제목6', '강의 후기 내용입니다.', SYSDATE, SYSDATE, DEFAULT, DEFAULT,4,3);
-INSERT INTO BOARD VALUES (SEQ_BOARD_NO.NEXTVAL, '강의후기 제목7', '강의 후기 내용입니다.', SYSDATE, SYSDATE, DEFAULT, DEFAULT,4,3);
-INSERT INTO BOARD VALUES (SEQ_BOARD_NO.NEXTVAL, '강의후기 제목8', '강의 후기 내용입니다.', SYSDATE, SYSDATE, DEFAULT, DEFAULT,4,3);
-INSERT INTO BOARD VALUES (SEQ_BOARD_NO.NEXTVAL, '강의후기 제목9', '강의 후기 내용입니다.', SYSDATE, SYSDATE, DEFAULT, DEFAULT,4,3);
-INSERT INTO BOARD VALUES (SEQ_BOARD_NO.NEXTVAL, '강의후기 제목10', '강의 후기 내용입니다.', SYSDATE, SYSDATE, DEFAULT, DEFAULT,4,3);
-INSERT INTO BOARD VALUES (SEQ_BOARD_NO.NEXTVAL, '강의후기 제목11', '강의 후기 내용입니다.', SYSDATE, SYSDATE, DEFAULT, DEFAULT,4,3);
-INSERT INTO BOARD VALUES (SEQ_BOARD_NO.NEXTVAL, '강의후기 제목12', '강의 후기 내용입니다.', SYSDATE, SYSDATE, DEFAULT, DEFAULT,4,3);
-commit;
-select * from board;
-
--- 리뷰 조회
-SELECT B.BOARD_NO, B.BOARD_TITLE, B.BOARD_CONTENT, TO_CHAR(B.CREATED_DT, 'YY-MM-DD'), TO_CHAR(B.UPDATE_DT, 'YY-MM-DD'), B.BOARD_ST, M.MEMBER_NM, R.REIVEW_STAR, R.CLASS_NO as parents , H.TAG_NAME , (SELECT COUNT(*) FROM REPORT WHERE B.BOARD_NO=BOARD_NO) AS REPORT, (SELECT COUNT(*) FROM THUMBS WHERE B.BOARD_NO=BOARD_NO) AS THUMBS, M.MEMBER_PROFILE, C.CLASS_NAME, INSTRUCTOR.MEMBER_NM AS INSTRUCTOR_NAME , C.CLASS_URL 
-FROM BOARD B
-JOIN REVIEW R ON (B.BOARD_NO=R.BOARD_NO)
-JOIN HASHTAG H ON (B.BOARD_NO=H.BOARD_NO)
-JOIN MEMBER M ON (B.MEMBER_NO=M.MEMBER_NO)
-JOIN CLASS C ON (R.CLASS_NO = C.CLASS_NO)
-JOIN MEMBER INSTRUCTOR ON (C.MEMBER_NO = INSTRUCTOR.MEMBER_NO)
-WHERE BOARD_CD=3;
-
-
--- 강의 후기 변경 SQL
-update board set board_content = '강의후기 내용내용내용강의후기 내용내용내용강의후기 내용내용내용강의후기 내용내용내용강의후기 내용내용내용강의후기 내용내용내용강의후기 내용내용내용강의후기 내용내용내용강의후기 내용내용내용' where board_no=1;
-
--- 내가 결제한 강의 검색
-select * from paid;
-
--- CHATTING 테이블 기본값 변경
-ALTER TABLE CHATTING MODIFY CHAT_TIMESTAMP DATE DEFAULT SYSDATE;
-
--- 메시지 검색
-SELECT * FROM CHATTING;
---채팅 시퀀스 삽입
-CREATE SEQUENCE SEQ_CHATTING_NO;
-
---메시지 내용 삽입
-
-INSERT INTO CHATTING VALUES (SEQ_CHATTING_NO.NEXTVAL, 1, 2, '안녕', DEFAULT);
-INSERT INTO CHATTING VALUES (SEQ_CHATTING_NO.NEXTVAL, 2, 1, '안녕', DEFAULT);
-INSERT INTO CHATTING VALUES (SEQ_CHATTING_NO.NEXTVAL, 1, 2, '머하니', DEFAULT);
-INSERT INTO CHATTING VALUES (SEQ_CHATTING_NO.NEXTVAL, 2, 1, '숨셔', DEFAULT);
-INSERT INTO CHATTING VALUES (SEQ_CHATTING_NO.NEXTVAL, 3, 1, '넌뭐해', DEFAULT);
-INSERT INTO CHATTING VALUES (SEQ_CHATTING_NO.NEXTVAL, 1, 3, '그냥있음', DEFAULT);
-INSERT INTO CHATTING VALUES (SEQ_CHATTING_NO.NEXTVAL, 2, 3, '안녕???', DEFAULT);
-INSERT INTO CHATTING VALUES (SEQ_CHATTING_NO.NEXTVAL, 2, 3, '머하니', DEFAULT);
-
--- 채팅 검색
-SELECT
-    F.MEMBER_NM AS CHAT_FROM_NAME,
-    T.MEMBER_NM AS CHAT_TO_NAME,
-    C.CHAT_MESSAGE,
-    TO_CHAR(C.CHAT_TIMESTAMP, 'MM-DD, HH24:MI:SS')
-FROM
-    CHATTING C
-JOIN
-    MEMBER F ON C.CHAT_FROM = F.MEMBER_NO
-JOIN
-    MEMBER T ON C.CHAT_TO = T.MEMBER_NO
-WHERE F.MEMBER_NM='NICKNAME' AND T.MEMBER_NM='USER2'
-OR T.MEMBER_NM='NICKNAME' AND F.MEMBER_NM='USER2'
-ORDER BY
-    C.CHAT_TIMESTAMP;
->>>>>>> cfbc5b64e23ab615a807c109ef8433f36ae83aae
