@@ -7,12 +7,12 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@NoArgsConstructor
 @AllArgsConstructor
-@Getter
+@NoArgsConstructor
 @Setter
-@Builder
+@Getter
 @ToString
+@Builder
 public class Paid {
 	private String classURL;
 	private String className;

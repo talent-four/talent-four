@@ -11,8 +11,8 @@ import lombok.ToString;
 @Getter
 @Setter
 @AllArgsConstructor
-@Builder
 @ToString
+@Builder
 public class Review {
 	private int boardNo;
 	private String boardTitle;

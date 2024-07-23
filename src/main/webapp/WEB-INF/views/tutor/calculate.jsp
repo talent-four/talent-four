@@ -52,37 +52,6 @@
                     <button id="change-account-btnP"><i class="fa-regular fa-pen-to-square"></i></button>
                 </div>
 
-                <div class="hidden-area">
-                    <div class="background-div" id="background-div"></div>
-                    <div id="account-input-areaP">
-                        <span>계좌정보</span>
-                        <div>
-                            <form action="#">
-                                <div>
-                                    <span>은행</span>
-                                    <select name="banknameP" id="banknameP">
-                                        <option value="국민은행">국민은행</option>
-                                        <option value="농협은행">농협은행</option>
-                                        <option value="신한은행">신한은행</option>
-                                        <option value="IBK기업은행">IBK기업은행</option>
-                                        <option value="우리은행">우리은행</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <span>정산 계좌</span><input type="text" id="accountP" name="accountP">
-                                </div>
-                                <div>
-                                    <span>예금주</span><input type="text" id="usernameP" name="usernameP">
-                                </div>
-                            </form>
-                        </div>
-                        <div>
-                            <button id="save-btnP">저장</button>
-                            <button id="cancel-btnP">취소</button>
-                        </div>
-                    </div>
-                </div>
-
                 <div class="type-area">
                     <div class="calculate-status choiced">
                         <a href="${contextPath}/tutor/calculate?cp=1" class="status-link" data-id="1">정산중</a>

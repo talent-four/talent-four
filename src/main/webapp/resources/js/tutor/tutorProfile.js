@@ -5,7 +5,6 @@ const secondCategory = sideCategory[1];
 const thirdCategory = sideCategory[2];
 const fourthCategory = sideCategory[3];
 const fifthCategory = sideCategory[4];
-const sixthCategory = sideCategory[5];
 /*------------------------------------------------------------------------------------*/
 
 secondCategory.classList.add('a-style');
@@ -16,7 +15,6 @@ secondCategory.classList.add('a-style');
 /*------------------------------------------------------------------------------------------------ */
 /* 전화번호 시작 */
 
-const 
 
 
 
