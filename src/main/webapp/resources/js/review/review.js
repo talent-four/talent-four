@@ -16,13 +16,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-
 const write = document.querySelector(".btn3");
 
 write.addEventListener("click", ()=>{
-
-    document.querySelector("#background-modal").hidden= false;
-    document.querySelector("#write-modal").hidden= false;
+    if(memberNickname!=""){
+        document.querySelector("#background-modal").hidden= false;
+        document.querySelector("#write-modal").hidden= false;
+    } else {
+        alert("로그인을 하고 리뷰를 작성해주세요.");
+    }
 
 });
 
@@ -56,10 +58,10 @@ function selectReview() {
                 if(review.profileImage==null){
                     review.profileImage="/resources/img/profile-default.jpg";
                 }
-                
+
                 let memberBtn ="";
                 if(memberNickname==review.memberNickname){
-                    memberBtn=`<div class='updateBtn' id='${review.boardNo}'>수정하기</div><div class='deleteBtn'>삭제하기</div>`
+                    memberBtn="<div class='updateBtn'>수정하기</div><div class='deleteBtn'>삭제하기</div>"
                 }
 
                 if(review.reviewStar==1){
@@ -123,9 +125,7 @@ function selectReview() {
 
                 )
 
-                document.querySelector(`#${review.boardNo}`).addEventListener("click", ()=>{
 
-                });
             });
 
             console.log("성공함");

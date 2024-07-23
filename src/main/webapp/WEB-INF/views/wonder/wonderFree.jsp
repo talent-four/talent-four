@@ -1,11 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix ="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix ="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-
-<c:set var="boardName" value="${wonderboard.boardTitle}"/>
-<c:set var="qaStatus" value="${wonderboard.qaStatus}"/>
-<c:set var="boardContent" value="${wonderboard.boardContent}"/>
-<c:set var="hashtag" value="${wonderboard.hashTag}"/>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,9 +7,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>자유로운 궁금증</title>
-    <link rel="stylesheet" href="${contextPath}/resources/css/wonderBoard/wonderFree.css">
+    <link rel="stylesheet" href="../../css/wonderBoard/wonderFree.css">
     <!-- CSS -->
-    <link rel="stylesheet" href="${contextPath}/resources/css/common/hf.css">
+    <link rel="stylesheet" href="../../css/common/hf.css">
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.7.1.js"
     integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
@@ -60,42 +54,175 @@
                 <button>글쓰기</button>
             </div>
 
-            <c:choose>
-                <c:when test="${empty freeList}">
-                    <p>게시글이 없습니다.</p>
-                </c:when>
-                <c:otherwise>
-                    <c:forEach var="board" items="${freeList}">
-                        <div class="wonder-notice">
-                            <h2 id="boardTitle">${board.boardTitle}
-                                <c:choose>
-                                    <c:when test="${board.qaStatus == 'y'}">
-                                        <span class="notice-st" >해결</span>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <span class="notice-st2">미해결</span>
-                                    </c:otherwise>
-                                </c:choose>
-                            </h2>
-                            <p>${board.boardContent}</p>
-                            <div class="wonder-Tag">
-                                <span>${wonderboard.hashTag}</span> <!-- 추후에 실제 태그 내용으로 대체할 수 있습니다 -->
-                            </div>
-                            <div class="wonder-count">
-                                <span>${board.memberNickname} </span>
-                                <span>${board.createDate}</span>
-                                <ul>
-                                    <li>조회수 0</li>
-                                    <li>추천수 0</li>
-                                    <li>답변수 0</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </c:forEach>
-                </c:otherwise>
-            </c:choose>
+            <div class=wonder-notice>
+                    <h2>제목제목제목제목 <span class="noice-st">해결</span></h2>
+                    <p>내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용</p>
+                    <div class="wonder-Tag">
+                    <span>SQL</span>
+                    </div>
+                    <div class="wonder-count">
+                    <span>닉네임 </span>
+                    <span>2시간전</span>
+                    <ul>
+                    <li>조회수 0</li>
+                    <li>추천수 0</li>
+                    <li>답변수 0</li>
+                    </ul>
+                    </div>
+                </div>
+            </div>
+            <div class=wonder-notice>
+                <h2>제목제목제목제목 <span class="noice-st2">미해결</span></h2>
+                <p>내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용</p>
+                <div class="wonder-Tag">
+                <span>SQL</span>
+                </div>
+                <div class="wonder-count">
+                <span>닉네임 </span>
+                <span>2시간전</span>
+                <ul>
+                <li>조회수 0</li>
+                <li>추천수 0</li>
+                <li>답변수 0</li>
+                </ul>
+                </div>
+            </div>
+       
+            <div class=wonder-notice>
+                <h2>제목제목제목제목 <span class="noice-st">해결</span></h2>
+                    <p>내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용</p>
+                <div class="wonder-Tag">
+                    <span>SQL</span>
+                </div>
+                <div class="wonder-count">
+                    <span>닉네임 </span>
+                    <span>2시간전</span>
+                    <ul>
+                        <li>조회수 0</li>
+                        <li>추천수 0</li>
+                        <li>답변수 0</li>
+                    </ul>
+                </div>
+            </div>
 
-          
+            <div class=wonder-notice>
+                <h2>제목제목제목제목 <span class="noice-st">해결</span></h2>
+                    <p>내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용</p>
+                <div class="wonder-Tag">
+                    <span>SQL</span>
+                </div>
+                <div class="wonder-count">
+                    <span>닉네임 </span>
+                    <span>2시간전</span>
+                    <ul>
+                        <li>조회수 0</li>
+                        <li>추천수 0</li>
+                        <li>답변수 0</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class=wonder-notice>
+                <h2>제목제목제목제목 <span class="noice-st">해결</span></h2>
+                    <p>내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용</p>
+                <div class="wonder-Tag">
+                    <span>SQL</span>
+                </div>
+                <div class="wonder-count">
+                    <span>닉네임 </span>
+                    <span>2시간전</span>
+                    <ul>
+                        <li>조회수 0</li>
+                        <li>추천수 0</li>
+                        <li>답변수 0</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class=wonder-notice>
+                <h2>제목제목제목제목 <span class="noice-st">해결</span></h2>
+                    <p>내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용</p>
+                <div class="wonder-Tag">
+                    <span>SQL</span>
+                </div>
+                <div class="wonder-count">
+                    <span>닉네임 </span>
+                    <span>2시간전</span>
+                    <ul>
+                        <li>조회수 0</li>
+                        <li>추천수 0</li>
+                        <li>답변수 0</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class=wonder-notice>
+                <h2>제목제목제목제목 <span class="noice-st">해결</span></h2>
+                    <p>내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용</p>
+                <div class="wonder-Tag">
+                    <span>SQL</span>
+                </div>
+                <div class="wonder-count">
+                    <span>닉네임 </span>
+                    <span>2시간전</span>
+                    <ul>
+                        <li>조회수 0</li>
+                        <li>추천수 0</li>
+                        <li>답변수 0</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class=wonder-notice>
+                <h2>제목제목제목제목 <span class="noice-st">해결</span></h2>
+                    <p>내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용</p>
+                <div class="wonder-Tag">
+                    <span>SQL</span>
+                </div>
+                <div class="wonder-count">
+                    <span>닉네임 </span>
+                    <span>2시간전</span>
+                    <ul>
+                        <li>조회수 0</li>
+                        <li>추천수 0</li>
+                        <li>답변수 0</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class=wonder-notice>
+                <h2>제목제목제목제목 <span class="noice-st">해결</span></h2>
+                    <p>내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용</p>
+                <div class="wonder-Tag">
+                    <span>SQL</span>
+                </div>
+                <div class="wonder-count">
+                    <span>닉네임 </span>
+                    <span>2시간전</span>
+                    <ul>
+                        <li>조회수 0</li>
+                        <li>추천수 0</li>
+                        <li>답변수 0</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class=wonder-notice>
+                <h2>제목제목제목제목 <span class="noice-st">해결</span></h2>
+                    <p>내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용</p>
+                <div class="wonder-Tag">
+                    <span>SQL</span>
+                </div>
+                <div class="wonder-count">
+                    <span>닉네임 </span>
+                    <span>2시간전</span>
+                    <ul>
+                        <li>조회수 0</li>
+                        <li>추천수 0</li>
+                        <li>답변수 0</li>
+                    </ul>
+                </div>
+            </div>
         
             <div class="wonder-page-area">
                 <ul class="wonder-pagination">
