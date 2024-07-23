@@ -17,3 +17,16 @@
         <res-auth>Container</res-auth>
     </resource-ref>
 </web-app>
+  <servlet>
+    <description></description>
+    <display-name>test</display-name>
+    <servlet-name>test</servlet-name>
+    <servlet-class>filter.test</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>test</servlet-name>
+    <url-pattern>/test</url-pattern>
+  </servlet-mapping>
+	  
+  
+</web-app>

@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <footer class="footer">
-
         <div id="chat-box" hidden>
             <div id="chat-id">
-                <div id="chat-close">X</div>
+                <div id="chat-close">&times;</div>
                 <input type="text" placeholder=" 상대 ID" id="chatTo">
                 <button id="chatToBtn">대화하기</button>
                 <div id="myPartner">현재 대화중인 상대: {얘}</div>
@@ -34,8 +34,7 @@
             </div>
         </div>
 
-        <!-- <button class="fa-solid fa-headset callServiceCenter" id="chatBtn">OO</button> -->
-        <button class="callServiceCenter" id="chatBtn">O</button>
+        <button class="callServiceCenter" id="chatBtn"><i class="fa-solid fa-headset"></i></button> 
         <p>통신판매 신고번호 : 1234-서울강남-12345<br>
             상호 : 재능사조<br>
             주소 : 서울특별시 강남구 역삼역<br>
@@ -45,18 +44,72 @@
             Copyright @ 2024 Inc. All rights reserved.</p>
 
         <script>
-
+            const contextPath = "${contextPath}";
             const chatIcon = document.querySelector("#chatBtn");
             const chatClose = document.querySelector("#chat-close");
             const chatBox=document.querySelector("#chat-box");
+            const chatToBtn=document.querySelector("#chatToBtn");
+
+
+            let websocket = new WebSocket(`ws://localhost:8080/${contextPath}/chat/end?clientId=${loginMember.memberNo}`)
+            
             chatIcon.addEventListener("click", () => {
                 chatIcon.hidden=true;
                 chatBox.hidden=false;
+            
+                websocket.onopen = ()=>{
+                };
+
             });
+
             chatClose.addEventListener("click", ()=>{
                 chatIcon.hidden=false;
                 chatBox.hidden=true;
             });
-        </script>
 
+            chatToBtn.addEventListener("click", ()=>{
+
+                let toId = document.querySelector("#chatTo").value;
+                
+
+                $.ajax({
+
+                    url : contextPath + "/chat",
+                    type: "POST",
+                    data:{
+                        "toId" : toId
+                    },
+                    success(res){
+                        const result = JSON.parse(res);
+                        console.log(result);
+                        
+                        result.forEach((chat)=>{
+                            
+                        });
+
+
+                        document.querySelector("#chat-message").insertAdjacentHTML("afterbegin",
+
+                        );
+                    },
+                    error(){
+
+                    }
+                })
+
+                toId="";
+            });
+
+
+        </script>
+        
+            <c:if test="${!empty sessionScope.message}">
+                <script>
+                    alert("${message}");
+
+                </script>
+
+                <c:remove var="message" scope="session"></c:remove>
+
+            </c:if>
     </footer>
