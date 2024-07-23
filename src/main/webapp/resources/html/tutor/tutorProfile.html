@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>강사 내 프로필</title>
     <link rel="stylesheet" href="../../css/tutor/tutorProfile.css">
-    <script src="../../js/tutor/jquery-3.7.1.min.js"></script>
+    <script src="../../js/jquery-3.7.1.min.js"></script>
     <script src="https://kit.fontawesome.com/71eaa9d255.js" crossorigin="anonymous"></script>
 
 </head>
@@ -86,18 +86,13 @@
                         <a href="tutorClassSell.html"><span><i class="fa-solid fa-clipboard-list"></i>클래스 판매 현황</span></a>
                     </div>
                     <div class="activeP"> <!-- 카테고리 5 -->
-                        <a href="tutorReviewQA.html"><span><i class="fa-solid fa-pen"></i>리뷰 Q&A</span></a>
-                    </div>
-                    <div class="activeP"> <!-- 카테고리 6 -->
                         <a href="tutorCalculate.html"><span><i class="fa-regular fa-money-bill-1"></i>정산 신청</span></a>
                     </div>
-                    <div class="activeP"> <!-- 카테고리 7 -->
+                    <div class="activeP"> <!-- 카테고리 6 -->
                         <a href="tutorMessage.html"><span><i class="fa-solid fa-message"></i>메시지</span></a>
                     </div>
                 </div>
             </div>
-        </section>
-        <section class="mainsectionsP" id="dashboardP"> <!-- 대시 보드 -->
         </section>
         
         <form action="">
@@ -106,10 +101,30 @@
                     <div class="text-areaP">
                         <div>
                             <span>닉네임</span>
-                                <div id="change-areaP">
-                                    <span id="NP">ㅁㅁㅁ</span>
-                                    <button id="Nchange-btnP" type="button"><i class="fa-regular fa-pen-to-square"></i></button>
+                            <div id="change-areaP">
+                                <input type="text" name="tutorNickname" value="${loginMember.memberNickname }" maxlength="12">
+                                <button id="Nchange-btnP" type="button"><i class="fa-regular fa-pen-to-square"></i></button>
+                            </div>
+                            <div id="Nhide-areaP">
+                                <!-- <input type="text" id="Nchange-inputP" name="Nchange-inputP" maxlength="12"> -->
+                                <button id="NcheckP"><i class="fa-solid fa-check"></i></button>
+                                <button id="NcancelP" type="button"><i class="fa-solid fa-xmark"></i></button>
+                                <div>
+                                    <span id="Nchange-countP">0</span>
+                                    <span>/12</span>
                                 </div>
+                            </div>
+                        </div>
+                        <div>
+                            <span>프로필 이미지</span>
+                            <img src="../../img/cat1.jpg" id="PI-defaultP">
+                            <input type="file" id="PIhide-btnP">
+                            <label for="PIhide-btnP" id="PIchange-btnP"><i class="fa-solid fa-camera"></i></label>
+                        </div>
+                        <div>
+                            <span>전화 번호</span>
+                            <input type="text" id="Tel-inputP" name="Tel-inputP" value="${loginMember.tutorTel}" maxlength="11">
+                            <button id="Nchange-btnP" type="button"><i class="fa-regular fa-pen-to-square"></i></button>
                             <div id="Nhide-areaP">
                                 <input type="text" id="Nchange-inputP" name="Nchange-inputP" maxlength="12">
                                 <button id="NcheckP"><i class="fa-solid fa-check"></i></button>
@@ -120,34 +135,24 @@
                                 </div>
                             </div>
                         </div>
+
                         <div>
-                            <span>프로필 이미지 <i class="fa-regular fa-circle-question"></i></span>
-                            <img src="../../img/cat1.jpg" id="PI-defaultP">
-                            <input type="file" id="PIhide-btnP">
-                            <label for="PIhide-btnP" id="PIchange-btnP"><i class="fa-solid fa-camera"></i></label>
-                        </div>
-                        <div>
-                            <span>전화 번호</span>
-                            <input type="text" id="Tel-inputP" name="Tel-inputP" maxlength="11" placeholder="(-제외 입력하세요.)">
-                        </div>
-                        <div>
-                            <span>이력(권장사항)<i class="fa-regular fa-circle-question"></i></span>
+                            <span>자격증</span>
                             <div></div>
                             <input type="file" id="careerP">
-                            <label for="careerP"><span id="add-careerP"><i class="fa-solid fa-plus"></i>이력 추가하기</span></label>
+                            <label for="careerP"><span id="add-careerP"><i class="fa-solid fa-plus"></i>자격증 추가하기</span></label>
                             <div></div>
                         </div>
                         <div>
                             <span>튜터 소개</span>
-                            <div id="info-input-areaP">
-                                <span id="info-inputP"></span>
-                            </div>
                             <div>
-                                <textarea id="info-textareaP" maxlength="300"></textarea>                            
-                                <p id="info-count-areaP"><span id="input-countP">0</span>/300</p>
-                                <button id="info-write-btnP" type="button"><i class="fa-regular fa-pen-to-square"></i></button>
-                                <button id="info-check-btnP" type="button"><i class="fa-solid fa-check"></i></button>
-                                <button id="info-error-btnP"><i class="fa-solid fa-xmark"></i></button><br>
+                                <textarea name="introduce" id="introduce" value="${loginMember.tutorTel}" maxlength="300"></textarea>
+                            </div>
+                            <button type="button" id="change-introduce"><i class="fa-regular fa-pen-to-square"></i></button>
+                            <div class="hidden-area2" id="hiddenArea2">
+                                <button type="button" id="check-introduce"><i class="fa-solid fa-check"></i></button>
+                                <button type="button" id="cancel-introduce"><i class="fa-solid fa-xmark"></i></button>
+                                <span><span>0</span>/300</span>
                             </div>
                         </div>
                     </div>

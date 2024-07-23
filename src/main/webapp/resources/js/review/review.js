@@ -16,15 +16,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+
 const write = document.querySelector(".btn3");
 
 write.addEventListener("click", ()=>{
-    if(memberNickname!=""){
-        document.querySelector("#background-modal").hidden= false;
-        document.querySelector("#write-modal").hidden= false;
-    } else {
-        alert("로그인을 하고 리뷰를 작성해주세요.");
-    }
+
+    document.querySelector("#background-modal").hidden= false;
+    document.querySelector("#write-modal").hidden= false;
 
 });
 

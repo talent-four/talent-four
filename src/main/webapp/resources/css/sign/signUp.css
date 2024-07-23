@@ -7,91 +7,96 @@
          url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.otf) format('opentype');
 }
 
-* {
-    
+
+
+div {
     box-sizing: border-box;
+    border: none;
 }
 
-body{
-    background: #222D32;
+.formRow {
+    margin: 10px 100px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
 }
 
-#signUp{
-    margin:20px;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
+.noBottomLine {
+    border-bottom: none;
+}
+
+.formCol {
     display: flex;
-    height:800px;
-
+    justify-content: space-between;
 }
 
-#signLogo{
-    margin-top:100px;
+.formCol > *:first-child {
+    width: 240px;
+    border: 1px solid #ddd;
 }
 
-#signUp>fieldset{
-    margin-top:200px;
+.formCol .col1 {
+    width: 100%;
+}
 
+.Confirmbtn {
+    width: 150px;
+    border: 0;
+    background: #219EBC;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+body {
+    background: #023047;
+}
+
+form {
+    margin: auto;
+    padding: 20px 0;
     border:0;
     border-radius: 20px;
     background-color: white;
+
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width:500px;
-    height:1000px;
-   
+
+    width:550px;
 }
 
+form > div {
+    width: 430px;
+}
 
-
-#signUp>fieldset p:nth-of-type(1){
+form p:nth-of-type(1){
     text-align: center;
     font-size: 20px;
 
 }
 
-
-
-
-#emailConfirm{
-    width:240px;
-}
-
-#confirmNum{
-    width:420px;
-}
-
-#signUp>fieldset input{
-    border: 0;
+form input{
     outline: none;
     padding: 10px;
-
 }
 
-
-
-
-
-
-
-#signUp>fieldset> div{
+form > div{
     margin:20px;
-    border: 1px solid #6d6d6d;
-    
 }
 
-
-
+#pw2CkText, #result {
+    height: 5px;
+}
 
 .signUp-space{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 20px;
-
+    margin-bottom: 10px;
 }
 
 .signUp-space>span:nth-child(2)>a{
@@ -104,124 +109,22 @@ body{
     margin-top:30px;
     cursor: pointer;
     width: 420px;
-    background: rgb(255 0 69);
     border: 0;
     padding:15px;
     font-weight: bold;
     margin-bottom: 20px;
     color:white;
-
-
 }
 
 .signUp-space{
     display: flex;
-    
-}
-
-.signUp-border1{
-    background-color: white;
-    margin-bottom:10px;
-    border : 1px solid #ddd;
-    width:270px;
- 
-}
-
-#ck-idBtn{
-    width: 150px;
-    margin-left:10px;
-    padding:9.2px;
-    border:0;
-    background: rgb(255 0 69);
-    color:white;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    cursor: pointer;
-    
-}
-
-#ck-numBtn{
-    width: 150px;
-    margin-left:10px;
-    padding:9.2px;
-    border:0;
-    background: rgb(255 0 69);
-    color:white;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    cursor: pointer;
-
-}
-
-.fpemail-confirm{
-    display: flex;
-    margin-top: 10px;
-
-}
-
-
-.signUp-border2{
-    width:430px;
-    background-color: white;
-    margin-bottom:10px;
-    border : 1px solid #ddd;
-}
-
-
-
-
-#signUp h3{
-    margin:0;
-}
-
-#signUp h3>a{
-    color:#222D32;
-    text-decoration: 0;
-}
-
-.signUp{
-    width:400px;
-    display: flex;
-    justify-content: right;
-}
-
-.signUp a{
-    color:#222D32;
-
-    text-decoration: 0;
-    font-weight: bold;
-}
-
-.signUp a span{
-    color:#ff1058;
 }
 
 /* 캡차 */
 #captchaCanvas{
+    display: inline-block;
     border:1px solid #ddd;
-    height:40px;
-
-    width:270px;
-}
-
-.capcha{
-    display: flex;
-}
-
-#refreshCaptcha{
-    width: 150px;
-    margin-left:10px;
-    padding:9.2px;
-    border:0;
-    background: rgb(255 0 69);
-    height:35px;
-    color:white;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    cursor: pointer;
+    height: 35px;
 }
 
 #checkCaptcha{
@@ -230,7 +133,6 @@ body{
     height:35px;
     padding:9.2px;
     border:0;
-    background: rgb(255 0 69);
     color:white;
     font-weight: bold;
     display: flex;
@@ -240,19 +142,15 @@ body{
 }
 
 #sinupBtn{
-    margin-top:30px;
     width: 430px;
     height:35px;
-    padding:9.2px;
     border:0;
-    background: rgb(255 0 69);
     color:white;
     font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer; 
-
 }
 
 .sign-green{
@@ -263,10 +161,26 @@ body{
     color:red;
 }
 
-.sign-font{font-size:10px;}
+.sign-font{
+    font-size:10px;
+}
 
 /* 동의합니다 부분 */
 .agreeCk{
-    width:430px;
     border:1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px;
+    list-style: none;
+    margin: 0;
+}
+
+.agreeCk li {
+    display: flex;
+    align-items: center;
+    font-size: 10px;
+}
+
+.agreeCk input[type="checkbox"]{
+    width: 10px;
 }

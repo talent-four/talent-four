@@ -33,46 +33,46 @@
         </div>
         <div class="contentBoxs" id="contentSlider">
             <div class="contentBoxsSet" id="contentBoxSet">
-                <div class="contentBox">
+                <a class="contentBox" href="${contextPath}/detailedPage">
                     <img
                         src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
                     <div class="contentTitle">50만 어쩌구</div>
                     <div class="contentAuthor">홍길동</div>
                     <div class="contentStars">★ (<span>3.9</span>)</div>
                     <div class="contentPrice">160,000원</div>
-                </div>
-                <div class="contentBox">
+                </a>
+                <a class="contentBox" href="${contextPath}/class">
                     <img
                         src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
                     <div class="contentTitle">50만 어쩌구</div>
                     <div class="contentAuthor">홍길동</div>
                     <div class="contentStars">★ (<span>3.9</span>)</div>
                     <div class="contentPrice">160,000원</div>
-                </div>
-                <div class="contentBox">
+                </a>
+                <a class="contentBox" href="${contextPath}/tutor/dashboard">
+                    <img
+                        src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
+                    <div class="contentTitle">튜터 페이지이동 연습</div>
+                    <div class="contentAuthor">홍길동</div>
+                    <div class="contentStars">★ (<span>3.9</span>)</div>
+                    <div class="contentPrice">160,000원</div>
+                </a>
+                <a class="contentBox">
                     <img
                         src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
                     <div class="contentTitle">50만 어쩌구</div>
                     <div class="contentAuthor">홍길동</div>
                     <div class="contentStars">★ (<span>3.9</span>)</div>
                     <div class="contentPrice">160,000원</div>
-                </div>
-                <div class="contentBox">
+                </a>
+                <a class="contentBox">
                     <img
                         src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
                     <div class="contentTitle">50만 어쩌구</div>
                     <div class="contentAuthor">홍길동</div>
                     <div class="contentStars">★ (<span>3.9</span>)</div>
                     <div class="contentPrice">160,000원</div>
-                </div>
-                <div class="contentBox">
-                    <img
-                        src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
-                    <div class="contentTitle">50만 어쩌구</div>
-                    <div class="contentAuthor">홍길동</div>
-                    <div class="contentStars">★ (<span>3.9</span>)</div>
-                    <div class="contentPrice">160,000원</div>
-                </div>
+                </a>
             </div>
             <div class="contentBoxsSet">
                 <div class="contentBox">
