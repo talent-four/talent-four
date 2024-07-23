@@ -26,17 +26,24 @@ public class TutorClassesServlet extends HttpServlet {
 			TutorService service = new TutorService();
 			
 			
-//			List<TutorClass> tutorclasses = new ArrayList<>();
-//			int status = 1;
-//			tutorclasses = service.selectClassesList(status);
-//			
-//			List<TutorClass> tutorclassesfin = new ArrayList<>();
-//			int statusfin = 2;
-//			tutorclassesfin = service.selectClassesFinList(statusfin);
-//			
-//			
-//			req.setAttribute("tutorclasses", tutorclasses);
-//			req.setAttribute("tutorclassesfin", tutorclassesfin);
+			List<TutorClass> tutorclasses = new ArrayList<>();
+			int status = 1;
+			tutorclasses = service.selectClassesList(status);
+			
+			List<TutorClass> tutorclassesfin = new ArrayList<>();
+			int statusfin = 2;
+			tutorclassesfin = service.selectClassesFinList(statusfin);
+			
+			TutorClass counting = new TutorClass();
+			counting = service.classingCount(status);
+			
+			TutorClass countfin = new TutorClass();
+			countfin = service.classfinCount(statusfin);
+			
+			req.setAttribute("counting", counting);
+			req.setAttribute("countfin", countfin);
+			req.setAttribute("tutorclasses", tutorclasses);
+			req.setAttribute("tutorclassesfin", tutorclassesfin);
 			
 			req.getRequestDispatcher("/WEB-INF/views/tutor/classes.jsp").forward(req, resp);
 		} catch (Exception e) {

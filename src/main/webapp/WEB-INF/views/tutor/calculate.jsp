@@ -21,10 +21,9 @@
             <article>
                 <div>
                     <div class="calculate-upP">
-                         <span>
-                            <c:forEach var="price"  items="${tutorcalculateList.classPrice}">
-                            </c:forEach>
-                         </span>
+                        <div class="calculate-upP">
+                            <span>총 정산 금액</span>
+                        </div>
                     </div>
                     <div class="calculate-downP">
                         <span id="all-calculate-moneyP">0</span>

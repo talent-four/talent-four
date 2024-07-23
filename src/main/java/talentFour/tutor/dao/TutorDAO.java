@@ -20,9 +20,7 @@ public class TutorDAO {
 	
 	private Statement stmt;
 	private PreparedStatement pstmt;
-	private PreparedStatement pstmt2;
 	private ResultSet rs;
-	private ResultSet rs2;
 	
 	private Properties prop;
 	
@@ -64,22 +62,42 @@ public class TutorDAO {
 				tutorclass.setClassCreateDate(rs.getString(4));
 				tutorclasses.add(tutorclass);
 			}
-			// 운영중인 클래스 갯수세기
-			String sql2 = prop.getProperty("classcount");
-			pstmt2 = conn.prepareStatement(sql2);
-			pstmt2.setInt(1, status);
-			rs2 = pstmt.executeQuery();
-			if(rs2.next()) {
-				TutorClass tutorclass = new TutorClass();
-				tutorclass.setClasscount(rs2.getInt(1));
-				tutorclasses.add(tutorclass);
-			}
 		} finally {
 			close(rs);
 			close(pstmt);
 		}
 		return tutorclasses;
 	}
+	
+	
+	/** 운영중인 클래스 갯수 조회
+	 * @param conn
+	 * @param status
+	 * @return
+	 * @throws Exception
+	 */
+	public TutorClass classingCount(Connection conn, int status) throws Exception {
+		TutorClass counting = new TutorClass();
+		
+		try {
+
+			// 운영중인 클래스 갯수세기
+			String sql = prop.getProperty("classcount");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, status);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				counting.setClassCount(rs.getString(1));
+			}
+			
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		return counting;
+	}
+	
 
 	/** 만료된 클래스 리스트 조회
 	 * @param conn
@@ -106,17 +124,7 @@ public class TutorDAO {
 				tutorclassesfin.add(tutorclassfin);
 				
 			}
-			// 만료된 클래스 갯수세기
-			String sql2 = prop.getProperty("classcount");
-			pstmt2 = conn.prepareStatement(sql2);
-			pstmt2.setInt(1, statusfin);
-			rs2 = pstmt.executeQuery();
-			
-			if(rs2.next()) {
-				TutorClass tutorclassfin = new TutorClass();
-				tutorclassfin.setClasscount(rs2.getInt(1));
-				tutorclassesfin.add(tutorclassfin);
-			}
+
 		} finally {
 			close(rs);
 			close(pstmt);
@@ -124,6 +132,35 @@ public class TutorDAO {
 		return tutorclassesfin;
 	}
 
+	/** 만료된 클래스 갯수 조회
+	 * @param conn
+	 * @param statusfin
+	 * @return
+	 * @throws Exception
+	 */
+	public TutorClass classfinCount(Connection conn, int statusfin) throws Exception {
+		TutorClass countfin = new TutorClass();
+		
+		try {
+
+			// 운영중인 클래스 갯수세기
+			String sql = prop.getProperty("classcount");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, statusfin);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				countfin.setClassCount(rs.getString(1));
+			}
+			
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		return countfin;
+	}
+	
+	
 
 	/** 클래스 판매 현황 조회
 	 * @param conn
@@ -171,7 +208,7 @@ public class TutorDAO {
 		
 		try {
 			
-			String sql = prop.getProperty("selectClassSellList");
+			String sql = prop.getProperty("selectCalculateList");
 			pstmt= conn.prepareStatement(sql);
 			pstmt.setInt(1, status);
 			rs = pstmt.executeQuery();
@@ -206,5 +243,11 @@ public class TutorDAO {
 		}
 		return tutorcalculateList;
 	}
+
+
+	
+
+
+	
 
 }
