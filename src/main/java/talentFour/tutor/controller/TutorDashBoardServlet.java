@@ -12,45 +12,7 @@ public class TutorDashBoardServlet extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		try {
-			
-			
-			
-			req.getRequestDispatcher("/WEB-INF/views/tutor/dashBoard.jsp").forward(req, resp);
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		
-		
-		
+		req.getRequestDispatcher("/WEB-INF/views/tutor/dashBoard.jsp").forward(req, resp);
 	
-		
-		
-		
 	}
-	
-	
-	
-	
-	
-	
-	
-//	@Override
-//	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//
-//		String inputImage = req.getParameter("inputImage");
-//		String inputTel = req.getParameter("inputTel");
-//		String inputIntroduce = req.getParameter("inputIntroduce");
-//		String accountName = req.getParameter("accountName");
-//		String bankName = req.getParameter("bankName");
-//		String accountNumber = req.getParameter("accountNumber");
-//		String[] university = req.getParameterValues("university");
-//		String license = req.getParameter("license");
-//		
-//		
-//	
-//	}
 }
