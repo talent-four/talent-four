@@ -40,10 +40,11 @@ public class TutorDAO {
 	/** 운영중인 클래스 조회
 	 * @param conn
 	 * @param status
+	 * @param memberNo 
 	 * @return
 	 * @throws Exception
 	 */
-	public List<TutorClass> selectClassesList(Connection conn, int status) throws Exception {
+	public List<TutorClass> selectClassesList(Connection conn, int status, int memberNo) throws Exception {
 		
 		List<TutorClass> tutorclasses = new ArrayList<>();
 		
@@ -52,6 +53,7 @@ public class TutorDAO {
 			String sql = prop.getProperty("selectClassesList");
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, status);
+			pstmt.setInt(2, memberNo);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
@@ -73,10 +75,11 @@ public class TutorDAO {
 	/** 운영중인 클래스 갯수 조회
 	 * @param conn
 	 * @param status
+	 * @param memberNo 
 	 * @return
 	 * @throws Exception
 	 */
-	public TutorClass classingCount(Connection conn, int status) throws Exception {
+	public TutorClass classingCount(Connection conn, int status, int memberNo) throws Exception {
 		TutorClass counting = new TutorClass();
 		
 		try {
@@ -85,6 +88,7 @@ public class TutorDAO {
 			String sql = prop.getProperty("classcount");
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, status);
+			pstmt.setInt(2, memberNo);
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
@@ -102,10 +106,11 @@ public class TutorDAO {
 	/** 만료된 클래스 리스트 조회
 	 * @param conn
 	 * @param statusfin
+	 * @param memberNo 
 	 * @return
 	 * @throws Exception
 	 */
-	public List<TutorClass> selectClassesFinList(Connection conn, int statusfin) throws Exception {
+	public List<TutorClass> selectClassesFinList(Connection conn, int statusfin, int memberNo) throws Exception {
 		List<TutorClass> tutorclassesfin = new ArrayList<>();
 		
 		try {
@@ -113,6 +118,7 @@ public class TutorDAO {
 			String sql = prop.getProperty("selectClassesList");
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, statusfin);
+			pstmt.setInt(2, memberNo);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
@@ -135,10 +141,11 @@ public class TutorDAO {
 	/** 만료된 클래스 갯수 조회
 	 * @param conn
 	 * @param statusfin
+	 * @param memberNo 
 	 * @return
 	 * @throws Exception
 	 */
-	public TutorClass classfinCount(Connection conn, int statusfin) throws Exception {
+	public TutorClass classfinCount(Connection conn, int statusfin, int memberNo) throws Exception {
 		TutorClass countfin = new TutorClass();
 		
 		try {
@@ -147,6 +154,7 @@ public class TutorDAO {
 			String sql = prop.getProperty("classcount");
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, statusfin);
+			pstmt.setInt(2, memberNo);
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
@@ -164,16 +172,19 @@ public class TutorDAO {
 
 	/** 클래스 판매 현황 조회
 	 * @param conn
+	 * @param memberNo 
 	 * @return
 	 * @throws Exception
 	 */
-	public List<TutorClassSell> selectClassSellList(Connection conn) throws Exception {
+	public List<TutorClassSell> selectClassSellList(Connection conn, int memberNo) throws Exception {
 		List<TutorClassSell> tutorclassSell = new ArrayList<>();
 		try {
 			
 			String sql = prop.getProperty("selectClassSellList");
-			stmt = conn.createStatement();
-			rs = stmt.executeQuery(sql);
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memberNo);
+			
+			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
 				TutorClassSell tutorsell = new TutorClassSell();
@@ -194,10 +205,11 @@ public class TutorDAO {
 	/** 정산하기 조회
 	 * @param conn
 	 * @param status 
+	 * @param memberNo 
 	 * @return
 	 * @throws Exception
 	 */
-	public List<TutorCalculate> selectCalculateList(Connection conn, int status) throws Exception {
+	public List<TutorCalculate> selectCalculateList(Connection conn, int status, int memberNo) throws Exception {
 		List<TutorCalculate> tutorcalculateList = new ArrayList<>();
 		
 		// 정산예정금액을 담을 변수
@@ -211,6 +223,7 @@ public class TutorDAO {
 			String sql = prop.getProperty("selectCalculateList");
 			pstmt= conn.prepareStatement(sql);
 			pstmt.setInt(1, status);
+			pstmt.setInt(1, memberNo);
 			rs = pstmt.executeQuery();
 
 			while(rs.next()) {
@@ -221,10 +234,9 @@ public class TutorDAO {
 				tutorcalculate.setClassPrice(rs.getInt(4));
 				tutorcalculate.setCommission(rs.getInt(5));
 				tutorcalculate.setSettleDate(rs.getString(6));
-				
 				// 클래스 가격 * (1-(수수료/100)
-				price = (tutorcalculate.getClassPrice())*(1-(tutorcalculate.getCommission()/100));
 				
+				price = (int) (tutorcalculate.getClassPrice()*(1-(tutorcalculate.getCommission()/100.0)));
 				// 총 정산예정 금액으로 대입
 				sum += price;
 				// 정산 예정금액으로 변환
@@ -232,7 +244,6 @@ public class TutorDAO {
 				
 				// 총 정산 예정금액으로 반환
 				tutorcalculate.setIngsum(sum);
-				
 				
 				
 				tutorcalculateList.add(tutorcalculate);

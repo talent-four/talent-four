@@ -37,8 +37,13 @@
 		</ul>
 	    <ul id="headerBox">
 	        <li><a href="">마이 프로필</a></li>
+
+	        <li><a href="${contextPath}/tutor/dashboard">튜터 프로필</a></li>
+	        <li><a href="${contextPath}/member/logout">로그아웃</a></li>
+
 	        <li><a href="">튜터 프로필</a></li>
 	        <li><a href="">로그아웃</a></li>
+
 	    </ul>
 	</div>
 </header>

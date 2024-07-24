@@ -24,7 +24,9 @@
                          <span>총 정산 금액</span>
                     </div>
                     <div class="calculate-downP">
-                        <span id="all-calculate-moneyP">0</span>
+                        <span id="all-calculate-moneyP">
+                            0
+                        </span>
                         <span>원</span>
                         <span>(</span>
                         <span id="all-calculate-countP">0</span>
@@ -53,7 +55,6 @@
                         <i class="fa-regular fa-credit-card"></i>
                         <span id="account-infoP">재능은행 111-111-11111 김재능</span>
                     </div>
-                    <button id="change-account-btnP"><i class="fa-regular fa-pen-to-square"></i></button>
                 </div>
 
                 <div class="hidden-area">
@@ -110,6 +111,47 @@
                              <th>정산 신청 시간</th>
                         </tr> 
                     </thead>
+
+                    <tbody class="cal-all-rows">
+                        <c:choose>
+                            <c:when test="${empty tutorcalculateList}">
+                                <tr>
+                                    <th colspan="7"><h1>정산이 완료된 클래스가 없습니다.</h1></th>
+                                </tr>
+                            </c:when>
+                            <c:otherwise>
+                                <c:forEach var="tutorcalculateList"  items="${tutorcalculateList}">
+                                    <tr class="cal-each-rows">
+                                        <td><input type="checkbox" name="money"></td>
+                                        <td>
+                                            <c:if test="${tutorcalculateList.settleStatus == 1}">
+                                                <div class="cal-status">정산미신청</div>
+                                            </c:if>
+                                            <c:if test="${tutorcalculateList.settleStatus == 2}">
+                                                <div class="cal-status fin">정산완료</div>
+                                            </c:if>
+                                        </td>
+                                        <td>${tutorcalculateList.memberNickname}</td>
+                                        <td>${tutorcalculateList.boardTitle}</td>
+                                        <td>${tutorcalculateList.classPrice}</td>
+                                        <td>${tutorcalculateList.commission}</td>
+                                        <td>
+                                            <c:if test="${tutorcalculateList.settleStatus == 1}">
+                                                -
+                                            </c:if>
+                                            <c:if test="${tutorcalculateList.settleStatus == 2}">
+                                                ${tutorcalculateList.settleDate}
+                                            </c:if>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+                            </c:otherwise>
+                        </c:choose>
+                    </tbody>
+                </table>
+            </article>
+            
+
                     <tbody>
                         <tr>
                             
@@ -140,6 +182,7 @@
                 <button id="cal-page-left-btnP" class="cal-page-change-btnP"><i class="fa-solid fa-angle-left"></i></button>
                 <button id="cal-page-right-btnP" class="cal-page-change-btnP"><i class="fa-solid fa-angle-right"></i></button>
             </div>
+
         </section>
        
     </main>
