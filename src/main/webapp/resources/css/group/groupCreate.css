@@ -1,0 +1,329 @@
+*{  
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 100;
+    src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Normal.woff2) format('woff2'),
+         url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Normal.woff) format('woff'),
+         url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Normal.otf) format('opentype');
+}
+
+body{
+    width: 100%;
+    min-height: 1000px;
+    max-height: 2400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+footer{
+    width: 100%;
+}
+
+/* body, header, footer */
+/*------------------------------------------------------------------------------*/
+/* main */
+
+main{
+    width: 1280px;
+    height: 2100px;
+}
+
+main>form{
+    height: 2100px;
+}
+
+main>section:nth-child(1){
+    height: 80px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0 20px 0;
+    margin: 0 50px 0 50px;
+}
+
+main>section:nth-child(1) a{
+    border: none;
+    height: 30px;
+    font-size: 24px;
+    background-color: transparent;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
+
+.essentialArea{
+    width: 1280px;
+    height: 1500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.essentialArea>article{
+    margin: 10px 0 10px 0;
+}
+
+
+article>div:nth-child(2)>input{
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 10px;
+    width: 800px;
+    height: 40px;
+    font-size: 20px;
+    padding: 0 0 0 7px;
+    margin: 7px 0 7px 0;
+}
+
+article>div:nth-child(2)>input:focus{
+    outline: 2px solid #219ebc;
+}
+
+article>div:nth-child(2)>div>input{
+    width: 800px;
+}
+/* 필수 공통 */
+/*-----------------------------------------------------------------------*/
+/* 필수 작성 지역   */
+
+.categoryTitle{
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0 5px 0;
+    align-items: end;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.countinput{
+    font-size: 14px;
+    color: rgb(180, 180, 180);
+    font-weight: bold;
+}
+
+.star{
+    color: #219ebc;
+}
+
+article>div:nth-child(2)>textarea{
+    width: 800px;
+    height: 200px;
+    font-size: 20px;
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 10px;
+    padding: 0 0 0 7px;
+    margin: 7px 0 7px 0;
+    resize: none;
+    overflow: auto;
+}
+
+article>div:nth-child(2)>textarea:focus{
+    outline: 2px solid #219ebc;
+}
+
+
+/* 일시 */
+.inputTime>div:nth-child(2)>div{
+    display: flex;
+    border-radius: 10px;
+    margin: 10px 0 10px 0;
+}
+
+.inputTime>div:nth-child(2)>div>div{
+    border: 1px solid rgb(220, 220, 220);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputTime>div:nth-child(2)>div>input{
+    width: 720px;
+    height: 40px;
+    outline: none;
+    border: 1px solid rgb(220, 220, 220);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 0 10px;
+}
+
+.inputTime>div:nth-child(2)>div>input:focus{
+    outline: 2px solid #219ebc;
+}
+
+
+/* 인원 */
+.inputNumber{
+    width: 800px;
+}
+
+.inputNumber>div:nth-child(2)>input{
+    width: 200px;
+    margin: 0 0 0 20px;
+    padding-left: 10px;
+}
+
+/* 모임장소 */
+.inputLocation{
+    width: 800px;
+}
+
+.inputLocation>div>label{
+    cursor: pointer;
+}
+
+
+input[type='radio'] {
+  appearance: none; 
+  width: 12px;
+  height: 12px;
+  border: 2px solid #ccc; 
+  border-radius: 50%;
+  outline: none; 
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+input[type='radio']:checked {
+  background-color: #219ebc; 
+  border: 3px solid white; 
+  box-shadow: 0 0 0 1.6px #219ebc; 
+}
+
+.inputLocation>div:nth-child(2){
+    margin-top: 15px;
+}
+
+#selectlocation{
+    width: 800px;
+    height: 450px;
+    margin-top: 20px;
+}
+
+/* ---------------------------------------------------------------------------------------------------------------- */
+/* 선택 작성 영역 */
+.choiceArea{
+    width: 1280px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* 비용 */
+
+.groupmoney{
+    height: 100px;
+}
+
+.input-info{
+    font-size: 14px;
+    color: #219ebc;
+}
+
+
+
+/* 태그 */
+.inputTag{
+    width: 800px;
+    height: 300px;
+}
+
+/* 태그들 선택 영역 */
+#tag-stack{
+    height: 200px;
+    width: 800px;
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#tag-stack>ul{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.stuckDiv.selected {border: 2px solid #219ebc;}
+
+.stuckDiv{
+    height: 40px;
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+.stuckDiv.red {
+    background-color: red;
+}
+
+.stuckDiv>input{display: none;}
+
+.stuckDiv>img{
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 50%;
+    margin: 0 7px;
+}
+
+.stuckDiv>span{
+    margin-right: 7px;
+}
+
+/* ----------------------------------------------------------------------------------------------------------- */
+/* 취소 / 작성완료 버튼  */
+main>form>section:nth-child(3){
+    width: 1280px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main>form>section:nth-child(3)>button{
+    width: 370px;
+    height: 50px;
+    margin: 0 30px 0 30px;
+    font-size: 24px;
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+main>form>section:nth-child(3)>a>button{
+    width: 370px;
+    height: 50px;
+    margin: 0 30px 0 30px;
+    font-size: 24px;
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+#finish-btn{
+    background-color: #219ebc;
+    color: white;
+}
+
+

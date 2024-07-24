@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/pages/mainPage.css">
+    <link rel="stylesheet" href="../../css/common/hf.css">
+    <link rel="stylesheet" href="../../css/common/slider.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/6e9a783fd9.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <div class="width-1280px flex">
+            <div class="topHeader">
+                <div>
+                    <a href="mainPage.html" id = "logo"><img src="../../img/logo2.png" alt=""></a>
+                </div>
+                <div id="categoryBar">
+                    <ul>
+                        <li><a href="">클래스</a></li>
+                        <li><a href="">스터디 모집</a></li>
+                        <li><a href="">수강 후기</a></li>
+                        <li><a href="">궁금해요</a></li>
+                    </ul>
+                </div>
+                <input type="text" id="searchBar" placeholder="재능을 입력해주세요.">
+            </div>
+            <ul id="loginBox">
+                <!-- <li>
+                    <a href="#">로그인</a>
+                </li>
+                <li>
+                    <a href="#">회원가입</a>
+                </li> -->
+                <li>
+                    <a href="#">일이삼사오육칠팔님</a>
+                </li>
+                <li class="fa-solid fa-bars" id="headerBoxBtn"></li>
+            </ul>
+            <ul id="headerBox">
+                <li><a href="">마이 프로필</a></li>
+                <li><a href="">튜터 프로필</a></li>
+                <li><a href="">로그아웃</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="infinitySlider contentWrapper">
+        <ul>
+            <li><img src="https://www.taling.me/_next/image?url=https%3A%2F%2Fd14w7j944shu9e.cloudfront.net%2Fonsite%2Fmedia%2Fbanner%2Fo3ijr2dg7vo_2023-12-11.png&w=3840&q=75"></li>
+            <li><img src="https://www.taling.me/_next/image?url=https%3A%2F%2Fd14w7j944shu9e.cloudfront.net%2Fonsite%2Fmedia%2Fbanner%2Fvc98xurw36m_2024-05-21.png&w=3840&q=75"></li>
+            <li><img src="https://www.taling.me/_next/image?url=https%3A%2F%2Fd14w7j944shu9e.cloudfront.net%2Fonsite%2Fmedia%2Fbanner%2Fo3ijr2dg7vo_2023-12-11.png&w=3840&q=75"></li>
+            <li><img src="https://www.taling.me/_next/image?url=https%3A%2F%2Fd14w7j944shu9e.cloudfront.net%2Fonsite%2Fmedia%2Fbanner%2Fvc98xurw36m_2024-05-21.png&w=3840&q=75"></li>
+        </ul>
+    </div>
+
+    <div class="slideContentWrapper contentWrapper">
+        <div class="contentHeader">
+            <div class="contentHeaderTitle">주간 베스트 TOP20</div>
+            <div class="contentHeaderShowAll">모두보기</div>
+        </div>
+        <div class="contentBoxs" id="contentSlider">
+            <div class="contentBoxsSet" id="contentBoxSet">
+                <div class="contentBox">
+                    <img
+                        src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
+                    <div class="contentTitle">50만 어쩌구</div>
+                    <div class="contentAuthor">홍길동</div>
+                    <div class="contentStars">★ (<span>3.9</span>)</div>
+                    <div class="contentPrice">160,000원</div>
+                </div>
+                <div class="contentBox">
+                    <img
+                        src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
+                    <div class="contentTitle">50만 어쩌구</div>
+                    <div class="contentAuthor">홍길동</div>
+                    <div class="contentStars">★ (<span>3.9</span>)</div>
+                    <div class="contentPrice">160,000원</div>
+                </div>
+                <div class="contentBox">
+                    <img
+                        src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
+                    <div class="contentTitle">50만 어쩌구</div>
+                    <div class="contentAuthor">홍길동</div>
+                    <div class="contentStars">★ (<span>3.9</span>)</div>
+                    <div class="contentPrice">160,000원</div>
+                </div>
+                <div class="contentBox">
+                    <img
+                        src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
+                    <div class="contentTitle">50만 어쩌구</div>
+                    <div class="contentAuthor">홍길동</div>
+                    <div class="contentStars">★ (<span>3.9</span>)</div>
+                    <div class="contentPrice">160,000원</div>
+                </div>
+                <div class="contentBox">
+                    <img
+                        src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
+                    <div class="contentTitle">50만 어쩌구</div>
+                    <div class="contentAuthor">홍길동</div>
+                    <div class="contentStars">★ (<span>3.9</span>)</div>
+                    <div class="contentPrice">160,000원</div>
+                </div>
+            </div>
+            <div class="contentBoxsSet">
+                <div class="contentBox">
+                    <img
+                        src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
+                    <div class="contentTitle">50만 어쩌구</div>
+                    <div class="contentAuthor">홍길동</div>
+                    <div class="contentStars">★ (<span>3.9</span>)</div>
+                    <div class="contentPrice">160,000원</div>
+                </div>
+                <div class="contentBox">
+                    <img
+                        src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
+                    <div class="contentTitle">50만 어쩌구</div>
+                    <div class="contentAuthor">홍길동</div>
+                    <div class="contentStars">★ (<span>3.9</span>)</div>
+                    <div class="contentPrice">160,000원</div>
+                </div>
+                <div class="contentBox">
+                    <img
+                        src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
+                    <div class="contentTitle">50만 어쩌구</div>
+                    <div class="contentAuthor">홍길동</div>
+                    <div class="contentStars">★ (<span>3.9</span>)</div>
+                    <div class="contentPrice">160,000원</div>
+                </div>
+                <div class="contentBox">
+                    <img
+                        src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
+                    <div class="contentTitle">50만 어쩌구</div>
+                    <div class="contentAuthor">홍길동</div>
+                    <div class="contentStars">★ (<span>3.9</span>)</div>
+                    <div class="contentPrice">160,000원</div>
+                </div>
+                <div class="contentBox">
+                    <img
+                        src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
+                    <div class="contentTitle">50만 어쩌구</div>
+                    <div class="contentAuthor">홍길동</div>
+                    <div class="contentStars">★ (<span>3.9</span>)</div>
+                    <div class="contentPrice">160,000원</div>
+                </div>
+            </div>
+            <div class="contentBoxsSet">
+                <div class="contentBox">
+                    <img
+                        src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
+                    <div class="contentTitle">50만 어쩌구</div>
+                    <div class="contentAuthor">홍길동</div>
+                    <div class="contentStars">★ (<span>3.9</span>)</div>
+                    <div class="contentPrice">160,000원</div>
+                </div>
+                <div class="contentBox">
+                    <img
+                        src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
+                    <div class="contentTitle">50만 어쩌구</div>
+                    <div class="contentAuthor">홍길동</div>
+                    <div class="contentStars">★ (<span>3.9</span>)</div>
+                    <div class="contentPrice">160,000원</div>
+                </div>
+                <div class="contentBox">
+                    <img
+                        src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
+                    <div class="contentTitle">50만 어쩌구</div>
+                    <div class="contentAuthor">홍길동</div>
+                    <div class="contentStars">★ (<span>3.9</span>)</div>
+                    <div class="contentPrice">160,000원</div>
+                </div>
+                <div class="contentBox">
+                    <img
+                        src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
+                    <div class="contentTitle">50만 어쩌구</div>
+                    <div class="contentAuthor">홍길동</div>
+                    <div class="contentStars">★ (<span>3.9</span>)</div>
+                    <div class="contentPrice">160,000원</div>
+                </div>
+                <div class="contentBox">
+                    <img
+                        src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
+                    <div class="contentTitle">50만 어쩌구</div>
+                    <div class="contentAuthor">홍길동</div>
+                    <div class="contentStars">★ (<span>3.9</span>)</div>
+                    <div class="contentPrice">300,000원</div>
+                </div>
+            </div>
+        </div>
+        <div class="slideButton fa-solid fa-chevron-left" id="leftButton"></div>
+        <div class="slideButton fa-solid fa-chevron-right" id="rightButton"></div>
+    </div>
+    <div class="slideContentWrapper contentWrapper">
+        <div class="contentHeader">
+            <div class="contentHeaderTitle">주간 베스트 TOP20</div>
+            <div class="contentHeaderShowAll">모두보기</div>
+        </div>
+        <div class="contentBoxs" id="contentSlider">
+            <div class="contentBoxsSet" id="contentBoxSet">
+                <div class="contentBox">
+                    <img
+                        src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
+                    <div class="contentTitle">50만 어쩌구</div>
+                    <div class="contentAuthor">홍길동</div>
+                    <div class="contentStars">★ (<span>3.9</span>)</div>
+                    <div class="contentPrice">160,000원</div>
+                </div>
+                <div class="contentBox">
+                    <img
+                        src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
+                    <div class="contentTitle">50만 어쩌구</div>
+                    <div class="contentAuthor">홍길동</div>
+                    <div class="contentStars">★ (<span>3.9</span>)</div>
+                    <div class="contentPrice">160,000원</div>
+                </div>
+                <div class="contentBox">
+                    <img
+                        src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
+                    <div class="contentTitle">50만 어쩌구</div>
+                    <div class="contentAuthor">홍길동</div>
+                    <div class="contentStars">★ (<span>3.9</span>)</div>
+                    <div class="contentPrice">160,000원</div>
+                </div>
+                <div class="contentBox">
+                    <img
+                        src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
+                    <div class="contentTitle">50만 어쩌구</div>
+                    <div class="contentAuthor">홍길동</div>
+                    <div class="contentStars">★ (<span>3.9</span>)</div>
+                    <div class="contentPrice">160,000원</div>
+                </div>
+                <div class="contentBox">
+                    <img
+                        src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
+                    <div class="contentTitle">50만 어쩌구</div>
+                    <div class="contentAuthor">홍길동</div>
+                    <div class="contentStars">★ (<span>3.9</span>)</div>
+                    <div class="contentPrice">160,000원</div>
+                </div>
+            </div>
+            <div class="contentBoxsSet">
+                <div class="contentBox">
+                    <img
+                        src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
+                    <div class="contentTitle">50만 어쩌구</div>
+                    <div class="contentAuthor">홍길동</div>
+                    <div class="contentStars">★ (<span>3.9</span>)</div>
+                    <div class="contentPrice">160,000원</div>
+                </div>
+                <div class="contentBox">
+                    <img
+                        src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
+                    <div class="contentTitle">50만 어쩌구</div>
+                    <div class="contentAuthor">홍길동</div>
+                    <div class="contentStars">★ (<span>3.9</span>)</div>
+                    <div class="contentPrice">160,000원</div>
+                </div>
+                <div class="contentBox">
+                    <img
+                        src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
+                    <div class="contentTitle">50만 어쩌구</div>
+                    <div class="contentAuthor">홍길동</div>
+                    <div class="contentStars">★ (<span>3.9</span>)</div>
+                    <div class="contentPrice">160,000원</div>
+                </div>
+                <div class="contentBox">
+                    <img
+                        src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
+                    <div class="contentTitle">50만 어쩌구</div>
+                    <div class="contentAuthor">홍길동</div>
+                    <div class="contentStars">★ (<span>3.9</span>)</div>
+                    <div class="contentPrice">160,000원</div>
+                </div>
+                <div class="contentBox">
+                    <img
+                        src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
+                    <div class="contentTitle">50만 어쩌구</div>
+                    <div class="contentAuthor">홍길동</div>
+                    <div class="contentStars">★ (<span>3.9</span>)</div>
+                    <div class="contentPrice">160,000원</div>
+                </div>
+            </div>
+            <div class="contentBoxsSet">
+                <div class="contentBox">
+                    <img
+                        src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
+                    <div class="contentTitle">50만 어쩌구</div>
+                    <div class="contentAuthor">홍길동</div>
+                    <div class="contentStars">★ (<span>3.9</span>)</div>
+                    <div class="contentPrice">160,000원</div>
+                </div>
+                <div class="contentBox">
+                    <img
+                        src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
+                    <div class="contentTitle">50만 어쩌구</div>
+                    <div class="contentAuthor">홍길동</div>
+                    <div class="contentStars">★ (<span>3.9</span>)</div>
+                    <div class="contentPrice">160,000원</div>
+                </div>
+                <div class="contentBox">
+                    <img
+                        src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
+                    <div class="contentTitle">50만 어쩌구</div>
+                    <div class="contentAuthor">홍길동</div>
+                    <div class="contentStars">★ (<span>3.9</span>)</div>
+                    <div class="contentPrice">160,000원</div>
+                </div>
+                <div class="contentBox">
+                    <img
+                        src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
+                    <div class="contentTitle">50만 어쩌구</div>
+                    <div class="contentAuthor">홍길동</div>
+                    <div class="contentStars">★ (<span>3.9</span>)</div>
+                    <div class="contentPrice">160,000원</div>
+                </div>
+                <div class="contentBox">
+                    <img
+                        src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
+                    <div class="contentTitle">50만 어쩌구</div>
+                    <div class="contentAuthor">홍길동</div>
+                    <div class="contentStars">★ (<span>3.9</span>)</div>
+                    <div class="contentPrice">160,000원</div>
+                </div>
+            </div>
+        </div>
+        <div class="slideButton fa-solid fa-chevron-left" id="leftButton"></div>
+        <div class="slideButton fa-solid fa-chevron-right" id="rightButton"></div>
+    </div>
+
+    <div class="contentWrapper gridBox">
+        <div>
+            <div class="gridBoxTitle">
+                수강후기
+            </div>
+            <div class="gridBoxContents">
+                <ul>
+                    <li>
+                        <div class="gridBoxContentUpper">
+                            <div>
+                                <img src="${contextPath}/resources/img/profile_default_removebg.png">
+                                <span class="memberNickname">홍길동</span>
+                            </div>
+                            <span class="writeDate">2024-07-08</span>
+                            <div class="gridBoxSub">
+                                <i class="fa-regular fa-thumbs-up"></i><span class="comment">2</span>
+                                <i class="fa-regular fa-eye"></i><span class="participants">5</span>
+                            </div>
+                        </div>
+                        <div class="gridBoxContentLower">
+                            <span class="boardTitle">집에 가고 싶은 사람 모여라</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="gridBoxContentUpper">
+                            <div>
+                                <img src="${contextPath}/resources/img/profile_default_removebg.png">
+                                <span class="memberNickname">홍길동</span>
+                            </div>
+                            <span class="writeDate">2024-07-08</span>
+                            <div class="gridBoxSub">
+                                <i class="fa-regular fa-thumbs-up"></i><span class="comment">2</span>
+                                <i class="fa-regular fa-eye"></i><span class="participants">5</span>
+                            </div>
+                        </div>
+                        <div class="gridBoxContentLower">
+                            <span class="boardTitle">집에 가고 싶은 사람 모여라</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="gridBoxContentUpper">
+                            <div>
+                                <img src="${contextPath}/resources/img/profile_default_removebg.png">
+                                <span class="memberNickname">홍길동</span>
+                            </div>
+                            <span class="writeDate">2024-07-08</span>
+                            <div class="gridBoxSub">
+                                <i class="fa-regular fa-thumbs-up"></i><span class="comment">2</span>
+                                <i class="fa-regular fa-eye"></i><span class="participants">5</span>
+                            </div>
+                        </div>
+                        <div class="gridBoxContentLower">
+                            <span class="boardTitle">집에 가고 싶은 사람 모여라</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="gridBoxContentUpper">
+                            <div>
+                                <img src="${contextPath}/resources/img/profile_default_removebg.png">
+                                <span class="memberNickname">홍길동</span>
+                            </div>
+                            <span class="writeDate">2024-07-08</span>
+                            <div class="gridBoxSub">
+                                <i class="fa-regular fa-thumbs-up"></i><span class="comment">2</span>
+                                <i class="fa-regular fa-eye"></i><span class="participants">5</span>
+                            </div>
+                        </div>
+                        <div class="gridBoxContentLower">
+                            <span class="boardTitle">집에 가고 싶은 사람 모여라</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="gridBoxContentUpper">
+                            <div>
+                                <img src="${contextPath}/resources/img/profile_default_removebg.png">
+                                <span class="memberNickname">홍길동</span>
+                            </div>
+                            <span class="writeDate">2024-07-08</span>
+                            <div class="gridBoxSub">
+                                <i class="fa-regular fa-thumbs-up"></i><span class="comment">2</span>
+                                <i class="fa-regular fa-eye"></i><span class="participants">5</span>
+                            </div>
+                        </div>
+                        <div class="gridBoxContentLower">
+                            <span class="boardTitle">집에 가고 싶은 사람 모여라</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <div class="gridBoxTitle">
+                Best Sellers
+            </div>
+            <div class="gridBoxContents">
+                <div id="gridFade">
+                    <div class="gridFadecontentBox">
+                        <img
+                            src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
+                        <div class="contentTitle">50만 어쩌구</div>
+                        <div class="contentAuthor">홍길동</div>
+                        <div class="contentStars">★ (<span>3.9</span>)</div>
+                        <div class="contentPrice">160,000원</div>
+                    </div>
+                    <div class="gridFadecontentBox">
+                        <img
+                            src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F9d277aa56493ec815c5a2b0e6803bf20352e4f1e.png&w=640&q=75">
+                        <div class="contentTitle">50만 어쩌구</div>
+                        <div class="contentAuthor">홍길동</div>
+                        <div class="contentStars">★ (<span>3.9</span>)</div>
+                        <div class="contentPrice">160,000원</div>
+                    </div>
+                    <div class="gridFadecontentBox">
+                        <img
+                            src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
+                        <div class="contentTitle">50만 어쩌구</div>
+                        <div class="contentAuthor">홍길동</div>
+                        <div class="contentStars">★ (<span>3.9</span>)</div>
+                        <div class="contentPrice">160,000원</div>
+                    </div>
+                </div>
+                <div id="gridFadeController">
+                    <ul>
+                        <li id="fadeLeft">&lt;</li>
+                        <li><span id="currentPage">1</span> / <span id="pages">4</span></li>
+                        <li id="fadeRight">&gt;</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="contentWrapper gridBox">
+        <div>
+            <div class="gridBoxTitle">
+                같이 공부해요!
+            </div>
+            <div class="gridBoxContents">
+                <ul>
+                    <li>
+                        <div class="gridBoxContentUpper">
+                            <div>
+                                <img src="${contextPath}/resources/img/profile_default_removebg.png">
+                                <span class="memberNickname">홍길동</span>
+                            </div>
+                            <span class="writeDate">2024-07-08</span>
+                            <div class="gridBoxSub hashtagBox">
+                                <div>
+                                    <span class="hashtag">#SQL</span>
+                                    <span class="hashtag">#SQL</span>
+                                    <span class="hashtag">#SQL</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gridBoxContentLower">
+                            <span class="boardTitle">집에 가고 싶은 사람 모여라</span>
+                            <div class="gridBoxSub">
+                                <i class="fa-solid fa-users"></i><span class="comment">1/4</span>
+                                <i class="fa-regular fa-thumbs-up"></i><span class="comment">2</span>
+                                <i class="fa-regular fa-eye"></i><span class="participants">5</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="gridBoxContentUpper">
+                            <div>
+                                <img src="${contextPath}/resources/img/profile_default_removebg.png">
+                                <span class="memberNickname">홍길동</span>
+                            </div>
+                            <span class="writeDate">2024-07-08</span>
+                            <div class="gridBoxSub hashtagBox">
+                                <div>
+                                    <span class="hashtag">#SQL</span>
+                                    <span class="hashtag">#SQL</span>
+                                    <span class="hashtag">#SQL</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gridBoxContentLower">
+                            <span class="boardTitle">집에 가고 싶은 사람 모여라</span>
+                            <div class="gridBoxSub">
+                                <i class="fa-solid fa-users"></i><span class="comment">1/4</span>
+                                <i class="fa-regular fa-thumbs-up"></i><span class="comment">2</span>
+                                <i class="fa-regular fa-eye"></i><span class="participants">5</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="gridBoxContentUpper">
+                            <div>
+                                <img src="${contextPath}/resources/img/profile_default_removebg.png">
+                                <span class="memberNickname">홍길동</span>
+                            </div>
+                            <span class="writeDate">2024-07-08</span>
+                            <div class="gridBoxSub hashtagBox">
+                                <div>
+                                    <span class="hashtag">#SQL</span>
+                                    <span class="hashtag">#SQL</span>
+                                    <span class="hashtag">#SQL</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gridBoxContentLower">
+                            <span class="boardTitle">집에 가고 싶은 사람 모여라</span>
+                            <div class="gridBoxSub">
+                                <i class="fa-solid fa-users"></i><span class="comment">1/4</span>
+                                <i class="fa-regular fa-thumbs-up"></i><span class="comment">2</span>
+                                <i class="fa-regular fa-eye"></i><span class="participants">5</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="gridBoxContentUpper">
+                            <div>
+                                <img src="${contextPath}/resources/img/profile_default_removebg.png">
+                                <span class="memberNickname">홍길동</span>
+                            </div>
+                            <span class="writeDate">2024-07-08</span>
+                            <div class="gridBoxSub hashtagBox">
+                                <div>
+                                    <span class="hashtag">#SQL</span>
+                                    <span class="hashtag">#SQL</span>
+                                    <span class="hashtag">#SQL</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gridBoxContentLower">
+                            <span class="boardTitle">집에 가고 싶은 사람 모여라</span>
+                            <div class="gridBoxSub">
+                                <i class="fa-solid fa-users"></i><span class="comment">1/4</span>
+                                <i class="fa-regular fa-thumbs-up"></i><span class="comment">2</span>
+                                <i class="fa-regular fa-eye"></i><span class="participants">5</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="gridBoxContentUpper">
+                            <div>
+                                <img src="${contextPath}/resources/img/profile_default_removebg.png">
+                                <span class="memberNickname">홍길동</span>
+                            </div>
+                            <span class="writeDate">2024-07-08</span>
+                            <div class="gridBoxSub hashtagBox">
+                                <div>
+                                    <span class="hashtag">#SQL</span>
+                                    <span class="hashtag">#SQL</span>
+                                    <span class="hashtag">#SQL</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gridBoxContentLower">
+                            <span class="boardTitle">집에 가고 싶은 사람 모여라</span>
+                            <div class="gridBoxSub">
+                                <i class="fa-solid fa-users"></i><span class="comment">1/4</span>
+                                <i class="fa-regular fa-thumbs-up"></i><span class="comment">2</span>
+                                <i class="fa-regular fa-eye"></i><span class="participants">5</span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <div class="gridBoxTitle">
+                궁금해요!
+            </div>
+            <div class="gridBoxContents">
+                <ul>
+                    <li>
+                        <div class="gridBoxContentUpper">
+                            <div>
+                                <img src="${contextPath}/resources/img/profile_default_removebg.png">
+                                <span class="memberNickname">홍길동</span>
+                            </div>
+                            <span class="writeDate">2024-07-08</span>
+                            <div class="gridBoxSub hashtagBox">
+                                <div>
+                                    <span class="hashtag">#SQL</span>
+                                    <span class="hashtag">#SQL</span>
+                                    <span class="hashtag">#SQL</span>
+                                    <span class="hashtag">#SQL</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gridBoxContentLower">
+                            <span class="boardTitle">집에 가고 싶은 사람 모여라</span>
+                            <div class="gridBoxSub">
+                                <span class="unsolved">미해결</span>
+                                <i class="fa-regular fa-thumbs-up"></i><span class="comment">2</span>
+                                <i class="fa-regular fa-eye"></i><span class="participants">5</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="gridBoxContentUpper">
+                            <div>
+                                <img src="${contextPath}/resources/img/profile_default_removebg.png">
+                                <span class="memberNickname">홍길동</span>
+                            </div>
+                            <span class="writeDate">2024-07-08</span>
+                            <div class="gridBoxSub hashtagBox">
+                                <div>
+                                    <span class="hashtag">#SQL</span>
+                                    <span class="hashtag">#SQL</span>
+                                    <span class="hashtag">#SQL</span>
+                                    <span class="hashtag">#SQL</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gridBoxContentLower">
+                            <span class="boardTitle">집에 가고 싶은 사람 모여라</span>
+                            <div class="gridBoxSub">
+                                <span class="unsolved">미해결</span>
+                                <i class="fa-regular fa-thumbs-up"></i><span class="comment">2</span>
+                                <i class="fa-regular fa-eye"></i><span class="participants">5</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="gridBoxContentUpper">
+                            <div>
+                                <img src="${contextPath}/resources/img/profile_default_removebg.png">
+                                <span class="memberNickname">홍길동</span>
+                            </div>
+                            <span class="writeDate">2024-07-08</span>
+                            <div class="gridBoxSub hashtagBox">
+                                <div>
+                                    <span class="hashtag">#SQL</span>
+                                    <span class="hashtag">#SQL</span>
+                                    <span class="hashtag">#SQL</span>
+                                    <span class="hashtag">#SQL</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gridBoxContentLower">
+                            <span class="boardTitle">집에 가고 싶은 사람 모여라</span>
+                            <div class="gridBoxSub">
+                                <span class="unsolved">미해결</span>
+                                <i class="fa-regular fa-thumbs-up"></i><span class="comment">2</span>
+                                <i class="fa-regular fa-eye"></i><span class="participants">5</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="gridBoxContentUpper">
+                            <div>
+                                <img src="${contextPath}/resources/img/profile_default_removebg.png">
+                                <span class="memberNickname">홍길동</span>
+                            </div>
+                            <span class="writeDate">2024-07-08</span>
+                            <div class="gridBoxSub hashtagBox">
+                                <div>
+                                    <span class="hashtag">#SQL</span>
+                                    <span class="hashtag">#SQL</span>
+                                    <span class="hashtag">#SQL</span>
+                                    <span class="hashtag">#SQL</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gridBoxContentLower">
+                            <span class="boardTitle">집에 가고 싶은 사람 모여라</span>
+                            <div class="gridBoxSub">
+                                <span class="solved">해결</span>
+                                <i class="fa-regular fa-thumbs-up"></i><span class="comment">2</span>
+                                <i class="fa-regular fa-eye"></i><span class="participants">5</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="gridBoxContentUpper">
+                            <div>
+                                <img src="${contextPath}/resources/img/profile_default_removebg.png">
+                                <span class="memberNickname">홍길동</span>
+                            </div>
+                            <span class="writeDate">2024-07-08</span>
+                            <div class="gridBoxSub hashtagBox">
+                                <div>
+                                    <span class="hashtag">#SQL</span>
+                                    <span class="hashtag">#SQL</span>
+                                    <span class="hashtag">#SQL</span>
+                                    <span class="hashtag">#SQL</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gridBoxContentLower">
+                            <span class="boardTitle">집에 가고 싶은 사람 모여라</span>
+                            <div class="gridBoxSub">
+                                <span class="solved">해결</span>
+                                <i class="fa-regular fa-thumbs-up"></i><span class="comment">2</span>
+                                <i class="fa-regular fa-eye"></i><span class="participants">5</span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <button class="fa-solid fa-headset callServiceCenter"></button>
+        <p>통신판매 신고번호 : 1234-서울강남-12345<br>
+            상호 : 재능사조<br>
+            주소 : 서울특별시 강남구 역삼역<br>
+            고객센터 : 1234-1234 <br>
+            
+            (주) 재능사조는 통신판개중개자로서 거래 당사자가 아니므로, 튜터가 등록한 상품정보를 책임지지 않습니다.<br>
+            Copyright @ 2024 Inc. All rights reserved.</p>
+    </footer>
+    <script src="../../js/pages/mainPage.js"></script>
+    <script src="../../js/common/slider.js"></script>
+    <script src="../../js/common/hf.js"></script>
+</body>
+
+</html>

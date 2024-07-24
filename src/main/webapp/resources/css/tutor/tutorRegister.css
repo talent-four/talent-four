@@ -1,0 +1,476 @@
+*{  
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 100;
+    src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Normal.woff2) format('woff2'),
+         url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Normal.woff) format('woff'),
+         url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Normal.otf) format('opentype');
+}
+
+body{
+    width: 100%;
+    min-height: 1000px;
+    max-height: 2000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+footer{
+    width: 100%;
+}
+
+/* ----------------------------------------------------------------------------------------- */
+main{
+    width: 1280px;
+    height: 1700px;
+}
+
+.titleP{
+    width: 1280px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgb(153, 153, 153);
+    justify-content: space-between;
+}
+
+.titleP>span:nth-child(1){
+    font-size: 40px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    margin: 0 0 15px 0 ;
+}
+
+.titleP>span:nth-child(2){
+    color: #219ebc;
+    margin:  0 10px 0 5px;
+    font-size: 18px;
+}
+
+.titleP>span:nth-child(2)>span{
+    color: black;
+    margin:  0 10px 0 5px;
+}
+
+
+/* 튜터 등록 텍스트 영역 */
+/*=----------------------------------------------------------------------------------*/
+/*=----------------------------------------------------------------------------------*/
+/*=----------------------------------------------------------------------------------*/
+/* 1330남음 */
+/* 프로필 사진 영역 */
+
+.regist-img-areaP{
+    width: 1280px;
+    height: 420px;
+    display: flex;
+    border-bottom: 1px solid rgb(153, 153, 153);
+}
+
+.side-textP{
+    width: 300px;
+    height: 60px;
+    margin: 20px 0 0 10px;
+}
+
+.side-textP>span:nth-child(2){
+    color: #219ebc;
+    margin: 0 0 0 5px;
+}
+
+.side-textP>span{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.regist-img-areaP>div:nth-child(2){
+    width: 980px;
+    height: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.example-areaP{
+    width: 980px;
+    height: 200px;
+    background-color: #b7def0;
+    border-radius: 15px;
+}
+
+.example-areaP>div:nth-child(1){
+    width: 980px;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.example-areaP>div:nth-child(1)>span{
+    margin: 0 0 0 20px;
+}
+
+.example-areaP>div:nth-child(1)>span:nth-child(1){
+    font-weight: bold;
+    color: red;
+}
+
+.example-imgP{
+    width: 980px;
+    height: 140px;
+    display: flex;
+    align-items: center;
+}
+
+.example-imgP>img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 25px 0 25px;
+    border: 3px solid rgb(255, 16, 88);
+}
+
+.example-imgP>img:nth-child(4){
+    border: 3px solid rgb(16, 92, 255);
+}
+
+.i-areaP{
+    position: relative;
+}
+
+.i-areaP>span{
+    color: rgb(255, 16, 88);
+    font-size: 90px;
+}
+
+.i-areaP>span:nth-child(1){
+    position: absolute;
+    left: -557px;
+    top: -44px;
+}
+
+.i-areaP>span:nth-child(2){
+    position: absolute;
+    left: -407px;
+    top: -44px;
+}
+
+.i-areaP>span:nth-child(3){
+    position: absolute;
+    left: -257px;
+    top: -44px;
+}
+
+.confirm-imgP{
+    width: 980px;
+    height: 150px;
+    display: flex;
+    position: relative;
+}
+
+#profile-imgP{
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    margin: 5px 0 0 20px;
+}
+
+#upload-imgP{
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    background-color: #219ebc;
+    border-radius: 50%;
+    border: none;
+    color: white;
+    font-size: 40px;
+    top: 80px;
+    left: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+#change-img-btnP{
+    display: none;
+}
+
+/* 프로필 사진 영역 끝 */
+/*----------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------*/
+/*전화 번호*/
+.regist-tel-areaP{
+    width: 1280px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgb(153, 153, 153);
+}
+
+
+.regist-tel-areaP>div:nth-child(2){
+    width: 980px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+#input-telP{
+    width: 600px;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 10px;
+    border: 1px solid rgb(220, 220, 220);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    outline: none;
+}
+
+#input-telP::placeholder{
+    padding: 0 0 0 10px;
+}
+/* 전화번호 끝 */
+/*----------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------*/
+/* 튜터소개 시작 */
+
+.regist-introduce-area{
+    height: 400px;
+    display: flex;
+    border-bottom: 1px solid rgb(153, 153, 153);
+}
+
+#inputIntroduce{
+    margin-top: 20px;
+    resize: none;
+    width: 800px;
+    height: 350px;
+    font-size: 20px;
+    border-radius: 10px;
+    border: 1px solid rgb(220, 220, 220);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    outline: none;
+}
+.regist-introduce-area>div:nth-child(2)>span{
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* 튜터소개 끝 */
+/*----------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------*/
+/* 계좌등록 시작 */
+
+.regist-account-area{
+    height: 200px;
+    display: flex;
+    border-bottom: 1px solid rgb(153, 153, 153);
+}
+.regist-account-area>div:nth-child(2){
+    margin-top: 20px;
+}
+
+.regist-account-area>div:nth-child(2)>div>span{
+    font-size: 20px;
+    display: inline-block;
+    width: 100px;
+    margin-bottom: 25px;
+}
+
+.regist-account-area>div:nth-child(2)>div>input{
+    width: 250px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid rgb(220, 220, 220);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    outline: none;
+    font-size: 20px;
+}
+
+.regist-account-area>div:nth-child(2)>div>select{
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid rgb(220, 220, 220);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    outline: none;
+    font-size: 20px;
+}
+
+option{
+    padding: 0 5px;
+}
+
+/* 계좌등록 끝 */
+/*----------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------*/
+/* 850 남음 */
+/* 인증 */
+
+.regist-career-areaP{
+    width: 1280px;
+    height: 370px;
+    display: flex;
+    border-bottom: 1px solid rgb(153, 153, 153);
+}
+
+.regist-career-areaP>div:nth-child(2){
+    width: 980px;
+    height: 370px;
+}
+
+.info-career-inputP{
+    width: 980px;
+    height: 150px;
+    background-color: rgb(237, 240, 244);
+    border-radius: 10px;
+    margin: 15px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.info-career-inputP>span{
+    color: #219ebc;
+    font-weight: bold;
+    margin: 0 0 0 20px;
+}
+
+.info-career-inputP>ul{
+    margin: 0;
+    list-style-type: none;
+
+}
+
+.info-career-inputP>ul>li{
+    list-style: initial;
+    margin-left: 40px;
+}
+
+/*높이 130 남음*/
+
+.university-areaP{
+    width: 980px;
+    height: 80px;
+    margin-top: 20px;
+}
+
+.university-areaP>span{
+    font-weight: bold;
+}
+
+.university-areaP>span>span{
+    font-weight: normal;
+    margin: 0 0 0 20px;
+    color: rgb(103, 103, 103);
+}
+
+#university-nameP{
+    width: 250px;
+    height: 30px;
+    margin: 5px 0 0 0;
+    outline: none;
+}
+
+#university-major-nameP{
+    width: 250px;
+    height: 30px;
+    margin: 5px 0 0 0;
+    outline: none;
+}
+
+input[type='file']{
+    display: none;
+}
+
+#upload-universityP{
+    display: inline-block;
+    text-align: center;
+    width: 80px;
+    height: 30px;
+    background-color: transparent;
+    border: 1px solid rgb(153, 153, 153);
+    cursor: pointer;
+    padding: 2px 0 0 0;
+}
+
+
+/*190 남음*/
+
+.license-areaP{
+    width: 980px;
+    height: 80px;
+}
+
+.license-areaP>span{
+    font-weight: bold;
+}
+
+.license-areaP>span>span{
+    font-weight: normal;
+    margin: 0 0 0 20px;
+    color: rgb(103, 103, 103);
+}
+
+#license-nameP{
+    width: 505px;
+    height: 30px;
+    margin: 5px 0 0 0;
+    outline: none;
+}
+
+#upload-licenseP{
+    display: inline-block;
+    text-align: center;
+    width: 80px;
+    height: 30px;
+    background-color: transparent;
+    border: 1px solid rgb(153, 153, 153);
+    cursor: pointer;
+    padding: 2px 0 0 0;
+}
+
+/*-------------------------------------------------------------------------------*/
+/*110*/
+/*-----------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------*/
+.regist-btn-areaP{
+    width: 1280px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.regist-btn-areaP>button{
+    width: 200px;
+    height: 50px;
+    margin: 0 15px 0 15px;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+}
+
+#cancel-saveP{
+    background-color: rgb(85, 85, 85);
+}
+
+#save-nextP{
+    background-color: #219ebc;;
+}
