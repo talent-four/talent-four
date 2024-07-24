@@ -114,6 +114,8 @@ public class ClassPageDAO {
 				c.setMemberNo(rs.getInt(9));
 				c.setCategoryCode(rs.getString(10));
 				c.setMemberNickname(rs.getString(11));
+				c.setReviews(rs.getInt(12));
+				c.setScore(rs.getFloat(13));
 				classList.add(c);
 			}
 			
@@ -151,6 +153,8 @@ public class ClassPageDAO {
 				c.setMemberNo(rs.getInt(9));
 				c.setCategoryCode(rs.getString(10));
 				c.setMemberNickname(rs.getString(11));
+				c.setReviews(rs.getInt(12));
+				c.setScore(rs.getFloat(13));
 				classList.add(c);
 			}
 			
@@ -187,6 +191,8 @@ public class ClassPageDAO {
 				c.setMemberNo(rs.getInt(9));
 				c.setCategoryCode(rs.getString(10));
 				c.setMemberNickname(rs.getString(11));
+				c.setReviews(rs.getInt(12));
+				c.setScore(rs.getFloat(13));
 				classList.add(c);
 			}
 			

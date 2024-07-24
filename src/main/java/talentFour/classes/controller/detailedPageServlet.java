@@ -1,6 +1,7 @@
 package talentFour.classes.controller;
 
 import java.io.IOException;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,13 +21,14 @@ public class detailedPageServlet extends HttpServlet {
 		int classNo =  Integer.parseInt(req.getParameter("classNo"));
 		
 		DetailPageService service = new DetailPageService();
-		try {
-			Class c = service.getClass(classNo);
+		try {		
+			Map<String, Object>	classInfo = service.getClass(classNo);
+//			Class c = (Class) classInfo.get("classDetail");
 			
-			if(c != null) {
-				req.setAttribute("classInfo", c);
-				String url = req.getRequestURI() + "?classNo=" +req.getParameter("classNo");
-				req.setAttribute("currUrl", url);
+			if(classInfo != null) {
+				req.setAttribute("classInfo", classInfo);
+//				String url = req.getRequestURI() + "?classNo=" +req.getParameter("classNo");
+//				req.setAttribute("currUrl", url);
 			} else {
 				req.setAttribute("message", "잘못된 요청");
 			}

@@ -19,30 +19,37 @@
 <body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 
+	${classInfo.tutorInfo[0]}
+	${classInfo.tutorInfo[1]}
 
+	<c:set var="classInfo" value="${classInfo.classDetail}"></c:set>
+ 	
    	<main id="detailed">
         <section class="upper">
             <div class="upperWrapper">
-                <img src="https://img.taling.me/Content/Uploads/Images/85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png">
+            	<c:if test="${classInfo.classPhoto != 'PHOTO URL'}">
+            		<img src="${contextPath}${classInfo.classPhoto}">
+            	</c:if>
+           		<c:if test="${classInfo.classPhoto == 'PHOTO URL'}">
+            		<img src="https://img.taling.me/Content/Uploads/Images/85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png">
+            	</c:if>
                 <div class="classInfo">
                     <div class="classCategory"><span>${classInfo.main}</span> / <span>${classInfo.sub}</span></div>
                     <div class="classTitle">${classInfo.className}</div>
-                    <div class="classEvaluation">평점 / 리뷰슈 / 수강인원수</div>
-                    <div class="classTeacher">${classInfo.memberNickname }</div>
+                    <div class="classEvaluation">★ (${classInfo.score}) / <span><i class="fa-solid fa-users"></i> ${classInfo.reviews}</span></div>
+                    <div class="classTeacher">${classInfo.memberNickname} 튜터</div>
                 </div>
             </div>
             <nav class="detailedNav">
-            ${currUrl }
+            ${currUrl}
                 <ul>
-                    <li><a href="${currUrl}&type=classintro">클래스 소개</a></li>
-                    <li><a href="${currUrl}">커리큘럼</a></li>
-                    <li><a href="${currUrl}&type=tutorintro">튜터 소개</a></li>
-                    <li><a href="${currUrl}&type=review">리뷰<span class="nav-min-15">15</span></span></a></li>
-                    <li><a href="${currUrl}&type=QnA">QnA<span class="nav-min-15">15</span></span></a></li>
+                    <li><a href="">클래스 소개</a></li>
+                    <li><a href="">튜터 소개</a></li>
+                    <li><a href="#dp-review">리뷰<span class="nav-min-15">15</span></span></a></li>
                 </ul>
             </nav>
         </section>
-
+		
         <section class="lower">
             <div class="introduceBox">
                 <section class="classDetailBox">

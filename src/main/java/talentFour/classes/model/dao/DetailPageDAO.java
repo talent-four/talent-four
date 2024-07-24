@@ -65,6 +65,8 @@ public class DetailPageDAO {
 				c.setMemberProfile(rs.getString(12));
 				c.setMain(rs.getString(13));
 				c.setSub(rs.getString(14));
+				c.setReviews(rs.getInt(15));
+				c.setScore(rs.getFloat(16));
 			}
 			
 		} finally {
@@ -73,6 +75,32 @@ public class DetailPageDAO {
 		}
 		
 		return c;
+	}
+
+
+	public String[] getTutorIntro(Connection conn, Class c) throws Exception {
+		String[] getTutorInfo = new String[2];
+		
+		String sql = prop.getProperty("getTutorIntro");
+		
+		try {
+			// 대분류 가져오기
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, c.getMemberNo());
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				getTutorInfo[0] = rs.getString(1);
+				getTutorInfo[1] = rs.getString(2);
+			}
+			
+		} finally {
+			
+		}
+		
+		return getTutorInfo;
 	}
 
 }
