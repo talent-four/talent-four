@@ -299,7 +299,6 @@ public class MemberDAO {
 		
 		return reviewList;
 	}
-	
 
 	public List<Paid> selectPaid(Connection conn, int memberNo) throws SQLException {
 		
