@@ -1,3 +1,12 @@
+// 카테고리 바
+$("#showCategoryBar").on("click", function(){
+    if ($(".categoryBar").css("display") == "none"){
+        $(".categoryBar").slideDown(200);
+    } else {
+        $(".categoryBar").slideUp(200);
+    }
+})
+      
 const sideCategory = document.querySelectorAll('.activeP'); /* 사이드 카테고리 영역 모음 */
 /* ---------------------------------------------------------------------------------- */
 const firstCategory = sideCategory[0]; /* 카테고리 영역 첫 번째 */
@@ -5,6 +14,7 @@ const secondCategory = sideCategory[1];
 const thirdCategory = sideCategory[2];
 const fourthCategory = sideCategory[3];
 const fifthCategory = sideCategory[4];
+const sixthCategory = sideCategory[5];
 /*------------------------------------------------------------------------------------*/
 fifthCategory.classList.add('a-style');
 
@@ -82,31 +92,3 @@ this.addEventListener("click",function(e){
         }
     }
 })
-
-//--------------------------------------------------------------------------------
-// 정산 타입 변경 js
-document.addEventListener('DOMContentLoaded', function() {
-    const links = document.querySelectorAll('.status-link');
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const currentCp = urlParams.get('cp');
-
-    if (currentCp) {
-        document.querySelectorAll('.status-link').forEach(link => {
-            link.parentElement.classList.remove('choiced');
-            if (link.dataset.id === currentCp) {
-                link.parentElement.classList.add('choiced');
-            }
-        });
-    }
-
-    links.forEach(link => {
-        link.addEventListener('click', function() {
-            links.forEach(l => {
-                l.parentElement.classList.remove('choiced');
-            });
-            link.parentElement.classList.add('choiced');
-        });
-    });
-});
-

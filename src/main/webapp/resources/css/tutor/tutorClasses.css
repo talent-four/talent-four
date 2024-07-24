@@ -300,9 +300,6 @@ main{ /* 메인 */
 .class-rowP:nth-child(3)>div:nth-child(3)>div{
     color: white;
     font-weight: bold;
-}
-
-#finclassdiv{
     background-color: #DB4F4D;
 }
 

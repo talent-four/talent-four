@@ -82,14 +82,12 @@ END;
 -- 궁금해요 게시판 
 
 
--- 용량이 적어서 VARCHAR2(3)으로 변경합니다.(''포함) 같이 돌려주세요.
---DECLARE 같이 돌려주세요... 
--- 멤버1이 궁금해요전체 WONDER_ANSWER포함 SQL문입니다.(강의가 궁금해요)(자유 궁금증) 각500개
+-- 용량이 적어서 VARCHAR2(3)으로 변경합니다. 같이 돌려주세요.
+--DECLARE 뭔진 모르겠지만 같이 돌려주세요... 
+-- 멤버1일 궁금해요전체 작성합니다.
 
 ALTER TABLE WONDER_BOARD
 MODIFY QA_STATUS VARCHAR2(3);
-
---댓글포함 강의가 궁금해요
 DECLARE
     QA_STATUS VARCHAR2(10) := 'QA';          -- Initialize variable
     WONDER_TYPE VARCHAR2(20) := 'Type1';     -- Initialize variable
@@ -98,23 +96,21 @@ BEGIN
         -- Declare a variable to hold the new board number
         DECLARE
             v_board_no BOARD.BOARD_NO%TYPE;
-            v_answer_no WONDER_ANSWER.ANSWER_NO%TYPE;
         BEGIN
             -- Generate a new board number
             v_board_no := SEQ_BOARD_NO.NEXTVAL;
-            v_answer_no := SEQ_ANSWER_NO.NEXTVAL;
 
             -- Insert into BOARD table
             INSERT INTO BOARD (
-                BOARD_NO,              
-                BOARD_TITLE,                 
-                BOARD_CONTENT,               
-                CREATED_DT,                  
-                UPDATE_DT,                  
-                READ_COUNT,                  
-                BOARD_ST,                  
-                MEMBER_NO,                  
-                BOARD_CD                   
+                BOARD_NO,              -- Replace with actual column names
+                BOARD_TITLE,                 -- Replace with actual column names
+                BOARD_CONTENT,               -- Replace with actual column names
+                CREATED_DT,                  -- Replace with actual column names
+                UPDATE_DT,                  -- Replace with actual column names
+                READ_COUNT,                  -- Replace with actual column names
+                BOARD_ST,                  -- Replace with actual column names
+                MEMBER_NO,                  -- Replace with actual column names
+                BOARD_CD                   -- Replace with actual column names
             ) VALUES (
                 v_board_no,
                 'USER' || v_board_no || '의 게시글 제목',
@@ -124,60 +120,42 @@ BEGIN
 
             -- Insert into WONDER_BOARD table
             INSERT INTO WONDER_BOARD (
-                BOARD_NO,              
-                QA_STATUS,                
-                WONDER_TYPE               
+                BOARD_NO,              -- Replace with actual column names
+                QA_STATUS,                -- Replace with actual column names
+                WONDER_TYPE               -- Replace with actual column names
             ) VALUES (
                 v_board_no,
                 QA_STATUS || 'N',
                 WONDER_TYPE || '강의가 궁금해요'
             );
-
-            -- Insert into WONDER_ANSWER table
-            INSERT INTO WONDER_ANSWER (
-                ANSWER_NO,
-                ANSWER_CONTENT,
-                ANSWER_ST,
-                ANSWER_DT,
-                BOARD_NO
-            ) VALUES (
-                v_answer_no,
-                'USER' || v_answer_no || '의 댓글 내용입니다댓글 내용입니다댓글 내용입니다댓글 내용입니다댓글 내용입니다댓글 내용입니다댓글 내용입니다댓글 내용입니다',
-                'N',
-                SYSDATE,
-                v_board_no
-            );
         END;
     END LOOP;
 END;
 /
 
---댓글포함 자유 궁금증
 DECLARE
     QA_STATUS VARCHAR2(10) := 'QA';          -- Initialize variable
-    WONDER_TYPE VARCHAR2(20) := 'Type1';     -- Initialize variable
+    WONDER_TYPE VARCHAR2(20) := 'Type1';
 BEGIN
     FOR I IN 1..500 LOOP
         -- Declare a variable to hold the new board number
         DECLARE
             v_board_no BOARD.BOARD_NO%TYPE;
-            v_answer_no WONDER_ANSWER.ANSWER_NO%TYPE;
         BEGIN
             -- Generate a new board number
             v_board_no := SEQ_BOARD_NO.NEXTVAL;
-            v_answer_no := SEQ_ANSWER_NO.NEXTVAL;
 
             -- Insert into BOARD table
             INSERT INTO BOARD (
-                BOARD_NO,              
-                BOARD_TITLE,                 
-                BOARD_CONTENT,               
-                CREATED_DT,                  
-                UPDATE_DT,                  
-                READ_COUNT,                  
-                BOARD_ST,                  
-                MEMBER_NO,                  
-                BOARD_CD                   
+                BOARD_NO,              -- Replace with actual column names
+                BOARD_TITLE,                 -- Replace with actual column names
+                BOARD_CONTENT,               -- Replace with actual column names
+                CREATED_DT,                  -- Replace with actual column names
+                UPDATE_DT,                  -- Replace with actual column names
+                READ_COUNT,                  -- Replace with actual column names
+                BOARD_ST,                  -- Replace with actual column names
+                MEMBER_NO,                  -- Replace with actual column names
+                BOARD_CD                   -- Replace with actual column names
             ) VALUES (
                 v_board_no,
                 'USER' || v_board_no || '의 게시글 제목',
@@ -187,126 +165,28 @@ BEGIN
 
             -- Insert into WONDER_BOARD table
             INSERT INTO WONDER_BOARD (
-                BOARD_NO,              
-                QA_STATUS,                
-                WONDER_TYPE               
+                BOARD_NO,              -- Replace with actual column names
+                QA_STATUS,                -- Replace with actual column names
+                WONDER_TYPE               -- Replace with actual column names
             ) VALUES (
                 v_board_no,
                 QA_STATUS || 'N',
-                WONDER_TYPE || '자유 궁금증'
-            );
-
-            -- Insert into WONDER_ANSWER table
-            INSERT INTO WONDER_ANSWER (
-                ANSWER_NO,
-                ANSWER_CONTENT,
-                ANSWER_ST,
-                ANSWER_DT,
-                BOARD_NO
-            ) VALUES (
-                v_answer_no,
-                'USER' || v_answer_no || '의 댓글 내용입니다댓글 내용입니다댓글 내용입니다댓글 내용입니다댓글 내용입니다댓글 내용입니다댓글 내용입니다댓글 내용입니다',
-                'N',
-                SYSDATE,
-                v_board_no
+                WONDER_TYPE || '자유궁금증'
             );
         END;
     END LOOP;
 END;
 /
 
--- 궁금해요 게시글번호로 hashTag 만들기, 인기순위로 값의수 다르게 넣음
-
-INSERT INTO HASHTAG VALUES (SEQ_TAG_NO.NEXTVAL, 'sql', NULL, 1600);
-INSERT INTO HASHTAG VALUES (SEQ_TAG_NO.NEXTVAL, 'sql', NULL, 1599);
-INSERT INTO HASHTAG VALUES (SEQ_TAG_NO.NEXTVAL, 'sql', NULL, 1598);
-INSERT INTO HASHTAG VALUES (SEQ_TAG_NO.NEXTVAL, 'sql', NULL, 1597);
-INSERT INTO HASHTAG VALUES (SEQ_TAG_NO.NEXTVAL, 'sql', NULL, 1000);
-INSERT INTO HASHTAG VALUES (SEQ_TAG_NO.NEXTVAL, 'sql', NULL, 1002);
-INSERT INTO HASHTAG VALUES (SEQ_TAG_NO.NEXTVAL, 'sql', NULL, 1001);
-INSERT INTO HASHTAG VALUES (SEQ_TAG_NO.NEXTVAL, 'sql', NULL, 1003);
-INSERT INTO HASHTAG VALUES (SEQ_TAG_NO.NEXTVAL, 'sql', NULL, 1004);
-
-INSERT INTO HASHTAG VALUES (SEQ_TAG_NO.NEXTVAL, 'WEB', NULL, 1600);
-INSERT INTO HASHTAG VALUES (SEQ_TAG_NO.NEXTVAL, 'WEB', NULL, 1599);
-INSERT INTO HASHTAG VALUES (SEQ_TAG_NO.NEXTVAL, 'WEB', NULL, 1598);
-INSERT INTO HASHTAG VALUES (SEQ_TAG_NO.NEXTVAL, 'WEB', NULL, 1597);
-INSERT INTO HASHTAG VALUES (SEQ_TAG_NO.NEXTVAL, 'WEB', NULL, 1000);
-INSERT INTO HASHTAG VALUES (SEQ_TAG_NO.NEXTVAL, 'WEB', NULL, 1002);
-INSERT INTO HASHTAG VALUES (SEQ_TAG_NO.NEXTVAL, 'WEB', NULL, 1001);
-INSERT INTO HASHTAG VALUES (SEQ_TAG_NO.NEXTVAL, 'WEB', NULL, 1003);
-
-INSERT INTO HASHTAG VALUES (SEQ_TAG_NO.NEXTVAL, '공부법', NULL, 1600);
-INSERT INTO HASHTAG VALUES (SEQ_TAG_NO.NEXTVAL, '공부법', NULL, 1599);
-
-INSERT INTO HASHTAG VALUES (SEQ_TAG_NO.NEXTVAL, 'DB', NULL, 1004);
-INSERT INTO HASHTAG VALUES (SEQ_TAG_NO.NEXTVAL, 'DB', NULL, 1005);
-INSERT INTO HASHTAG VALUES (SEQ_TAG_NO.NEXTVAL, 'DB', NULL, 1000);
-
-INSERT INTO HASHTAG VALUES (SEQ_TAG_NO.NEXTVAL, 'JAVA', NULL, 1587);
-INSERT INTO HASHTAG VALUES (SEQ_TAG_NO.NEXTVAL, 'JAVA', NULL, 1001);
-INSERT INTO HASHTAG VALUES (SEQ_TAG_NO.NEXTVAL, 'JAVA', NULL, 1580);
-INSERT INTO HASHTAG VALUES (SEQ_TAG_NO.NEXTVAL, 'JAVA', NULL, 1011);
-INSERT INTO HASHTAG VALUES (SEQ_TAG_NO.NEXTVAL, 'JAVA', NULL, 1012);   
-INSERT INTO HASHTAG VALUES (SEQ_TAG_NO.NEXTVAL, 'JAVA', NULL, 1591); 
-
-INSERT INTO HASHTAG VALUES (SEQ_TAG_NO.NEXTVAL, 'SPRING', NULL, 1590);
-INSERT INTO HASHTAG VALUES (SEQ_TAG_NO.NEXTVAL, 'SPRING', NULL, 1020);
-INSERT INTO HASHTAG VALUES (SEQ_TAG_NO.NEXTVAL, 'SPRING', NULL, 1021);   
-INSERT INTO HASHTAG VALUES (SEQ_TAG_NO.NEXTVAL, 'SPRING', NULL, 1522);
-INSERT INTO HASHTAG VALUES (SEQ_TAG_NO.NEXTVAL, 'SPRING', NULL, 1023);
-INSERT INTO HASHTAG VALUES (SEQ_TAG_NO.NEXTVAL, 'SPRING', NULL, 1578);   
-INSERT INTO HASHTAG VALUES (SEQ_TAG_NO.NEXTVAL, 'SPRING', NULL, 1570);
-
-INSERT INTO HASHTAG VALUES (SEQ_TAG_NO.NEXTVAL, 'JS', NULL, 1030);
-INSERT INTO HASHTAG VALUES (SEQ_TAG_NO.NEXTVAL, 'JS', NULL, 1032);   
-INSERT INTO HASHTAG VALUES (SEQ_TAG_NO.NEXTVAL, 'JS', NULL, 1033);
-INSERT INTO HASHTAG VALUES (SEQ_TAG_NO.NEXTVAL, 'JS', NULL, 1040);
-INSERT INTO HASHTAG VALUES (SEQ_TAG_NO.NEXTVAL, 'JS', NULL, 1075); 
-
-INSERT INTO HASHTAG VALUES (SEQ_TAG_NO.NEXTVAL, 'AJAX', NULL, 1049);
-INSERT INTO HASHTAG VALUES (SEQ_TAG_NO.NEXTVAL, '강의듣는법', NULL, 1075); 
-
--- 신고하기 신고유형 :4가지 와이어프레임참조
--- BOARD_NO_SEQ 시퀀스 생성
-CREATE SEQUENCE BOARD_NO_SEQ
-START WITH 1
-INCREMENT BY 1
-NOCACHE
-NOCYCLE;
-
--- MEMBER_NO_SEQ 시퀀스 생성
-CREATE SEQUENCE MEMBER_NO_SEQ
-START WITH 1
-INCREMENT BY 1
-NOCACHE
-NOCYCLE;
-
-INSERT INTO REPORT (BOARD_NO, MEMBER_NO, REPORT_TYPE, REPORT_CONTENT, REPORT_DT) VALUES 
-(BOARD_NO_SEQ.NEXTVAL, MEMBER_NO_SEQ.NEXTVAL, '허위정보를 기재하였습니다', '이 게시물은 허위 정보를 포함하고 있습니다.', SYSDATE);
-
-INSERT INTO REPORT (BOARD_NO, MEMBER_NO, REPORT_TYPE, REPORT_CONTENT, REPORT_DT) VALUES 
-(BOARD_NO_SEQ.NEXTVAL, MEMBER_NO_SEQ.NEXTVAL, '부적절한 내용입니다', '이 게시물은 부적절한 내용을 포함하고 있습니다.', SYSDATE);
-
-INSERT INTO REPORT (BOARD_NO, MEMBER_NO, REPORT_TYPE, REPORT_CONTENT, REPORT_DT) VALUES 
-(BOARD_NO_SEQ.NEXTVAL, MEMBER_NO_SEQ.NEXTVAL, '욕설을 했습니다', '이 사용자가 욕설을 했습니다.', SYSDATE);
-
-INSERT INTO REPORT (BOARD_NO, MEMBER_NO, REPORT_TYPE, REPORT_CONTENT, REPORT_DT) VALUES 
-(BOARD_NO_SEQ.NEXTVAL, MEMBER_NO_SEQ.NEXTVAL, '기타', '기타 이유로 신고합니다.', SYSDATE);
-
-INSERT INTO REPORT (BOARD_NO, MEMBER_NO, REPORT_TYPE, REPORT_CONTENT, REPORT_DT) VALUES 
-(BOARD_NO_SEQ.NEXTVAL, MEMBER_NO_SEQ.NEXTVAL, '허위정보를 기재하였습니다', '이 게시물은 허위 정보를 포함하고 있습니다.', SYSDATE);
-
-INSERT INTO REPORT (BOARD_NO, MEMBER_NO, REPORT_TYPE, REPORT_CONTENT, REPORT_DT) VALUES 
-(BOARD_NO_SEQ.NEXTVAL, MEMBER_NO_SEQ.NEXTVAL, '부적절한 내용입니다', '이 게시물은 부적절한 내용을 포함하고 있습니다.', SYSDATE);
+-- 궁금하기 답변  멤버1이 댓글씁니다.
 
 
 
+
+
+    
 
 select count(*) from member;
-
-
-
 
 -- 튜터 테이블 샘플 데이터 삽입(PL/SQL)
 BEGIN

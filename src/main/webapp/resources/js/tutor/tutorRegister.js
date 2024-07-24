@@ -1,16 +1,8 @@
-// 소개 글자수 세기
-const inputIntroduce = document.getElementById("inputIntroduce")
-const inputIntroduceCount = document.getElementById("inputIntroduceCount")
-
-inputIntroduce.addEventListener("input",function(){
-    inputIntroduceCount.innerText = inputIntroduce.value.length
-    if(inputIntroduce.value.length >= 300){
-        inputIntroduceCount.innerText ='300';
-        inputIntroduceCount.style.color ='red'
+// 카테고리 바
+$("#showCategoryBar").on("click", function(){
+    if ($(".categoryBar").css("display") == "none"){
+        $(".categoryBar").slideDown(200);
+    } else {
+        $(".categoryBar").slideUp(200);
     }
-    if(inputIntroduce.value.length == 300){
-        inputIntroduceCount.style.color ='red'
-    } else{
-        inputIntroduceCount.style.color ='black'
-    }
-})
+    })
