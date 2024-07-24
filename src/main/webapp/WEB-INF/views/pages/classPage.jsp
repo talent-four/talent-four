@@ -183,6 +183,35 @@
             </div>
         </div>
     </div>
+
+    <c:forEach var="j" begin="0" end="${fn:length(classList)/5}">
+    <div class="contentWrapper">
+        <c:if test="${j == 0}">
+            <div class="buttonArea">
+                <button onclick="orderByRecommand()">추천순</button><button onclick="orderByDate()">최신순</button>
+            </div>
+        </c:if>
+        <div class="contentBoxs" id="contentSlider">
+            <div class="contentBoxsSet" id="contentBoxSet">
+            	    <c:if test="${empty classList}">
+    	            	<h3>강의가 없습니다.</h3>
+    	            </c:if>
+            	<c:forEach var="i" begin="${j*5}" end="${(j+1)*5-1}">
+    	            <c:if test="${!empty classList[i]}">
+    	            <a href="${contextPath}/detailedPage?classNo=${classList[i].classNo}" class="contentBox">
+	                    <img
+	                        src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
+	                    <div class="contentTitle">${classList[i].className}</div>
+	                    <div class="contentAuthor">${classList[i].memberNickname}</div>
+	                    <div class="contentStars">★ (<span>3.9</span>)</div>
+	                    <div class="contentPrice"><fmt:formatNumber value="${classList[i].classPrice}" pattern="#,###원" /></div>
+                	</a>
+					</c:if>
+            	</c:forEach>
+            </div>
+ 		</div>
+ 	</div>
+    </c:forEach>
     <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
     
     <script src="${contextPath}/resources/js/pages/categoryPage.js"></script>
