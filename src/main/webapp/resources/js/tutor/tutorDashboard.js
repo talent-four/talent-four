@@ -5,6 +5,7 @@ const secondCategory = sideCategory[1];
 const thirdCategory = sideCategory[2];
 const fourthCategory = sideCategory[3];
 const fifthCategory = sideCategory[4];
+const sixthCategory = sideCategory[5];
 /*------------------------------------------------------------------------------------*/
 
 firstCategory.classList.add('a-style');

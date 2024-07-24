@@ -1,0 +1,2075 @@
+*{box-sizing: border-box;
+    /* border: 1px solid black; */
+    font-family: 'Noto Sans KR', sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+
+}
+
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 100;
+    src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff2) format('woff2'),
+         url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff) format('woff'),
+         url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.otf) format('opentype');
+}
+
+html{border: none;}
+
+body{
+    width: 1880px;
+    min-height: 1300px;
+    max-height: 2300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    width: 100%;
+    height: 120px;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 1);
+}
+  
+header > div {
+    margin: auto;
+}
+
+.width-1280px {
+    width: 1280px;
+}
+
+/* 헤더 위쪽 */
+.topHeader {
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.topHeader > div {
+    display: flex;
+    align-items: center;
+}
+
+.topHeader > div > * {
+    margin: auto 10px;
+    padding: 10px;
+    height: 100%;
+}
+
+#searchBar {
+    height: 100%;
+    width: 300px;
+}
+
+/* 헤더 아래 */
+.bottomHeader {
+    height: 50px;
+    display: flex;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.bottomHeader > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 10px;
+}
+
+.fa-bars {
+    font-size: 42px;
+    margin-right: 20px;
+}
+
+#showCategoryBar {
+    cursor: pointer;
+}
+
+/* 헤더 카테고리 바 */
+.categoryBar {
+    position: relative;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 1);
+    display: none;
+    box-shadow: 0px 5px 5px gray;
+}
+
+.categoryBarDetail {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.margin-auto {
+    margin: auto;
+}
+
+.categoryDetail {
+    display: flex;
+    margin: 0 10px;
+    flex-direction: column;
+}
+
+.categoryDetail > * {
+    font-size: 20px;
+    margin: 5px 0px;
+    text-decoration: none;
+    color: black;
+}
+
+.categoryDetail span {
+    font-weight: bold;
+    color: gray;
+}
+
+footer{
+    width: 1280px;
+    font-size:12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#afafaf;
+    text-align: center;
+
+  
+}
+/* ----------------------------------------------------------------------------------- */
+main{ /* 메인 */
+    width: 1280px;
+    min-height: 1000px;
+    max-height: 2000px;
+    display: flex;
+}
+/*--------------------------------------------------------------------------------------*/
+/* 사이드 */
+.sideP{
+    width: 300px;
+    min-height: 1000px;
+    max-height: 2000px;
+    border-right: 1px solid rgb(243, 243, 243);
+}
+
+/*--------------------------------------------------------------------------------------*/
+/* 사이드 위쪽 */
+
+.side-topP{
+    width: 300px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    
+}
+
+.side-topP>div:nth-child(1){
+    width: 110px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.side-topP>div:nth-child(2){
+    width: 190px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+}
+
+.side-topP>div:nth-child(2)>span{
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0 4px 0 4px;
+}
+
+#profile-imgP{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+/*---------------------------------------------------------------------------------------*/
+/* 사이드 아래 */
+.side-bottomP{
+    width: 300px;
+    height: 850px;
+    display: flex;
+}
+
+.side-categoryP{
+    width: 300px;
+    height: 420px;
+    margin: 30px 0 0 0;
+}
+
+.side-categoryP>div{
+    width: 300px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: rgb(153, 153, 153);
+}
+
+.side-categoryP>div>a{
+    display: flex;
+    font-size: 20px;
+    text-decoration: none;
+    color: rgb(153, 153, 153);
+}
+
+.side-categoryP>div>a>span>i{
+    width: 30px;
+    height: 100%;
+    margin: 5px 0 0 10px;
+}
+
+.side-categoryP>div:nth-of-type(3)>a>span>i{
+    font-size: 18px;
+}
+
+.side-categoryP>div:nth-of-type(4)>a>span>i{
+    font-size: 23px;
+}
+
+.side-categoryP>div:nth-of-type(6)>a>span>i{
+    font-size: 19px;
+}
+
+.side-categoryP>div:hover{
+    background-color: rgb(249, 249, 249);
+}
+
+/*---------------------------------------------------------------------------------------*/
+
+.a-style{
+    background-color: rgb(249, 249, 249);
+}
+
+.a-style>a>span{
+    color: rgb(255, 16, 88);
+}
+
+
+/*---------------------------------------------------------------------------------------*/
+
+#dashboardP{ /*대시보드*/
+    width: 980px;
+    min-height: 1000px;
+    max-height: 2000px;
+}
+
+#profileP{ /*내 프로필*/
+    width: 980px;
+    min-height: 1000px;
+    max-height: 2000px;
+    display: none;
+}
+
+#classesP{ /*클래스 관리*/
+    width: 980px;
+    min-height: 1000px;
+    max-height: 2000px;
+    display: none;
+}
+
+#classsellP{ /*클래스 판매 현황*/
+    width: 980px;
+    min-height: 1000px;
+    max-height: 2000px;
+    display: none;
+}
+
+#reviewP{ /*리뷰*/
+    width: 980px;
+    min-height: 1000px;
+    max-height: 2000px;
+    display: none;
+}
+
+#calculateP{ /*정산신청*/
+    width: 980px;
+    min-height: 1000px;
+    max-height: 2000px;
+    display: none;
+}
+
+#messageP{ /*메시지*/
+    width: 980px;
+    min-height: 1000px;
+    max-height: 2000px;
+    display: none;
+}
+
+/*-------------------------------------------------------------------------------*/
+/*  타이틀 / 서브 타이틀 */
+.titleP{
+    width: 980px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+}
+
+.titleP>span{
+    font-size: 40px;
+    font-weight: bold;
+    margin: 0 0 0 30px;
+}
+
+.subtitleP{
+    width: 980px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+}
+
+.subtitleP>span{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 5px 0 0 30px;
+}
+
+
+/* 공통 끝*/
+/*-----------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------*/
+/* 대시보드 */
+
+.data-areaP{
+    width: 980px;
+    height: 150px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    
+}
+
+.data-areaP>div{
+    width: 300px;
+    height: 90px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 8px 0 0 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.data-nameP{
+    width: 300px;
+    height: 30px;
+    display: flex;
+    align-items: end;
+}
+
+.data-areaP>div>span:nth-child(1){
+    font-size: 15px;
+    color: gray;
+    padding: 3px 0 0 12px;
+}
+
+.data-countP{
+    width: 300px;
+    height: 60px;
+    display: flex;
+}
+
+.data-areaP>div>span:nth-child(2){
+    font-size: 30px;
+    font-weight: bold;
+    padding: 0 5px 0 15px;
+}
+
+/*-------------------------------------------------------------------------------*/
+.graph-areaP{
+    width: 980px;
+    height: 650px;
+    display: flex;
+    justify-content: center;
+    /* background-color: aquamarine; */
+}
+
+.graph-areaP>div{
+    width: 940px;
+    height: 400px;
+    margin: 10px 0 0 0;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+
+.graph-titleP{
+    width: 940px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.graph-titleP>span{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 0 0 15px;
+}
+
+.graph-contentP{
+    width: 940px;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.graphP{
+    width: 900px;
+    height: 330px;
+    border: 1px dashed gray;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+/*-----------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------*/
+/* 내 프로필 */
+
+.text-areaP{
+    width: 920px;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 0 0 30px;
+}
+
+.text-areaP>div{ /* 각 프로필 입력 영역 */
+    width: 920px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgb(243, 243, 243);
+}
+
+/* --------------------------------------------------------------------------------- */
+/* 프로필 텍스트 부분 */ /* 왼쪽 고정 영역 */
+.text-areaP>div>span:nth-child(1){
+    width: 300px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.text-areaP>div>span:nth-child(1) i{ /* 물음표들 */
+    font-size: 16px;
+    padding: 1px 0 0 5px;
+    color: rgb(97, 97, 97);
+}
+
+
+
+
+
+/* --------------------------------------------------------------------------------- */
+/* 닉네임 */
+#NP{
+    font-size: 20px;
+}
+
+#Nchange-btnP{
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+    margin: 3px 0 0 15px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: none;
+    box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+#Nhide-areaP{
+    display: none;
+}
+
+#Nchange-inputP{
+    width: 150px;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid rgb(220, 220, 220);
+}
+
+#Nchange-inputP:focus{
+    border-bottom: 1px solid rgb(255, 16, 88);
+    
+}
+
+#Nhide-areaP>button{
+    width: 30px;
+    height: 30px;
+    border-radius: 7px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 0 2px 0 2px;
+}
+
+#Nhide-areaP>button:hover{
+    background-color: rgb(220, 220, 220);
+}
+
+#Nhide-areaP>div>span{
+    font-size: 12px;
+}
+
+/*--------------------------------------------------------------------------------*/
+/* 프로필 이미지 */
+.text-areaP>div:nth-child(2){ /* 프로필 이미지 영역 */
+    position: relative;
+}
+
+#PI-defaultP{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+#PIhide-btnP{
+    display: none;
+}
+
+#PIchange-btnP{
+    position: absolute;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    top: 55px;
+    left: 340px;
+    background-color: rgb(255, 16, 88);
+    border: none;
+}
+
+#PIchange-btnP>i{
+    margin: 6px 0 0 6px;
+    color: white;
+    font-size: 18px;
+}
+
+
+/* --------------------------------------------------------------------------- */
+/* 이력 사항 */
+
+.text-areaP>div:nth-child(3){
+    display: flex;
+    justify-content: space-between;
+}
+
+#careerP{
+    display: none;
+}
+
+#add-careerP{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 33px;
+    width: 130px;
+    border-radius: 10px;
+    background-color: transparent;
+    border: 1px solid rgb(220, 220, 220);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    cursor: pointer;
+    margin: 0 10px 0 0;
+}
+
+#add-careerP>i{
+    font-size: 12px;
+    color: gray;
+    margin: 2px 5px 0 3px;
+}
+
+/*--------------------------------------------------------------------------------*/
+/* 튜터 소개 */
+
+.text-areaP>div:nth-child(4){ /* 튜터 소개 영역 */
+    width: 920px;
+    height: 300px;
+    overflow: hidden;
+    transition: height 0.3s; /* 애니메이션 추가 */
+    position: relative;
+}
+
+#info-input-areaP{
+    width: 450px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    border: 1px solid rgb(220, 220, 220);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: height 0.3s; 
+    position: relative;
+}
+
+
+.text-areaP>div:nth-child(4)>div:nth-child(3){ /* 버튼들 영역 */
+    position: relative;
+}
+
+
+#info-textareaP{
+    width: 330px;
+    height: 170px;
+    display: none;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid black;
+    position: absolute;
+    left: -440px;
+    top: -80px;
+    margin: 0 0 0 10px;
+    resize: none;
+}
+
+#info-inputP{
+    margin: 0 0 0 20px;
+}
+
+.text-areaP>div:nth-child(4)>div:nth-child(3)>P{
+    display: none;
+    position: absolute;
+    font-size: 14px;
+    left: -425px;
+    top: 80px;
+}
+
+
+
+#info-textareaP:focus{
+    border-bottom: 1px solid rgb(255, 16, 88);
+}
+
+#info-write-btnP{
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: none;
+    box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: -8px;
+}
+
+#info-check-btnP{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: none;
+    position: absolute;
+    top: 65px;
+    right: 45px;
+    font-size: 18px;
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+#info-error-btnP{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: none;
+    position: absolute;
+    top: 65px;
+    right: 15px;
+    font-size: 18px;
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+#info-check-btnP:hover{
+    background-color: rgb(220, 220, 220);
+}
+
+#info-error-btnP:hover{
+    background-color: rgb(220, 220, 220);
+}
+
+/* 프로필 끝 */
+/*----------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------*/
+/* 클래스 관리 시작 */
+
+/* 서브 타이틀 들 */
+.class-subtitleP{
+    width: 980px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    border-bottom: 3px solid rgb(255, 16, 88);
+    /* background-color: bisque; */
+    justify-content: space-between;
+}
+
+.class-subtitleP>span{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0 0 30px;
+    color: rgb(253, 55, 114);
+}
+
+.class-subtitleP>button{
+    background-color: transparent;
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 20px;
+    cursor: pointer;
+    width: 110px;
+    height: 30px;
+}
+
+/* ------------------------------------------------------------------------------------- */
+/* 클래스명 등의영역 */
+.class-areaP{
+    width: 980px;
+    height: 600px;
+}
+
+.class-menuP{
+    width: 980px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.class-menuP>div{
+    width: 150px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.class-menuP>div:nth-child(2){
+    width: 530px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.class-menuP>span{
+    font-size: 18px;
+    margin: 0 70px 0 40px;
+}
+
+
+
+/* ------------------------------------------------------------------------------------- */
+/* 클래스 섬네일등*/
+
+.class-textP{
+    width: 980px;
+    height: 470px;
+    display: flex;
+    flex-direction: column;
+}
+
+.class-thumbnail{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.class-rowP{
+    width: 980px;
+    height: 90px;
+    display: flex;
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 20px;
+}
+
+.class-rowP div{
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.class-rowP div:nth-child(2){
+    width: 530px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.class-rowP>div:nth-child(3)>div{
+    width: 80px;
+    height: 25px;
+    border-radius: 15px;
+    border: 1px solid rgb(220, 220, 220);
+    font-size: 13px;
+    background-color: #95DBB8;
+    color: white;
+    font-weight: bold;
+}
+
+.class-rowP:nth-child(3)>div:nth-child(3)>div{
+    color: white;
+    font-weight: bold;
+    background-color: #DB4F4D;
+}
+
+.class-rowP a{
+    text-decoration: none;
+    color: black;
+}
+
+/* ------------------------------------------------------------------------------------- */
+
+.class-btn-areaP{
+    width: 980px;
+    height: 80px;
+    display: flex;
+    justify-content: end;
+    font-size: 18px;
+}
+
+.class-btn-areaP>span{
+    margin: 10px 3px 0 3px;
+}
+
+.class-btn-areaP>button{
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    height: 20px;
+    margin: 12px 7px 0 7px;
+}
+
+
+/* 클래스 관리 끝 */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+/* 클래스 판매 현황 시작 */
+
+/* ------------------------------------------------------------------------------------- */
+/* 클래스 타이틀 */
+.sell-class-areaP{
+    width: 980px;
+    height: 600px;
+}
+
+.sell-class-menuP{
+    width: 980px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-bottom: 1px solid rgb(220, 220, 220);
+}
+
+.sell-class-menuP>div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sell-class-menuP>div:nth-child(1){
+    width: 90px;
+}
+
+.sell-class-menuP>div:nth-child(2){
+    width: 100px;
+}
+.sell-class-menuP>div:nth-child(3){
+    width: 100px;
+}
+.sell-class-menuP>div:nth-child(4){
+    width: 370px;
+}
+.sell-class-menuP>div:nth-child(5){
+    width: 100px;
+}
+.sell-class-menuP>div:nth-child(6){
+    width: 100px;
+}
+
+
+/* ------------------------------------------------------------------------------------- */
+/* 클래스 판매 각각 내역 */
+.sell-class-textP{
+    width: 980px;
+    height: 470px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sell-class-rowP{
+    width: 980px;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 20px;
+    margin: 3px 0 0 0;
+}
+
+.sell-class-rowP>div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.sell-class-rowP>div>a{
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+
+.sell-class-rowP>div:nth-child(1){
+    width: 90px;
+}
+
+.sell-class-rowP>div:nth-child(2){
+    width: 100px;
+}
+.sell-class-rowP>div:nth-child(3){
+    width: 100px;
+}
+.sell-class-rowP>div:nth-child(4){
+    width: 370px;
+}
+.sell-class-rowP>div:nth-child(5){
+    width: 100px;
+}
+.sell-class-rowP>div:nth-child(6){
+    width: 100px;
+}
+
+
+/* ------------------------------------------------------------------------------------- */
+
+.sell-class-btn-areaP{
+    width: 980px;
+    height: 80px;
+    display: flex;
+    justify-content: end;
+    font-size: 18px;
+}
+
+.sell-class-btn-areaP>span{
+    margin: 10px 3px 0 3px;
+}
+
+.sell-class-btn-areaP>button{
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    height: 20px;
+    margin: 12px 7px 0 7px;
+}
+
+/* 클래스 관리 끝 */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+
+
+/* 클래스 판매 현황 끝 */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+/* 리뷰 QnA 시작 */
+.review-subtitleP{
+    width: 980px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    /* background-color: bisque; */
+}
+
+.review-subtitleP>a{
+    text-decoration: none;
+}
+
+.review-subtitleP>a>span{
+    font-size: 20px;
+    margin: 0 0 0 30px;
+    color: rgb(153, 153, 153);
+    cursor: pointer;
+}
+
+.review-subtitleP>a:nth-child(1)>span:nth-child(1){
+    font-size: 20px;
+    margin: 0 0 0 30px;
+    color: rgb(255, 16, 88);
+    border-bottom: 2px solid rgb(255, 16, 88);
+    cursor: pointer;
+}
+
+/*-------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------*/
+/* 리뷰 시작 */
+
+#review-containerP{
+    width: 980px;
+    height: 860px;
+}
+
+#review-containerP>div:nth-child(1){
+    width: 980px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgb(220, 220, 220);
+    border-top: 1px solid rgb(220, 220, 220);
+    position: relative;
+}
+
+#review-containerP>div:nth-child(1)>i{
+    height: 30px;
+    font-size: 22px;
+    margin: 5px 0 0 10px;
+}
+
+#selected-reviewP{
+    height: 30px;
+    border: 1px solid rgb(153, 153, 153);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding: 2px 10px 0 10px;
+    margin: 5px 0 0 10px;
+}
+
+#select-review-btnP{
+    height: 30px;
+    background-color: transparent;
+    border: 1px solid rgb(153, 153, 153);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-left: none;
+    cursor: pointer;
+    font-size: 22px;
+    margin: 5px 0 0 0;
+}
+
+
+/* ----------------------------------------------------------------------------- */
+/* 리뷰 선택 */
+.choice-review-areaP{
+    width: 240px;
+    height: 160px;
+    position: absolute;
+    top: 50px;
+    left: 42px;
+    border: 1px solid rgb(153, 153, 153);
+    border-radius: 10px;
+    display: none;
+    z-index: 10;
+    background-color: rgb(243, 243, 243);
+}
+
+.choice-review-areaP>div{
+    width: 238px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.choice-review-areaP>div:nth-child(1){
+    border-bottom: 1px solid rgb(153, 153, 153);
+}
+
+.choice-review-areaP>div:nth-child(1):hover{
+    background-color: rgb(220, 220, 220);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.choice-review-areaP>div:nth-child(2):hover{
+    background-color: rgb(220, 220, 220);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.choice-review-areaP>div>span{
+    margin: 0 0 0 7px;
+}
+
+.choice-review-areaP>div>span:nth-child(1){
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.choice-review-areaP>div>span:nth-child(2){
+    color: rgb(153, 153, 153);
+}
+
+#return-review-btnP{
+    position: absolute;
+    top: 50px;
+    left: 283px;
+    border: 1px solid rgb(153, 153, 153);
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 16px;
+    display: none;
+    z-index: 10;
+}
+
+/* ----------------------------------------------------------------------------- */
+/* 리뷰 메인 영역 */
+
+#review-areaP{
+    width: 980px;
+    height: 810px;
+}
+
+#review-areaP>div{
+    width: 980px;
+    height: 500px;
+}
+
+#review-areaP>div:nth-child(1){
+    border-bottom: 1px solid rgb(220, 220, 220);
+}
+
+.each-content-areaP{
+    width: 980px;
+    height: 100px;
+    display: flex;
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 10px;
+}
+
+.each-content-areaP>div:nth-child(1){ /*  */
+    width: 130px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#std-imgP{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.each-content-areaP>div:nth-child(2){
+    width: 600px;
+    height: 100px;
+    position: relative;
+}
+
+.each-content-areaP>div:nth-child(2)>a{
+    text-decoration: none;
+    color: black;
+}
+
+#review-timeP{
+    position: absolute;
+    top: 2px;
+    right: 5px;
+}
+
+.each-content-areaP>div:nth-child(3){
+    width: 250px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#review-class-imgP{
+    width: 200px;
+    height: 90px;
+}
+
+/* ----------------------------------------------------------------------------- */
+/* 응답하지 않은 리뷰 버튼 영역 */
+.review-btn-areaP{
+    width: 980px;
+    height: 100px;
+    display: flex;
+    justify-content: end;
+    font-size: 16px;
+}
+
+.review-btn-areaP>span{
+    margin: 10px 3px 0 3px;
+}
+
+.review-page-change-btnP{
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    height: 20px;
+    margin: 12px 7px 0 7px;
+}
+
+/* ----------------------------------------------------------------------------- */
+/* qna 페이지 */
+/* ----------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------- */
+#qna-containerP{
+    width: 980px;
+    height: 860px;
+    display: none;
+}
+
+/*------------------------------------------------------*/
+/* QnA 선택 버튼들 영역 */
+
+/*선택 버튼들 영역 내 공통*/
+
+#qna-containerP>div:nth-child(1)>div>button{ /* 선택 버튼들 */
+    height: 30px;
+    background-color: transparent;
+    border: 1px solid rgb(153, 153, 153);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-left: none;
+    cursor: pointer;
+    font-size: 22px;
+    margin: 5px 0 0 0;
+}
+
+/*--------------------------------------------------------------------------*/
+
+/* 클래스, 쳅터 선택 영역 */
+#qna-containerP>div:nth-child(1){
+    width: 980px;
+    height: 80px;
+    align-items: center;
+    border-bottom: 1px solid rgb(220, 220, 220);
+    border-top: 1px solid rgb(220, 220, 220);
+    position: relative;
+}
+
+#qna-containerP>div:nth-child(1)>div:nth-child(1){
+    width: 980px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+#qna-containerP>div:nth-child(1)>div:nth-child(1)>i{
+    height: 30px;
+    font-size: 22px;
+    margin: 5px 0 0 10px;
+}
+
+#qna-containerP>div:nth-child(1)>div:nth-child(1)>span{
+    height: 30px;
+    border: 1px solid rgb(153, 153, 153);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding: 2px 10px 0 10px;
+    margin: 5px 0 0 10px;
+}
+
+
+/* QnA 선택 영역 */
+#qna-containerP>div:nth-child(1)>div:nth-child(2){ 
+    width: 980px;
+    height: 40px;
+    display: flex;
+}
+
+#qna-containerP>div:nth-child(1)>div:nth-child(2)>span{
+    height: 30px;
+    border: 1px solid rgb(153, 153, 153);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding: 2px 10px 0 10px;
+    margin: 5px 0 0 43px;
+}
+
+/* ------------------------------------------------------------------------------- */
+/* 숨겨진 선택 영역 창들 */
+/* 클래스 */
+
+#return-class-btnP{
+    position: absolute;
+    top: 40px;
+    left: 297px;
+    border: 1px solid rgb(153, 153, 153);
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 16px;
+    z-index: 10;
+    display: none;
+}
+
+#choice-class-areaP{
+    display: none;
+    position: absolute;
+    width: 255px;
+    min-height: 50px;
+    max-height: 200px;
+    top : 40px;
+    left: 42px;
+    z-index: 10;
+    background-color: rgb(243, 243, 243);
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 10px;
+}
+
+#choice-class-areaP>div>span{
+    margin: 0 0 0 7px;
+    font-weight: 400;
+}
+
+#choice-class-areaP>div:not(:nth-child(1)){
+    border-top: 1px solid rgb(220, 220, 220);
+}
+
+#choice-class-areaP>div:hover{
+    background-color: rgb(220, 220, 220);
+}
+
+#choice-class-areaP>div:nth-child(1):hover{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: rgb(220, 220, 220);
+}
+
+#choice-class-areaP>div:nth-child(3):hover{
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: rgb(220, 220, 220);
+}
+
+/* ------------------------------------------------------------------------------- */
+/*챕터*/
+
+#return-chapter-btnP{
+    position: absolute;
+    top: 40px;
+    left: 368px;
+    border: 1px solid rgb(153, 153, 153);
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 16px;
+    z-index: 10;
+    display: none;
+}
+
+#choice-chapter-areaP{
+    display: none;
+    position: absolute;
+    width: 150px;
+    min-height: 50px;
+    max-height: 200px;
+    top: 40px;
+    left: 212px;
+    z-index: 10;
+    background-color: rgb(243, 243, 243);
+    padding: 2px 0 2px 0;
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 10px;
+}
+
+#choice-chapter-areaP>div>span{
+    margin: 0 0 0 7px;
+    font-weight: 400;
+}
+
+#choice-chapter-areaP>div:not(:nth-child(1)){
+    border-top: 1px solid rgb(220, 220, 220);
+}
+
+#choice-chapter-areaP>div:hover{
+    background-color: rgb(220, 220, 220);
+}
+
+#choice-chapter-areaP>div:nth-child(1):hover{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: rgb(220, 220, 220);
+}
+
+#choice-chapter-areaP>div:nth-child(3):hover{
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: rgb(220, 220, 220);
+}
+
+
+/* ------------------------------------------------------------------------------- */
+/*qna*/
+
+#return-qna-btnP{
+    display: none;
+    position: absolute;
+    top: 80px;
+    left: 295px;
+    border: 1px solid rgb(153, 153, 153);
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 16px;
+    z-index: 10;
+}
+
+#choice-qna-areaP{
+    display: none;
+    position: absolute;
+    width: 250px;
+    min-height: 50px;
+    max-height: 200px;
+    top : 80px;
+    left: 45px;
+    z-index: 10;
+    background-color: rgb(243, 243, 243);
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 10px;
+}
+
+#choice-qna-areaP>div{
+    width: 250px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+}
+
+#choice-qna-areaP>div>span:nth-child(1){
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#choice-qna-areaP>div>span{
+    margin: 0 0 0 7px;
+}
+
+#choice-qna-areaP>div:nth-child(1){
+    border-bottom: 1px solid rgb(153, 153, 153);
+}
+
+#choice-qna-areaP>div:nth-child(1):hover{
+    background-color: rgb(220, 220, 220);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#choice-qna-areaP>div:nth-child(2):hover{
+    background-color: rgb(220, 220, 220);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+/*--------------------------------------------------------------------------------------------*/
+
+#qna-areaP{
+    width: 980px;
+    height: 780px;
+}
+
+#qna-areaP>div:nth-child(1){
+    width: 980px;
+    height: 650px;
+    display: flex;
+    flex-direction: column;
+}
+
+.qna-each-areaP{
+    width: 980px;
+    min-height: 100px;
+    max-height: 300px;
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 10px;
+}
+.qna-each-areaP>div:nth-child(1){
+    display: flex;
+}
+
+
+.qna-each-areaP>div>div:nth-child(1){ 
+    width: 130px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#qna-std-imgP{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.qna-each-areaP>div>div:nth-child(2){
+    width: 600px;
+    height: 100px;
+    position: relative;
+}
+
+.qna-each-areaP>div>div:nth-child(2)>a{
+    text-decoration: none;
+    color: black;
+}
+
+#qna-contentP{
+    cursor: pointer;
+}
+
+#qna-timeP{
+    position: absolute;
+    top: 2px;
+    right: 5px;
+}
+
+.qna-each-areaP>div>div:nth-child(3){
+    width: 250px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#qna-class-imgP{
+    width: 200px;
+    height: 90px;
+}
+
+#hidden-qna-areaP{
+    width: 980px;
+    height: 200px;
+    top: 100px;
+    display: none;
+}
+
+#hidden-qna-areaP>textarea{
+    width: 720px;
+    height: 140px;
+    margin: 20px 0 0 25px;
+    border-radius: 10px;
+}
+
+#hidden-qna-areaP>div{
+    display: flex;
+    justify-content: space-between;
+    width: 740px;
+}
+
+#hidden-qna-areaP>div>div:nth-child(1){
+    margin: 0 0 0 25px;
+}
+
+#hidden-qna-areaP button{
+    width: 80px;
+    background-color: transparent;
+    border-radius: 10px;
+    height: 25px;
+    border: 1px solid rgb(220, 220, 220);
+}
+#hidden-qna-areaP button:hover{
+    background-color: rgb(220, 220, 220);
+}
+
+
+/*--------------------------------------------------------------------------------*/
+
+.qna-btn-areaP{
+    width: 980px;
+    height: 100px;
+    display: flex;
+    justify-content: end;
+    font-size: 16px;
+}
+
+.qna-btn-areaP>span{
+    margin: 10px 3px 0 3px;
+}
+
+.qna-page-change-btnP{
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    height: 20px;
+    margin: 12px 7px 0 7px;
+}
+
+
+
+/* 리뷰 QnA 끝 */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+/* 정산신청 시작 */
+
+#calculateP>article:nth-child(2){ /* 정산 금액 큰 영역  */
+    width: 980px;
+    height: 130px;
+    display: flex;
+    align-items: center;
+}
+
+#calculateP>article:nth-child(2)>div{ /* 각 정산 금액 영역  */
+    width: 400px;
+    height: 110px;
+    margin: 0 0 0 10px;
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 10px;
+}
+
+.calculate-upP{
+    width: 400px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.calculate-upP>span{
+    margin: 10px 0 0 20px;
+    font-size: 16px;
+}
+
+.calculate-downP{
+    width: 400px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+}
+
+.calculate-downP>span{
+    margin: 0 0 10px 0;
+}
+
+.calculate-downP>span:nth-child(1){
+    margin: 0 0 10px 20px;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.calculate-downP>span:nth-child(2){
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.calculate-downP>span:nth-child(3){
+    margin: 0 0 10px 10px;
+    font-size: 14px;
+    color: rgb(153, 153, 153);
+}
+
+.calculate-downP>span:nth-child(4){
+    font-size: 14px;
+    color: rgb(153, 153, 153);
+}
+
+.calculate-downP>span:nth-child(5){
+    font-size: 14px;
+    color: rgb(153, 153, 153);
+}
+/*------------------------------------------------------------------------------------------*/
+/*계좌 입력/ 정산 버튼 영역*/
+
+#calculateP>article:nth-child(3){ /*정산 요청 버튼 라인*/
+    width: 980px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+}
+
+#calculate-btnP{
+    width: 90px;
+    height: 35px;
+    background-color: rgb(255, 16, 88);
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    margin: 0 0 0 10px;
+    border-radius: 5px;
+}
+
+#input-infoP{
+    width: 100px;
+    height: 35px;
+    margin: 0 10px 0 10px;
+    border: 1px solid rgb(220, 220, 220);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    background-color: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#input-infoP>i{
+    margin: 0 5px 0 5px;
+}
+
+#before-input-infoP{
+    width: 500px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(153, 27, 27);
+    background-color: rgb(254, 242, 242);
+    border: none;
+    border-radius: 5px;
+}
+
+#before-input-infoP>i{
+    margin: 2px 5px 0 1px;
+}
+
+/*---------------------------------*/
+/*계좌 입력*/
+   
+#change-account-btnP{ /* 계좌번호 변경 버튼 */
+    display: none;
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+    margin: 3px 0 0 15px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: none;
+    box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+#background-div{ /* 정보 입력시 배경색 어둡게 */
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 3;
+}
+
+#account-input-areaP{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 4;
+    width: 400px;
+}
+
+#account-input-areaP>div:nth-child(1){
+    font-size: 26px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+#account-input-areaP form>div{
+    width: 350px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#account-input-areaP form>div>span{
+    font-size: 18PX;
+    color: rgb(153, 153, 153);
+}
+
+#account-input-areaP form>div>input{
+    width: 200px;
+    height: 30px;
+    border: 1px solid rgb(153, 153, 153);
+    border-radius: 5px;
+}
+
+#account-input-areaP>div:nth-child(3){
+    display: flex;
+    justify-content: space-between;
+    width: 350px;
+}
+
+#save-btnP{
+    background-color: rgb(255, 16, 88);
+    color: white;
+    width: 230px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+#cancel-btnP{
+    background-color: transparent;
+    width: 100px;
+    height: 30px;
+    border: 1px solid rgb(153, 153, 153);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#account-info-areaP{
+    min-width: 200px;
+    max-width: 350px;
+    height: 35px;
+    display: none;
+    margin: 0 0 0 10px;
+    padding: 5px 10px 0 10px;
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 5px;
+
+}
+
+#account-info-areaP>i{
+    font-size: 20px;
+}
+
+/*-------------------------------------------------------------------------------------------*/
+/* 정산 내용 영역 */
+
+.calculate-all-areaP{
+    width: 980px;
+    height: 600px;
+    border-bottom: 1px solid rgb(220, 220, 220);
+
+}
+
+.calculate-all-areaP>div:nth-child(1){
+    width: 980px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgb(153, 153, 153);
+}
+
+.calculate-all-areaP>div:nth-child(1)>div{
+    width: 100px;
+    height: 30px;
+    margin: 5px 0 0 0;
+}
+
+.calculate-all-areaP>div:nth-child(1)>div:nth-child(1){
+    width: 30px;
+}
+.calculate-all-areaP>div:nth-child(1)>div:nth-child(2){
+    width: 100px;
+}
+.calculate-all-areaP>div:nth-child(1)>div:nth-child(3){
+    width: 120px;
+}
+.calculate-all-areaP>div:nth-child(1)>div:nth-child(4){
+    width: 80px;
+}
+.calculate-all-areaP>div:nth-child(1)>div:nth-child(5){
+    width: 320px;
+}
+.calculate-all-areaP>div:nth-child(1)>div:nth-child(6){
+    width: 120px;
+}
+.calculate-all-areaP>div:nth-child(1)>div:nth-child(7){
+    width: 80px;
+}
+.calculate-all-areaP>div:nth-child(1)>div:nth-child(8){
+    width: 120px;
+}
+
+/* -------------------------------------------------------------------------------- */
+/* 정산 각각 내역 영영 */
+
+.calculate-all-areaP>div:nth-child(2){
+    width: 980px;
+    height: 550px;
+}
+
+
+.calculate-each-contentP{
+    width: 980px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgb(220, 220, 220);
+
+}
+
+.calculate-each-contentP>div:nth-child(1){
+    width: 30px;
+}
+
+.calculate-each-contentP>div:nth-child(2){
+    width: 100px;
+}
+
+.calculate-each-contentP>div:nth-child(3){
+    width: 120px;
+    
+}
+
+.calculate-borderP{
+    width: 110px;
+    border-radius: 10px;
+    border: 1px solid rgb(153, 153, 153);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.circleP{
+    width: 5px;
+    height: 5px;
+    background-color: red;
+    border-radius: 5px;
+
+}
+
+#circle2P{
+    width: 5px;
+    height: 5px;
+    background-color: green;
+    border-radius: 5px;
+}
+
+.calculate-each-contentP>div:nth-child(4){
+    width: 80px;
+}
+
+.calculate-each-contentP>div:nth-child(5){
+    width: 320px;
+}
+
+
+.calculate-each-contentP>div:nth-child(6){
+    width: 120px;
+}
+
+.calculate-each-contentP>div:nth-child(7){
+    width: 80px;
+}
+
+.calculate-each-contentP>div:nth-child(8){
+    width: 120px;
+}
+
+/*-----------------------------------------------------------------------------------------*/
+
+#allbtn-areaP{
+    width: 980px;
+    height: 100px;
+    display: flex;
+    justify-content: end;
+    font-size: 16px;
+}
+
+.allbtn-areaP>span{
+    margin: 10px 3px 0 3px;
+}
+
+.allmove-btnP{
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    height: 20px;
+    margin: 12px 7px 0 7px;
+}
+
+/* 정산신청 끝 */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+
+/* 메시지 시작 */
+/* 메시지 선택창 */
+#messageP>article{
+    width: 980px;
+    height: 1000px;
+    display: flex;
+}
+
+#message-boxP{
+    width: 280px;
+    height: 1000px;
+    border-right: 1px solid rgb(220, 220, 220);
+}  
+
+#message-boxP>div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#message-boxP>div:nth-child(1){
+    width: 280px;
+    height: 50px;
+    background-color: rgb(240, 240, 240);
+    font-size: 22px;
+}
+
+#message-boxP>div:nth-child(2){
+    width: 280px;
+    height: 700px;
+}
+
+#message-boxP>div:nth-child(3){
+    width: 280px;
+    height: 50px;
+}
+
+#call-chattingP{
+    border-radius: 5px;
+    border: 1px solid rgb(220, 220, 220);
+    background-color: transparent;
+    width: 200px;
+    height: 35px;
+    cursor: pointer;
+}
+
+
+/* 메시지 선택창 끝  */
+/*---------------------------------------------------------------*/
+/* 채팅창  */
+
+#chatting-areaP{
+    width: 700px;
+    height: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 메시지 끝 */
+
+

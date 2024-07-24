@@ -308,8 +308,12 @@
     text-decoration: 0;
     position: fixed; 
     bottom: 80px;
-    right:20px;
+    right:150px;
     text-align: center;
     font-size: 20px;
 
+}
+
+.wonder-section2{
+    margin-bottom:100px;
 }
