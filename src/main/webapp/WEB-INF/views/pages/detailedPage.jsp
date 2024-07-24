@@ -19,10 +19,7 @@
 <body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 
-	${classInfo.tutorInfo[0]}
-	${classInfo.tutorInfo[1]}
-
-	<c:set var="classInfo" value="${classInfo.classDetail}"></c:set>
+	<c:set var="classInfo" value="${classDetail.classDetail}"></c:set>
  	
    	<main id="detailed">
         <section class="upper">
@@ -43,15 +40,15 @@
             <nav class="detailedNav">
             ${currUrl}
                 <ul>
-                    <li><a href="">클래스 소개</a></li>
-                    <li><a href="">튜터 소개</a></li>
+                    <li><a href="#classIntroduce">클래스 소개</a></li>
+                    <li><a href="#tutorIntroduce">튜터 소개</a></li>
                     <li><a href="#dp-review">리뷰<span class="nav-min-15">15</span></span></a></li>
                 </ul>
             </nav>
         </section>
 		
         <section class="lower">
-            <div class="introduceBox">
+            <div class="introduceBox" id="classIntroduce">
                 <section class="classDetailBox">
                     <div class="classDetail">
                         <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/ca1a32ac54e1a160ef3542b9f9be04dca1c614f7.jpg" class="txc-image">
@@ -110,15 +107,17 @@
                         <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/3e864d58b9f134b19a9fdbc4de96d5d538ef5797.png" class="txc-image">
                         <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/589e2c877b37214c464eb8f496c66cdd725a0410.png" class="txc-image">
                         <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/852e790db6a58dd53c0f9a61aa387f57d57b733c.jpg" class="txc-image">
+                        <%-- ${classInfo.classIntro} --%>
                         <div id="blur"></div>
                     </div>
                     <button type="button" class="btnClass" id="d-classInfoBtn">클래스 소개 더보기</button>
     
                 </section>
-                <section class="detialedPage-tutorInfo bottomBox">
+                <section class="detialedPage-tutorInfo bottomBox" id="tutorIntroduce">
                     <span class="boxTitle">튜터님을 소개합니다!</span>
                     <div>
                         <div class="tutorInfoSmallBox">
+                        ${classDetail.tutorInfo[0]}
                         <c:if test="${classInfo.memberProfile != null}">
                         	<img src="${contextPath}${classInfo.memberProfile}">
                         </c:if>
@@ -134,7 +133,9 @@
                         </div>
                         <div class="tutorIntroduce">
                             <pre>
-${classInfo.classIntro}
+                            
+                            ${classDetail.tutorInfo[1]}
+                            
                             </pre>
                         </div>
                     </div>
@@ -164,7 +165,7 @@ ${classInfo.classIntro}
     
     
                 <section id="dp-review" class="bottomBox">
-    
+                
                     <div>
                         <span class="boxTitle">수강생 리뷰</span>
                         <div>
@@ -173,71 +174,49 @@ ${classInfo.classIntro}
                         </div>
                     </div>
     
-                    <div class="d-review">
-    
-                        <div>
-    
-                            <img src="${contextPath}/resources/img/profile_all_re.PNG">
-                            <p>
-                                <span class="dp-date-review">2021-06-27</span>
-                                <span>이름
-                                </span>
-                                <span> ★★★★★ 5.0</span>
+    				<c:forEach var="item" items="${reviewList}">
+	                    <div class="d-review">
+	                        <div>
+                                <div class="profileBox">
+                                    <c:if test="${empty item.profileImage}">    	
+                                        <img src="${contextPath}/resources/img/profile_all_re.PNG">
+                                    </c:if>
+                                    
+                                    <c:if test="${!empty item.profileImage}">    	
+                                        <img src="${contextPath}${item.profileImage}">
+                                    </c:if>
+                                    <div>
+                                        <span>${item.memberNickname}</span>
+                                        <span class="starBox">
+                                            <c:set var="totalStars" value="5" />
+                                            <c:set var="emptyStars" value="${totalStars - item.reviewStar}" />
+                                            <c:forEach var="i" begin="1" end="${item.reviewStar}">
+                                                ★
+                                            </c:forEach>
+                                            <c:forEach var="i" begin="1" end="${emptyStars}">
+                                                ☆
+                                            </c:forEach>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="titleBox">
+                                    <span> ${item.boardContent} </span>
+                                </div>
+                                <c:if test="${empty item.updateDate}">    	
+                                    <span class="dp-date-review">${item.createdDate}</span>
+                                </c:if>
+                                
+                                <c:if test="${!empty item.updateDate}">    	
+                                    <span class="dp-date-review">${item.updateDate}</span>
+                                </c:if>
+                            </div>
+                            <p class="d-review-content">
+                                ${item.boardContent}
                             </p>
-    
-                        </div>
-    
-                        <p class="d-review-content">
-                            댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글
-                            댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글
-                            댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글
-                        </p>
-                    </div>
-    
-                    <div class="d-review">
+	                    </div>
+    				</c:forEach>
+ <%--                    <div class="d-review">
                         <div>
-                            <img src="${contextPath}/resources/img/profile_all_re.PNG">
-                            <p>
-                                <span class="dp-date-review">2021-06-27</span>
-                                <span>이름
-                                </span>
-                                <span> ★★★★★ 5.0</span>
-                            </p>
-    
-                        </div>
-    
-                        <p class="d-review-content">
-                            댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글
-                            댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글
-                            댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글
-                        </p>
-                    </div>
-    
-                    <div class="d-review">
-    
-                        <div>
-    
-                            <img src="${contextPath}/resources/img/profile_all_re.PNG">
-                            <p>
-                                <span class="dp-date-review">2021-06-27</span>
-                                <span>이름
-                                </span>
-                                <span> ★★★★★ 5.0</span>
-                            </p>
-    
-                        </div>
-    
-                        <p class="d-review-content">
-                            댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글
-                            댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글
-                            댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글
-                        </p>
-                    </div>
-    
-                    <div class="d-review">
-    
-                        <div>
-    
                             <img src="${contextPath}/resources/img/profile_all_re.PNG">
                             <p>
                                 <span class="dp-date-review">2021-06-27</span>
@@ -254,10 +233,7 @@ ${classInfo.classIntro}
                             댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글
                         </p>
                         <button type=button id="d-reviewBtn">더보기</button>
-                    </div>
-    
-    
-    
+                    </div> --%>
     
                 </section>
     

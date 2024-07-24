@@ -243,6 +243,7 @@ public class MemberDAO {
 			
 			
 		} finally {
+			close(rs);
 			close(pstmt);
 		}
 		
@@ -250,6 +251,56 @@ public class MemberDAO {
 		return reviewList;
 	}
 
+	/** 상세 페이지 리뷰 조회
+	 * @param conn
+	 * @param classNo
+	 * @return reviewList
+	 */
+	public List<Review> getDetailPageReview(Connection conn, int classNo) throws Exception {
+		
+		List<Review> reviewList= new ArrayList<>();
+		
+		try {
+			
+			String sql = prop.getProperty("getDetailPageReview");
+			
+			pstmt=conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, classNo);
+			
+			rs=pstmt.executeQuery();
+			
+			while(rs.next()) {
+				
+				Review review = new Review();
+				review = Review.builder()
+						.boardNo(rs.getInt(1))
+						.boardTitle(rs.getString(2))
+						.boardContent(rs.getString(3))
+						.createdDate(rs.getString(4))
+						.updateDate(rs.getString(5))
+						.boardStatus(rs.getInt(6))
+						.memberNickname(rs.getString(7))
+						.reviewStar(rs.getDouble(8))
+						.parents(rs.getInt(9))
+						.report(rs.getInt(10))
+						.thumbs(rs.getInt(11))
+						.profileImage(rs.getString(12))
+						.build();
+				
+				reviewList.add(review);
+			}
+			
+			
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		
+		return reviewList;
+	}
+	
 
 	public List<Paid> selectPaid(Connection conn, int memberNo) throws SQLException {
 		
@@ -283,6 +334,9 @@ public class MemberDAO {
 		
 		return paidList;
 	}
+
+
+
 
 
 

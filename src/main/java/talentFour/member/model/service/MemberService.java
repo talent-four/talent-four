@@ -147,6 +147,22 @@ public class MemberService {
 		return reviewList;
 	}
 
+	/** 상세 페이지 리뷰 조회
+	 * @param memberNo
+	 * @return reviewList
+	 * @throws Exception
+	 */
+	public List<Review> getDetailPageReview(int classNo) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		List<Review> reviewList = dao.getDetailPageReview(conn, classNo);
+		
+		close(conn);
+		
+		return reviewList;
+	}
+	
 
 	/** 결제 내역 조회
 	 * @param memberNo
