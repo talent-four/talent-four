@@ -21,7 +21,6 @@ public class DetailPageService {
 		// 튜터 정보 가져오기
 		String[] tutorInfo = dao.getTutorIntro(conn, c);
 		
-		
 		Map<String, Object> classMap = new HashMap<>();
 		classMap.put("classDetail", c);
 		classMap.put("tutorInfo", tutorInfo);

@@ -247,7 +247,6 @@ public class MemberDAO {
 			close(pstmt);
 		}
 		
-		
 		return reviewList;
 	}
 
@@ -334,10 +333,5 @@ public class MemberDAO {
 		
 		return paidList;
 	}
-
-
-
-
-
 
 }

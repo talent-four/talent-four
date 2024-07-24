@@ -39,7 +39,6 @@
                 </div>
             </div>
             <nav class="detailedNav">
-            ${currUrl}
                 <ul>
                     <li><a href="#classIntroduce">클래스 소개</a></li>
                     <li><a href="#tutorIntroduce">튜터 소개</a></li>
@@ -118,7 +117,8 @@
                     <span class="boxTitle">튜터님을 소개합니다!</span>
                     <div>
                         <div class="tutorInfoSmallBox">
-                        ${classDetail.tutorInfo[0]}
+                        	${classDetail.tutorInfo[0]}
+                        </div>
                         <c:if test="${classInfo.memberProfile != null}">
                         	<img src="${contextPath}${classInfo.memberProfile}">
                         </c:if>
@@ -134,9 +134,7 @@
                         </div>
                         <div class="tutorIntroduce">
                             <pre>
-                            
                             ${classDetail.tutorInfo[1]}
-                            
                             </pre>
                         </div>
                     </div>
@@ -164,7 +162,6 @@
     
     
                 <section id="dp-review" class="bottomBox">
-                
                     <div>
                         <span class="boxTitle">수강생 리뷰</span>
                         <div>
