@@ -40,7 +40,7 @@
 
             </div>
             <div class="wonder-btn">
-                <button id="classBtn">강의가 궁금해요</button>
+                <button id="classBtn" onclick="location.href='&type=${param.type}&cp=${cp}">강의가 궁금해요</button>
                 <button id="freeBtn">자유로운 궁금증</button>
             </div>
             <div class="wonder-bestTag">

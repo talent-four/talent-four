@@ -60,8 +60,7 @@ public class wonderServlet extends HttpServlet{
 				
 				req.getRequestDispatcher("/WEB-INF/views/wonder/wonderClass.jsp").forward(req, resp);}
 			
-			
-		
+
 		}catch(Exception e){
 			e.printStackTrace();
 		}
