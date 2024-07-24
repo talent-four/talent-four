@@ -4,11 +4,16 @@ import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
+
+
 import static talentFour.common.JDBCTemplate.*;
+
+import talentFour.wonder.vo.Pagination;
 import talentFour.wonder.vo.wonderBoard;
 
 public class wonderDAO {
@@ -33,51 +38,104 @@ public class wonderDAO {
 		}
 
 	}
-	
-	/** 자유로운궁금증
+
+
+	/** 게시판 이름 조회 DAO
 	 * @param conn
-	 * @param board_cd
-	 * @param wonderType
-	 * @return
+	 * @param type
+	 * @return boardName
 	 * @throws Exception
 	 */
-	public List<wonderBoard> selectlistFree(Connection conn) throws Exception {
+	public String selectBoardName(Connection conn, int type) throws Exception{
 		
-		List<wonderBoard> wonderFreeList = new ArrayList<>();
+		String boardName= null;
 		
 		try {
-			String sql = prop.getProperty("selectlistFree");
+			String sql = prop.getProperty("selectBoardName");
 			pstmt = conn.prepareStatement(sql);
-			
+			pstmt. setInt(1, type);
 			rs = pstmt.executeQuery();
-			
-			while(rs.next()) {
-				wonderBoard wonderBoard = new wonderBoard();
-				wonderBoard.setBoardNo(rs.getInt("BOARD_NO"));
-			    wonderBoard.setBoardTitle(rs.getString("BOARD_TITLE"));
-			    wonderBoard.setBoardContent(rs.getString("BOARD_CONTENT")); 
-			    wonderBoard.setCreateDate(rs.getString("CREATED_DT"));
-			    wonderBoard.setReadCount(rs.getInt("READ_COUNT"));
-			    wonderBoard.setMemberNickname(rs.getString("MEMBER_NM")); 
-			    wonderBoard.setQaStatus(rs.getString("QA_STATUS"));
-			    wonderBoard.setWonderType(rs.getString("WONDER_TYPE")); 
-			   
-
-
-				wonderFreeList.add(wonderBoard);
+			if(rs.next()) {
+				boardName = rs.getString(1);
 			}
-
-		}finally {
+			
+		}finally{
 			close(rs);
 			close(pstmt);
 			
 		}
 		
+		return boardName;
 		
-			
 		
-		return wonderFreeList;
 	}
+
+
+	/** 게시글 목록 조회 DAO
+	 * @param conn
+	 * @param type
+	 * @return listCount
+	 * @throws Exception 
+	 * 
+	 */
+	
+	public int getListCount(Connection conn, int type) throws Exception {
+		int listCount = 0;
+		
+		try {
+			String sql = prop.getProperty("getListCount");
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, type);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				listCount = rs.getInt(1);
+			}
+			
+		}finally{
+			close(rs);
+			close(pstmt);
+			
+		}
+		return listCount;
+	}
+
+
+	/** 특정 게시판에서 일정한 범위의 목록 조회 dAO
+	 * @param conn
+	 * @param type
+	 * @param pagination
+	 * @return
+	 * @throws Exception 
+	 */
+	public List<wonderBoard> selectBoardList(Connection conn, int type, Pagination pagination) throws Exception {
+		
+		List<wonderBoard> boardList = new ArrayList<>();
+		
+		try {
+			String sql = prop.getProperty("selectBoardList");
+			
+			int start = (pagination.getCurrentPage() -1) * pagination.getLimit()+1;
+			int end = start + pagination.getLimit() -1;
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1,type);
+			pstmt.setInt(2, start);
+			pstmt.setInt(3, end);
+			
+		}finally {
+			
+		}
+		
+		
+		return null;
+	}
+	
+	
+
 
 
 	
