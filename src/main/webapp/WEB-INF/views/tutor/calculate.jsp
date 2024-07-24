@@ -21,13 +21,16 @@
             <article>
                 <div>
                     <div class="calculate-upP">
-                        <div class="calculate-upP">
-                            <span>총 정산 금액</span>
-                        </div>
+                         <span>총 정산 금액</span>
                     </div>
                     <div class="calculate-downP">
-                        <span id="all-calculate-moneyP">0</span>
+                        <span id="all-calculate-moneyP">
+                            0
+                        </span>
                         <span>원</span>
+                        <span>(</span>
+                        <span id="all-calculate-countP">0</span>
+                        <span>)건</span>
                     </div>
                 </div>
                 <div>
@@ -37,6 +40,9 @@
                     <div class="calculate-downP">
                         <span id="now-calculate-moneyP">0</span>
                         <span>원</span>
+                        <span>(</span>
+                        <span id="now-calculate-countP">0</span>
+                        <span>)건</span>
                     </div>
                 </div>
             </article>
@@ -49,100 +55,134 @@
                         <i class="fa-regular fa-credit-card"></i>
                         <span id="account-infoP">재능은행 111-111-11111 김재능</span>
                     </div>
-                    <button id="change-account-btnP"><i class="fa-regular fa-pen-to-square"></i></button>
+                </div>
+
+                <div class="hidden-area">
+                    <div class="background-div" id="background-div"></div>
+                    <div id="account-input-areaP">
+                        <span>계좌정보</span>
+                        <div>
+                            <form action="#">
+                                <div>
+                                    <span>은행</span>
+                                    <select name="banknameP" id="banknameP">
+                                        <option value="국민은행">국민은행</option>
+                                        <option value="농협은행">농협은행</option>
+                                        <option value="신한은행">신한은행</option>
+                                        <option value="IBK기업은행">IBK기업은행</option>
+                                        <option value="우리은행">우리은행</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <span>정산 계좌</span><input type="text" id="accountP" name="accountP">
+                                </div>
+                                <div>
+                                    <span>예금주</span><input type="text" id="usernameP" name="usernameP">
+                                </div>
+                            </form>
+                        </div>
+                        <div>
+                            <button id="save-btnP">저장</button>
+                            <button id="cancel-btnP">취소</button>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="type-area">
                     <div class="calculate-status choiced">
-                        <a href="${contextPath}/tutor/calculate?cp=1" class="status-link" data-id="1">정산중</a>
+                        <span>정산중</span>
                     </div>
                     <div class="calculate-status">
-                        <a href="${contextPath}/tutor/calculate?cp=2" class="status-link" data-id="2">정산완료</a>
+                        <span>정산완료</span>
                     </div>
                 </div>
 
             </article>
 
             <article class="calculate-all-areaP">
-                <table class="calculate-table">
+                <table>
                     <thead>
                         <tr>
                              <th><input type="checkbox" id="title-checkP"></th>
                              <th>정산상태</th>
-                             <th>수강생명</th>
                              <th>클래스명</th>
                              <th>정산 예정 금액</th>
                              <th>수수료율</th>
                              <th>정산 신청 시간</th>
                         </tr> 
                     </thead>
+
                     <tbody class="cal-all-rows">
-                        <tr class="cal-each-rows">
-                            <td><input type="checkbox" name="money"></td>
-                            <td><div class="cal-status">정산미신청</div></td>
-                            <td>김재능</td>
-                            <td>좋아하는 영화로 영어회화 따라잡기</td>
-                            <td>36,346원</td>
-                            <td>20%</td>
-                            <td>2024.07.15</td>
-                        </tr>
-                        <tr class="cal-each-rows">
-                            <td><input type="checkbox" name="money"></td>
-                            <td><div class="cal-status ing">정산진행중</div></td>
-                            <td>김재능</td>
-                            <td>좋아하는 영화로 영어회화 따라잡기</td>
-                            <td>36,346원</td>
-                            <td>20%</td>
-                            <td>2024.07.15</td>
-                        </tr>
-                        <tr class="cal-each-rows">
-                            <td><input type="checkbox" name="money"></td>
-                            <td><div class="cal-status finished">정산완료</div></td>
-                            <td>김재능</td>
-                            <td>좋아하는 영화로 영어회화 따라잡기</td>
-                            <td>36,346원</td>
-                            <td>20%</td>
-                            <td>2024.07.15</td>
-                        </tr>
-                        <tr class="cal-each-rows">
-                            <td><input type="checkbox" name="money"></td>
-                            <td><div class="cal-status">정산미신청</div></td>
-                            <td>김재능</td>
-                            <td>좋아하는 영화로 영어회화 따라잡기</td>
-                            <td>36,346원</td>
-                            <td>20%</td>
-                            <td>2024.07.15</td>
-                        </tr>
-                        
+                        <c:choose>
+                            <c:when test="${empty tutorcalculateList}">
+                                <tr>
+                                    <th colspan="7"><h1>정산이 완료된 클래스가 없습니다.</h1></th>
+                                </tr>
+                            </c:when>
+                            <c:otherwise>
+                                <c:forEach var="tutorcalculateList"  items="${tutorcalculateList}">
+                                    <tr class="cal-each-rows">
+                                        <td><input type="checkbox" name="money"></td>
+                                        <td>
+                                            <c:if test="${tutorcalculateList.settleStatus == 1}">
+                                                <div class="cal-status">정산미신청</div>
+                                            </c:if>
+                                            <c:if test="${tutorcalculateList.settleStatus == 2}">
+                                                <div class="cal-status fin">정산완료</div>
+                                            </c:if>
+                                        </td>
+                                        <td>${tutorcalculateList.memberNickname}</td>
+                                        <td>${tutorcalculateList.boardTitle}</td>
+                                        <td>${tutorcalculateList.classPrice}</td>
+                                        <td>${tutorcalculateList.commission}</td>
+                                        <td>
+                                            <c:if test="${tutorcalculateList.settleStatus == 1}">
+                                                -
+                                            </c:if>
+                                            <c:if test="${tutorcalculateList.settleStatus == 2}">
+                                                ${tutorcalculateList.settleDate}
+                                            </c:if>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+                            </c:otherwise>
+                        </c:choose>
                     </tbody>
                 </table>
             </article>
-            <div class="pagination-area">
+            
 
-                <!-- 페이지네이션 a 태그에 사용될 공통 주소를 저장할 변수 선언 -->
-                <c:set var="url" value="list?type=${param.type}&cp="/>
-
-                <ul class="pagination">
-                    <li><a href="${url}1">&lt;&lt;</a></li>
-                    <li><a href="${url}${pagination.prevPage}">&lt;</a></li>
-
-                    <!-- 범위가 정해진 일반 for문 사용 -->                    
-                    <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
-                        <c:choose>
-                            <c:when test="${i == pagination.currentPage}">
-                                <li><a class="current">${i}</a></li>
-                            </c:when>
-                            <c:otherwise>
-                                <li><a href="${url}${i}">${i}</a></li>
-                            </c:otherwise>
-                        </c:choose>
-
-                    </c:forEach>
-                    <!-- 위의 cp는 currentPage의 약자 -->
-                    <li><a href="${url}${pagination.nextPage}">&gt;</a></li>
-                    <li><a href="${url}${pagination.maxPage}">&gt;&gt;</a></li>
-                </ul>
+                    <tbody>
+                        <tr>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div>
+                    <div class="calculate-each-contentP">
+                        <div><input type="checkbox" name="money"></div>
+                        <div><div class="calculate-borderP" id="calculate-borderP"><div class="circleP" id="circleP"></div><span>정산 미신청</span></div></div>
+                        <div><span>탈잉</span></div>
+                        <div><span>좋아하는 영화로 영어회화 따라잡기</span></div>
+                        <div><span>36,346원</span></div>
+                        <div><span>20%</span></div>
+                        <div><span>2024.02.16</span></div>
+                    </div>
+                    
+                    
+                </div>
+            </article>
+            <div class="cal-btn-areaP">
+                <span>총 </span>
+                <span id="calculate-countP">O</span>
+                <span>개, </span>
+                <span id="calculate-page-countP">O</span>
+                <span>페이지</span>
+                <button id="cal-page-left-btnP" class="cal-page-change-btnP"><i class="fa-solid fa-angle-left"></i></button>
+                <button id="cal-page-right-btnP" class="cal-page-change-btnP"><i class="fa-solid fa-angle-right"></i></button>
             </div>
+
         </section>
        
     </main>

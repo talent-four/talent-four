@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,31 +29,90 @@
                     <div><span>등록일</span></div>
                 </div>
                 <div class="class-textP">
-                    <c:choose>
-                        <c:when test="${empty tutorclasses}">
-                            <h1>개설한 클래스가 존재하지 않습니다.</h1>
-                        </c:when>
-                        <c:otherwise>
-                            <c:forEach var="tutorclasses"  items="${tutorclasses}">
-                                <div class="class-rowP">
-                                    <div><img src="${tutorclasses.classPhoto}" class="class-thumbnail"></div>
-                                    <div><a href="#">${tutorclasses.className}</a></div>
-                                    <div><div><span>
-                                        <c:if test="${tutorclasses.classStatus == 1}">
-                                            운영중
-                                        </c:if>
-                                    </span></div></div>
-                                    <div><span>${tutorclasses.classCreateDate}</span></div>
-                                </div>
-                            </c:forEach>
-                        </c:otherwise>
-                    </c:choose>
+                    <div class="class-rowP">
+                        <div><img src="../../img/cat1.jpg" class="class-thumbnail"></div>
+                        <div><a href="#">고양이는 매우매우 귀여운 생물이다!</a></div>
+                        <div><div><span>운영 중</span></div></div>
+                        <div><span>2023-07-26</span></div>
+                    </div>
+                    <div class="class-rowP">
+                        <div><img src="../../img/cat1.jpg" class="class-thumbnail"></div>
+                        <div><a href="#">고양이는 매우매우 귀여운 생물이다!</a></div>
+                        <div><div><span>운영 중</span></div></div>
+                        <div><span>2023-07-26</span></div>
+                    </div>
+                    <div class="class-rowP">
+                        <div><img src="../../img/cat1.jpg" class="class-thumbnail"></div>
+                        <div><a href="#">고양이는 매우매우 귀여운 생물이다!</a></div>
+                        <div><div><span>운영 중</span></div></div>
+                        <div><span>2023-07-26</span></div>
+                    </div>
+                    <div class="class-rowP">
+                        <div><img src="../../img/cat1.jpg" class="class-thumbnail"></div>
+                        <div><a href="#">고양이는 매우매우 귀여운 생물이다!</a></div>
+                        <div><div><span>운영 중</span></div></div>
+                        <div><span>2023-07-26</span></div>
+                    </div>
+                    <div class="class-rowP">
+                        <div><img src="../../img/cat1.jpg" class="class-thumbnail"></div>
+                        <div><a href="#">고양이는 매우매우 귀여운 생물이다!</a></div>
+                        <div><div><span>운영 중</span></div></div>
+                        <div><span>2023-07-26</span></div>
+                    </div>
+                    <div class="class-rowP">
+                        <div><img src="../../img/cat1.jpg" class="class-thumbnail"></div>
+                        <div><a href="#">고양이는 매우매우 귀여운 생물이다!</a></div>
+                        <div><div><span>운영 중</span></div></div>
+                        <div><span>2023-07-26</span></div>
+                    </div>
+                    <div class="class-rowP">
+                        <div><img src="../../img/cat1.jpg" class="class-thumbnail"></div>
+                        <div><a href="#">고양이는 매우매우 귀여운 생물이다!</a></div>
+                        <div><div><span>운영 중</span></div></div>
+                        <div><span>2023-07-26</span></div>
+                    </div>
+                    <div class="class-rowP">
+                        <div><img src="../../img/cat1.jpg" class="class-thumbnail"></div>
+                        <div><a href="#">고양이는 매우매우 귀여운 생물이다!</a></div>
+                        <div><div><span>운영 중</span></div></div>
+                        <div><span>2023-07-26</span></div>
+                    </div>
+                    <div class="class-rowP">
+                        <div><img src="../../img/cat1.jpg" class="class-thumbnail"></div>
+                        <div><a href="#">고양이는 매우매우 귀여운 생물이다!</a></div>
+                        <div><div><span>운영 중</span></div></div>
+                        <div><span>2023-07-26</span></div>
+                    </div>
+                    <div class="class-rowP">
+                        <div><img src="../../img/cat1.jpg" class="class-thumbnail"></div>
+                        <div><a href="#">고양이는 매우매우 귀여운 생물이다!</a></div>
+                        <div><div><span>운영 중</span></div></div>
+                        <div><span>2023-07-26</span></div>
+                    </div>
+                    <div class="class-rowP">
+                        <div><img src="../../img/cat1.jpg" class="class-thumbnail"></div>
+                        <div><a href="#">고양이는 매우매우 귀여운 생물이다!</a></div>
+                        <div><div><span>운영 중</span></div></div>
+                        <div><span>2023-07-26</span></div>
+                    </div>
+                    <div class="class-rowP">
+                        <div><img src="../../img/cat1.jpg" class="class-thumbnail"></div>
+                        <div><a href="#">고양이는 매우매우 귀여운 생물이다!</a></div>
+                        <div><div><span>운영 중</span></div></div>
+                        <div><span>2023-07-26</span></div>
+                    </div>
+                    <div class="class-rowP">
+                        <div><img src="../../img/cat1.jpg" class="class-thumbnail"></div>
+                        <div><a href="#">고양이는 매우매우 귀여운 생물이다!</a></div>
+                        <div><div><span>운영 중</span></div></div>
+                        <div><span>2023-07-26</span></div>
+                    </div>
+                    
+                    
                 </div>
                 <div class="class-btn-areaP">
                     <span>총 </span>
-                    <span id="now-class-countP">
-                        ${counting.classCount}
-                    </span>
+                    <span id="now-class-countP">O</span>
                     <span>개</span>
                 </div>
             </article>
@@ -67,31 +125,17 @@
                     <div><span>등록일</span></div>
                 </div>
                 <div class="class-textP">
-                    <c:choose>
-                        <c:when test="${empty tutorclassesfin}">
-                            <h1>만료된 클래스가 존재하지 않습니다.</h1>
-                        </c:when>
-                        <c:otherwise>
-                            <c:forEach var="tutorclassesfin"  items="${tutorclassesfin}">
-                                <div class="class-rowP">
-                                    <div><img src="${tutorclassesfin.classPhoto}" class="class-thumbnail"></div>
-                                    <div><a href="#">${tutorclassesfin.className}</a></div>
-                                    <div><div id="finclassdiv"><span>
-                                        <c:if test="${tutorclassesfin.classStatus == 2}">
-                                            운영 종료
-                                        </c:if>
-                                    </span></div></div>
-                                    <div><span>${tutorclassesfin.classCreateDate}</span></div>
-                                </div>
-                            </c:forEach>
-                        </c:otherwise>
-                    </c:choose>
+                    <div class="class-rowP">
+                        <div><img src="../../img/cat1.jpg" class="class-thumbnail"></div>
+                        <div><a href="#">고양이는 매우매우 귀여운 생물이다!</a></div>
+                        <div><div><span>운영 중</span></div></div>
+                        <div><span>2023-07-26</span></div>
+                    </div>
+                    
                 </div>
                 <div class="class-btn-areaP">
                     <span>총 </span>
-                    <span id="now-class-countP">
-                        ${countfin.classCount}
-                    </span>
+                    <span id="finished-class-countP">O</span>
                     <span>개</span>
                 </div>
             </article>

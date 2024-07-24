@@ -21,54 +21,54 @@
             <section class="mainsectionsP" id="profileP">
                 <article class="titleP"><span>내 프로필</span></article>
                     <div class="text-areaP">
-
+                        <div>
+                            <span>닉네임</span>
+                            <div id="change-areaP">
+                                <input type="text" name="tutorNickname" value="${loginMember.memberNickname }" maxlength="12">
+                                <button id="Nchange-btnP" type="button"><i class="fa-regular fa-pen-to-square"></i></button>
+                            </div>
+                            <div id="Nhide-areaP">
+                                <!-- <input type="text" id="Nchange-inputP" name="Nchange-inputP" maxlength="12"> -->
+                                <button id="NcheckP"><i class="fa-solid fa-check"></i></button>
+                                <button id="NcancelP" type="button"><i class="fa-solid fa-xmark"></i></button>
+                                <div>
+                                    <span id="Nchange-countP">0</span>
+                                    <span>/12</span>
+                                </div>
+                            </div>
+                        </div>
                         <div>
                             <span>프로필 이미지</span>
                             <img src= "${contextPath}/resources/img/profile_default_removebg.png" id="PI-defaultP">
                             <input type="file" id="PIhide-btnP">
                             <label for="PIhide-btnP" id="PIchange-btnP"><i class="fa-solid fa-camera"></i></label>
                         </div>
-
                         <div>
                             <span>전화 번호</span>
-                            <input type="text" id="tel-input" name="tel-input" value="${loginMember.tutorTel}" maxlength="11">
-                            <button id="changeTel" type="button"><i class="fa-regular fa-pen-to-square"></i></button>
-                            
-                            <div id="hide-tel-area">
-                                <button id="tel-check"><i class="fa-solid fa-check"></i></button>
-                                <button id="tel-cancel" type="button"><i class="fa-solid fa-xmark"></i></button>
+                            <input type="text" id="Tel-inputP" name="Tel-inputP" value="${loginMember.tutorTel}" maxlength="11">
+                            <button id="Nchange-btnP" type="button"><i class="fa-regular fa-pen-to-square"></i></button>
+                            <div id="Nhide-areaP">
+                                <input type="text" id="Nchange-inputP" name="Nchange-inputP" maxlength="12">
+                                <button id="NcheckP"><i class="fa-solid fa-check"></i></button>
+                                <button id="NcancelP" type="button"><i class="fa-solid fa-xmark"></i></button>
+                                <div>
+                                    <span id="Nchange-countP">0</span>
+                                    <span>/12</span>
+                                </div>
                             </div>
                         </div>
 
                         <div>
-                            <span>정산 계좌</span>
-                            <div>
-                                <div>
-                                    <span>예금주명</span>
-                                    <input type="text" name="accountName">
-                                </div>
-                                <div>
-                                    <span>은행명</span>
-                                    <select name="bankName" id="bankName">
-                                        <option value="국민은행">국민은행</option>
-                                        <option value="농협은행">농협은행</option>
-                                        <option value="신한은행">신한은행</option>
-                                        <option value="IBK기업은행">IBK기업은행</option>
-                                        <option value="우리은행">우리은행</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <span>계좌번호</span>
-                                    <input type="text" name="accountNumber">
-                                </div>
-                            </div>
-                            <button id="changeTel" type="button"><i class="fa-regular fa-pen-to-square"></i></button>
+                            <span>자격증</span>
+                            <div></div>
+                            <input type="file" id="careerP">
+                            <label for="careerP"><span id="add-careerP"><i class="fa-solid fa-plus"></i>자격증 추가하기</span></label>
+                            <div></div>
                         </div>
-                        
                         <div>
                             <span>튜터 소개</span>
                             <div>
-                                <textarea name="introduce" id="introduce" maxlength="300"></textarea>
+                                <textarea name="introduce" id="introduce" value="${loginMember.tutorTel}" maxlength="300"></textarea>
                             </div>
                             <button type="button" id="change-introduce"><i class="fa-regular fa-pen-to-square"></i></button>
                             <div class="hidden-area2" id="hiddenArea2">

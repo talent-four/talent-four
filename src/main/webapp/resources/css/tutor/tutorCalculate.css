@@ -3,7 +3,6 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Noto Sans KR', sans-serif;
-    /* border: 1px solid black; */
 }
 
 @font-face {
@@ -296,92 +295,7 @@ main{ /* 메인 */
 }
 
 /* ------------------------------------------------------------------------------------------------ */
-/* 숨겨진 영역 */
 
-/* 정보 입력시 배경색 어둡게 */
-#background-div{ 
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 3;
-}
-
-/* 계좌 수정 영역 */
-#account-input-areaP{
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    z-index: 4;
-    width: 400px;
-}
-/* 계좌정보라는 span */
-#account-input-areaP>span:nth-child(1){
-    font-size: 26px;
-    margin-bottom: 20px;
-    font-weight: bold;
-}
-
-#account-input-areaP form>div{
-    width: 350px;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-#account-input-areaP form>div>span{
-    font-size: 18PX;
-    color: rgb(153, 153, 153);
-}
-
-#account-input-areaP form>div>input{
-    width: 200px;
-    height: 30px;
-    border: 1px solid rgb(153, 153, 153);
-    border-radius: 5px;
-}
-/* 은행명 선택 */
-#banknameP{
-    width: 200px;
-    height: 30px;
-    border: 1px solid rgb(153, 153, 153);
-    border-radius: 5px;
-}
-/* 저장 / 취소 버튼 영역 */
-#account-input-areaP>div:nth-child(3){
-    display: flex;
-    justify-content: space-between;
-    width: 350px;
-}
-/* 저장버튼 */
-#save-btnP{
-    background-color: #219ebc;
-    color: white;
-    width: 230px;
-    height: 30px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-}
-/* 취소버튼 */
-#cancel-btnP{
-    background-color: transparent;
-    width: 100px;
-    height: 30px;
-    border: 1px solid rgb(153, 153, 153);
-    border-radius: 5px;
-    cursor: pointer;
-}
 /* ----------------------------------------------------------------------------------------------- */
 
 /* 정산 상태 영역 */
@@ -401,10 +315,6 @@ main{ /* 메인 */
     font-size: 20px;
     cursor: pointer;
 }
-.calculate-status>a{
-    text-decoration: none;
-    color: rgb(26, 26, 26);
-}
 
 .choiced{
     border-bottom: 2px solid #219ebc;
@@ -414,103 +324,177 @@ main{ /* 메인 */
 /* 정산 내용 영역 */
 
 .calculate-all-areaP{
-    width: 980px;
+
+    width: 1020px;
     height: 590px;
     border-bottom: 1px solid rgb(220, 220, 220);
-}
+    overflow: auto;
+    margin-left: 10px;
 
-.calculate-table{
     width: 980px;
-    border-spacing: 0;
-    border-collapse: separate; /* separate로 설정하여 border-spacing 사용 가능 */
-    border-spacing: 0 3px; 
+    height: 600px;
+    border-bottom: 1px solid rgb(220, 220, 220);
+
+
 }
 
-.calculate-table th,td{
+.calculate-all-areaP>div:nth-child(1){
+    width: 980px;
     height: 50px;
-    table-layout: fixed;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgb(153, 153, 153);
 }
 
-.calculate-table>thead>tr>th{
-    border-bottom: 1px solid black;
-}
-
-tbody>tr:nth-child(1){
-    margin-top: 10px;
-}
-
-
-td{
-    border: 1px solid rgb(220, 220, 220);
-    text-align: center;
-    padding: 10px;
-    border-left: none;
-    border-right: none;
-}
-
-/* -------------------------------------------------------------------------------- */
-/* 정산 각각 내역 영영 */
-
-/* 정산하기 각 행 */
-.cal-each-rows{
-    text-align: center;
-}
-
-tr td:first-child {
-    border-left: 1px solid rgb(220, 220, 220);
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-}
-tr td:last-child {
-    border-right: 1px solid rgb(220, 220, 220);
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
-
-.cal-each-rows>td:nth-child(2){
+.calculate-all-areaP>div:nth-child(1)>div{
+    width: 100px;
+    height: 30px;
+    margin: 5px 0 0 0;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* 정산 상태 (진행, 미신청, 완료) */
-.cal-status{
-    width: 100px;
+.calculate-all-areaP>div:nth-child(1)>div:nth-child(1){
+    width: 30px;
+}
+
+.calculate-all-areaP>div:nth-child(1)>div:nth-child(2){
+    width: 90px;
+}
+
+.calculate-all-areaP>div:nth-child(1)>div:nth-child(3){
+    width: 120px;
+}
+.calculate-all-areaP>div:nth-child(1)>div:nth-child(4){
+    width: 70px;
+}
+
+.calculate-all-areaP>div:nth-child(1)>div:nth-child(5){
+    width: 350px;
+}
+
+.calculate-all-areaP>div:nth-child(1)>div:nth-child(7){
+    width: 70px;
+}
+
+.calculate-all-areaP>div:nth-child(1)>div:nth-child(6){
+    width: 120px;
+}
+
+.calculate-all-areaP>div:nth-child(1)>div:nth-child(8){
+    width: 120px;
+}
+
+/* -------------------------------------------------------------------------------- */
+/* 정산 각각 내역 영영 */
+
+.calculate-all-areaP>div:nth-child(2){
+    width: 980px;
+    height: 550px;
+}
+
+.calculate-each-contentP{
+    width: 980px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgb(220, 220, 220);
+}
+
+.calculate-each-contentP>div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calculate-each-contentP>div:nth-child(1){
+    width: 30px;
+}
+
+.calculate-each-contentP>div:nth-child(2){
+    width: 90px;
+}
+
+.calculate-each-contentP>div:nth-child(3){
+    width: 120px;
+    
+}
+
+.calculate-borderP{
+    width: 110px;
     border-radius: 10px;
-    color: white;
+    border: 1px solid rgb(153, 153, 153);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.circleP{
+    width: 5px;
+    height: 5px;
     background-color: red;
+    border-radius: 5px;
+
+}
+
+
+.fin{
+    background-color: #219ebc;
 }
 
 /* .non{border: 2px solid red;} */
 .ing{background-color: #219ebc;}
 .finished{background-color: gray;}
 
+#circle2P{
+    width: 5px;
+    height: 5px;
+    background-color: green;
+    border-radius: 5px;
+}
+
+
+.calculate-each-contentP>div:nth-child(4){
+    width: 70px;
+}
+
+.calculate-each-contentP>div:nth-child(5){
+    width: 350px;
+}
+
+
+.calculate-each-contentP>div:nth-child(6){
+    width: 120px;
+}
+
+.calculate-each-contentP>div:nth-child(7){
+    width: 70px;
+}
+
+.calculate-each-contentP>div:nth-child(8){
+    width: 120px;
+}
+
 /*-----------------------------------------------------------------------------------------*/
 
-/* 페이지네이션(Pagination) */
-.pagination{
-    padding: 0;
-    list-style: none;
+.cal-btn-areaP{
+    width: 980px;
+    height: 100px;
     display: flex;
-    justify-content: center;
+    justify-content: end;
+    font-size: 16px;
 }
 
-.pagination>li{
-    width: 20px;
-    margin: 0 5px;
-    text-align: center;
+.cal-btn-areaP>span{
+    margin: 10px 3px 0 3px;
 }
 
-.pagination a{
-    width: 100%;
-    height: 100%;
-    display: block;
-}
-
-/* 현재 페이지 번호 */
-.pagination .current{
-    background-color: #455ba8;
-    color: white;
-    font-weight: bold;
-    border-radius: 50%;
+.cal-page-change-btnP{
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    height: 20px;
+    margin: 12px 7px 0 7px;
 }

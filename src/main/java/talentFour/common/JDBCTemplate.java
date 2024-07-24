@@ -15,6 +15,7 @@ public class JDBCTemplate {
 	public static Connection getConnection() {
 
 		try {
+
 			
 			Context initContext = new InitialContext();
 			
@@ -38,7 +39,7 @@ public class JDBCTemplate {
 	public static void close(Connection conn) {
 		
 		try {
-			if(conn!=null && !conn.isClosed()) {
+			if(conn!=null && conn.isClosed()) {
 				conn.close();
 			}
 			
