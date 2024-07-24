@@ -13,43 +13,9 @@ fifthCategory.classList.add('a-style');
 /* 정산하기 시작 */
 
 const calbtn = document.getElementById("calculate-btnP")
-const accountinputarea = document.getElementById("account-input-areaP")
-const backgrounddiv = document.getElementById("background-div")
-const savebtn = document.getElementById("save-btnP")
-const cancelbtn = document.getElementById("cancel-btnP")
-const changebtn = document.getElementById("change-account-btnP")
-
-const accountinfo = document.getElementById("account-infoP")
-const bankname = document.getElementById("banknameP")
-const account = document.getElementById("accountP")
-const username = document.getElementById("usernameP")
 
 
-function addaccount(){
-    backgrounddiv.style.display = 'block';
-    accountinputarea.style.display ='block';
-}
 
-function removeaccount(){
-    backgrounddiv.style.display = 'none';
-    accountinputarea.style.display ='none';
-}
-
-cancelbtn.addEventListener("click",function(){
-    removeaccount()
-})
-
-savebtn.addEventListener("click",function(){
-    removeaccount()
-    accountinfo.innerText = bankname.value + " " + account.value + " " + username.value;
-})
-
-changebtn.addEventListener("click",function(){
-    addaccount()
-    bankname.value =""
-    account.value =""
-    username.value =""
-})
 /* 정산요청 버튼 까지는 끝 */
 /*  --------------------------------------------------------------------------------------------- */
 /* 정산 리스트 영역 */

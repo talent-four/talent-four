@@ -26,7 +26,9 @@
                         </div>
                     </div>
                     <div class="calculate-downP">
-                        <span id="all-calculate-moneyP">0</span>
+                        <span id="all-calculate-moneyP">
+                            0
+                        </span>
                         <span>원</span>
                     </div>
                 </div>
@@ -49,7 +51,6 @@
                         <i class="fa-regular fa-credit-card"></i>
                         <span id="account-infoP">재능은행 111-111-11111 김재능</span>
                     </div>
-                    <button id="change-account-btnP"><i class="fa-regular fa-pen-to-square"></i></button>
                 </div>
 
                 <div class="type-area">
@@ -77,72 +78,44 @@
                         </tr> 
                     </thead>
                     <tbody class="cal-all-rows">
-                        <tr class="cal-each-rows">
-                            <td><input type="checkbox" name="money"></td>
-                            <td><div class="cal-status">정산미신청</div></td>
-                            <td>김재능</td>
-                            <td>좋아하는 영화로 영어회화 따라잡기</td>
-                            <td>36,346원</td>
-                            <td>20%</td>
-                            <td>2024.07.15</td>
-                        </tr>
-                        <tr class="cal-each-rows">
-                            <td><input type="checkbox" name="money"></td>
-                            <td><div class="cal-status ing">정산진행중</div></td>
-                            <td>김재능</td>
-                            <td>좋아하는 영화로 영어회화 따라잡기</td>
-                            <td>36,346원</td>
-                            <td>20%</td>
-                            <td>2024.07.15</td>
-                        </tr>
-                        <tr class="cal-each-rows">
-                            <td><input type="checkbox" name="money"></td>
-                            <td><div class="cal-status finished">정산완료</div></td>
-                            <td>김재능</td>
-                            <td>좋아하는 영화로 영어회화 따라잡기</td>
-                            <td>36,346원</td>
-                            <td>20%</td>
-                            <td>2024.07.15</td>
-                        </tr>
-                        <tr class="cal-each-rows">
-                            <td><input type="checkbox" name="money"></td>
-                            <td><div class="cal-status">정산미신청</div></td>
-                            <td>김재능</td>
-                            <td>좋아하는 영화로 영어회화 따라잡기</td>
-                            <td>36,346원</td>
-                            <td>20%</td>
-                            <td>2024.07.15</td>
-                        </tr>
-                        
+                        <c:choose>
+                            <c:when test="${empty tutorcalculateList}">
+                                <tr>
+                                    <th colspan="7"><h1>정산이 완료된 클래스가 없습니다.</h1></th>
+                                </tr>
+                            </c:when>
+                            <c:otherwise>
+                                <c:forEach var="tutorcalculateList"  items="${tutorcalculateList}">
+                                    <tr class="cal-each-rows">
+                                        <td><input type="checkbox" name="money"></td>
+                                        <td>
+                                            <c:if test="${tutorcalculateList.settleStatus == 1}">
+                                                <div class="cal-status">정산미신청</div>
+                                            </c:if>
+                                            <c:if test="${tutorcalculateList.settleStatus == 2}">
+                                                <div class="cal-status fin">정산완료</div>
+                                            </c:if>
+                                        </td>
+                                        <td>${tutorcalculateList.memberNickname}</td>
+                                        <td>${tutorcalculateList.boardTitle}</td>
+                                        <td>${tutorcalculateList.classPrice}</td>
+                                        <td>${tutorcalculateList.commission}</td>
+                                        <td>
+                                            <c:if test="${tutorcalculateList.settleStatus == 1}">
+                                                -
+                                            </c:if>
+                                            <c:if test="${tutorcalculateList.settleStatus == 2}">
+                                                ${tutorcalculateList.settleDate}
+                                            </c:if>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+                            </c:otherwise>
+                        </c:choose>
                     </tbody>
                 </table>
             </article>
-            <div class="pagination-area">
-
-                <!-- 페이지네이션 a 태그에 사용될 공통 주소를 저장할 변수 선언 -->
-                <c:set var="url" value="list?type=${param.type}&cp="/>
-
-                <ul class="pagination">
-                    <li><a href="${url}1">&lt;&lt;</a></li>
-                    <li><a href="${url}${pagination.prevPage}">&lt;</a></li>
-
-                    <!-- 범위가 정해진 일반 for문 사용 -->                    
-                    <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
-                        <c:choose>
-                            <c:when test="${i == pagination.currentPage}">
-                                <li><a class="current">${i}</a></li>
-                            </c:when>
-                            <c:otherwise>
-                                <li><a href="${url}${i}">${i}</a></li>
-                            </c:otherwise>
-                        </c:choose>
-
-                    </c:forEach>
-                    <!-- 위의 cp는 currentPage의 약자 -->
-                    <li><a href="${url}${pagination.nextPage}">&gt;</a></li>
-                    <li><a href="${url}${pagination.maxPage}">&gt;&gt;</a></li>
-                </ul>
-            </div>
+            
         </section>
        
     </main>
