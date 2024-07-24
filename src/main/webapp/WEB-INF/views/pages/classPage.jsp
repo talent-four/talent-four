@@ -199,11 +199,16 @@
             	<c:forEach var="i" begin="${j*5}" end="${(j+1)*5-1}">
     	            <c:if test="${!empty classList[i]}">
     	            <a href="${contextPath}/detailedPage?classNo=${classList[i].classNo}" class="contentBox">
-	                    <img
-	                        src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
+                        <!-- 클래스 썸네일 미리보기, 수정필요 -->
+                        <c:if test="${classList[i].classPhoto == 'PHOTO URL'}">
+                            <img src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
+                        </c:if>
+                        <c:if test="${classList[i].classPhoto != 'PHOTO URL'}">
+                            <img src="${contextPath}${classList[i].classPhoto}">
+                        </c:if>
 	                    <div class="contentTitle">${classList[i].className}</div>
 	                    <div class="contentAuthor">${classList[i].memberNickname}</div>
-	                    <div class="contentStars">★ (<span>3.9</span>)</div>
+	                    <div class="contentStars">★ (${classList[i].score}) <span><i class="fa-solid fa-users"></i> ${classList[i].reviews}</span></div>
 	                    <div class="contentPrice"><fmt:formatNumber value="${classList[i].classPrice}" pattern="#,###원" /></div>
                 	</a>
 					</c:if>
