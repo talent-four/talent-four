@@ -45,6 +45,8 @@ public class WonderService {
 		close(conn);
 
 		return map;
+		
+
 	}
 
 	public Map<String, Object> searchFreeBoardList(int type, int cp, String key, String query) {

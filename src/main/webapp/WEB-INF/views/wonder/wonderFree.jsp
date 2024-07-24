@@ -1,11 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix ="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix ="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-
-<c:set var="boardName" value="${wonderboard.boardTitle}"/>
-<c:set var="qaStatus" value="${wonderboard.qaStatus}"/>
-<c:set var="boardContent" value="${wonderboard.boardContent}"/>
-<c:set var="hashtag" value="${wonderboard.hashTag}"/>
+%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,105 +19,107 @@
 <body>
     <jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
     <jsp:include page="/WEB-INF/views/wonder/wonderHeader.jsp"></jsp:include>
-          
-        <section class="wonder-section">
-            <form name="wonder-form"class="wonder-form">
-                <div class="wonder-search-item">
+
+    <section class="wonder-section">
+        <form name="wonder-form" class="wonder-form">
+            <div class="wonder-search-item">
                 <fieldset>
-                <i class="fa-solid fa-magnifying-glass wonder-icon"></i>
-                <input type="text"  placeholder="제목과 내용을 검색해 보세요" name="wonderBoard" id="wonder-search">
-                 </fieldset>
+                    <i class="fa-solid fa-magnifying-glass wonder-icon"></i>
+                    <input type="text" placeholder="제목과 내용을 검색해 보세요" name="wonderBoard" id="wonder-search">
+                </fieldset>
                 <button id="woder-serachBtn">검색</button>    
-                </div>
-                <div class="wonder-search-item">
+            </div>
+            <div class="wonder-search-item">
                 <fieldset>
                     <i class="fa-solid fa-tag wonder-icon"></i>
-                    <input type="text"  placeholder="태그를 입력하세요" name="wonderBoard" id="wonder-search">
-                     </fieldset>
-               
-               <button type="reset" class="wonder-restBtn"><i class="fa-solid fa-rotate">검색어초기화</i> </button> 
-               </div>
-            </form>
-            
-        </section>
-        <section class="wonder-section2">
-            <div class="wonder-nav">
-                <ul>
-                    <li><a href="#" class="wonderCurrent">전체</a></li>
-                    <li><a href="#">해결됨</a></li>
-                    <li><a href="#">미해결됨</a></li>
-                    <li><a href="#">최신순</a></li>
-                    <li><a href="#">답변많은순</a></li>
-                    <li><a href="#">추천순</a></li>
-                </ul>
+                    <input type="text" placeholder="태그를 입력하세요" name="wonderBoard" id="wonder-search">
+                </fieldset>
+                <button type="reset" class="wonder-restBtn"><i class="fa-solid fa-rotate">검색어초기화</i></button> 
             </div>
-            <div class="wonder-write">
-                <button>글쓰기</button>
-            </div>
+        </form>
+    </section>
 
-            <c:choose>
-                <c:when test="${empty freeList}">
-                    <p>게시글이 없습니다.</p>
-                </c:when>
-                <c:otherwise>
-                    <c:forEach var="board" items="${freeList}">
-                        <div class="wonder-notice">
-                            <h2 id="boardTitle">${board.boardTitle}
-                                <c:choose>
-                                    <c:when test="${board.qaStatus == 'y'}">
-                                        <span class="notice-st" >해결</span>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <span class="notice-st2">미해결</span>
-                                    </c:otherwise>
-                                </c:choose>
-                            </h2>
-                            <p>${board.boardContent}</p>
-                            <div class="wonder-Tag">
-                                <span>${wonderboard.hashTag}</span> <!-- 추후에 실제 태그 내용으로 대체할 수 있습니다 -->
-                            </div>
-                            <div class="wonder-count">
-                                <span>${board.memberNickname} </span>
-                                <span>${board.createDate}</span>
-                                <ul>
-                                    <li>조회수 0</li>
-                                    <li>추천수 0</li>
-                                    <li>답변수 0</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </c:forEach>
-                </c:otherwise>
-            </c:choose>
-
-          
-        
-            <div class="wonder-page-area">
-                <ul class="wonder-pagination">
-                <li><a href="#">&lt;&lt;</a></li>
-                <li><a href="#">&lt;</a></li>
-                <li><a class="current">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">6</a></li>
-                <li><a href="#">7</a></li>
-                <li><a href="#">8</a></li>
-                <li><a href="#">9</a></li>
-                <li><a href="#">10</a></li>
-                <li><a href="#">&gt;</a></li>
-                <li><a href="#">&gt;&gt;</a></li>
-                </ul>
-            </div>
-        
-
-        </section>
-    
-        <div>
-            <a href="#wonder-main" class="wonderTopBtn">TOP</a>
+    <section class="wonder-section2">
+        <div class="wonder-nav">
+            <ul>
+                <li><a href="#" class="wonderCurrent">전체</a></li>
+                <li><a href="#">해결됨</a></li>
+                <li><a href="#">미해결됨</a></li>
+                <li><a href="#">최신순</a></li>
+                <li><a href="#">답변많은순</a></li>
+                <li><a href="#">추천순</a></li>
+            </ul>
         </div>
-    </main>
+        <div class="wonder-write">
+            <button>글쓰기</button>
+        </div>
+
+        <c:choose>
+            <c:when test="${empty map.boardList}">
+                <p>게시글이 없습니다.</p>
+            </c:when>
+            <c:otherwise>
+                <c:forEach var="board" items="${map.boardList}">
+                    <div class="wonder-notice">
+                        <h2 id="boardTitle">${board.boardTitle}
+                            <c:choose>
+                                <c:when test="${board.qaStatus == 'y'}">
+                                    <span class="notice-st">해결</span>
+                                </c:when>
+                                <c:otherwise>
+                                    <span class="notice-st2">미해결</span>
+                                </c:otherwise>
+                            </c:choose>
+                        </h2>
+                        <p>${board.boardContent}</p>
+                        <div class="wonder-Tag">
+                            <span>${board.hashTag}</span>
+                        </div>
+                        <div class="wonder-count">
+                            <span>${board.memberNickname}</span>
+                            <span>${board.createDate}</span>
+                            <ul>
+                                <li>조회수 ${board.readCount}</li>
+                                <li>추천수 ${board.recommendCount}</li>
+                                <li>답변수 ${board.answerCount}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </c:forEach>
+            </c:otherwise>
+        </c:choose>
+
+        <div class="wonder-page-area">
+            <ul class="wonder-pagination">
+                <!-- Previous Page -->
+                <c:if test="${map.pagination.currentPage > 1}">
+                    <li><a href="?type=${param.type}&cp=${map.pagination.currentPage - 1}">&lt;</a></li>
+                </c:if>
+
+                <!-- Page Numbers -->
+                <c:forEach var="i" begin="${map.pagination.startPage}" end="${map.pagination.endPage}">
+                    <c:choose>
+                        <c:when test="${i == map.pagination.currentPage}">
+                            <li><a class="current">${i}</a></li>
+                        </c:when>
+                        <c:otherwise>
+                            <li><a href="?type=${param.type}&cp=${i}">${i}</a></li>
+                        </c:otherwise>
+                    </c:choose>
+                </c:forEach>
+
+                <!-- Next Page -->
+                <c:if test="${map.pagination.currentPage < map.pagination.maxPage}">
+                    <li><a href="?type=${param.type}&cp=${map.pagination.currentPage + 1}">&gt;</a></li>
+                </c:if>
+            </ul>
+        </div>
+    </section>
+
+    <div>
+        <a href="#wonder-main" class="wonderTopBtn">TOP</a>
+    </div>
+
     <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
 </body>
 </html>
