@@ -99,13 +99,14 @@ public class TutorService {
 	
 	/** 정산하기 조회
 	 * @param status 
+	 * @param memberNo 
 	 * @return
 	 * @throws Exception
 	 */
-	public List<TutorCalculate> selectCalculateList(int status) throws Exception {
+	public List<TutorCalculate> selectCalculateList(int status, int memberNo) throws Exception {
 		Connection conn = getConnection();
 		
-		List<TutorCalculate> tutorcalculateList = dao.selectCalculateList(conn,status);
+		List<TutorCalculate> tutorcalculateList = dao.selectCalculateList(conn,status,memberNo);
 		
 		close(conn);
 		

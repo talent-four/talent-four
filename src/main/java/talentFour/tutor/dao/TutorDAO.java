@@ -205,10 +205,11 @@ public class TutorDAO {
 	/** 정산하기 조회
 	 * @param conn
 	 * @param status 
+	 * @param memberNo 
 	 * @return
 	 * @throws Exception
 	 */
-	public List<TutorCalculate> selectCalculateList(Connection conn, int status) throws Exception {
+	public List<TutorCalculate> selectCalculateList(Connection conn, int status, int memberNo) throws Exception {
 		List<TutorCalculate> tutorcalculateList = new ArrayList<>();
 		
 		// 정산예정금액을 담을 변수
@@ -222,6 +223,7 @@ public class TutorDAO {
 			String sql = prop.getProperty("selectCalculateList");
 			pstmt= conn.prepareStatement(sql);
 			pstmt.setInt(1, status);
+			pstmt.setInt(1, memberNo);
 			rs = pstmt.executeQuery();
 
 			while(rs.next()) {
