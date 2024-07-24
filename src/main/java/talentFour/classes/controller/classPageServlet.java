@@ -36,7 +36,6 @@ public class classPageServlet extends HttpServlet {
 		String uri = req.getRequestURI();
 		String contextPath = req.getContextPath();
 		String command = uri.substring(  (contextPath + "/classPage/").length()  );
-		System.out.println("doGet 실행");
 		
 		try {
 			req.setAttribute("categoryList", categoryList);
