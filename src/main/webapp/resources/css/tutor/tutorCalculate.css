@@ -1,0 +1,516 @@
+*{  
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+    /* border: 1px solid black; */
+}
+
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 100;
+    src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Normal.woff2) format('woff2'),
+         url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Normal.woff) format('woff'),
+         url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Normal.otf) format('opentype');
+}
+
+body{
+    width: 100%;
+    min-height: 1000px;
+    max-height: 2000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+footer{
+    width: 100%;
+}
+/* ----------------------------------------------------------------------------------- */
+main{ /* 메인 */
+    width: 1280px;
+    min-height: 1000px;
+    max-height: 1700px;
+    display: flex;
+}
+/*--------------------------------------------------------------------------------------*/
+/* 사이드 */
+.sideP{
+    width: 300px;
+    min-height: 1000px;
+    max-height: 1700px;
+    border-right: 1px solid rgb(243, 243, 243);
+}
+
+/*--------------------------------------------------------------------------------------*/
+/* 사이드 위쪽 */
+
+.side-topP{
+    width: 300px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    
+}
+
+.side-topP>div:nth-child(1){
+    width: 110px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.side-topP>div:nth-child(2){
+    width: 190px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+}
+
+.side-topP>div:nth-child(2)>span{
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0 4px 0 4px;
+}
+
+#profile-imgP{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+/*---------------------------------------------------------------------------------------*/
+/* 사이드 아래 */
+.side-bottomP{
+    width: 300px;
+    height: 850px;
+    display: flex;
+}
+
+.side-categoryP{
+    width: 300px;
+    height: 420px;
+    margin: 30px 0 0 0;
+}
+
+.side-categoryP>div{
+    width: 300px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: rgb(153, 153, 153);
+}
+
+.side-categoryP>div>a{
+    font-size: 20px;
+    text-decoration: none;
+    color: rgb(153, 153, 153);
+}
+
+.side-categoryP>div>a>span{
+    display: flex;
+    align-items: center;
+    width: 300px;
+    height: 60px;
+}
+
+.side-categoryP>div>a>span>i{
+    width: 30px;
+    margin: 5px 0 0 10px;
+}
+
+.side-categoryP>div:nth-of-type(3)>a>span>i{
+    font-size: 18px;
+}
+
+.side-categoryP>div:nth-of-type(4)>a>span>i{
+    font-size: 23px;
+}
+
+.side-categoryP>div:nth-of-type(6)>a>span>i{
+    font-size: 19px;
+}
+
+.side-categoryP>div:hover{
+    background-color: rgb(249, 249, 249);
+}
+
+/*---------------------------------------------------------------------------------------*/
+
+.a-style{
+    background-color: rgb(249, 249, 249);
+}
+
+.a-style>a>span{
+    color: #219ebc;
+}
+
+/*---------------------------------------------------------------------------------------*/
+
+.mainsectionsP{ /*대시보드*/
+    width: 980px;
+    min-height: 1000px;
+    max-height: 1700px;
+}
+
+/* 공통 끝*/
+/*-----------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------*/
+
+.titleP{
+    width: 980px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+}
+
+.titleP>span{
+    font-size: 40px;
+    font-weight: bold;
+    margin: 0 0 0 30px;
+}
+
+/*-------------------------------------------------------------------------------*/
+
+#calculateP>article:nth-child(2){ /* 정산 금액 큰 영역  */
+    width: 980px;
+    height: 130px;
+    display: flex;
+    align-items: center;
+}
+
+#calculateP>article:nth-child(2)>div{ /* 각 정산 금액 영역  */
+    width: 510px;
+    height: 110px;
+    margin: 0 0 0 10px;
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 10px;
+}
+
+.calculate-upP{
+    width: 400px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.calculate-upP>span{
+    margin: 10px 0 0 20px;
+    font-size: 16px;
+}
+
+.calculate-downP{
+    width: 400px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+}
+
+.calculate-downP>span{
+    margin: 0 0 10px 0;
+}
+
+.calculate-downP>span:nth-child(1){
+    margin: 0 0 10px 20px;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.calculate-downP>span:nth-child(2){
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.calculate-downP>span:nth-child(3){
+    margin: 0 0 10px 10px;
+    font-size: 14px;
+    color: rgb(153, 153, 153);
+}
+
+.calculate-downP>span:nth-child(4){
+    font-size: 14px;
+    color: rgb(153, 153, 153);
+}
+
+.calculate-downP>span:nth-child(5){
+    font-size: 14px;
+    color: rgb(153, 153, 153);
+}
+/*------------------------------------------------------------------------------------------*/
+/*계좌 입력/ 정산 버튼 영역*/
+
+#calculateP>article:nth-child(3){ /*정산 요청 버튼 라인*/
+    width: 980px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* 정산요청 버튼, 계좌 정보, 계좌 변경 버튼 */
+.btn-info-area{display: flex;}
+
+/* 정산요청 버튼 */
+#calculate-btnP{
+    width: 90px;
+    height: 35px;
+    background-color: #219ebc;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    margin: 0 0 0 10px;
+    border-radius: 5px;
+}
+
+/* 계좌 정보 영역 */
+.btn-info-area>div{
+    min-width: 200px;
+    max-width: 600px;
+    height: 35px;
+    margin: 0 0 0 10px;
+    padding: 5px 10px 0 10px;
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 5px;
+}
+
+.btn-info-area>div>i{
+    font-size: 20px;
+}
+
+/* 계좌번호 변경 버튼 */
+#change-account-btnP{ 
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+    margin: 3px 0 0 15px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: none;
+    box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+/* ------------------------------------------------------------------------------------------------ */
+/* 숨겨진 영역 */
+
+/* 정보 입력시 배경색 어둡게 */
+#background-div{ 
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 3;
+}
+
+/* 계좌 수정 영역 */
+#account-input-areaP{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 4;
+    width: 400px;
+}
+/* 계좌정보라는 span */
+#account-input-areaP>span:nth-child(1){
+    font-size: 26px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+#account-input-areaP form>div{
+    width: 350px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#account-input-areaP form>div>span{
+    font-size: 18PX;
+    color: rgb(153, 153, 153);
+}
+
+#account-input-areaP form>div>input{
+    width: 200px;
+    height: 30px;
+    border: 1px solid rgb(153, 153, 153);
+    border-radius: 5px;
+}
+/* 은행명 선택 */
+#banknameP{
+    width: 200px;
+    height: 30px;
+    border: 1px solid rgb(153, 153, 153);
+    border-radius: 5px;
+}
+/* 저장 / 취소 버튼 영역 */
+#account-input-areaP>div:nth-child(3){
+    display: flex;
+    justify-content: space-between;
+    width: 350px;
+}
+/* 저장버튼 */
+#save-btnP{
+    background-color: #219ebc;
+    color: white;
+    width: 230px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+/* 취소버튼 */
+#cancel-btnP{
+    background-color: transparent;
+    width: 100px;
+    height: 30px;
+    border: 1px solid rgb(153, 153, 153);
+    border-radius: 5px;
+    cursor: pointer;
+}
+/* ----------------------------------------------------------------------------------------------- */
+
+/* 정산 상태 영역 */
+.type-area{
+    width: 220px;
+    display: flex;
+}
+
+/* 정산 상태 */
+.calculate-status{
+    width: 100px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px 0 0;
+    font-size: 20px;
+    cursor: pointer;
+}
+.calculate-status>a{
+    text-decoration: none;
+    color: rgb(26, 26, 26);
+}
+
+.choiced{
+    border-bottom: 2px solid #219ebc;
+}
+
+/*-------------------------------------------------------------------------------------------*/
+/* 정산 내용 영역 */
+
+.calculate-all-areaP{
+    width: 980px;
+    height: 590px;
+    border-bottom: 1px solid rgb(220, 220, 220);
+}
+
+.calculate-table{
+    width: 980px;
+    border-spacing: 0;
+    border-collapse: separate; /* separate로 설정하여 border-spacing 사용 가능 */
+    border-spacing: 0 3px; 
+}
+
+.calculate-table th,td{
+    height: 50px;
+    table-layout: fixed;
+}
+
+.calculate-table>thead>tr>th{
+    border-bottom: 1px solid black;
+}
+
+tbody>tr:nth-child(1){
+    margin-top: 10px;
+}
+
+
+td{
+    border: 1px solid rgb(220, 220, 220);
+    text-align: center;
+    padding: 10px;
+    border-left: none;
+    border-right: none;
+}
+
+/* -------------------------------------------------------------------------------- */
+/* 정산 각각 내역 영영 */
+
+/* 정산하기 각 행 */
+.cal-each-rows{
+    text-align: center;
+}
+
+tr td:first-child {
+    border-left: 1px solid rgb(220, 220, 220);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+tr td:last-child {
+    border-right: 1px solid rgb(220, 220, 220);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.cal-each-rows>td:nth-child(2){
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 정산 상태 (진행, 미신청, 완료) */
+.cal-status{
+    width: 100px;
+    border-radius: 10px;
+    color: white;
+    background-color: red;
+}
+
+/* .non{border: 2px solid red;} */
+.ing{background-color: #219ebc;}
+.finished{background-color: gray;}
+
+/*-----------------------------------------------------------------------------------------*/
+
+/* 페이지네이션(Pagination) */
+.pagination{
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+.pagination>li{
+    width: 20px;
+    margin: 0 5px;
+    text-align: center;
+}
+
+.pagination a{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* 현재 페이지 번호 */
+.pagination .current{
+    background-color: #455ba8;
+    color: white;
+    font-weight: bold;
+    border-radius: 50%;
+}

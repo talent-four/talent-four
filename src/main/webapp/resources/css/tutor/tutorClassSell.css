@@ -1,0 +1,268 @@
+*{  
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 100;
+    src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Normal.woff2) format('woff2'),
+         url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Normal.woff) format('woff'),
+         url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Normal.otf) format('opentype');
+}
+
+body{
+    width: 100%;
+    min-height: 1000px;
+    max-height: 2000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+footer{
+    width: 100%;
+}
+/* ----------------------------------------------------------------------------------- */
+main{ /* 메인 */
+    width: 1280px;
+    min-height: 1000px;
+    max-height: 1700px;
+    display: flex;
+}
+/*--------------------------------------------------------------------------------------*/
+/* 사이드 */
+.sideP{
+    width: 300px;
+    min-height: 1000px;
+    max-height: 1700px;
+    border-right: 1px solid rgb(243, 243, 243);
+}
+
+/*--------------------------------------------------------------------------------------*/
+/* 사이드 위쪽 */
+
+.side-topP{
+    width: 300px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    
+}
+
+.side-topP>div:nth-child(1){
+    width: 110px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.side-topP>div:nth-child(2){
+    width: 190px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+}
+
+.side-topP>div:nth-child(2)>span{
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0 4px 0 4px;
+}
+
+#profile-imgP{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+/*---------------------------------------------------------------------------------------*/
+/* 사이드 아래 */
+.side-bottomP{
+    width: 300px;
+    height: 850px;
+    display: flex;
+}
+
+.side-categoryP{
+    width: 300px;
+    height: 420px;
+    margin: 30px 0 0 0;
+}
+
+.side-categoryP>div{
+    width: 300px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: rgb(153, 153, 153);
+}
+
+.side-categoryP>div>a{
+    font-size: 20px;
+    text-decoration: none;
+    color: rgb(153, 153, 153);
+}
+
+.side-categoryP>div>a>span{
+    display: flex;
+    align-items: center;
+    width: 300px;
+    height: 60px;
+}
+
+.side-categoryP>div>a>span>i{
+    width: 30px;
+    margin: 5px 0 0 10px;
+}
+
+.side-categoryP>div:nth-of-type(3)>a>span>i{
+    font-size: 18px;
+}
+
+.side-categoryP>div:nth-of-type(4)>a>span>i{
+    font-size: 23px;
+}
+
+.side-categoryP>div:nth-of-type(6)>a>span>i{
+    font-size: 19px;
+}
+
+.side-categoryP>div:hover{
+    background-color: rgb(249, 249, 249);
+}
+
+/*---------------------------------------------------------------------------------------*/
+
+.a-style{
+    background-color: rgb(249, 249, 249);
+}
+
+.a-style>a>span{
+    color: #219ebc;
+}
+
+/*---------------------------------------------------------------------------------------*/
+.mainsectionsP{ /*대시보드*/
+    width: 980px;
+    min-height: 1000px;
+    max-height: 1700px;
+}
+
+/* 공통 끝*/
+/*-----------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------*/
+
+/* 클래스 관리 시작 */
+
+.titleP{
+    width: 980px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+}
+
+.titleP>span{
+    font-size: 40px;
+    font-weight: bold;
+    margin: 0 0 0 30px;
+}
+
+/* ------------------------------------------------------------------------------------- */
+
+/* 판매 게시판 리스트 */
+.sell-class-areaP{
+    width: 1020px;
+    height: 600px;
+    overflow: auto;
+    border-bottom: 1px solid rgb(220, 220, 220);
+}
+
+.classSell-table{
+    width: 980px;
+    height: 100px;
+    border-collapse: separate; /* separate로 설정하여 border-spacing 사용 가능 */
+    border-spacing: 0 3px; 
+}
+
+.classSell-table th,td{
+    height: 50px;
+    table-layout: fixed;
+}
+
+.classSell-table>thead>tr>th{
+    border-bottom: 1px solid black;
+}
+
+.sell-each-rows{
+    height: 50px;
+    table-layout: fixed;
+}
+
+td{
+    border: 1px solid rgb(220, 220, 220);
+    text-align: center;
+    padding: 10px;
+    border-left: none;
+    border-right: none;
+}
+
+td>a{
+    text-decoration: none;
+    color: rgb(26, 26, 26);
+}
+
+/* ------------------------------------------------------------------------------------- */
+/* 클래스 판매 각각 내역 */
+
+
+/* 정산하기 각 행 */
+.sell-each-rows{
+    text-align: center;
+}
+tr td:first-child {
+    border-left: 1px solid rgb(220, 220, 220);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+tr td:last-child {
+    border-right: 1px solid rgb(220, 220, 220);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+
+
+/* ------------------------------------------------------------------------------------- */
+
+.sell-class-btn-areaP{
+    width: 980px;
+    height: 100px;
+    display: flex;
+    justify-content: end;
+    font-size: 18px;
+}
+
+.sell-class-btn-areaP>span{
+    margin: 10px 3px 0 3px;
+}
+
+.sell-class-btn-areaP>button{
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    height: 20px;
+    margin: 12px 7px 0 7px;
+}
+
+/* 클래스 관리 끝 */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
