@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import talentFour.common.Util;
 import talentFour.member.model.service.MemberService;
 import talentFour.member.model.vo.Member;
 
@@ -28,7 +29,9 @@ public class LoginServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String id = req.getParameter("id");
-		String pw = req.getParameter("pw");
+		
+		// encoding된 pw파라미터를 가져온다.
+		String encondingPw = Util.encodingPw(req.getParameter("pw"));
 		String path = "";
 		
 		
@@ -36,7 +39,7 @@ public class LoginServlet extends HttpServlet {
 		
 		Member mem = Member.builder()
 					.memberEmail(id)
-					.memberPw(pw)
+					.memberPw(encondingPw)
 					.build();
 		
 		HttpSession session = req.getSession();
@@ -61,15 +64,6 @@ public class LoginServlet extends HttpServlet {
 		}
 		
 
-//		// *임시 로그인 과정, service, dao로 분리 필요
-//		if(tempId.equals(id) && tempPw.equals(pw)) {
-//			// *아이디, 비밀번호 같을 시 로그인
-//			session.setAttribute("loginMember", id);
-//			path = req.getContextPath();
-//		} else {
-//			session.setAttribute("message", "아이디 또는 비밀번호가 일치하지 않습니다.");
-//			path = "login";
-//		}
-//		resp.sendRedirect(path);
+
 	}
 }

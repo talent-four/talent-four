@@ -115,5 +115,5 @@
 		ORDER BY
 		    C.CHAT_TIMESTAMP
 	</entry>
-
+	
 </properties>

@@ -93,3 +93,7 @@ nav {
 .contentStars > span {
 	font-size: 12px;
 }
+
+.star{
+  color: #ffb703;
+}

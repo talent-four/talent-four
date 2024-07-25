@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,15 +14,13 @@
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/6e9a783fd9.js" crossorigin="anonymous"></script>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.4.2/uicons-solid-rounded/css/uicons-solid-rounded.css'>
 </head>
 
 <body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 
-	${classInfo.tutorInfo[0]}
-	${classInfo.tutorInfo[1]}
-
-	<c:set var="classInfo" value="${classInfo.classDetail}"></c:set>
+	<c:set var="classInfo" value="${classDetail.classDetail}"></c:set>
  	
    	<main id="detailed">
         <section class="upper">
@@ -35,178 +34,116 @@
                 <div class="classInfo">
                     <div class="classCategory"><span>${classInfo.main}</span> / <span>${classInfo.sub}</span></div>
                     <div class="classTitle">${classInfo.className}</div>
-                    <div class="classEvaluation">★ (${classInfo.score}) / <span><i class="fa-solid fa-users"></i> ${classInfo.reviews}</span></div>
+                    <div class="classEvaluation"><span class="star">★</span> (${classInfo.score}) / <span><i class="fa-solid fa-users"></i> ${classInfo.reviews}</span></div>
                     <div class="classTeacher">${classInfo.memberNickname} 튜터</div>
                 </div>
             </div>
             <nav class="detailedNav">
             ${currUrl}
                 <ul>
-                    <li><a href="">클래스 소개</a></li>
-                    <li><a href="">튜터 소개</a></li>
-                    <li><a href="#dp-review">리뷰<span class="nav-min-15">15</span></span></a></li>
+                    <li><a href="#classIntroduce">클래스 소개</a></li>
+                    <li><a href="#tutorIntroduce">튜터 소개</a></li>
+                    <li><a href="#dp-review">리뷰<span class="nav-min-15">${classInfo.reviews}</span></span></a></li>
                 </ul>
             </nav>
         </section>
 		
         <section class="lower">
-            <div class="introduceBox">
+            <div class="introduceBox" id="classIntroduce">
                 <section class="classDetailBox">
-                    <pre id="classDetail">
-센스 있는 한 문장을 쓰고 싶은 분을 위한 오리지널 VOD
-총 25강, 약 3시간 PLAY
-3개월 무제한 시청, Q&A 가능
-
-
-<strong>센스 있는 한 문장을 완성해보세요</strong>
-
-왜 내가 쓴 글은 재미가 없을까?
-
-
-
-수많은 유행어와 베스트 댓글, 클릭을 부르는 제목처럼
-
-알아서 잘 딱 깔끔하고 센스 있는 문장을 쓰고 싶나요?
-
-걱정하지 마세요! 센스 있는 글쓰기는 결코 타고나는 게 아니랍니다.
-
-차근차근 수업 속 내용을 듣다 보면 여러분도 어느새
-
-'의미를 명확하게 전달하는 유쾌한 한 줄'을 쓸 수 있게 될 거예요.
-
-
-
-
-
-<strong>평범한 문장 속에서 빛나는 카피를 찾아보세요!</strong>
-
-
-
-📋 누구나 카피라이터가 될 수 있어요
-
-가던 길을 멈추게 하고 이마를 탁! 치게 하는 글을 떠올려보세요.
-
-생각보다 멋지고 아름다운 문장이 아닐 수도 있어요.
-
-'JUST DO IT' 그냥 하라는 유명 스포츠 브랜드의 슬로건도,
-
-'투명은 안심이다' 투명한 것이 안심된다는 구강청결제 광고 문구도
-
-사실은 일상적으로 쓰던 말, 당연한 말, 조금은 엉뚱하게 느껴지는 말이거든요.
-
-익숙한 문장을 낯설게 바라보는 순간, 우리는 모두 카피라이터가 될 수 있어요.
-
-
-
-💖 평범한 단어나 헛소리로 매력적인 카피 쓰는 법!
-
-어떻게 할 수 있냐고요? 이번 클래스에서 전부 알려드릴게요.
-
-유쾌한 '헛소리' 속에서 근사한 '카피'를 찾아내는 새로운 시선을 선사해드립니다.
-
-일상적인 단어나 헛소리 같은 문장도 어떻게 보느냐에 따라
-
-매력적인 카피가 될 수 있다는 걸 알게 될 거예요.
-
-
-
-
-
-<strong>여러분도 카피라이터가 되어보세요</strong>
-
-현직 카피라이터의 작업 비법 공개
-
-수많은 브랜드를 담당한 카피라이터의 생생한 인사이트가 궁금하신가요?
-
-광고 대행사에서 현직 카피라이터로 일하면서 얻은 값진 경험을 모두 공유합니다!
-
-어디에서도 들을 수 없었던 매력적인 문장 작성법을 알아보세요👍
-
-
-
-100가지 풍부한 예제로 배우는 실전 글쓰기
-
-이번 클래스에는 약 100가지의 풍부한 예시가 준비되어 있어요.
-
-카피 쓰기의 시행착오 과정부터 인사이트를 찾는 방법까지,
-
-다양한 예제를 참고해 나만의 영감을 찾아보세요.
-
-충분히 연습할 수 있도록 응용 과제까지 모두 포함되어 있답니다.
-
-이제 펜을 손에 쥐고, 카피라이터가 될 시간입니다!
-
-
-
-<strong>이승용 튜터와 함께해요</strong>
-
-
-
-<strong>"헛소리로 똑소리 나는 센스쟁이가 되세요!"</strong>
-
-
-
-이승용 튜터
-
-카피라이터
-
-
-
-✅경력 사항
-
-- 現 대기업 계열 C 광고대행사 카피라이터
-
-- 現 팟캐스트 ‘술 마시며 시 읽는, 시시알콜’ 진행
-
-- 前 MBC라디오 표준FM <잠 못 드는 이유 강다솜입니다> 고정 패널 (2019.10~2020.03)
-
-
-
-📕저서
-
--『헛소리의 품격: 아이디어를 찾는 카피라이터의 유쾌한 발상』(2021)
-
--『시시콜콜 시詩알콜』(2017)
-
-
-
-🏆수상 내역
-
-- 2013 대한민국 공익광고제 대학생 부문 금상 수상
-
-- 2015 칸 국제 광고제 영 라이언즈 컴피티션 한국 대표 참여
-
-
-
-"안녕하세요, 이승용입니다. 사소한 일상에서 비범한 무언가를 발견하는 것이야말로 
-대단한 아이디어가 시작되는 순간입니다. 가벼운 말장난부터 엉뚱한 농담까지, 
-저는 유쾌한 소재에서 주로 영감을 얻어요. 
-
-그렇게 일상에서 찾은 반짝이는 생각들을 원동력 삼아 회사에선 카피라이터로, 
-퇴근 후에는 팟캐스트 진행자로, 그리고 에세이 작가로 활동하고 있죠.
-                    </pre>
-    
+                    <div class="classDetail">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/ca1a32ac54e1a160ef3542b9f9be04dca1c614f7.jpg" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/3d8f60050749e7ad92e02c56a0ec9a8bec780554.gif" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/d55ab5246ef4c0e324025814e3e99bd8ea61b4ae.gif" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/9e4a01468757001ad35a6296e7f3b7b783a8daf4.png" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/755ca8e76ec0947208da256323d44197329851a8.jpg" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/9ef79c0240be77c731ddd4d2e63639f8915efebd.png" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/378b60480091948f074ecf3928b88aa7b42f9f16.jpg" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/025ce707e84a7e745f6d7c6e27874d0c15c87328.png" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/03b619987481004f8a839f5c633b8a296576d7bd.jpg" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/5c1e80e1f7814e7cdec63cc9b5a408d4df82472a.png" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/a952aa3c6f7cd059789df0eeb84b66abeebd1601.jpg" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/ac2e89e1c6a111a9fc4a6813abc8ac7bf93369dc.png" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/9e3b46a0c82b6ab313e436c120a8e6c76d23907c.jpg" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/4960127efd2ac2701ce16ad4421605d0dc996438.png" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/e1041e90252e87e8633ff8b8aa24011520b3811d.gif" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/41ac25ec473fc8dd5ccc5bf5c8198449db85f876.png" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/92aa0e240c58195a973af2c2c3b0ad4ac1727fd2.png" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/b0489febf09f8ff05d2b7052d02baaa8fbd714fb.jpg" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/ee6619aea5a9ca62735080eab9f975768798d3de.png" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/39e83b1355217d19f4b85fe78df8576d81736320.png" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/2228c7598332fc8d34760a9206b8d42f3305e828.gif" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/0e615707c95a6780f10a3333a5c9ee7b00eee99a.png" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/7a3b0617abf8f8d003c579db298a6907b47b7cdb.png" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/db6aa5e9eec48e932c321a4a538b50e62b13a3d1.gif" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/0efc5e070ac1f3f7764df93e707c6cf639466bfe.png" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/ef8c64434881647bcc16ec8e70513131ec9f946c.png" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/52d6183a07c5ad468f4c7932c3928b4164fa74d9.png" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/3bf72b228c34c64afa1954ca6a9c4edc9e8d5fe4.png" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/eff726823ce4f18bb2624e79a91e5857c8e8cdec.png" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/1c36376016aaa6f617f3f04af4ed2a3a9980fb01.gif" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/efb485099060894df1411006a70c2759e44c73d8.png" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/8dbbfd4e56483b84e487270997280a6eb5d0b8fc.png" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/aafb7a52b3df7304dad049baec58890ec7856e63.png" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/a6be96b7d5037cd9cd53471c619487055514bd45.jpg" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/075e0decb38874370d9cdb6ae7b004efa1b54e90.gif" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/c302c7e47b0870bd4b9b456b1654ab2913335a27.png" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/5cb145471ff7e8f658acb5a54cca4edf5d288ee8.png" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/50d25a6c95bb6fc179d209ee270e408372f91319.gif" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/92c52a73ea9f2326ebab12fe3fc3a3cb1b33da49.png" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/bc8bb5f4b4bb12aa4a8d47db26730dd598fcb674.png" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/9ee93d5607337dc894a9244f20a84ee703e52ae1.gif" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/3295f285de2dd2d540cb6ee6fdde93096dd62be4.png" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/759a857f98b008a489da49faa0bdf3012f83fd26.png" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/72bd7767907a0b3f65a2d66304fbdd1a56924750.png" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/e916702734d4ac40d9199a21c0dfe254cd021bb5.gif" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/3c1f38e1557993b6b908b6c55574423b08b5899c.png" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/83671e2a96781b66f4f551978ab7e14df7e3b413.png" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/f5224afd92576dc375bfb23dc343a4d7f1cd018b.png" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/20dfcb661513ec5b16600754bf3fd0c5ceee0f2c.jpg" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/1667b60db666cecfb90d78169bebde1ffccb8c6c.jpg" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/3d0f310b8a8d34fc9f857530423b99a33f9e0a1e.jpg" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/8330bb3c93c2d80ac9bda60cbdf0e7060e28ee1d.png" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/f5aca34dd806455c52279f0a70443488bec6557f.jpg" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/3e864d58b9f134b19a9fdbc4de96d5d538ef5797.png" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/589e2c877b37214c464eb8f496c66cdd725a0410.png" class="txc-image">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/852e790db6a58dd53c0f9a61aa387f57d57b733c.jpg" class="txc-image">
+                        <%-- ${classInfo.classIntro} --%>
+                        <div id="blur"></div>
+                    </div>
                     <button type="button" class="btnClass" id="d-classInfoBtn">클래스 소개 더보기</button>
     
                 </section>
-                <section class="detialedPage-tutorInfo bottomBox">
+                <section class="detialedPage-tutorInfo bottomBox" id="tutorIntroduce">
                     <span class="boxTitle">튜터님을 소개합니다!</span>
                     <div>
                         <div class="tutorInfoSmallBox">
-                            <img src="${contextPath}/resources/img/profile_tutor.png">
+                        ${classDetail.tutorInfo[0]}
+                        <c:if test="${classInfo.memberProfile != null}">
+                        	<img src="${contextPath}${classInfo.memberProfile}">
+                        </c:if>
+                        
+                        <c:if test="${classInfo.memberProfile == null}">
+                        	<img src="${contextPath}/resources/img/profile_tutor.png">
+                        </c:if>
+                            
                             <div class="introduceTutor">
-                                <span>이승용 튜터</span>
+                                <span>${classInfo.memberNickname} 튜터</span>
                                 <div></div>
                             </div>
                         </div>
                         <div class="tutorIntroduce">
-                            <pre>안녕하세요! 이승용 튜터입니다.안녕하세요! 이승용 튜터입니다.안녕하세요! 이승용 튜터입니다.안녕하세요! 이승용 튜터입니다.안녕하세요! 이승용 튜터입니다.안녕하세요! 이승용 튜터입니다.안녕하세요! 이승용 튜터입니다.안녕하세요! 이승용 튜터입니다. </pre>
+                            <pre>
+                            
+                            ${classDetail.tutorInfo[1]}
+                            
+                            </pre>
                         </div>
                     </div>
                 </section>
     
     
-                <section id="d-curriculum" class="bottomBox">
+<!--                 <section id="d-curriculum" class="bottomBox">
                     <span class="boxTitle">커리큘럼</span>
                     <div class="curriculumBox">
                         <h4>맛보기 영상</h4>
@@ -223,13 +160,11 @@
                         </a>
                     </div>
                     <button type="button" id="d-curriculumBtn">커리큘럼 더보기</button>
-                </section>
-    
-    
+                </section> -->
     
     
                 <section id="dp-review" class="bottomBox">
-    
+                
                     <div>
                         <span class="boxTitle">수강생 리뷰</span>
                         <div>
@@ -238,71 +173,57 @@
                         </div>
                     </div>
     
-                    <div class="d-review">
-    
-                        <div>
-    
-                            <img src="${contextPath}/resources/img/profile_all_re.PNG">
-                            <p>
-                                <span class="dp-date-review">2021-06-27</span>
-                                <span>이름
-                                </span>
-                                <span> ★★★★★ 5.0</span>
+    				<c:forEach var="item" items="${reviewList}">
+	                    <div class="d-review">
+	                        <div>
+                                <div class="profileBox">
+                                    <c:if test="${empty item.profileImage}">    	
+                                        <img src="${contextPath}/resources/img/profile_all_re.png">
+                                    </c:if>
+                                    
+                                    <c:if test="${!empty item.profileImage}">    	
+                                        <img src="${contextPath}${item.profileImage}">
+                                    </c:if>
+                                    <div>
+                                        <span>${item.memberNickname}</span>
+                                        <span class="starBox">
+                                            <c:set var="totalStars" value="5" />
+                                            <c:set var="emptyStars" value="${totalStars - item.reviewStar}" />
+                                            <c:forEach var="i" begin="1" end="${item.reviewStar}">
+                                                ★
+                                            </c:forEach>
+                                            <c:forEach var="i" begin="1" end="${emptyStars}">
+                                                ☆
+                                            </c:forEach>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="titleBox">
+                                    <span> ${item.boardContent} </span>
+                                </div>
+                                <c:if test="${empty item.updateDate}">    	
+                                    <span class="dp-date-review">${item.createdDate}</span>
+                                </c:if>
+                                
+                                <c:if test="${!empty item.updateDate}">    	
+                                    <span class="dp-date-review">${item.updateDate}</span>
+                                </c:if>
+                            </div>
+                            <p class="d-review-content">
+                                ${item.boardContent}
                             </p>
-    
-                        </div>
-    
-                        <p class="d-review-content">
-                            댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글
-                            댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글
-                            댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글
-                        </p>
-                    </div>
-    
-                    <div class="d-review">
+                            <script>
+                                const review = "${item.thumbs}";
+                                const boardNo = "${item.boardNo}";
+                            </script>
+                            <div class="reviewBtnArea">
+                                <button onclick = "thumbsBtn()"><i class="fa-regular fa-thumbs-up"></i> ${item.thumbs}</button>
+                                <button onclick = "reportBtn()"><i class="fi fi-sr-light-emergency-on"></i> ${item.report}</button>
+                            </div>
+	                    </div>
+    				</c:forEach>
+ <%--                    <div class="d-review">
                         <div>
-                            <img src="${contextPath}/resources/img/profile_all_re.PNG">
-                            <p>
-                                <span class="dp-date-review">2021-06-27</span>
-                                <span>이름
-                                </span>
-                                <span> ★★★★★ 5.0</span>
-                            </p>
-    
-                        </div>
-    
-                        <p class="d-review-content">
-                            댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글
-                            댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글
-                            댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글
-                        </p>
-                    </div>
-    
-                    <div class="d-review">
-    
-                        <div>
-    
-                            <img src="${contextPath}/resources/img/profile_all_re.PNG">
-                            <p>
-                                <span class="dp-date-review">2021-06-27</span>
-                                <span>이름
-                                </span>
-                                <span> ★★★★★ 5.0</span>
-                            </p>
-    
-                        </div>
-    
-                        <p class="d-review-content">
-                            댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글
-                            댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글
-                            댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글
-                        </p>
-                    </div>
-    
-                    <div class="d-review">
-    
-                        <div>
-    
                             <img src="${contextPath}/resources/img/profile_all_re.PNG">
                             <p>
                                 <span class="dp-date-review">2021-06-27</span>
@@ -319,10 +240,7 @@
                             댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글
                         </p>
                         <button type=button id="d-reviewBtn">더보기</button>
-                    </div>
-    
-    
-    
+                    </div> --%>
     
                 </section>
     
@@ -363,27 +281,23 @@
             <section id="detailedSide" class="bottomBox">
                 <section id="detailedSide-d1">
                     <div>
-                        <h3>읽는 순간 기억에 남는 카피 글쓰기</h3>
-                        <span>★5.0(15)</span><br><br>
-                        <span class="credit50Pro">50%</span>
-                        <span><strong>월 33,000원</strong></span><br>
-                        <span class="fontGcolor"><del>199,000원</del></span>
+                        <h3>${classInfo.className}</h3>
+                        <div class="classEvaluation"><span class="star">★</span> (${classInfo.score}) / <span><i class="fa-solid fa-users"></i> ${classInfo.reviews}</span></div>
+                        <div class="classTeacher">${classInfo.memberNickname} 튜터</div>
+                        
+                        <span><strong><fmt:formatNumber value="${classInfo.classPrice}" pattern="#,###원" /></strong></span><br>
                     </div>
                     <br>
     
-                    <div class="detailedCon">
+                    <!-- <div class="detailedCon">
                         <span> <i class="fa-regular fa-circle-play"></i>&nbsp;VOD • 총25강 • 3시간 10분</span><br>
-                        <span><i class="fa-regular fa-calendar"></i> &nbsp;3개월 • 12개월 선택 가능</span><br>
-                        <span><i class="fa-regular fa-clipboard"></i> &nbsp;강의자료 있음</span><br>
                         <span><i class="fa-regular fa-comments"></i> &nbsp;QnA 가능</span>
-    
-                    </div>
+                    </div> -->
     
                     <div class="detailedPageBrn">
                         <a href="#" class="chatBtn"><img src="${contextPath}/resources/img/chat.png"></a>
-	                        <a class="creditBtnSub" href="${contextPath}/approval">클래스 결제하기</a>
-	                            
-
+                        
+	                    <a class="creditBtnSub" href="${contextPath}/approval?classNo=${classInfo.classNo}">클래스 결제하기</a>
                     </div>
             </section>
 
@@ -393,6 +307,7 @@
     <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
     
     <script src="${contextPath}/resources/js/common/hf.js"></script>
+    <script src="${contextPath}/resources/js/pages/detailPage.js"></script>
 </body>
 
 </html>

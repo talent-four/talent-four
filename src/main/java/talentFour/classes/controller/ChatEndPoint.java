@@ -13,6 +13,7 @@ import javax.websocket.server.ServerEndpoint;
 import com.google.gson.Gson;
 
 import talentFour.classes.model.vo.Message;
+import talentFour.member.model.service.MemberService;
 
 
 
@@ -39,6 +40,11 @@ public class ChatEndPoint {
         // 을 통해서 채팅방에 대한 정보를 받아옴
         // 대화 RS를 리스트로 받아온 다음,
         // CLIENTID와 LOGINMEMBER이 일치하면 우측, 다르면 좌측에 메시지를 배치하는 화면을 구성한다.
+        
+        MemberService service = new MemberService();
+        
+        
+        
         try {
            if (clientId != null) {
                sessions.put(clientId, session);
@@ -50,6 +56,8 @@ public class ChatEndPoint {
         } catch(Exception e) {
            e.printStackTrace();
         }
+        
+        
     }
 
     @OnMessage
