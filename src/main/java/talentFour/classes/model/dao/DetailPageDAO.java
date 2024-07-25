@@ -14,6 +14,7 @@ import java.util.Properties;
 
 import talentFour.classes.model.vo.Category;
 import talentFour.classes.model.vo.Class;
+import talentFour.member.model.vo.Member;
 
 public class DetailPageDAO {
 
@@ -101,6 +102,21 @@ public class DetailPageDAO {
 		}
 		
 		return getTutorInfo;
+	}
+
+
+	public int insertClass(Connection conn, Class c, Member loginMember) throws Exception {
+		int classNo = 0;
+		String sql = prop.getProperty("insertClass");
+		
+		try {
+			
+			
+		} finally {
+			
+		}
+		
+		return classNo;
 	}
 
 }

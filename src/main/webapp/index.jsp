@@ -33,7 +33,7 @@
         </div>
         <div class="contentBoxs" id="contentSlider">
             <div class="contentBoxsSet" id="contentBoxSet">
-                <a class="contentBox" href="${contextPath}/detailedPage">
+                <a class="contentBox" href="${contextPath}/detailedPage/write?mode=insert">
                     <img
                         src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
                     <div class="contentTitle">50만 어쩌구</div>
