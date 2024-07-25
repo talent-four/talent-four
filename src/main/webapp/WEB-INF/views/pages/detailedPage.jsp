@@ -14,6 +14,7 @@
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/6e9a783fd9.js" crossorigin="anonymous"></script>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.4.2/uicons-solid-rounded/css/uicons-solid-rounded.css'>
 </head>
 
 <body>
@@ -33,7 +34,7 @@
                 <div class="classInfo">
                     <div class="classCategory"><span>${classInfo.main}</span> / <span>${classInfo.sub}</span></div>
                     <div class="classTitle">${classInfo.className}</div>
-                    <div class="classEvaluation">★ (${classInfo.score}) / <span><i class="fa-solid fa-users"></i> ${classInfo.reviews}</span></div>
+                    <div class="classEvaluation"><span class="star">★</span> (${classInfo.score}) / <span><i class="fa-solid fa-users"></i> ${classInfo.reviews}</span></div>
                     <div class="classTeacher">${classInfo.memberNickname} 튜터</div>
                 </div>
             </div>
@@ -42,7 +43,7 @@
                 <ul>
                     <li><a href="#classIntroduce">클래스 소개</a></li>
                     <li><a href="#tutorIntroduce">튜터 소개</a></li>
-                    <li><a href="#dp-review">리뷰<span class="nav-min-15">15</span></span></a></li>
+                    <li><a href="#dp-review">리뷰<span class="nav-min-15">${classInfo.reviews}</span></span></a></li>
                 </ul>
             </nav>
         </section>
@@ -162,8 +163,6 @@
                 </section> -->
     
     
-    
-    
                 <section id="dp-review" class="bottomBox">
                 
                     <div>
@@ -179,7 +178,7 @@
 	                        <div>
                                 <div class="profileBox">
                                     <c:if test="${empty item.profileImage}">    	
-                                        <img src="${contextPath}/resources/img/profile_all_re.PNG">
+                                        <img src="${contextPath}/resources/img/profile_all_re.png">
                                     </c:if>
                                     
                                     <c:if test="${!empty item.profileImage}">    	
@@ -213,6 +212,14 @@
                             <p class="d-review-content">
                                 ${item.boardContent}
                             </p>
+                            <script>
+                                const review = "${item.thumbs}";
+                                const boardNo = "${item.boardNo}";
+                            </script>
+                            <div class="reviewBtnArea">
+                                <button onclick = "thumbsBtn()"><i class="fa-regular fa-thumbs-up"></i> ${item.thumbs}</button>
+                                <button onclick = "reportBtn()"><i class="fi fi-sr-light-emergency-on"></i> ${item.report}</button>
+                            </div>
 	                    </div>
     				</c:forEach>
  <%--                    <div class="d-review">
@@ -275,22 +282,22 @@
                 <section id="detailedSide-d1">
                     <div>
                         <h3>${classInfo.className}</h3>
-                        <span>★5.0(15)</span><br><br>
+                        <div class="classEvaluation"><span class="star">★</span> (${classInfo.score}) / <span><i class="fa-solid fa-users"></i> ${classInfo.reviews}</span></div>
+                        <div class="classTeacher">${classInfo.memberNickname} 튜터</div>
                         
                         <span><strong><fmt:formatNumber value="${classInfo.classPrice}" pattern="#,###원" /></strong></span><br>
                     </div>
                     <br>
     
-                    <div class="detailedCon">
+                    <!-- <div class="detailedCon">
                         <span> <i class="fa-regular fa-circle-play"></i>&nbsp;VOD • 총25강 • 3시간 10분</span><br>
                         <span><i class="fa-regular fa-comments"></i> &nbsp;QnA 가능</span>
-    
-                    </div>
+                    </div> -->
     
                     <div class="detailedPageBrn">
                         <a href="#" class="chatBtn"><img src="${contextPath}/resources/img/chat.png"></a>
-	                        <a class="creditBtnSub" href="${contextPath}/approval">클래스 결제하기</a>
-
+                        
+	                    <a class="creditBtnSub" href="${contextPath}/approval?classNo=${classInfo.classNo}">클래스 결제하기</a>
                     </div>
             </section>
 

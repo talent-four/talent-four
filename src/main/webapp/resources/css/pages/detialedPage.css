@@ -8,6 +8,10 @@
     font-family: 'Noto Sans KR', sans-serif;
 }
 
+a {
+  text-decoration: none;
+}
+
 /* 메인 페이지 */
 #detailed{
     width:1280px;
@@ -43,6 +47,10 @@
   font-size: 16px;
 }
 
+.star{
+  color: #ffb703;
+}
+
 .upperWrapper {
   width: 1280px;
   display: grid;
@@ -75,8 +83,11 @@
 .detailedNav > ul{
     list-style: none;
     display: flex;
-    justify-content: space-between;
     margin: 0;
+}
+
+.detailedNav > ul > li {
+  flex-grow: 1; 
 }
 
 /* 클래스 본문 */
@@ -109,7 +120,6 @@
 
 .detailedNav>ul li a{
   display: inline-block;
-  width: 150px;
   height: 50px;
 
   color:black;
@@ -146,22 +156,26 @@
 }
 
 .creditBtnSub{
-    display: inline;
-    text-align: center;
-    width:250px;
-    padding:15px;
-    cursor: pointer;
-    background-color: #ffb703;
-    border:0;
-    border-radius: 10px;
-    color:white;
-    font-size: 20px;
-    font-weight: bold;
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width:250px;
+  height: 50px;
+  cursor: pointer;
+  background-color: #ffb703;
+  border:0;
+  border-radius: 10px;
+  color:white;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .creditBtnSub:hover{
-    background-color:#ff1058; opacity : 0.8;
+  color: #ffb703;
+  border: 3px solid #ffb703;
+  background-color: white;
+  opacity : 0.8;
 }
 
 .credit50Pro{
@@ -192,15 +206,15 @@
 
 .fontGcolor{
     color:#bbb;
-
-
 }
 
 #detailedSide-d1{
     position: sticky;
-    top: 10%;
-  
-   
+    top: 20%;
+}
+
+#detailedSide-d1 > div > * {
+  margin-bottom: 5px;
 }
 
 .detailedPageBrn{
@@ -209,6 +223,10 @@
     align-items: flex-end;
 
 }
+.chatBtn {
+  height: 50px;
+}
+
 .chatBtn>img{
     width:50px;
     padding:10px;
@@ -293,41 +311,6 @@
     justify-content: center;
 }
 
-
- #d-curriculum>div>h4{
-    background-color: #e9e9e9;
-    padding:10px;
- }
-
- #d-curriculum>div>a>span{
-   padding-left:20px;
-   font-size: 12px;
- }
-
- #d-curriculum>div>a{
-    padding-left:10px;
-    text-decoration: none;
-    color:#5f5f5f;
-  }
-
-  #d-curriculumBtn{
-    margin:40px 0;
-    width:800px;
-    padding:12px;
-    background-color: white;
-    border: 1px solid #bbb;
-    cursor: pointer;
-    font-weight: bold;
-    border-radius: 10px;
-
-    }
-
-#d-curriculumBtn:hover{
-
-    background-color: #ddd;
-    }
-  
-
   /* 리뷰 */
   #dp-review>div:nth-child(1){
     display: flex;
@@ -354,7 +337,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 30px;
+    padding-top: 20px;
+    padding-bottom: 10px;
     margin-bottom: 20px;
     min-height: 100px;
   }
@@ -363,7 +347,10 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    margin-top: 10px;
+  }
+
+  .d-review > div:last-child {
+    justify-content: right;
   }
 
   .d-review>div>div{
@@ -372,12 +359,19 @@
   }
 
 .profileBox {
-  width: 200px;
+  width: 180px;
+  margin-left: 10px;
 }
 
 .profileBox > div {
   display: flex;
   flex-direction: column;
+}
+
+.profileBox > img {
+  width: 50px;
+  border-radius: 50%;
+  margin-right: 5px;
 }
 
 .starBox {
@@ -387,33 +381,37 @@
 
 .titleBox > span {
   display: inline-block;
-  width: 400px;
   font-weight: bold;
+  width: 450px;
 }
-
 
   .dp-date-review{
     display: flex;
     justify-content: right;
-    padding-right: 20px;
+    margin-right: 10px;
     font-size: 12px;
-    width: 200px;
   }
 
   .d-review-content{
     margin: 0 40px ;
+    padding: 20px 0;
   }
 
-  #d-reviewBtn{
-    margin-top: 25px;
+  .reviewBtnArea {
+    margin-right: 10px;
+  }
+
+  .reviewBtnArea > button {
+    padding: 2px 8px;
     background-color: white;
-    border: 1px solid #bbb;
-    padding: 10px;
+    border: 0;
     cursor: pointer;
+    border-radius: 5px;
   }
 
-  #d-reviewBtn:hover{
-    background-color: #bbb;
+  .reviewBtnArea > button:hover {
+    background-color: #ffb703;
+    color: white;
   }
 
   /* 비슷한 클래스 */

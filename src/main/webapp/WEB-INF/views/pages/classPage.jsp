@@ -66,7 +66,7 @@
                         </c:if>
 	                    <div class="contentTitle">${classList[i].className}</div>
 	                    <div class="contentAuthor">${classList[i].memberNickname}</div>
-	                    <div class="contentStars">★ (<span>${classList[i].score}</span>)</div>
+	                    <div class="contentStars"><span class="star">★</span> <span>(${classList[i].score})</span> <span><i class="fa-solid fa-users"></i> ${classList[i].reviews}</span></div>
 	                    <div class="contentPrice"><fmt:formatNumber value="${classList[i].classPrice}" pattern="#,###원" /></div>
                 	</a>
 					</c:if>
