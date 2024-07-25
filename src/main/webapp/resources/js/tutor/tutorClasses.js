@@ -8,3 +8,5 @@ const fifthCategory = sideCategory[4];
 /*------------------------------------------------------------------------------------*/
 
 thirdCategory.classList.add('a-style');
+
+// 클래스 만들기

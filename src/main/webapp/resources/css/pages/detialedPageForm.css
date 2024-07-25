@@ -28,6 +28,12 @@ a {
   justify-content: center;
 }
 
+.classInfo > div:first-child {
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+}
+
 .classInfo > div {
   width: 100%;
   padding: 10px 10px;
@@ -36,11 +42,21 @@ a {
 /* classInfo 서식 */
 .classCategory {
   font-size: 14px;
+  width: 250px;
 }
 
-.classTitle {
+.classCategory > select {
+  width: 130px;
+}
+
+.classTitle > input {
   font-size: 40px;
   font-weight: bold;
+  border-bottom: 3px solid #ddd;
+}
+
+.classTitle>input:focus-within {
+  border-bottom-color: #ffb703;
 }
 
 .classEvaluation {
@@ -52,6 +68,7 @@ a {
 }
 
 .upperWrapper {
+  position: relative;
   width: 1280px;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -97,11 +114,19 @@ a {
   width: 100%;
   padding: 80px 30px;
   padding-bottom: 10px;
-  font-size: 16px;
+}
 
-  /* 접혀있는 상태 */
-  height: 500px;
-  overflow: hidden;
+.classDetailContent {
+  width: 100%;
+  min-height: 1000px;
+  font-size: 16px;
+  resize: none;
+  font-size: 18px;
+  padding: 10px;
+}
+
+.classDetailContent:focus {
+  outline-color: #ffb703;
 }
 
 .classDetailShow {
@@ -142,7 +167,7 @@ a {
 
 /* bottomBox 서식 */
 .bottomBox {
-  padding: 0 30px;
+  padding: 0 10px;
 }
 
 /* curriculumBox */
@@ -191,8 +216,8 @@ a {
 }
 
 #detailedSide{
-  width: 400px;
-  padding-left: 50px;
+ width: 400px;
+ padding-left: 50px;
 }
 
 #detailedSilde>section{
@@ -214,8 +239,12 @@ a {
     top: 20%;
 }
 
+#detailedSide-d1 > div {
+  margin-bottom: 20px;
+}
+
 #detailedSide-d1 > div > * {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .detailedPageBrn{
@@ -278,6 +307,10 @@ a {
   width: 50px;
   height: 50px;
   margin: auto 0;
+}
+
+.detialedPage-tutorInfo {
+  margin-bottom: 50px;
 }
 
 .tutorInfoSmallBox {
@@ -489,4 +522,56 @@ background-color: #ddd;
     color:#ff1058;
     font-size: 20px;
     font-weight: bold;
+}
+
+/* 이미지 삭제 */
+.delete-image {
+  position: absolute;
+  top: 0;
+  right: 7px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.thumbnailBox {
+  position: relative;
+}
+
+.inputImage { display: none; }
+
+#inputTtile2 {
+  border-bottom: 2px solid #ddd;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#inputTtile2:focus-within {
+  border-bottom-color: #ffb703;
+}
+.inputBox {
+  border: none;
+  outline: none;
+}
+
+#classPrice {
+  border-bottom: 2px solid #ddd;
+}
+
+#classPrice:focus-within {
+  border-bottom-color: #ffb703;
+}
+
+.urlBox {
+  margin-top: 20px;
+  display: flex;
+}
+
+#url {
+ border-bottom: 2px solid #ddd;
+ width: 400px;
+ margin-left: 50px;
+}
+
+#url:focus-within {
+  border-bottom-color: #ffb703;
 }
