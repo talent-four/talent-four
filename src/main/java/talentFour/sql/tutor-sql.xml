@@ -3,56 +3,105 @@
 <properties>
 <comment>tutor-sql.xml</comment>
 
-	<!-- 운영중인 / 만료된 클래스 조회하기 -->
+	<!-- 튜터가 개설한 클래수 번호들 얻어오기 -->
+	<entry key="selectClassNo">
+		SELECT CLASS_NO FROM CLASS c
+		JOIN TUTOR t ON c.MEMBER_NO = t.MEMBER_NO
+		WHERE t.MEMBER_NO = ?	
+	</entry>
+	
+
+	<!-- 운영중인 / 만료된 클래스 조회 -->
 	<entry key="selectClassesList">
 		SELECT CLASS_PHOTO, CLASS_NAME, CLASS_STATUS, TO_CHAR(CLASS_CREATE_DT,'YYYY.MM.DD')
 		FROM CLASS
 		WHERE CLASS_STATUS = ?
 		AND MEMBER_NO = ?
 	</entry>
-	
- 	<!-- 운영중인 / 만료된 클래스 갯수 세기 -->
+ 
+	<!-- 운영중인 / 만료된 클래스 숫자 세기 -->
 	<entry key="classcount">
 		SELECT COUNT(*) FROM CLASS WHERE CLASS_STATUS = ?
 		AND MEMBER_NO = ?
 	</entry>
-   
-  	<!-- 클래스 판매현황 조회하기 -->
+  
+	<!-- 판매된 클래스 리스트 조회 -->
 	<entry key="selectClassSellList">
-		SELECT TO_CHAR(p.PAYMENT_DATE, 'YYYY.MM.DD') AS PAYMENT_DATE, m.MEMBER_NM, 
- 			c.CLASS_NAME, p.PAYMENT_STATUS
+		SELECT TO_CHAR(p.PAYMENT_DATE, 'YYYY.MM.DD') AS PAYMENT_DATE,
+	       m.MEMBER_NM, c.CLASS_NAME, p.PAYMENT_STATUS
 		FROM TUTOR t
 		JOIN CLASS c ON t.MEMBER_NO = c.MEMBER_NO
 		JOIN PAID p ON c.CLASS_NO = p.CLASS_NO
 		JOIN MEMBER m ON p.MEMBER_NO = m.MEMBER_NO
 		WHERE t.MEMBER_NO = ?
+		ORDER BY 1 DESC
 	</entry>
-	
-	<!-- 정산하기 조회하기 -->
+
+	<!-- 정산하기 조회 -->
 	<entry key="selectCalculateList">
-		SELECT s.SETTLE_STATUS, m.MEMBER_NM, c.CLASS_NAME AS CLASS_TITLE, c.CLASS_PRICE, 
-    		s.COMMISSION, TO_CHAR(s.SETTLE_DATE, 'YYYY.MM.DD')
-		FROM TUTOR t
-		JOIN SETTLE s ON t.MEMBER_NO = s.MEMBER_NO
-		JOIN CLASS c ON t.MEMBER_NO = c.MEMBER_NO
-		JOIN PAID p ON c.CLASS_NO = p.CLASS_NO
-		JOIN MEMBER m ON p.MEMBER_NO = m.MEMBER_NO
-		WHERE t.MEMBER_NO = 100
-		AND s.SETTLE_STATUS = ? 
+		SELECT s.SETTLE_STATUS, m.MEMBER_NM, m.MEMBER_NO, c.CLASS_NAME, c.CLASS_PRICE,
+		    s.COMMISSION, TO_CHAR(s.SETTLE_DATE,'YYYY.MM.DD') 
+		FROM SETTLE s
+		JOIN TUTOR t ON s.MEMBER_NO = t.MEMBER_NO
+		JOIN MEMBER m ON s.MEMBER_NO2 = m.MEMBER_NO
+		JOIN CLASS c ON s.CLASS_NO = c.CLASS_NO
+		WHERE t.MEMBER_NO = ?
+		AND SETTLE_STATUS = ?
+		ORDER BY 7 DESC
+	</entry>
+
+	<!-- 정산 계좌 조회하기 -->
+	<entry key="getaccount">
+		SELECT BANK_NAME, TUTOR_ACCOUNT, ACCOUNT_NAME
+		FROM SETTLE_ACCOUNT
+		WHERE MEMBER_NO = ?
 	</entry>
 	
-	<!-- 총 정산 금액 / 정산 가능 금액 조회하기 -->
-	<entry key="">
-		SELECT m.MEMBER_NM, c.CLASS_PRICE, 
-    		s.COMMISSION
-		FROM TUTOR t
-		JOIN SETTLE s ON t.MEMBER_NO = s.MEMBER_NO
-		JOIN CLASS c ON t.MEMBER_NO = c.MEMBER_NO
-		JOIN PAID p ON c.CLASS_NO = p.CLASS_NO
-		JOIN MEMBER m ON p.MEMBER_NO = m.MEMBER_NO
-		WHERE t.MEMBER_NO = 100
-		AND s.SETTLE_STATUS = 1;
+	<!-- 정산 상태 변경 -->
+	<entry key="updateSettleStatus">
+		UPDATE SETTLE
+		SET SETTLE_STATUS = 2,
+		SETTLE_DATE = SYSDATE
+		WHERE MEMBER_NO2 = ?
+		AND EXISTS (
+		    SELECT 1
+		    FROM SETTLE s
+		    JOIN TUTOR t ON s.MEMBER_NO = t.MEMBER_NO
+		    JOIN MEMBER m ON s.MEMBER_NO2 = m.MEMBER_NO
+		    JOIN CLASS c ON s.CLASS_NO = c.CLASS_NO
+		    WHERE t.MEMBER_NO = 100
+		    AND m.MEMBER_NM = ?
+		    AND SETTLE_STATUS = 1
+		    AND SETTLE.MEMBER_NO2 = s.MEMBER_NO2
+		    AND SETTLE.CLASS_NO = s.CLASS_NO
+		)
 	</entry>
-
-
+	
+	<!-- 정산가능한 금액 조회 -->
+	
+	<entry key="seleceing">
+		SELECT s.SETTLE_STATUS, m.MEMBER_NM, m.MEMBER_NO, c.CLASS_NAME, c.CLASS_PRICE,
+		    s.COMMISSION, TO_CHAR(s.SETTLE_DATE,'YYYY.MM.DD') 
+		FROM SETTLE s
+		JOIN TUTOR t ON s.MEMBER_NO = t.MEMBER_NO
+		JOIN MEMBER m ON s.MEMBER_NO2 = m.MEMBER_NO
+		JOIN CLASS c ON s.CLASS_NO = c.CLASS_NO
+		WHERE t.MEMBER_NO = ?
+		AND SETTLE_STATUS = 1
+		ORDER BY 7 DESC
+	</entry>
+	
+	<!-- 총 정산 금액 조회 -->
+	<entry key="selecrfin">
+		SELECT s.SETTLE_STATUS, m.MEMBER_NM, m.MEMBER_NO, c.CLASS_NAME, c.CLASS_PRICE,
+		    s.COMMISSION, TO_CHAR(s.SETTLE_DATE,'YYYY.MM.DD') 
+		FROM SETTLE s
+		JOIN TUTOR t ON s.MEMBER_NO = t.MEMBER_NO
+		JOIN MEMBER m ON s.MEMBER_NO2 = m.MEMBER_NO
+		JOIN CLASS c ON s.CLASS_NO = c.CLASS_NO
+		WHERE t.MEMBER_NO = ?
+		AND SETTLE_STATUS = 2
+		ORDER BY 7 DESC
+	</entry>
+	
 </properties>

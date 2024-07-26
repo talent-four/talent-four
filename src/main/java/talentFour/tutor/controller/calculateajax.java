@@ -9,40 +9,39 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import javax.servlet.http.HttpSession;
 
 import talentFour.member.model.vo.Member;
 import talentFour.tutor.model.service.TutorService;
-import talentFour.tutor.model.vo.TutorClassSell;
+import talentFour.tutor.model.vo.TutorCalculate;
+@WebServlet("/calculate/calmoney")
+public class calculateajax extends HttpServlet {
 
-@WebServlet("/tutor/classessell")
-public class TutorClassesSellServlet extends HttpServlet {
-	
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		int status=1;
 		
 		try {
-			
 			TutorService service = new TutorService();
 			
 			HttpSession session = req.getSession();
 			Member loginMember = (Member)session.getAttribute("loginMember");
 			int memberNo = loginMember.getMemberNo();
 			
-			List<TutorClassSell> tutorclassSell = new ArrayList<>();
+			List<TutorCalculate> tutorcalculateList = new ArrayList<>();
+			status = Integer.parseInt(req.getParameter("cp"));
+			tutorcalculateList = service.selectCalculateList(status,memberNo);
 			
-			tutorclassSell = service.selectClassSellList(memberNo);
-			
-			req.setAttribute("tutorclassSell", tutorclassSell);
-			
-			req.getRequestDispatcher("/WEB-INF/views/tutor/classesSell.jsp").forward(req, resp);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-
+		
+		
 	}
+	
+	
+	
 }

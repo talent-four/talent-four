@@ -1,6 +1,8 @@
 package talentFour.tutor.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -32,17 +34,17 @@ public class TutorClassesServlet extends HttpServlet {
 			
 			List<TutorClass> tutorclasses = new ArrayList<>();
 			int status = 1;
-			tutorclasses = service.selectClassesList(status,memberNo);
+			tutorclasses = service.selectClassesList(status, memberNo);
 			
 			List<TutorClass> tutorclassesfin = new ArrayList<>();
 			int statusfin = 2;
-			tutorclassesfin = service.selectClassesFinList(statusfin,memberNo);
+			tutorclassesfin = service.selectClassesFinList(statusfin, memberNo);
 			
 			TutorClass counting = new TutorClass();
-			counting = service.classingCount(status,memberNo);
+			counting = service.classingCount(status, memberNo);
 			
 			TutorClass countfin = new TutorClass();
-			countfin = service.classfinCount(statusfin,memberNo);
+			countfin = service.classfinCount(statusfin, memberNo);
 			
 			req.setAttribute("counting", counting);
 			req.setAttribute("countfin", countfin);
@@ -54,12 +56,5 @@ public class TutorClassesServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		
-		
-		
-		
-
-		req.getRequestDispatcher("/WEB-INF/views/tutor/classes.jsp").forward(req, resp);
-
 	}
 }

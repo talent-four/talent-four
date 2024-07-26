@@ -2,13 +2,13 @@
   border: 1px solid black;
 } */
 
-header {
-  position: relative !important;
+* {
+  text-decoration: none;
+  color: black;
 }
 
-a {
-	text-decoration: none;
-  color: black;
+header {
+  position: relative !important;
 }
 
 /* 카테고리 바 */
@@ -34,6 +34,7 @@ nav {
 
   width: 200px;
   height: 50px;
+  border: 1px solid black;
 }
 
 .categorBarUpper > ul > li > a {
@@ -46,6 +47,10 @@ nav {
 }
 
 /* 카테고리 바 아래쪽 */
+.categorBarlower {
+  height: 50px;
+}
+
 .categorBarlower > ul {
   display: flex;
   align-items: center;
@@ -59,7 +64,7 @@ nav {
 
 .categorBarlower > ul > li > a {
   padding: 5px 10px;
-  border: 1px solid #023047;
+  border: 1px solid black;
   border-radius: 10px;
 
   margin: 8px 10px;
@@ -67,25 +72,5 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-
-  transition-duration: 0.1s;
 }
 
-.categorBarlower > ul > li > a:hover {
-  color: white;
-  background-color: #023047;
-}
-
-/* 버튼 영역 */
-.buttonArea {
-  margin: 0 auto;
-  float: right;
-}
-
-.buttonArea > button {
-  background-color: white;
-  border: 0;
-  outline: none;
-  cursor: pointer;
-  margin-left: 20px;
-}

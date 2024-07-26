@@ -69,7 +69,8 @@
     <script type="text/javascript">
         const memberEmail = "${loginMember.memberEmail}";
         const memberNickname = "${loginMember.memberNickname}";
-        console.log("${loginMember}");
+        const memberNo ="${loginMember.memberNo}"
+        console.log("${loginMember.memberNo}");
         const contextPath = "${contextPath}";
     </script>
     <script src="${contextPath}/resources/js/mypage/mypage.js"></script>

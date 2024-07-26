@@ -7,11 +7,7 @@
 	       <img src="${contextPath}/resources/img/cat1.jpg" id="profile-imgP"> <!-- 사이드 프로필 사진 -->
 	    </div>
 	    <div>
-
-	        <span id="profile-idP">${loginMember.memberNickname}</span>
-
-	        <span id="profile-idP">OOO</span>
-
+	        <span id="profile-idP">${loginmember.memberNickname}</span>
 	        <span>튜터</span>
 	    </div>
 	</div>
@@ -32,9 +28,6 @@
 	       <div class="activeP"> <!-- 카테고리 6 -->
 	           <a href="${contextPath}/tutor/calculate"><span><i class="fa-regular fa-money-bill-1"></i>정산 신청</span></a>
 	       </div>
-	       <div class="activeP"> <!-- 카테고리 7 -->
-	            <a href="${contextPath}/tutor/message"><span><i class="fa-solid fa-message"></i>메시지</span></a>
-	        </div>
 	    </div>
 	</div>
 </section>
