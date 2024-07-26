@@ -3,14 +3,30 @@
 <properties>
 <comment>tutor-sql.xml</comment>
 
-	<!-- 튜터가 개설한 클래수 번호들 얻어오기 -->
-	<entry key="selectClassNo">
-		SELECT CLASS_NO FROM CLASS c
+	<!-- 튜터가 개설한 강의번호와 해당 강의를 결제한 수 조회하기 -->
+	<entry key="selectPaidCount">
+		SELECT c.CLASS_NO AS class_no, c.CLASS_NAME AS class_name,
+		    COUNT(p.MEMBER_NO) AS payment_count
+		FROM CLASS c
 		JOIN TUTOR t ON c.MEMBER_NO = t.MEMBER_NO
-		WHERE t.MEMBER_NO = ?	
+		LEFT JOIN PAID p ON c.CLASS_NO = p.CLASS_NO
+		WHERE t.MEMBER_NO = ?
+		GROUP BY c.CLASS_NO, c.CLASS_NAME
 	</entry>
 	
-
+	
+	<!-- 클래스 총 결제수 확인하기 -->
+	<entry key="allCountPaid">
+	SELECT SUM(payment_count) AS total_payment_count
+	FROM (
+	    SELECT c.CLASS_NO,c.CLASS_NAME,COUNT(p.MEMBER_NO) AS payment_count
+	    FROM CLASS c
+	    JOIN TUTOR t ON c.MEMBER_NO = t.MEMBER_NO
+	    LEFT JOIN PAID p ON c.CLASS_NO = p.CLASS_NO
+	    WHERE t.MEMBER_NO = ?
+	    GROUP BY c.CLASS_NO, c.CLASS_NAME
+	) subquery
+	</entry>
 	<!-- 운영중인 / 만료된 클래스 조회 -->
 	<entry key="selectClassesList">
 		SELECT CLASS_NO, CLASS_PHOTO, CLASS_NAME, CLASS_STATUS, TO_CHAR(CLASS_CREATE_DT,'YYYY.MM.DD')
