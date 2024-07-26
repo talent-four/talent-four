@@ -24,6 +24,7 @@ public class WonderService {
 	 * @param wonderType
 	 * @return
 	 */
+  
 	public Map<String, Object> selectlistFree(int type, int cp) throws Exception {
 		Connection conn = getConnection();
 		String boardName =  dao.selectBoardName(conn,type);

@@ -139,7 +139,11 @@ main {
     font-weight: 900;
     letter-spacing: -1px;
     margin-left: 25px;
-    max-width: 200px;
+    max-width: 500px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
 }
 
 .updateBtn {
@@ -184,7 +188,7 @@ main {
     color: #737373;
     letter-spacing: -1px;
     position: absolute;
-    right: 90px;
+    right: 120px;
     bottom: 0px;
 }
 
@@ -320,10 +324,16 @@ main {
 .title1-reviewsubtitle {
     display: flex;
     margin-top: 50px;
+    position: relative;
 }
 
 .title1-reviewsubtitle-date {
     margin-left: 10px;
+}
+
+.title1-reviewsubtitle-update{
+    position: absolute;
+    left: 180px;
 }
 
 .title1-reviewsubtitle-recommend {
@@ -376,7 +386,7 @@ main {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    z-index: 2;
+    z-index: 100;
     width: 900px;
     height: 900px;
     border: 2px solid #219EBC;
@@ -567,6 +577,199 @@ main {
     outline: none;
 }
 
+
+/* update modal */
+
+
+#update-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 101;
+    width: 900px;
+    height: 900px;
+    border: 2px solid #219EBC;
+    background-color: rgb(243, 243, 243);
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+
+.write-lecture {
+    width: 700px;
+    height: 100px;
+    margin-bottom: 15px;
+    margin-top: -50px;
+    font-size: 32px;
+    font-weight: bold;
+    position: relative;
+    background-color: white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.01);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.selectBox {
+    width: 250px;
+    height: 30px;
+    font-size: 16px;
+    margin-left: 20px;
+}
+
+.write-tag {
+    width: 700px;
+    height: 250px;
+}
+
+.write-content {
+    width: 700px;
+    height: 340px;
+    position: relative;
+}
+
+.write-tag {
+    background-color: white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.01);
+    border-radius: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.write-content {
+    background-color: white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.01);
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+.write-tag-question {
+    padding-top: 20px;
+    padding-left: 60px;
+    font-size: 24px;
+}
+
+.write-tag-select {
+    width: 700px;
+    height: 200px;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.radio-button {
+    margin-left: 60px;
+    margin-top: 10px;
+    width: 160px;
+    height: 40px;
+    border: 1px solid rgb(190, 190, 190);
+    border-radius: 15px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.01);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+
+}
+
+
+.radio-button.selected {
+    background-color: #219EBC;
+    color: #fff;
+    border-color: #219EBC;
+
+}
+
+#write-btn1 {
+    position: absolute;
+    width: 100px;
+    height: 40px;
+    left: 250px;
+    bottom: 25px;
+    border-radius: 5px;
+    border: none;
+    background-color: #219EBC;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#write-btn2 {
+    position: absolute;
+    left: 400px;
+    bottom: 25px;
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    background-color: #219EBC;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.writestarbox {
+    position: relative;
+
+}
+
+.starsel {
+    direction: rtl;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    margin-left: 55px;
+
+}
+
+.starsel label {
+    font-size: 12px;
+    color: rgb(190, 190, 190);
+
+}
+
+.starsel label:hover {
+    color: #ffb703;
+}
+
+.starsel label:hover~label {
+    color: #ffb703;
+}
+
+.starsel input[type=radio]:checked~label {
+    color: #ffb703;
+}
+
+.starseltext {
+    margin-left: 50px;
+}
+
+#writeTitle {
+    margin-left: 65px;
+    margin-top: 45px;
+    width: 300px;
+    height: 30px;
+}
+
+#writecontext {
+    margin-top: 20px;
+    margin-left: 65px;
+    resize: none;
+    font-size: 18px;
+}
+
+#writecontext:focus {
+    outline: none;
+}
 /* footer */
 
 .footer {
