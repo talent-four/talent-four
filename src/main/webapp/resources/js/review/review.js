@@ -424,9 +424,6 @@ function updateMylecture(boardNo) {
 
             res.boardContent = res.boardContent.replaceAll("<br>", "\n");
             
-            document.querySelectorAll("#main-box").forEach((el)=>{
-                el.remove();
-            });
 
             document.querySelector("#main-box").insertAdjacentHTML("afterend",
                 `<div id="background-modal"></div>
