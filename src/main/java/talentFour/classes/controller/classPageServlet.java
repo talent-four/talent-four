@@ -3,6 +3,7 @@ package talentFour.classes.controller;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,26 +18,13 @@ import talentFour.classes.model.vo.Class;
 @WebServlet("/classPage/*")
 public class classPageServlet extends HttpServlet {
 	
-	private List<Category> categoryList;
-	
-	@Override
-    public void init() throws ServletException {
-        try {
-            // 서블릿 초기화 시 카테고리 정보를 한 번만 가져옴
-            ClassPageService service = new ClassPageService();
-            categoryList = service.getCategory();
-            System.out.println("Initialized with categoryList: " + categoryList);
-        } catch (Exception e) {
-            throw new ServletException("Error initializing servlet", e);
-        }
-    }
-	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String uri = req.getRequestURI();
 		String contextPath = req.getContextPath();
 		String command = uri.substring(  (contextPath + "/classPage/").length()  );
-		System.out.println("doGet 실행");
+		ServletContext application = req.getServletContext();
+		List<Category> categoryList = (List<Category>) application.getAttribute("categoryList");
 		
 		try {
 			req.setAttribute("categoryList", categoryList);

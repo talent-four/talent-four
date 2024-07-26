@@ -8,11 +8,11 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@Setter
 @Getter
-@ToString
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class TutorClass {
 
 	private int classNo;

@@ -8,9 +8,9 @@ import lombok.ToString;
 
 @Setter
 @Getter
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class TutorCalculate {
 	
 	private int settleStatus;

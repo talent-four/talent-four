@@ -28,9 +28,6 @@
 	       <div class="activeP"> <!-- 카테고리 6 -->
 	           <a href="${contextPath}/tutor/calculate?cp=1"><span><i class="fa-regular fa-money-bill-1"></i>정산 신청</span></a>
 	       </div>
-	       <div class="activeP"> <!-- 카테고리 7 -->
-	            <a href="${contextPath}/tutor/message"><span><i class="fa-solid fa-message"></i>메시지</span></a>
-	        </div>
 	    </div>
 	</div>
 </section>

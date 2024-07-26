@@ -42,4 +42,5 @@
 	    </ul>
 	</div>
 </header>
+<link rel="stylesheet" href="${contextPath}/resources/css/common/hf.css">
 <script src="${contextPath}/resources/js/common/hf.js"></script>

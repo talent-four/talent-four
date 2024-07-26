@@ -32,7 +32,7 @@
                         <c:choose>
                             <c:when test="${empty tutorclassSell}">
                                 <tr>
-                                    <th colspan="4" margin-top="200px"><h1>판매된 클래스가 존재하지 않습니다.</h1></th>
+                                    <th colspan="4"><h1>판매된 클래스가 존재하지 않습니다.</h1></th>
                                 </tr>
                             </c:when>
                             <c:otherwise>

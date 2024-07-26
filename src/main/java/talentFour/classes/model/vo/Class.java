@@ -6,10 +6,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@Getter
-@Setter
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
+@Setter
+@Getter
 @ToString
 public class Class {
 
@@ -27,5 +27,7 @@ public class Class {
 	private String memberProfile;
 	private String main;
 	private String sub;
+	private int reviews;
+	private float score;
 
 }

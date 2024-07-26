@@ -95,3 +95,18 @@
   .rightButton {
     right: 0px;
   }
+
+  /* 슬라이드 서식 꾸미기 */
+  .contentTitle {
+    overflow: hidden;
+    word-wrap: break-word;
+    word-break: break-all;
+    white-space: normal;
+
+    font-weight: bold;
+  }
+
+  .contentAuthor {
+    font-size: 16px;
+    color: #7d7d7d;
+  }

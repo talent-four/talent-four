@@ -119,13 +119,6 @@
                         <label for="university-btnP" id="upload-universityP">업로드</label>
                     </div>
                     
-                    <div class="license-areaP">
-                        <span>자격증<span>날짜/자격증/주관사 공인 확인 가능한 자격증 사본(최대 10개)</span></span><br>
-                        <input type="text" name="license" id="license-nameP" placeholder="예) 토익890,HSK 6급,GTQ1급, 임상경력 등">
-                        <input type="file" id="license-btnP">
-                        <label for="license-btnP" id="upload-licenseP">업로드</label>
-                    </div>
-                    
                 </div>
             </section>
             <section class="regist-btn-areaP">
