@@ -84,7 +84,7 @@ window.onload = function () {
                     $subCategorySelect.append('<option value="" disabled selected>소분류</option>');
 
                     for(let sub of data){
-                        $subCategorySelect.append('<option value="' + sub.categoryName + '">' + sub.categoryName + '</option>');
+                        $subCategorySelect.append('<option value="' + sub.categoryCode + '">' + sub.categoryName + '</option>');
                     }
                 },
                 error: function(xhr, status, error) {
@@ -99,60 +99,60 @@ window.onload = function () {
 };
 
 // 클래스 작성 유효성 검사
-// function writeValidate() {
-//     const thumbnail = document.getElementsByName("thumbnail")[0];
-//     const boardTitle = document.getElementsByName("boardTitle")[0];
-//     const classPrice = document.getElementsByName("classPrice")[0];
-//     const boardContent = document.querySelector("[name='boardContent']");
-//     const mainCategory = document.getElementById("mainCategory");
-//     const subCategory = document.getElementById("subCategory");
+function writeValidate() {
+    const thumbnail = document.getElementsByName("thumbnail")[0];
+    const boardTitle = document.getElementsByName("boardTitle")[0];
+    const classPrice = document.getElementsByName("classPrice")[0];
+    const boardContent = document.querySelector("[name='boardContent']");
+    const mainCategory = document.getElementById("mainCategory");
+    const subCategory = document.getElementById("subCategory");
 
 
-//     if(boardTitle.value.trim().length == 0){
-//         boardTitle.focus();
-//         boardTitle.value = "";
-//         alert("제목을 입력해주세요.");
+    if(boardTitle.value.trim().length == 0){
+        boardTitle.focus();
+        boardTitle.value = "";
+        alert("제목을 입력해주세요.");
 
-//         return false;
-//     }
+        return false;
+    }
 
-//     if(boardContent.value.trim().length == 0){
-//         boardContent.focus();
-//         boardContent.value = "";
-//         alert("내용을 입력해주세요.");
+    if(boardContent.value.trim().length == 0){
+        boardContent.focus();
+        boardContent.value = "";
+        alert("내용을 입력해주세요.");
 
-//         return false;
-//     }
+        return false;
+    }
 
-//     if (thumbnail.files.length === 0) {
-//         alert("썸네일을 등록해주세요.");
-//         thumbnail.focus();
-//         return false;
-//     }
+    if (thumbnail.files.length === 0) {
+        alert("썸네일을 등록해주세요.");
+        thumbnail.focus();
+        return false;
+    }
 
-//     if (mainCategory.value === "") {
-//         alert("대분류를 선택해주세요.");
-//         mainCategory.focus();
-//         return false;
-//     }
+    if (mainCategory.value === "") {
+        alert("대분류를 선택해주세요.");
+        mainCategory.focus();
+        return false;
+    }
 
-//     if (subCategory.value === "") {
-//         alert("소분류를 선택해주세요.");
-//         subCategory.focus();
-//         return false;
-//     }
+    if (subCategory.value === "") {
+        alert("소분류를 선택해주세요.");
+        subCategory.focus();
+        return false;
+    }
     
-//     const pricePattern = /^[1-9][0-9]{2,4}[0]{2}$/; // 정규식: 숫자만 허용
-//     if (classPrice.value.trim().length === 0) {
-//         alert("금액을 입력해주세요.");
-//         classPrice.focus();
-//         return false;
+    const pricePattern = /^[1-9][0-9]{2,4}[0]{2}$/; // 정규식: 숫자만 허용
+    if (classPrice.value.trim().length === 0) {
+        alert("금액을 입력해주세요.");
+        classPrice.focus();
+        return false;
 
-//     } else if (!pricePattern.test(classPrice.value)) {
-//         alert("금액은 만원 이상, 100 단위 숫자만 입력 가능합니다.");
-//         classPrice.focus();
-//         return false;
-//     }
+    } else if (!pricePattern.test(classPrice.value)) {
+        alert("금액은 만원 이상, 100 단위 숫자만 입력 가능합니다.");
+        classPrice.focus();
+        return false;
+    }
 
-//     return true;
-// }
+    return false;
+}

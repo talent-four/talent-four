@@ -32,23 +32,21 @@ public class detailedPageServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		// GET 방식 요청 처리
-		String uri = req.getRequestURI();
-		String contextPath = req.getContextPath();
-		String command = uri.substring(  (contextPath + "/detailedPage/").length()  );
-		String path = null;
-		
 		ServletContext application = req.getServletContext();
 		List<Category> categoryList = (List<Category>) application.getAttribute("categoryList");
 		HttpSession session = req.getSession();
 		
-		System.out.println("디테일 페이지 : " + categoryList);
+		// GET 방식 요청 처리
+		String uri = req.getRequestURI();
+		String contextPath = req.getContextPath();
+		String path = null;
+		
+		// classNo가 null이 아닌 경우, 상세 페이지 조회 화면
 		try {
 			// classNo 페이지 조회
 			if(req.getParameter("classNo") != null) {
 				DetailPageService service = new DetailPageService();
 				MemberService mService = new MemberService();
-
 		        
 				int classNo =  Integer.parseInt(req.getParameter("classNo"));
 				
@@ -58,9 +56,12 @@ public class detailedPageServlet extends HttpServlet {
 				if(classInfo != null) {
 					req.setAttribute("classDetail", classInfo);
 					req.setAttribute("reviewList", reviewList);
+					
 					path = "/WEB-INF/views/pages/detailedPage.jsp";
 				}
-			} else { // 상세 페이지 조회가 아닌, 작업
+				
+			} else { // classNo가 없으므로, 쓰기, 수정, 삭제 작업 요청 페이지
+				String command = uri.substring(  (contextPath + "/detailedPage/").length()  );
 				
 				if(command.equals("write")) { // 게시글 작성
 					path = "/WEB-INF/views/pages/detailedPageForm.jsp";
@@ -75,17 +76,17 @@ public class detailedPageServlet extends HttpServlet {
 					String main = req.getParameter("mainCategoryCode");
 					DetailPageService service = new DetailPageService();
 					List<Category> getSubCategory = service.getSubCategory(main, categoryList);
+					
 					if(getSubCategory == null) {
 						session.setAttribute("message", "잘못된 요청");
 						return;
 					}
-					
 					new Gson().toJson(getSubCategory, resp.getWriter());
-		            return;
+		            return; // AJAX 리턴
 				}
-				req.getRequestDispatcher(path).forward(req, resp);
 			}
 			
+			req.getRequestDispatcher(path).forward(req, resp);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -113,17 +114,22 @@ public class detailedPageServlet extends HttpServlet {
 		if(files.hasMoreElements()) {
 			String name = files.nextElement();
 			String rename = mpReq.getFilesystemName(name);
-			c.setClassPhoto(rename);
 			
 			System.out.println("name : " + name);
 			System.out.println("rename : " + rename);
+			
+			if(rename != null) {
+				
+				c.setClassPhoto(folderPath + rename);
+			}
 		}
 		
 		String main = mpReq.getParameter("mainCategory");	
 		String sub = mpReq.getParameter("subCategory");	
 		String className = mpReq.getParameter("classTitle");	
-		String classIntro = mpReq.getParameter("boardContent");
+		String classIntro = mpReq.getParameter("classContent");
 		int classPrice = Integer.parseInt(mpReq.getParameter("classPrice"));
+		
 		if(mpReq.getParameter("classUrl") != null) {
 			String classUrl = mpReq.getParameter("classUrl");
 			c.setClassUrl(classUrl);
@@ -137,14 +143,25 @@ public class detailedPageServlet extends HttpServlet {
 		
 		Member loginMember = (Member) session.getAttribute("loginMember");
 		
+		String path = "";
 		String mode = mpReq.getParameter("mode"); // hidden
 		
-		System.out.println(mode);
-		
+		// detailPage/write?mode=insert 일 때,
 		if(mode.equals("insert")) {
 			DetailPageService service = new DetailPageService();
-//			int classNo = service.insertClass(c, loginMember);
+			
+			try {
+				int classNo = service.insertClass(c, loginMember);
+				
+				req.setAttribute("message", "클래스가 등록되었습니다.");
+				path = "detailedPage?classNo=" + classNo;
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
 		}
+		resp.sendRedirect(path);
 	}
 	
 }

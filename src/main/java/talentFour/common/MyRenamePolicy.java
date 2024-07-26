@@ -46,7 +46,7 @@ public class MyRenamePolicy implements FileRenamePolicy {
 						  // 20240716120630				   _01234  .png
 		
 		File newFile = new File(originalFile.getParent(), fileName);
-
+		System.out.println("fileName : "  + fileName);
 		return newFile;
 	}
 

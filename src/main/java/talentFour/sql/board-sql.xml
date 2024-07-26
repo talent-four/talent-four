@@ -86,10 +86,15 @@
 		WHERE MEMBER_NO = ?
 	</entry>
 	
+	<!-- 다음 클래스 번호 가져오기 -->
+	<entry key="nextClassNo">
+		SELECT SEQ_CLASS_NO.NEXTVAL FROM DUAL
+	</entry>
+	
+	<!-- 새 클래스 삽입 -->
 	<entry key="insertClass">
-		SELECT TUTOR_PROFILE, TUTOR_INTRODUCER
-		FROM TUTOR
-		WHERE MEMBER_NO = ?
+		INSERT INTO CLASS
+		VALUES(?, ?, ?, ?, ?, DEFAULT, DEFAULT, ?, ?, ?)
 	</entry>
 	
 	
@@ -103,7 +108,7 @@
 		JOIN MEMBER M ON (B.MEMBER_NO=M.MEMBER_NO)
 		JOIN CLASS C ON (R.CLASS_NO = C.CLASS_NO)
 		JOIN MEMBER INSTRUCTOR ON (C.MEMBER_NO = INSTRUCTOR.MEMBER_NO)
-		WHERE BOARD_CD=3
+		WHERE BOARD_CD=2
 	</entry>
 
 
