@@ -20,10 +20,11 @@ public class TutorService {
 	
 	/** 운영중인 클래스 조회
 	 * @param status
+	 * @param memberNo 
 	 * @return
 	 * @throws Exception
 	 */
-	public List<TutorClass> selectClassesList(int status) throws Exception {
+	public List<TutorClass> selectClassesList(int status, int memberNo) throws Exception {
 		
 		Connection conn = getConnection();
 		
@@ -35,14 +36,15 @@ public class TutorService {
 	
 	/** 운영중인 클래스 갯수 조회
 	 * @param status
+	 * @param memberNo 
 	 * @return
 	 * @throws Exception
 	 */
-	public TutorClass classingCount(int status) throws Exception {
+	public TutorClass classingCount(int status, int memberNo) throws Exception {
 		
 		Connection conn = getConnection();
 		
-		TutorClass counting = dao.classingCount(conn, status);
+		TutorClass counting = dao.classingCount(conn, status, memberNo);
 		
 		close(conn);
 		return counting;
@@ -51,10 +53,11 @@ public class TutorService {
 
 	/** 만료된 클래스 조회
 	 * @param statusfin
+	 * @param memberNo 
 	 * @return
 	 * @throws Exception
 	 */
-	public List<TutorClass> selectClassesFinList(int statusfin) throws Exception {
+	public List<TutorClass> selectClassesFinList(int statusfin, int memberNo) throws Exception {
 		
 		Connection conn = getConnection();
 		
@@ -67,14 +70,15 @@ public class TutorService {
 
 	/** 만료된 클래스 갯수 조회
 	 * @param statusfin
+	 * @param memberNo 
 	 * @return
 	 * @throws Exception
 	 */
 	
-	public TutorClass classfinCount(int statusfin) throws Exception {
+	public TutorClass classfinCount(int statusfin, int memberNo) throws Exception {
 		Connection conn = getConnection();
 		
-		TutorClass countfin = dao.classfinCount(conn, statusfin);
+		TutorClass countfin = dao.classfinCount(conn, statusfin, memberNo);
 		
 		close(conn);
 		return countfin;
@@ -82,13 +86,14 @@ public class TutorService {
 	
 	
 	/** 클래스 판매현황 조회
+	 * @param memberNo 
 	 * @return
 	 * @throws Exception
 	 */
-	public List<TutorClassSell> selectClassSellList() throws Exception {
+	public List<TutorClassSell> selectClassSellList(int memberNo) throws Exception {
 		Connection conn = getConnection();
 		
-		List<TutorClassSell> tutorclassSell = dao.selectClassSellList(conn);
+		List<TutorClassSell> tutorclassSell = dao.selectClassSellList(conn,memberNo);
 		
 		close(conn);
 		
@@ -98,10 +103,11 @@ public class TutorService {
 	
 	/** 정산하기 조회
 	 * @param status 
+	 * @param memberNo 
 	 * @return
 	 * @throws Exception
 	 */
-	public List<TutorCalculate> selectCalculateList(int status) throws Exception {
+	public List<TutorCalculate> selectCalculateList(int status, int memberNo) throws Exception {
 		Connection conn = getConnection();
 		
 		List<TutorCalculate> tutorcalculateList = dao.selectCalculateList(conn,status, memberNo);
@@ -168,13 +174,13 @@ public class TutorService {
 	 * @return
 	 * @throws Exception
 	 */
-	public int[] selectClassNo(int memberNo) throws Exception {
+	public List<TutorClass> selectClassNo(int memberNo) throws Exception {
 		Connection conn = getConnection();
 		
 		int[] classNoArray = dao.selectClassNo(conn,memberNo);
 		
 		close(conn);
-		return classNoArray;
+		return null;
 	}
 
 	

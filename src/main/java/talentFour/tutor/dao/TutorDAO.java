@@ -74,10 +74,11 @@ public class TutorDAO {
 	/** 운영중인 클래스 갯수 조회
 	 * @param conn
 	 * @param status
+	 * @param memberNo 
 	 * @return
 	 * @throws Exception
 	 */
-	public TutorClass classingCount(Connection conn, int status) throws Exception {
+	public TutorClass classingCount(Connection conn, int status, int memberNo) throws Exception {
 		TutorClass counting = new TutorClass();
 
 		try {
@@ -103,10 +104,11 @@ public class TutorDAO {
 	/** 만료된 클래스 리스트 조회
 	 * @param conn
 	 * @param statusfin
+	 * @param memberNo 
 	 * @return
 	 * @throws Exception
 	 */
-	public List<TutorClass> selectClassesFinList(Connection conn, int statusfin) throws Exception {
+	public List<TutorClass> selectClassesFinList(Connection conn, int statusfin, int memberNo) throws Exception {
 		List<TutorClass> tutorclassesfin = new ArrayList<>();
 
 		try {
@@ -136,10 +138,11 @@ public class TutorDAO {
 	/** 만료된 클래스 갯수 조회
 	 * @param conn
 	 * @param statusfin
+	 * @param memberNo 
 	 * @return
 	 * @throws Exception
 	 */
-	public TutorClass classfinCount(Connection conn, int statusfin) throws Exception {
+	public TutorClass classfinCount(Connection conn, int statusfin, int memberNo) throws Exception {
 		TutorClass countfin = new TutorClass();
 
 		try {
@@ -165,10 +168,11 @@ public class TutorDAO {
 
 	/** 클래스 판매 현황 조회
 	 * @param conn
+	 * @param memberNo 
 	 * @return
 	 * @throws Exception
 	 */
-	public List<TutorClassSell> selectClassSellList(Connection conn) throws Exception {
+	public List<TutorClassSell> selectClassSellList(Connection conn, int memberNo) throws Exception {
 		List<TutorClassSell> tutorclassSell = new ArrayList<>();
 		try {
 
@@ -195,10 +199,11 @@ public class TutorDAO {
 	/** 정산하기 조회
 	 * @param conn
 	 * @param status 
+	 * @param memberNo 
 	 * @return
 	 * @throws Exception
 	 */
-	public List<TutorCalculate> selectCalculateList(Connection conn, int status) throws Exception {
+	public List<TutorCalculate> selectCalculateList(Connection conn, int status, int memberNo) throws Exception {
 		List<TutorCalculate> tutorcalculateList = new ArrayList<>();
 
 		// 정산예정금액을 담을 변수
@@ -370,7 +375,6 @@ public class TutorDAO {
 
 	public int[] selectClassNo(Connection conn, int memberNo) throws Exception {
 		
-		int[] classNoArray = new int[];
 		
 		try {
 			

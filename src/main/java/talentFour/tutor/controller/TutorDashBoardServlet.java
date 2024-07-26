@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import talentFour.member.model.vo.Member;
 import talentFour.tutor.model.service.TutorService;
+import talentFour.tutor.model.vo.TutorClass;
 @WebServlet("/tutor/dashboard")
 public class TutorDashBoardServlet extends HttpServlet{
 
@@ -26,7 +27,6 @@ public class TutorDashBoardServlet extends HttpServlet{
 			Member loginMember = (Member)session.getAttribute("loginMember");
 			int memberNo = loginMember.getMemberNo();
 			
-			List<E> classNoArray = service.selectClassNo(memberNo);
 			
 			req.getRequestDispatcher("/WEB-INF/views/tutor/dashBoard.jsp").forward(req, resp);
 			
