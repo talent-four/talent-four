@@ -16,23 +16,15 @@ public class DetailPageService {
 	
 	private DetailPageDAO dao = new DetailPageDAO();
 	
-	public Map<String, Object> getClass(int classNo) throws Exception {
+	public Class getClass(int classNo) throws Exception {
 		Connection conn = getConnection();
 		
 		// 클래스 정보 가져오기
 		Class c = dao.getClass(conn, classNo);
 		
-		// 튜터 정보 가져오기
-		String[] tutorInfo = dao.getTutorIntro(conn, c);
-		
-		
-		Map<String, Object> classMap = new HashMap<>();
-		classMap.put("classDetail", c);
-		classMap.put("tutorInfo", tutorInfo);
-		
 		close(conn);
 		
-		return classMap;
+		return c;
 	}
 
 	/** 게시글 삽입 메소드
@@ -79,6 +71,76 @@ public class DetailPageService {
 			}
 		}
 		return null;
+	}
+
+	/** 클래스 번호로 튜터 정보 가져오기 0 : 프로필, 1 : 자기소개, 2 : 이름
+	 * @param loginMember
+	 * @return tutorInfo
+	 */
+	public String[] getTutorInfoClass(int classNo) throws Exception {
+		Connection conn = getConnection();
+		
+		// 튜터 정보 가져오기
+		String[] tutorInfo = dao.getTutorInfoClass(conn, classNo);
+		
+		close(conn);
+		
+		return tutorInfo;
+	}
+	
+	/** 로그인한 회원으로 튜터 정보 가져오기 0 : 프로필, 1 : 자기소개, 2 : 이름
+	 * @param loginMember
+	 * @return tutorInfo
+	 */
+	public String[] getTutorInfo(int memberNo) throws Exception {
+		Connection conn = getConnection();
+		
+		// 튜터 정보 가져오기
+		String[] tutorInfo = dao.getTutorIntro(conn, memberNo);
+		
+		close(conn);
+		
+		return tutorInfo;
+	}
+
+	
+	/** 클래스 번호로 클래스 삭제하기
+	 * @param classNo
+	 * @return
+	 * @throws Exception
+	 */
+	public int deleteClass(int classNo) throws Exception {
+		Connection conn = getConnection();
+		
+		// 튜터 정보 가져오기
+		int result = dao.deleteClass(conn, classNo);
+		
+		if(result > 0) commit(conn);
+		else rollback(conn);
+		
+		close(conn);
+		
+		return result;
+	}
+
+	
+	/** 클래스 번호와 클래스 정보로 업데이트
+	 * @param classNo
+	 * @param c
+	 * @return result
+	 * @throws Exception
+	 */
+	public int updateClass(Class c) throws Exception {
+		Connection conn = getConnection();
+		
+		int result = dao.updateClass(conn, c);
+		
+		if(result > 0) commit(conn);
+		else rollback(conn);
+		
+		close(conn);
+		
+		return result;
 	}
 
 }

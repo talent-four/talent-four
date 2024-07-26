@@ -35,9 +35,12 @@
 				</c:otherwise>
 			</c:choose>
 		</ul>
+		
 	    <ul id="headerBox">
 	        <li><a href="${contextPath}/mypage">마이 프로필</a></li>
+	        <c:if test="${loginMember.memberStatus == 2}">
 	        <li><a href="${contextPath}/tutor/dashboard">튜터 프로필</a></li>
+	        </c:if>
 	        <li><a href="${contextPath}/member/logout">로그아웃</a></li>
 	    </ul>
 	</div>

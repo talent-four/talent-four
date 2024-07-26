@@ -13,7 +13,7 @@
 
 	<!-- 운영중인 / 만료된 클래스 조회 -->
 	<entry key="selectClassesList">
-		SELECT CLASS_PHOTO, CLASS_NAME, CLASS_STATUS, TO_CHAR(CLASS_CREATE_DT,'YYYY.MM.DD')
+		SELECT CLASS_NO, CLASS_PHOTO, CLASS_NAME, CLASS_STATUS, TO_CHAR(CLASS_CREATE_DT,'YYYY.MM.DD')
 		FROM CLASS
 		WHERE CLASS_STATUS = ?
 		AND MEMBER_NO = 100
@@ -78,7 +78,6 @@
 	</entry>
 	
 	<!-- 정산가능한 금액 조회 -->
-	
 	<entry key="seleceing">
 		SELECT s.SETTLE_STATUS, m.MEMBER_NM, m.MEMBER_NO, c.CLASS_NAME, c.CLASS_PRICE,
 		    s.COMMISSION, TO_CHAR(s.SETTLE_DATE,'YYYY.MM.DD') 

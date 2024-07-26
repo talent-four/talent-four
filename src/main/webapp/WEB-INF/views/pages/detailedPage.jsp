@@ -21,8 +21,7 @@
             <body>
                 <jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 
-                <c:set var="classInfo" value="${classDetail.classDetail}"></c:set>
-
+                <c:set var="classInfo" value="${classInfo}"></c:set>
                 <main id="detailed">
                     <section class="upper">
                         <div class="upperWrapper">
@@ -55,7 +54,8 @@
                         <div class="introduceBox" id="classIntroduce">
                             <section class="classDetailBox">
                                 <div class="classDetail">
-                                    <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/ca1a32ac54e1a160ef3542b9f9be04dca1c614f7.jpg"
+                                	${classInfo.classIntro}
+<!--                                     <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/ca1a32ac54e1a160ef3542b9f9be04dca1c614f7.jpg"
                                         class="txc-image">
                                     <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/3d8f60050749e7ad92e02c56a0ec9a8bec780554.gif"
                                         class="txc-image">
@@ -166,8 +166,7 @@
                                     <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/589e2c877b37214c464eb8f496c66cdd725a0410.png"
                                         class="txc-image">
                                     <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/852e790db6a58dd53c0f9a61aa387f57d57b733c.jpg"
-                                        class="txc-image">
-                                    <%-- ${classInfo.classIntro} --%>
+                                        class="txc-image"> -->
                                         <div id="blur"></div>
                                 </div>
                                 <button type="button" class="btnClass" id="d-classInfoBtn">클래스 소개 더보기</button>
@@ -192,7 +191,7 @@
                                     </div>
                                     <div class="tutorIntroduce">
                                         <p>
-                                            ${classDetail.tutorInfo[1]}
+                                            ${tutorInfo[1]}
                                         </p>
                                     </div>
                                 </div>

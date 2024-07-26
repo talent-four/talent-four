@@ -5,7 +5,7 @@
     const slideCount = $slides.length;
     let currentIndex = 0;
     const slideWidth = 1280;
-    setInterval(showNextSlide, 2000);
+    setInterval(showNextSlide, 3000);
 
     function showNextSlide() {
         var nextIndex = (currentIndex + 1) % slideCount;
@@ -14,4 +14,4 @@
         $contentSlider.css("transform", `translateX(${translateValue})`);
         currentIndex = nextIndex;
       }
-  });
+  })();

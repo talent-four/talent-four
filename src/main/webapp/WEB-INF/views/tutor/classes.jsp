@@ -20,8 +20,7 @@
             <article class="titleP"><span>내 클래스</span></article>
             <article class="class-subtitleP">
                 <span>운영 중인 클래스</span>
-                ${loginMember}
-                <button type="button"><a href="${contextPath}/detailPage?&mode=write">클래스 만들기</a></button>
+                <button type="button"><a href="${contextPath}/detailedPage/write?mode=insert">클래스 만들기</a></button>
             </article>
             <article class="class-areaP">
                 <div class="class-menuP">
@@ -37,10 +36,10 @@
                         </c:when>
                         <c:otherwise>
                             <c:forEach var="tutorclasses"  items="${tutorclasses}">
-                                <div class="class-rowP">
-                                    <div><img src="${tutorclasses.classPhoto}" class="class-thumbnail"></div>
+                                <div class="class-rowP" id=${tutorclasses.classNo}>
+                                    <div><img src="${contextPath }${tutorclasses.classPhoto}" class="class-thumbnail"></div>
                                     <div><a href="#">${tutorclasses.className}</a></div>
-                                    <div><div><span>
+                                    <div><div class="class-statusBtn"><span>
                                         <c:if test="${tutorclasses.classStatus == 1}">
                                             운영중
                                         </c:if>
@@ -75,9 +74,9 @@
                         <c:otherwise>
                             <c:forEach var="tutorclassesfin"  items="${tutorclassesfin}">
                                 <div class="class-rowP">
-                                    <div><img src="${tutorclassesfin.classPhoto}" class="class-thumbnail"></div>
+                                    <div><img src="${contextPath }${tutorclassesfin.classPhoto}" class="class-thumbnail"></div>
                                     <div><a href="#">${tutorclassesfin.className}</a></div>
-                                    <div><div id="finclassdiv"><span>
+                                    <div><div id="finclassdiv" class="class-statusBtn"><span>
                                         <c:if test="${tutorclassesfin.classStatus == 2}">
                                             운영 종료
                                         </c:if>
@@ -97,9 +96,12 @@
                 </div>
             </article>
         </section>
+        <script>
+        	const contextPath = "${contextPath}";
+        	const loginMember = "${loginMember}";
+        </script>
     </main>
    <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
     <script src="${contextPath}/resources/js/tutor/tutorClasses.js"></script>
-    <script src="${contextPath}/resources/js/common/hf.js"></script>
 </body>
 </html>
