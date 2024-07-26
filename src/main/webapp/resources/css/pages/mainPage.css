@@ -185,3 +185,7 @@ div {
 #fadeLeft, #fadeRight {
   cursor: pointer;
 }
+
+.star {
+	color : #ffb703;
+}

@@ -1,5 +1,5 @@
 // 무한 슬라이드
-$(function(){
+(function(){
     var $slides = $("#categoryBar").find('li');
     const $contentSlider = $(".infinitySlider > ul");
     const slideCount = $slides.length;
@@ -14,8 +14,4 @@ $(function(){
         $contentSlider.css("transform", `translateX(${translateValue})`);
         currentIndex = nextIndex;
       }
-  })
-  
-  
-
-
+  });
