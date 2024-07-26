@@ -58,10 +58,11 @@ public class TutorDAO {
 
 			while(rs.next()) {
 				TutorClass tutorclass = new TutorClass();
-				tutorclass.setClassPhoto(rs.getString(1));
-				tutorclass.setClassName(rs.getString(2));
-				tutorclass.setClassStatus(rs.getInt(3));
-				tutorclass.setClassCreateDate(rs.getString(4));
+				tutorclass.setClassNo(rs.getInt(1));
+				tutorclass.setClassPhoto(rs.getString(2));
+				tutorclass.setClassName(rs.getString(3));
+				tutorclass.setClassStatus(rs.getInt(4));
+				tutorclass.setClassCreateDate(rs.getString(5));
 				tutorclasses.add(tutorclass);
 			}
 		} finally {
@@ -121,10 +122,11 @@ public class TutorDAO {
 
 			while(rs.next()) {
 				TutorClass tutorclassfin = new TutorClass();
-				tutorclassfin.setClassPhoto(rs.getString(1));
-				tutorclassfin.setClassName(rs.getString(2));
-				tutorclassfin.setClassStatus(rs.getInt(3));
-				tutorclassfin.setClassCreateDate(rs.getString(4));
+				tutorclassfin.setClassNo(rs.getInt(1));
+				tutorclassfin.setClassPhoto(rs.getString(2));
+				tutorclassfin.setClassName(rs.getString(3));
+				tutorclassfin.setClassStatus(rs.getInt(4));
+				tutorclassfin.setClassCreateDate(rs.getString(5));
 				tutorclassesfin.add(tutorclassfin);
 
 			}

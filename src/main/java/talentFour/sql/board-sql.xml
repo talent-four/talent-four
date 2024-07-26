@@ -49,6 +49,13 @@
 		    )
 	</entry>
 	
+	<!-- 클래스 정보 업데이트 -->
+	<entry key="updateClass">
+		UPDATE CLASS
+		SET CLASS_NAME = ?, CLASS_INTRO = ?, CLASS_PHOTO = ?, CLASS_URL = ?, CLASS_PRAICE = ?, CATEGORY_CODE = ?
+		WHERE CLASS_NO = ?
+	</entry>
+	
 	<!-- 소분류로 클래스 가져오기 -->
 	<entry key="getClasses">
 		SELECT C.*, M.MEMBER_NM, NVL(CR.리뷰수, 0) AS 리뷰수, NVL(TRUNC(CR.평점, 1), 0) AS 평점
@@ -81,10 +88,28 @@
 	
 	<!-- 튜터 소개 가져오기 -->
 	<entry key="getTutorIntro">
-		SELECT TUTOR_PROFILE, TUTOR_INTRODUCER
+		SELECT TUTOR_PROFILE, TUTOR_INTRODUCER, MEMBER_NM
 		FROM TUTOR
+		JOIN MEMBER USING (MEMBER_NO)
 		WHERE MEMBER_NO = ?
 	</entry>
+	
+	<!-- 클래스 번호로 튜터 정보 가져오기 -->
+	<entry key="getTutorIntroClass">
+		SELECT TUTOR_PROFILE, TUTOR_INTRODUCER, MEMBER_NM
+		FROM CLASS
+		JOIN MEMBER USING (MEMBER_NO)
+		JOIN TUTOR USING (MEMBER_NO)
+		WHERE CLASS_NO = ?
+	</entry>
+	
+	<!-- 클래스 번호로 클래스 지우기 -->
+	<entry key="deleteClass">
+		UPDATE CLASS
+		SET CLASS_STATUS = 2
+		WHERE CLASS_NO = ?
+	</entry>
+	
 	
 	<!-- 다음 클래스 번호 가져오기 -->
 	<entry key="nextClassNo">

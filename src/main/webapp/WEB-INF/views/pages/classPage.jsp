@@ -49,7 +49,7 @@
     	            </c:if>
             	<c:forEach var="i" begin="${j*5}" end="${(j+1)*5-1}">
     	            <c:if test="${!empty classList[i]}">
-    	            <a href="${contextPath}/detailedPage?classNo=${classList[i].classNo}" class="contentBox">
+    	            <a href="${contextPath}/detailedPage/class?classNo=${classList[i].classNo}" class="contentBox">
                         <!-- 클래스 썸네일 미리보기, 수정필요 -->
                         <c:if test="${classList[i].classPhoto == 'PHOTO URL'}">
                             <img src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
@@ -116,7 +116,7 @@
     </div> --%>
     <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
     
-    <script src="${contextPath}/resources/js/pages/categoryPage.js"></>
+    <script src="${contextPath}/resources/js/pages/categoryPage.js">
     <script src="${contextPath}/resources/js/common/slider.js"></script>
 </body>
 

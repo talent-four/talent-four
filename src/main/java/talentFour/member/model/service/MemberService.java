@@ -112,6 +112,9 @@ public class MemberService {
 		return result;
 	}
 
+	
+	
+	
 	/** 회원 탈퇴
 	 * @param memberNo
 	 * @return result
@@ -178,7 +181,6 @@ public class MemberService {
 		
 		return paidList;
 	}
-
 
 	
 }

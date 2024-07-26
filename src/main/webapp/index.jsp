@@ -41,7 +41,7 @@
 				<div class="contentBoxsSet" id="contentBoxSet"><!-- 큰 박스 3번 반복 -->
 					<c:forEach var="i" begin="${j*5}" end="${(j+1)*5-1}"><!-- 작은 박스안에 5개씩 -->
 						<c:if test="${!empty classList[i]}"><!-- 비어있으면 출력 안함 --><!-- 이녀석을 기준으로 클래스 불러와야 함 -->
-							<a href="${contextPath}/detailedPage?classNo=${classList[i].classNo}" class="contentBox"> 
+							<a href="${contextPath}/detailedPage/class?classNo=${classList[i].classNo}" class="contentBox"> 
 								<c:if test="${classList[i].classPhoto == 'PHOTO URL'}">
 									<img src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
 								</c:if>

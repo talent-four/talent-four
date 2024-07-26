@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -40,58 +41,96 @@ public class detailedPageServlet extends HttpServlet {
 		String uri = req.getRequestURI();
 		String contextPath = req.getContextPath();
 		String path = null;
+		String command = uri.substring(  (contextPath + "/detailedPage/").length()  );
 		
-		// classNo가 null이 아닌 경우, 상세 페이지 조회 화면
+		DetailPageService service = new DetailPageService();
+		MemberService mService = new MemberService();
+		Member loginMember = (Member) session.getAttribute("loginMember");
+		
+		System.out.println(command);
+		
 		try {
 			// classNo 페이지 조회
-			if(req.getParameter("classNo") != null) {
-				DetailPageService service = new DetailPageService();
-				MemberService mService = new MemberService();
-		        
+			if(command.equals("class")) {
 				int classNo =  Integer.parseInt(req.getParameter("classNo"));
 				
-				Map<String, Object>	classInfo = service.getClass(classNo);
+				
+				Class classInfo = service.getClass(classNo);
+				String[] tutorInfo = service.getTutorInfoClass(classNo);
+				System.out.println(tutorInfo[0]);
+				System.out.println(tutorInfo[1]);
+				System.out.println(tutorInfo[2]);
+				
 				List<Review> reviewList = mService.getDetailPageReview(classNo);
 			
-				if(classInfo != null) {
-					req.setAttribute("classDetail", classInfo);
-					req.setAttribute("reviewList", reviewList);
+				req.setAttribute("classInfo", classInfo);
+				req.setAttribute("tutorInfo", tutorInfo);
+				req.setAttribute("reviewList", reviewList);
+				
+				path = "/WEB-INF/views/pages/detailedPage.jsp";
+				
+			} 
+
+			if(command.equals("write")) { // 게시글 작성
+				
+				// 튜터 정보 얻어오기
+				
+				
+				String[] tutorInfo = service.getTutorInfo(loginMember.getMemberNo());
+				
+				path = "/WEB-INF/views/pages/detailedPageForm.jsp";
+				req.setAttribute("categoryList", categoryList);
+				req.setAttribute("tutorInfo", tutorInfo);
+				
+				// update일 경우
+				if(req.getParameter("mode").equals("update")) {
+					int classNo =  Integer.parseInt(req.getParameter("classNo"));
 					
-					path = "/WEB-INF/views/pages/detailedPage.jsp";
-				}
-				
-			} else { // classNo가 없으므로, 쓰기, 수정, 삭제 작업 요청 페이지
-				String command = uri.substring(  (contextPath + "/detailedPage/").length()  );
-				
-				if(command.equals("write")) { // 게시글 작성
-					path = "/WEB-INF/views/pages/detailedPageForm.jsp";
+					Class classInfo = service.getClass(classNo);
+					
+					req.setAttribute("classInfo", classInfo);
+					req.setAttribute("tutorInfo", tutorInfo);
 					req.setAttribute("categoryList", categoryList);
-				}
-				
-				if(command.equals("update")) { // 게시글 수정
-					path = "/WEB-INF/views/pages/detailedPageForm.jsp";
-				}
-				
-				if(command.equals("getSubCategory")) { // 서브 카테고리 AJAX 요청 처리
-					String main = req.getParameter("mainCategoryCode");
-					DetailPageService service = new DetailPageService();
-					List<Category> getSubCategory = service.getSubCategory(main, categoryList);
 					
-					if(getSubCategory == null) {
-						session.setAttribute("message", "잘못된 요청");
-						return;
-					}
-					new Gson().toJson(getSubCategory, resp.getWriter());
-		            return; // AJAX 리턴
+					path = "/WEB-INF/views/pages/detailedPageForm.jsp";
 				}
 			}
 			
+			// delete일 경우
+			if(command.equals("delete")) {
+				int classNo =  Integer.parseInt(req.getParameter("classNo"));
+				
+				int result = service.deleteClass(classNo);
+				
+				if(result > 0) {
+					session.setAttribute("message", "삭제 완료");
+				} else {
+					session.setAttribute("message", "삭제 실패");
+				}
+				
+				resp.sendRedirect(req.getHeader("referer"));
+				return;
+			}
+			
+			if(command.equals("getSubCategory")) { // 서브 카테고리 AJAX 요청 처리
+				String main = req.getParameter("mainCategoryCode");
+				List<Category> getSubCategory = service.getSubCategory(main, categoryList);
+				
+				if(getSubCategory == null) {
+					session.setAttribute("message", "잘못된 요청");
+					return;
+				}
+				new Gson().toJson(getSubCategory, resp.getWriter());
+	            return; // AJAX 리턴
+			}
+		
 			req.getRequestDispatcher(path).forward(req, resp);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
+	
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -145,6 +184,7 @@ public class detailedPageServlet extends HttpServlet {
 		
 		String path = "";
 		String mode = mpReq.getParameter("mode"); // hidden
+		System.out.println("mode : " + mode);
 		
 		// detailPage/write?mode=insert 일 때,
 		if(mode.equals("insert")) {
@@ -152,6 +192,24 @@ public class detailedPageServlet extends HttpServlet {
 			
 			try {
 				int classNo = service.insertClass(c, loginMember);
+				System.out.println("등록 실행됨");
+				
+				session.setAttribute("message", "클래스가 등록되었습니다.");
+				path = "class?classNo=" + classNo;
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		if(mode.equals("update")) {
+			System.out.println("update 요청 들어옴");
+			DetailPageService service = new DetailPageService();
+			
+			try {
+				int classNo = Integer.parseInt(req.getParameter("classNo"));
+				c.setClassNo(classNo);
+				int result = service.updateClass(c);
 				
 				req.setAttribute("message", "클래스가 등록되었습니다.");
 				path = "detailedPage?classNo=" + classNo;
@@ -159,8 +217,8 @@ public class detailedPageServlet extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			
 		}
+		
 		resp.sendRedirect(path);
 	}
 	
