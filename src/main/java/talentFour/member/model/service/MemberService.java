@@ -163,7 +163,6 @@ public class MemberService {
 		return reviewList;
 	}
 	
-
 	/** 결제 내역 조회
 	 * @param memberNo
 	 * @return List<Paid>

@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+1231<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
@@ -39,7 +39,6 @@
                 </div>
             </div>
             <nav class="detailedNav">
-            ${currUrl}
                 <ul>
                     <li><a href="#classIntroduce">클래스 소개</a></li>
                     <li><a href="#tutorIntroduce">튜터 소개</a></li>
@@ -118,7 +117,8 @@
                     <span class="boxTitle">튜터님을 소개합니다!</span>
                     <div>
                         <div class="tutorInfoSmallBox">
-                        ${classDetail.tutorInfo[0]}
+                        	${classDetail.tutorInfo[0]}
+                        </div>
                         <c:if test="${classInfo.memberProfile != null}">
                         	<img src="${contextPath}${classInfo.memberProfile}">
                         </c:if>
@@ -134,37 +134,12 @@
                         </div>
                         <div class="tutorIntroduce">
                             <pre>
-                            
                             ${classDetail.tutorInfo[1]}
-                            
                             </pre>
                         </div>
                     </div>
                 </section>
-    
-    
-<!--                 <section id="d-curriculum" class="bottomBox">
-                    <span class="boxTitle">커리큘럼</span>
-                    <div class="curriculumBox">
-                        <h4>맛보기 영상</h4>
-    
-                        <a href="#"> <strong>OT.오리엔테이션</strong>
-                            <span>03:10</span>
-                        </a>
-                    </div>
-                    <div>
-                        <h4>1. 누구나 카피라이터가 되어야 합니다.</h4>
-                        <a href="#">
-                            <strong>1-1 카피라이팅의 세계에 오신 것을 환영합니다!</strong>
-                            <span>07:21</span>
-                        </a>
-                    </div>
-                    <button type="button" id="d-curriculumBtn">커리큘럼 더보기</button>
-                </section> -->
-    
-    
                 <section id="dp-review" class="bottomBox">
-                
                     <div>
                         <span class="boxTitle">수강생 리뷰</span>
                         <div>
@@ -222,7 +197,7 @@
                             </div>
 	                    </div>
     				</c:forEach>
- <%--                    <div class="d-review">
+                    <div class="d-review">
                         <div>
                             <img src="${contextPath}/resources/img/profile_all_re.PNG">
                             <p>

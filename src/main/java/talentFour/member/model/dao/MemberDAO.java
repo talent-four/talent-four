@@ -247,7 +247,6 @@ public class MemberDAO {
 			close(pstmt);
 		}
 		
-		
 		return reviewList;
 	}
 
@@ -300,7 +299,6 @@ public class MemberDAO {
 		
 		return reviewList;
 	}
-	
 
 	public List<Paid> selectPaid(Connection conn, int memberNo) throws SQLException {
 		
@@ -334,10 +332,5 @@ public class MemberDAO {
 		
 		return paidList;
 	}
-
-
-
-
-
 
 }
