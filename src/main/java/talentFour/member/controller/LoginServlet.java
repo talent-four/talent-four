@@ -31,15 +31,17 @@ public class LoginServlet extends HttpServlet {
 		String id = req.getParameter("id");
 		
 		// encoding된 pw파라미터를 가져온다.
-		String encondingPw = Util.encodingPw(req.getParameter("pw"));
+//		String encondingPw = Util.encodingPw(req.getParameter("pw"));
+		String encodingPw=req.getParameter("pw");
 		String path = "";
-		
+		System.out.println(id);
+		System.out.println(encodingPw);
 		
 		MemberService service = new MemberService();
 		
 		Member mem = Member.builder()
 					.memberEmail(id)
-					.memberPw(encondingPw)
+					.memberPw(encodingPw)
 					.build();
 		
 		HttpSession session = req.getSession();

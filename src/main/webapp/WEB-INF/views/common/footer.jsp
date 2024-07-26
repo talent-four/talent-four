@@ -44,14 +44,12 @@
             Copyright @ 2024 Inc. All rights reserved.</p>
 
         <script>
-            const contextPath = "${contextPath}";
             const chatIcon = document.querySelector("#chatBtn");
             const chatClose = document.querySelector("#chat-close");
             const chatBox=document.querySelector("#chat-box");
             const chatToBtn=document.querySelector("#chatToBtn");
 
-
-            let websocket = new WebSocket(`ws://localhost:8080/${contextPath}/chat/end?clientId=${loginMember.memberNo}`)
+            // let websocket = new WebSocket(`ws://localhost:8080/${contextPath}/chat/end?clientId=${loginMember.memberNo}`)
             
             chatIcon.addEventListener("click", () => {
                 chatIcon.hidden=true;

@@ -282,7 +282,7 @@ main{ /* 메인 */
 
 
 /* ------------------------------------------------------------------------------------------------ */
-
+/* 숨겨진 영역 */
 /* 정산 상태 영역 */
 .type-area{
     width: 220px;
@@ -300,6 +300,10 @@ main{ /* 메인 */
     font-size: 20px;
     cursor: pointer;
     font-weight: bold;
+}
+.calculate-status>a{
+    text-decoration: none;
+    color: rgb(26, 26, 26);
 }
 .calculate-status>a{
     text-decoration: none;
@@ -325,7 +329,6 @@ main{ /* 메인 */
     border-spacing: 0;
     border-collapse: separate; /* separate로 설정하여 border-spacing 사용 가능 */
     border-spacing: 0 3px; 
-    
 }
 
 .calculate-table th,td{
@@ -336,7 +339,6 @@ main{ /* 메인 */
 .calculate-table>thead>tr>th{
     border-bottom: 1px solid black;
 }
-
 
 tbody>tr:nth-child(1){
     margin-top: 10px;
@@ -385,9 +387,8 @@ tr td:last-child {
     background-color: red;
 }
 
-
+/* .non{border: 2px solid red;} */
 .ing{background-color: #219ebc;}
 .finished{background-color: gray;}
 
 /*-----------------------------------------------------------------------------------------*/
-

@@ -18,7 +18,6 @@ import com.google.gson.Gson;
 import talentFour.member.model.vo.Member;
 import talentFour.tutor.model.service.TutorService;
 import talentFour.tutor.model.vo.TutorCalculate;
-
 @WebServlet("/tutor/calculate")
 public class TutorcalculateServlet extends HttpServlet{
 	@Override

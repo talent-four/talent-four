@@ -14,6 +14,7 @@ import java.util.Properties;
 
 import talentFour.classes.model.vo.Category;
 import talentFour.classes.model.vo.Class;
+import talentFour.member.model.vo.Member;
 
 public class DetailPageDAO {
 
@@ -65,6 +66,8 @@ public class DetailPageDAO {
 				c.setMemberProfile(rs.getString(12));
 				c.setMain(rs.getString(13));
 				c.setSub(rs.getString(14));
+				c.setReviews(rs.getInt(15));
+				c.setScore(rs.getFloat(16));
 			}
 			
 		} finally {
@@ -73,6 +76,94 @@ public class DetailPageDAO {
 		}
 		
 		return c;
+	}
+
+
+	public String[] getTutorIntro(Connection conn, Class c) throws Exception {
+		String[] getTutorInfo = new String[2];
+		
+		String sql = prop.getProperty("getTutorIntro");
+		
+		try {
+			// 대분류 가져오기
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, c.getMemberNo());
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				getTutorInfo[0] = rs.getString(1);
+				getTutorInfo[1] = rs.getString(2);
+			}
+			
+		} finally {
+			
+		}
+		
+		return getTutorInfo;
+	}
+
+
+	/** 클래스 번호에 클래스 삽입
+	 * @param conn
+	 * @param c
+	 * @param loginMember
+	 * @return result
+	 * @throws Exception
+	 */
+	public int insertClass(Connection conn, Class c, Member loginMember) throws Exception {
+		int result = 0;
+		
+		try {
+			String sql = prop.getProperty("insertClass");
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, c.getClassNo());
+			pstmt.setString(2, c.getClassName());
+			pstmt.setString(3, c.getClassIntro());
+			pstmt.setString(4, c.getClassPhoto());
+			pstmt.setString(5, c.getClassUrl());
+			pstmt.setInt(6, c.getClassPrice());
+			pstmt.setInt(7, loginMember.getMemberNo());
+			System.out.println(c.getSub());
+			pstmt.setString(8, c.getSub());
+			
+			result = pstmt.executeUpdate();
+			
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+
+	/** 클래스 번호 가져오기
+	 * @param conn
+	 * @return classNo
+	 * @throws Exception
+	 */
+	public int nextClassNo(Connection conn)  throws Exception {
+		int classNo = 0;
+		
+		try {
+			String sql = prop.getProperty("nextClassNo");
+			
+			stmt = conn.createStatement();
+			
+			rs = stmt.executeQuery(sql);
+			
+			if(rs.next()) {
+				classNo = rs.getInt(1);
+			}
+			
+		} finally {
+			close(rs);
+			close(stmt);
+		}
+		
+		return classNo;
 	}
 
 }

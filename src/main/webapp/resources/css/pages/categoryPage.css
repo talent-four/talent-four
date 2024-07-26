@@ -74,3 +74,29 @@ nav {
   justify-content: center;
 }
 
+.categorBarlower > ul > li > a:hover {
+  color: white;
+  background-color: #023047;
+}
+
+/* 버튼 영역 */
+.buttonArea {
+  margin: 0 auto;
+  float: right;
+}
+
+.buttonArea > button {
+  background-color: white;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+.contentStars > span {
+	font-size: 12px;
+}
+
+.star{
+  color: #ffb703;
+}

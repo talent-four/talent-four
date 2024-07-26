@@ -37,9 +37,10 @@
 		</ul>
 	    <ul id="headerBox">
 	        <li><a href="">마이 프로필</a></li>
-	        <li><a href="${contextPath}/tutor/dashboard">튜터 프로필</a></li>
+	        <li><a href="">튜터 프로필</a></li>
 	        <li><a href="${contextPath}/member/logout">로그아웃</a></li>
 	    </ul>
 	</div>
 </header>
+<link rel="stylesheet" href="${contextPath}/resources/css/common/hf.css">
 <script src="${contextPath}/resources/js/common/hf.js"></script>

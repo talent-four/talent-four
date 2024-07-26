@@ -78,9 +78,10 @@ public class myPageController extends HttpServlet{
 			
 			if(command.equals("/changePw")) {
 
-				String newPw = Util.encodingPw(req.getParameter("newPw1"));
-				String currentPw = Util.encodingPw(req.getParameter("currentPw"));
-				
+//				String newPw = Util.encodingPw(req.getParameter("newPw1"));
+//				String currentPw = Util.encodingPw(req.getParameter("currentPw"));
+				String currentPw = req.getParameter("currentPw");
+				String newPw = req.getParameter("newPw1");
 				//현재 비밀번호 검사
 				int result = service.checkCurrentpw(currentPw, loginMember.getMemberNo());
 				
@@ -113,7 +114,6 @@ public class myPageController extends HttpServlet{
 				
 				//현재 비밀번호 검사
 				int result = service.checkCurrentpw(currentPw, loginMember.getMemberNo());
-				
 				if(result==1) {
 					// 회원 탈퇴 진행
 					int secRes = service.secession(loginMember.getMemberNo());

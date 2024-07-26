@@ -16,13 +16,13 @@
 		SELECT CLASS_PHOTO, CLASS_NAME, CLASS_STATUS, TO_CHAR(CLASS_CREATE_DT,'YYYY.MM.DD')
 		FROM CLASS
 		WHERE CLASS_STATUS = ?
-		AND MEMBER_NO = ?
+		AND MEMBER_NO = 100
 	</entry>
  
 	<!-- 운영중인 / 만료된 클래스 숫자 세기 -->
 	<entry key="classcount">
 		SELECT COUNT(*) FROM CLASS WHERE CLASS_STATUS = ?
-		AND MEMBER_NO = ?
+		AND MEMBER_NO = 100
 	</entry>
   
 	<!-- 판매된 클래스 리스트 조회 -->

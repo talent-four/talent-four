@@ -3,6 +3,7 @@ package talentFour.classes.controller;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,7 +37,8 @@ public class classPageServlet extends HttpServlet {
 		String uri = req.getRequestURI();
 		String contextPath = req.getContextPath();
 		String command = uri.substring(  (contextPath + "/classPage/").length()  );
-		System.out.println("doGet 실행");
+		ServletContext application = req.getServletContext();
+		List<Category> categoryList = (List<Category>) application.getAttribute("categoryList");
 		
 		try {
 			req.setAttribute("categoryList", categoryList);
