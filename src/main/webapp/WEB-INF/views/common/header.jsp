@@ -10,7 +10,7 @@
 	            <ul>
 	                <li><a href="${contextPath}/classPage/all">클래스</a></li>
 	                <li><a href="${contextPath}/groupMain">스터디 모집</a></li>
-	                <li><a href="">수강 후기</a></li>
+	                <li><a href="${contextPath}/review">수강 후기</a></li>
 	                <li><a href="">궁금해요</a></li>
 	            </ul>
 	        </div>
@@ -36,7 +36,7 @@
 			</c:choose>
 		</ul>
 	    <ul id="headerBox">
-	        <li><a href="">마이 프로필</a></li>
+	        <li><a href="${contextPath}/mypage">마이 프로필</a></li>
 	        <li><a href="${contextPath}/tutor/dashboard">튜터 프로필</a></li>
 	        <li><a href="${contextPath}/member/logout">로그아웃</a></li>
 	    </ul>
