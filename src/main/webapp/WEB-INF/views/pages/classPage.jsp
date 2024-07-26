@@ -9,7 +9,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="${contextPath}/resources/css/common/hf.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/pages/categoryPage.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/common/slider.css">
     <script src="https://code.jquery.com/jquery-3.7.1.js"
@@ -79,7 +78,6 @@
     
     <script src="${contextPath}/resources/js/pages/categoryPage.js"></script>
     <script src="${contextPath}/resources/js/common/slider.js"></script>
-    <script src="${contextPath}/resources/js/common/hf.js"></script>
 </body>
 
 </html>

@@ -8,7 +8,6 @@
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <title>상세페이지</title>
-                <link rel="stylesheet" href="${contextPath}/resources/css/common/hf.css">
                 <link rel="stylesheet" href="${contextPath}/resources/css/pages/detialedPageForm.css">
 
                 <script src="https://code.jquery.com/jquery-3.7.1.js"
@@ -118,13 +117,11 @@
                 </form>
                 <script>
                    	const mode = "${param.mode}";
-                    const contextPath = "${contextPath}";
                     const loginMember = "${loginMember}"
                 </script>
 
                 <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
 
-                <script src="${contextPath}/resources/js/common/hf.js"></script>
                 <script src="${contextPath}/resources/js/pages/detailPage.js"></script>
             </body>
 
