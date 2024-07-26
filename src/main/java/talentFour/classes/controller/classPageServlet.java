@@ -18,6 +18,20 @@ import talentFour.classes.model.vo.Class;
 @WebServlet("/classPage/*")
 public class classPageServlet extends HttpServlet {
 	
+	private List<Category> categoryList;
+	
+	@Override
+    public void init() throws ServletException {
+        try {
+            // 서블릿 초기화 시 카테고리 정보를 한 번만 가져옴
+            ClassPageService service = new ClassPageService();
+            categoryList = service.getCategory();
+            System.out.println("Initialized with categoryList: " + categoryList);
+        } catch (Exception e) {
+            throw new ServletException("Error initializing servlet", e);
+        }
+    }
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String uri = req.getRequestURI();

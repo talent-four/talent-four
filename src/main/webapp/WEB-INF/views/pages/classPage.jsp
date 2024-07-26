@@ -40,14 +40,8 @@
            	</c:if>
         </div>
     </nav>
-
     <c:forEach var="j" begin="0" end="${fn:length(classList)/5}">
     <div class="contentWrapper">
-        <c:if test="${j == 0}">
-            <div class="buttonArea">
-                <button onclick="orderByRecommand()">추천순</button><button onclick="orderByDate()">최신순</button>
-            </div>
-        </c:if>
         <div class="contentBoxs" id="contentSlider">
             <div class="contentBoxsSet" id="contentBoxSet">
             	    <c:if test="${empty classList}">
@@ -72,11 +66,57 @@
             	</c:forEach>
             </div>
  		</div>
- 	</div>
     </c:forEach>
+<%--
+    <div class="contentWrapper">
+        <div class="contentBoxs" id="contentSlider">
+            <div class="contentBoxsSet" id="contentBoxSet">
+                <div class="contentBox">
+                    <img
+                        src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
+                    <div class="contentTitle">50만 어쩌구</div>
+                    <div class="contentAuthor">홍길동</div>
+                    <div class="contentStars">★ (<span>3.9</span>)</div>
+                    <div class="contentPrice">160,000원</div>
+                </div>
+                <div class="contentBox">
+                    <img
+                        src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
+                    <div class="contentTitle">50만 어쩌구</div>
+                    <div class="contentAuthor">홍길동</div>
+                    <div class="contentStars">★ (<span>3.9</span>)</div>
+                    <div class="contentPrice">160,000원</div>
+                </div>
+                <div class="contentBox">
+                    <img
+                        src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
+                    <div class="contentTitle">50만 어쩌구</div>
+                    <div class="contentAuthor">홍길동</div>
+                    <div class="contentStars">★ (<span>3.9</span>)</div>
+                    <div class="contentPrice">160,000원</div>
+                </div>
+                <div class="contentBox">
+                    <img
+                        src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
+                    <div class="contentTitle">50만 어쩌구</div>
+                    <div class="contentAuthor">홍길동</div>
+                    <div class="contentStars">★ (<span>3.9</span>)</div>
+                    <div class="contentPrice">160,000원</div>
+                </div>
+                <div class="contentBox">
+                    <img
+                        src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
+                    <div class="contentTitle">50만 어쩌구</div>
+                    <div class="contentAuthor">홍길동</div>
+                    <div class="contentStars">★ (<span>3.9</span>)</div>
+                    <div class="contentPrice">160,000원</div>
+                </div>
+            </div>
+        </div>
+    </div> --%>
     <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
     
-    <script src="${contextPath}/resources/js/pages/categoryPage.js"></script>
+    <script src="${contextPath}/resources/js/pages/categoryPage.js"></>
     <script src="${contextPath}/resources/js/common/slider.js"></script>
 </body>
 

@@ -7,10 +7,10 @@ const fourthCategory = sideCategory[3];
 const fifthCategory = sideCategory[4];
 /*------------------------------------------------------------------------------------*/
 fifthCategory.classList.add('a-style');
-
 /*-******************************************************************************/ 
 /*-******************************************************************************/ 
 /* 정산하기 시작 */
+
 
 const calbtn = document.getElementById("calculate-btnP")
 const accountinputarea = document.getElementById("account-input-areaP")
@@ -23,6 +23,28 @@ const accountinfo = document.getElementById("account-infoP")
 const bankname = document.getElementById("banknameP")
 const account = document.getElementById("accountP")
 const username = document.getElementById("usernameP")
+
+calbtn.addEventListener("click",function(){
+
+    $.ajax({
+
+        url : "calculate",
+        type : "POST",
+        dataType : "JSON", // JSON 형태의 문자열 응답 데이터를 JS 객체로 자동 변환
+
+        success : function(){
+            console.log("제발 되라")
+        },
+        error : function(req, status, error){
+            console.log("에러 발생");
+            console.log(req.responseText);
+        }
+
+    })
+
+
+
+})
 
 
 function addaccount(){
@@ -109,4 +131,3 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-

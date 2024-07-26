@@ -123,7 +123,6 @@
 		WHERE BOARD_CD=2
 		AND BOARD_ST=1
 		ORDER BY THUMBS	
-
 	</entry>
 
 

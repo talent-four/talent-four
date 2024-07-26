@@ -184,49 +184,47 @@ main{ /* 메인 */
 }
 
 #calculateP>article:nth-child(2)>div{ /* 각 정산 금액 영역  */
-    width: 510px;
-    height: 110px;
+    width: 330px;
+    height: 90px;
     margin: 0 0 0 10px;
     border: 1px solid rgb(220, 220, 220);
     border-radius: 10px;
 }
 
 .calculate-upP{
-    width: 400px;
-    height: 40px;
+    width: 250px;
+    height: 30px;
     display: flex;
     align-items: center;
 }
 
 .calculate-upP>span{
-    margin: 10px 0 0 20px;
-    font-size: 16px;
+    margin: 7px 0 0 20px;
+    font-size: 14px;
 }
 
 .calculate-downP{
-    width: 400px;
-    height: 70px;
+    width: 250px;
+    height: 60px;
     display: flex;
     align-items: center;
 }
 
-.calculate-downP>span{
-    margin: 0 0 10px 0;
-}
 
 .calculate-downP>span:nth-child(1){
-    margin: 0 0 10px 20px;
-    font-size: 40px;
+    margin: 0 5px 5px 20px;
+    font-size: 32px;
     font-weight: bold;
 }
 
 .calculate-downP>span:nth-child(2){
-    font-size: 40px;
+    margin-bottom: 5px;
+    font-size: 32px;
     font-weight: bold;
 }
 
 .calculate-downP>span:nth-child(3){
-    margin: 0 0 10px 10px;
+    margin: 0 0 0 10px;
     font-size: 14px;
     color: rgb(153, 153, 153);
 }
@@ -243,7 +241,7 @@ main{ /* 메인 */
 /*------------------------------------------------------------------------------------------*/
 /*계좌 입력/ 정산 버튼 영역*/
 
-#calculateP>article:nth-child(3){ /*정산 요청 버튼 라인*/
+#calculateP>form>article:nth-child(1){ /*정산 요청 버튼 라인*/
     width: 980px;
     height: 70px;
     display: flex;
@@ -282,108 +280,9 @@ main{ /* 메인 */
     font-size: 20px;
 }
 
-/* 계좌번호 변경 버튼 */
-#change-account-btnP{ 
-    width: 35px;
-    height: 35px;
-    font-size: 20px;
-    margin: 3px 0 0 15px;
-    border-radius: 50%;
-    background-color: transparent;
-    border: none;
-    box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-}
 
 /* ------------------------------------------------------------------------------------------------ */
 /* 숨겨진 영역 */
-
-/* 정보 입력시 배경색 어둡게 */
-#background-div{ 
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 3;
-}
-
-/* 계좌 수정 영역 */
-#account-input-areaP{
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    z-index: 4;
-    width: 400px;
-}
-/* 계좌정보라는 span */
-#account-input-areaP>span:nth-child(1){
-    font-size: 26px;
-    margin-bottom: 20px;
-    font-weight: bold;
-}
-
-#account-input-areaP form>div{
-    width: 350px;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-#account-input-areaP form>div>span{
-    font-size: 18PX;
-    color: rgb(153, 153, 153);
-}
-
-#account-input-areaP form>div>input{
-    width: 200px;
-    height: 30px;
-    border: 1px solid rgb(153, 153, 153);
-    border-radius: 5px;
-}
-/* 은행명 선택 */
-#banknameP{
-    width: 200px;
-    height: 30px;
-    border: 1px solid rgb(153, 153, 153);
-    border-radius: 5px;
-}
-/* 저장 / 취소 버튼 영역 */
-#account-input-areaP>div:nth-child(3){
-    display: flex;
-    justify-content: space-between;
-    width: 350px;
-}
-/* 저장버튼 */
-#save-btnP{
-    background-color: #219ebc;
-    color: white;
-    width: 230px;
-    height: 30px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-}
-/* 취소버튼 */
-#cancel-btnP{
-    background-color: transparent;
-    width: 100px;
-    height: 30px;
-    border: 1px solid rgb(153, 153, 153);
-    border-radius: 5px;
-    cursor: pointer;
-}
-/* ----------------------------------------------------------------------------------------------- */
-
 /* 정산 상태 영역 */
 .type-area{
     width: 220px;
@@ -400,6 +299,11 @@ main{ /* 메인 */
     margin: 0 10px 0 0;
     font-size: 20px;
     cursor: pointer;
+    font-weight: bold;
+}
+.calculate-status>a{
+    text-decoration: none;
+    color: rgb(26, 26, 26);
 }
 .calculate-status>a{
     text-decoration: none;
@@ -414,9 +318,10 @@ main{ /* 메인 */
 /* 정산 내용 영역 */
 
 .calculate-all-areaP{
-    width: 980px;
+    width: 1020px;
     height: 590px;
     border-bottom: 1px solid rgb(220, 220, 220);
+    overflow: auto;
 }
 
 .calculate-table{
@@ -447,6 +352,7 @@ td{
     border-left: none;
     border-right: none;
 }
+
 
 /* -------------------------------------------------------------------------------- */
 /* 정산 각각 내역 영영 */
@@ -486,31 +392,3 @@ tr td:last-child {
 .finished{background-color: gray;}
 
 /*-----------------------------------------------------------------------------------------*/
-
-/* 페이지네이션(Pagination) */
-.pagination{
-    padding: 0;
-    list-style: none;
-    display: flex;
-    justify-content: center;
-}
-
-.pagination>li{
-    width: 20px;
-    margin: 0 5px;
-    text-align: center;
-}
-
-.pagination a{
-    width: 100%;
-    height: 100%;
-    display: block;
-}
-
-/* 현재 페이지 번호 */
-.pagination .current{
-    background-color: #455ba8;
-    color: white;
-    font-weight: bold;
-    border-radius: 50%;
-}

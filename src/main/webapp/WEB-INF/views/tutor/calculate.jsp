@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ page import="java.util.ArrayList" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,131 +24,128 @@
                 <div>
                     <div class="calculate-upP">
                         <div class="calculate-upP">
-                            <span>총 정산 금액</span>
+                            <span>정산 신청 가능 금액</span>
                         </div>
                     </div>
                     <div class="calculate-downP">
-                        <span id="all-calculate-moneyP">0</span>
+                        <span id="now-calculate-moneyP">${tutorcalculate.ingsum}</span>
                         <span>원</span>
                     </div>
                 </div>
                 <div>
                     <div class="calculate-upP">
-                        <span>정산 신청 가능 금액</span>
+                        <span>정산 완료한 금액</span>
                     </div>
                     <div class="calculate-downP">
-                        <span id="now-calculate-moneyP">0</span>
+                        <span id="fin-calculate-moneyP">${tutorcalculate.finsum}</span>
+                        <span>원</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="calculate-upP">
+                        <span>총 정산 금액</span>
+                    </div>
+                    <div class="calculate-downP">
+                        <span id="all-calculate-moneyP">${tutorcalculate.allsum}</span>
                         <span>원</span>
                     </div>
                 </div>
             </article>
 
-            
-            <article>
-                <div class="btn-info-area">
-                    <button id="calculate-btnP">정산 요청</button>
-                    <div>
-                        <i class="fa-regular fa-credit-card"></i>
-                        <span id="account-infoP">재능은행 111-111-11111 김재능</span>
-                    </div>
-                    <button id="change-account-btnP"><i class="fa-regular fa-pen-to-square"></i></button>
-                </div>
-
-                <div class="type-area">
-                    <div class="calculate-status choiced">
-                        <a href="${contextPath}/tutor/calculate?cp=1" class="status-link" data-id="1">정산중</a>
-                    </div>
-                    <div class="calculate-status">
-                        <a href="${contextPath}/tutor/calculate?cp=2" class="status-link" data-id="2">정산완료</a>
-                    </div>
-                </div>
-
-            </article>
-
-            <article class="calculate-all-areaP">
-                <table class="calculate-table">
-                    <thead>
-                        <tr>
-                             <th><input type="checkbox" id="title-checkP"></th>
-                             <th>정산상태</th>
-                             <th>수강생명</th>
-                             <th>클래스명</th>
-                             <th>정산 예정 금액</th>
-                             <th>수수료율</th>
-                             <th>정산 신청 시간</th>
-                        </tr> 
-                    </thead>
-                    <tbody class="cal-all-rows">
-                        <tr class="cal-each-rows">
-                            <td><input type="checkbox" name="money"></td>
-                            <td><div class="cal-status">정산미신청</div></td>
-                            <td>김재능</td>
-                            <td>좋아하는 영화로 영어회화 따라잡기</td>
-                            <td>36,346원</td>
-                            <td>20%</td>
-                            <td>2024.07.15</td>
-                        </tr>
-                        <tr class="cal-each-rows">
-                            <td><input type="checkbox" name="money"></td>
-                            <td><div class="cal-status ing">정산진행중</div></td>
-                            <td>김재능</td>
-                            <td>좋아하는 영화로 영어회화 따라잡기</td>
-                            <td>36,346원</td>
-                            <td>20%</td>
-                            <td>2024.07.15</td>
-                        </tr>
-                        <tr class="cal-each-rows">
-                            <td><input type="checkbox" name="money"></td>
-                            <td><div class="cal-status finished">정산완료</div></td>
-                            <td>김재능</td>
-                            <td>좋아하는 영화로 영어회화 따라잡기</td>
-                            <td>36,346원</td>
-                            <td>20%</td>
-                            <td>2024.07.15</td>
-                        </tr>
-                        <tr class="cal-each-rows">
-                            <td><input type="checkbox" name="money"></td>
-                            <td><div class="cal-status">정산미신청</div></td>
-                            <td>김재능</td>
-                            <td>좋아하는 영화로 영어회화 따라잡기</td>
-                            <td>36,346원</td>
-                            <td>20%</td>
-                            <td>2024.07.15</td>
-                        </tr>
+            <form action="calculate?cp=2" method="post">
+                <article>
+                    <div class="btn-info-area">
+                            <button id="calculate-btnP">정산 요청</button>
                         
-                    </tbody>
-                </table>
-            </article>
-            <div class="pagination-area">
+                        <div>
+                            <i class="fa-regular fa-credit-card"></i>
+                            <span id="account-infoP">${tutorcalculate.bankName} ${tutorcalculate.account} ${tutorcalculate.accountName}</span>
+                        </div>
+                    </div>
 
-                <!-- 페이지네이션 a 태그에 사용될 공통 주소를 저장할 변수 선언 -->
-                <c:set var="url" value="list?type=${param.type}&cp="/>
+                    <div class="type-area">
+                        <div class="calculate-status choiced">
+                            <a href="${contextPath}/tutor/calculate?cp=1" class="status-link" data-id="1">정산중</a>
+                        </div>
+                        <div class="calculate-status">
+                            <a href="${contextPath}/tutor/calculate?cp=2" class="status-link" data-id="2">정산완료</a>
+                        </div>
+                    </div>
 
-                <ul class="pagination">
-                    <li><a href="${url}1">&lt;&lt;</a></li>
-                    <li><a href="${url}${pagination.prevPage}">&lt;</a></li>
+                </article>
 
-                    <!-- 범위가 정해진 일반 for문 사용 -->                    
-                    <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
-                        <c:choose>
-                            <c:when test="${i == pagination.currentPage}">
-                                <li><a class="current">${i}</a></li>
-                            </c:when>
-                            <c:otherwise>
-                                <li><a href="${url}${i}">${i}</a></li>
-                            </c:otherwise>
-                        </c:choose>
-
-                    </c:forEach>
-                    <!-- 위의 cp는 currentPage의 약자 -->
-                    <li><a href="${url}${pagination.nextPage}">&gt;</a></li>
-                    <li><a href="${url}${pagination.maxPage}">&gt;&gt;</a></li>
-                </ul>
-            </div>
+                <article class="calculate-all-areaP">
+                    <table class="calculate-table">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" id="title-checkP"></th>
+                                <th>정산상태</th>
+                                <th>수강생명</th>
+                                <th>클래스명</th>
+                                <th>정산 금액</th>
+                                <th>수수료율</th>
+                                <th>정산 신청 시간</th>
+                            </tr> 
+                        </thead>
+                        <tbody class="cal-all-rows">
+                            <c:choose>
+                                <c:when test="${empty tutorcalculate}">
+                                    <tr aria-rowspan="4">
+                                        <th colspan="7"><h1>정산 내용이 없습니다.</h1></th>
+                                    </tr>
+                                    <tr></tr>
+                                    <tr></tr>
+                                    <tr></tr>
+                                </c:when>
+                                <c:otherwise>
+                                    <c:forEach var="tutorcalculate"  items="${tutorcalculateList}" varStatus="status">
+                                        <tr class="cal-each-rows">
+                                            <td><input type="checkbox" name="money" value="${tutorcalculate.memberNo} ${tutorcalculate.memberNickname}"></td>
+                                            <td>
+                                                <c:if test="${tutorcalculate.settleStatus == 1}">
+                                                    <div class="cal-status">정산미신청</div>
+                                                </c:if>
+                                                <c:if test="${tutorcalculate.settleStatus == 2}">
+                                                    <div class="cal-status ing">정산완료</div>
+                                                </c:if>
+                                            </td>
+                                            <td>${tutorcalculate.memberNickname}</td>
+                                            <td>${tutorcalculate.className}</td>
+                                            <td>${tutorcalculate.classPrice}</td>
+                                            <td>${tutorcalculate.commission}%</td>
+                                            <td>
+                                                <c:if test="${tutorcalculate.settleStatus == 1}">
+                                                    -
+                                                </c:if>
+                                                <c:if test="${tutorcalculate.settleStatus == 2}">
+                                                    ${tutorcalculate.settleDate}    
+                                                </c:if>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
+                                </c:otherwise>
+                            </c:choose>
+                        </tbody>
+                    </table>
+                </article>
+            </form>
         </section>
-       
     </main>
     
+    <c:if test="${!empty sessionScope.message}">
+        <script>
+            alert("${message}");
+            
+            // EL 작성시 scope를 지정하지 않으면 
+            // page -> request -> session -> application 순서대로 검색하여
+            // 일치하는 속성이 있으면 출력
+            
+        </script>
+        
+        <!-- message 1회 출력 후 session에서 제거 -->
+        <c:remove var="message" scope="session"/>
+    </c:if>
+
     <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
     <script src="${contextPath}/resources/js/tutor/tutorCalculate.js"></script>
     <script src="${contextPath}/resources/js/common/hf.js"></script>

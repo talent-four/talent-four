@@ -34,6 +34,5 @@ public class TutorClassesSellServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		
 	}
 }

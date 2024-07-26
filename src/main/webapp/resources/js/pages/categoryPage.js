@@ -11,10 +11,6 @@ function orderByRecommand() {
 }
 
 
-function orderByDate() {
-
-}
-
 /* 
 
 SELECT *

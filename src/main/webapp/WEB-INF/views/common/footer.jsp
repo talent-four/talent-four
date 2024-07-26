@@ -49,7 +49,6 @@
             const chatBox=document.querySelector("#chat-box");
             const chatToBtn=document.querySelector("#chatToBtn");
 
-
             // let websocket = new WebSocket(`ws://localhost:8080/${contextPath}/chat/end?clientId=${loginMember.memberNo}`)
             
             chatIcon.addEventListener("click", () => {

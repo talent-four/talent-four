@@ -29,7 +29,6 @@
                     <div id="main-header">
                         <div class="headerbtn btn1">추천 순</div>
                         <div class="headerbtn btn2">최신 순</div>
-
                         <div class="headerbtn btn3">글쓰기</div>
                         <div class="searchBox">
                             <input type="text" name="search" id="searchReview">
@@ -97,8 +96,6 @@
                             </form>
                         </div>
                     </div> -->
-
-
                 </main>
                 <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
                 <!-- CSS -->

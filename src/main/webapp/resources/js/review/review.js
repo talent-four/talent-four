@@ -596,7 +596,6 @@ function updateTagController(btn) {
 }
 
 function deleteReview(boardNo) {
-
     $.ajax({
 
         url: contextPath + "/review/deleteReview",
@@ -796,4 +795,3 @@ function searchReview(){
 
     searchReview.value="";
 }
-

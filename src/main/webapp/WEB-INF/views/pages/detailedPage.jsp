@@ -51,7 +51,6 @@
                             </ul>
                         </nav>
                     </section>
-
                     <section class="lower">
                         <div class="introduceBox" id="classIntroduce">
                             <section class="classDetailBox">
@@ -339,5 +338,4 @@
                 <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
                 <script src="${contextPath}/resources/js/pages/detailPage.js"></script>
             </body>
-
-            </html>
+</html>
