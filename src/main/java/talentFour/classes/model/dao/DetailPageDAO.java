@@ -105,15 +105,62 @@ public class DetailPageDAO {
 	}
 
 
+	/** 클래스 번호에 클래스 삽입
+	 * @param conn
+	 * @param c
+	 * @param loginMember
+	 * @return result
+	 * @throws Exception
+	 */
 	public int insertClass(Connection conn, Class c, Member loginMember) throws Exception {
-		int classNo = 0;
-		String sql = prop.getProperty("insertClass");
+		int result = 0;
 		
 		try {
+			String sql = prop.getProperty("insertClass");
+			pstmt = conn.prepareStatement(sql);
 			
+			pstmt.setInt(1, c.getClassNo());
+			pstmt.setString(2, c.getClassName());
+			pstmt.setString(3, c.getClassIntro());
+			pstmt.setString(4, c.getClassPhoto());
+			pstmt.setString(5, c.getClassUrl());
+			pstmt.setInt(6, c.getClassPrice());
+			pstmt.setInt(7, loginMember.getMemberNo());
+			System.out.println(c.getSub());
+			pstmt.setString(8, c.getSub());
+			
+			result = pstmt.executeUpdate();
 			
 		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+
+	/** 클래스 번호 가져오기
+	 * @param conn
+	 * @return classNo
+	 * @throws Exception
+	 */
+	public int nextClassNo(Connection conn)  throws Exception {
+		int classNo = 0;
+		
+		try {
+			String sql = prop.getProperty("nextClassNo");
 			
+			stmt = conn.createStatement();
+			
+			rs = stmt.executeQuery(sql);
+			
+			if(rs.next()) {
+				classNo = rs.getInt(1);
+			}
+			
+		} finally {
+			close(rs);
+			close(stmt);
 		}
 		
 		return classNo;

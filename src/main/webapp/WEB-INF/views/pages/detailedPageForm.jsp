@@ -1,6 +1,6 @@
-1231<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-        <button%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+        <!-- <button%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> -->
             <!DOCTYPE html>
             <html lang="en">
 
@@ -36,7 +36,7 @@
                                         <select name="mainCategory" id="mainCategory">
                                             <option value="" disabled selected>대분류</option>
                                             <c:forEach var="main" items="${categoryList}">
-	                                            <option value="${main.categoryName}">${main.categoryName}</option>
+	                                            <option value="${main.categoryCode}">${main.categoryName}</option>
                                             </c:forEach>
                                         </select> /
                                         <select name="subCategory" id="subCategory">
@@ -119,7 +119,7 @@
                 <script>
                    	const mode = "${param.mode}";
                     const contextPath = "${contextPath}";
-                    const loginMemberNo = "${sessionScope.loginMember.memberNo}"
+                    const loginMember = "${loginMember}"
                 </script>
 
                 <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
