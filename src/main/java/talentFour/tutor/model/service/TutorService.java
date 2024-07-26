@@ -10,6 +10,7 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import talentFour.tutor.dao.TutorDAO;
+import talentFour.tutor.model.vo.Dashboard;
 import talentFour.tutor.model.vo.TutorCalculate;
 import talentFour.tutor.model.vo.TutorClass;
 import talentFour.tutor.model.vo.TutorClassSell;
@@ -169,19 +170,38 @@ public class TutorService {
 		
 	}
 
-	/** 튜터가 개설한 클래스 번호들 얻어오기
+	/** 결제수 그래프 그리기
 	 * @param memberNo
 	 * @return
 	 * @throws Exception
 	 */
-	public List<TutorClass> selectClassNo(int memberNo) throws Exception {
+	public List<Dashboard> selectPaidCount(int memberNo)throws Exception{
+		
 		Connection conn = getConnection();
 		
-		int[] classNoArray = dao.selectClassNo(conn,memberNo);
+		List<Dashboard> paidgraph = dao.selectPaidCount(conn,memberNo);
 		
 		close(conn);
-		return null;
+		
+		return paidgraph;
 	}
+
+	/** 클래스 총 결제수 조회하기
+	 * @param memberNo
+	 * @return
+	 * @throws Exception
+	 */
+	public int allCountPaid(int memberNo) throws Exception {
+
+		Connection conn = getConnection();
+		int count = dao.allCountPaid(conn, memberNo);
+		
+		close(conn);
+		
+		return count;
+	}
+
+	
 
 	
 

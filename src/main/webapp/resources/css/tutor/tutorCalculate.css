@@ -210,7 +210,6 @@ main{ /* 메인 */
     align-items: center;
 }
 
-
 .calculate-downP>span:nth-child(1){
     margin: 0 5px 5px 20px;
     font-size: 32px;
@@ -282,7 +281,6 @@ main{ /* 메인 */
 
 
 /* ------------------------------------------------------------------------------------------------ */
-/* 숨겨진 영역 */
 /* 정산 상태 영역 */
 .type-area{
     width: 220px;
