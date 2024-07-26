@@ -62,8 +62,6 @@ public class TutorcalculateServlet extends HttpServlet{
 		            }
 		        }
 		    }
-		    
-		    
 		    // ------------------------------------------------------------------------------------------
 		    // 정산 금액 구하기
 		    int ingsum = 0;
