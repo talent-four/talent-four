@@ -11,29 +11,22 @@ fifthCategory.classList.add('a-style');
 /*-******************************************************************************/ 
 /* 정산하기 시작 */
 
-
 const calbtn = document.getElementById("calculate-btnP")
-const accountinputarea = document.getElementById("account-input-areaP")
-const backgrounddiv = document.getElementById("background-div")
-const savebtn = document.getElementById("save-btnP")
-const cancelbtn = document.getElementById("cancel-btnP")
-const changebtn = document.getElementById("change-account-btnP")
-
-const accountinfo = document.getElementById("account-infoP")
-const bankname = document.getElementById("banknameP")
-const account = document.getElementById("accountP")
-const username = document.getElementById("usernameP")
 
 calbtn.addEventListener("click",function(){
 
     $.ajax({
 
-        url : "calculate",
+        url : "calculate?cp=2",
         type : "POST",
         dataType : "JSON", // JSON 형태의 문자열 응답 데이터를 JS 객체로 자동 변환
 
         success : function(){
             console.log("제발 되라")
+
+            const calArea = document.getElementById("cal-all-rows"); // ul 태그
+            calArea.innerHTML="";
+
         },
         error : function(req, status, error){
             console.log("에러 발생");
@@ -47,31 +40,6 @@ calbtn.addEventListener("click",function(){
 })
 
 
-function addaccount(){
-    backgrounddiv.style.display = 'block';
-    accountinputarea.style.display ='block';
-}
-
-function removeaccount(){
-    backgrounddiv.style.display = 'none';
-    accountinputarea.style.display ='none';
-}
-
-cancelbtn.addEventListener("click",function(){
-    removeaccount()
-})
-
-savebtn.addEventListener("click",function(){
-    removeaccount()
-    accountinfo.innerText = bankname.value + " " + account.value + " " + username.value;
-})
-
-changebtn.addEventListener("click",function(){
-    addaccount()
-    bankname.value =""
-    account.value =""
-    username.value =""
-})
 /* 정산요청 버튼 까지는 끝 */
 /*  --------------------------------------------------------------------------------------------- */
 /* 정산 리스트 영역 */
@@ -131,3 +99,4 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+

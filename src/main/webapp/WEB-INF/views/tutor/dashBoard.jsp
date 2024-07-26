@@ -26,8 +26,8 @@
                         <span id="view-count">0</span>
                     </div>
                     <div id="calculate">
-                        <span>결제수</span>
-                        <span id="calaulate-count">0</span>
+                        <span>총 결제수</span>
+                        <span id="calaulate-count">${countPaid}</span>
                     </div>
                     <div id="persent">
                         <span>결제율</span>
@@ -39,11 +39,11 @@
                 <div class="div1">
                     <div class="graph-titleP"><span id="title">클래스 조회수</span></div>
                     <div class="graph-contentP">
-                        <div class="graphP">
+                        <div class="graphP" id="graphP">
                             <canvas id="viewsChart" width="800px" height="330px"></canvas>
-                            <!-- <canvas id="calcualteChart" width="800px" height="330px"></canvas> -->
-                            <!-- <canvas id="persentChart" width="800px" height="330px"></canvas> -->
+                            
                         </div>
+
                     </div>
                 </div>
             </article>
@@ -53,7 +53,18 @@
     
     <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
     
-    <script src="${contextPath}/resources/js/tutor/tutorDashboard.js"></script>
+
     <script src="${contextPath}/resources/js/common/hf.js"></script>
+    <script>
+        // 게시글 번호
+        const paidgraph = "${paidgraph}";  // 500
+
+        const contextPath = "${contextPath}";
+
+        // 로그인한 회원 번호
+        const loginMemberNo = "${loginMember.memberNo}";
+
+    </script>
+    <script src="${contextPath}/resources/js/tutor/tutorDashboard.js"></script>
 </body>
 </html>

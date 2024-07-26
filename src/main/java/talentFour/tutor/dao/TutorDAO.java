@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Properties;
 
 import talentFour.group.dao.GroupDAO;
+import talentFour.tutor.model.vo.Dashboard;
 import talentFour.tutor.model.vo.TutorCalculate;
 import talentFour.tutor.model.vo.TutorClass;
 import talentFour.tutor.model.vo.TutorClassSell;
@@ -277,6 +278,13 @@ public class TutorDAO {
 		return tutorcalculate;
 	}
 
+	/** 정산하기 상태 업데이트
+	 * @param conn
+	 * @param intValue
+	 * @param stringValue
+	 * @return
+	 * @throws Exception
+	 */
 	public int updateSettleStatus(Connection conn, int intValue, String stringValue) throws Exception{
 		int result = 0;
 
@@ -295,6 +303,12 @@ public class TutorDAO {
 		return result;
 	}
 
+	/** 정산하기 중 총정산금액, 결제완료 금액, 총 정산금액 조회하기
+	 * @param conn
+	 * @param memberNo
+	 * @return
+	 * @throws Exception
+	 */
 	public TutorCalculate calculatemoney(Connection conn, int memberNo) throws Exception {
 
 		TutorCalculate calculatemoney = new TutorCalculate();
@@ -373,24 +387,70 @@ public class TutorDAO {
 		return calculatemoney;
 	}
 
-	public int[] selectClassNo(Connection conn, int memberNo) throws Exception {
+	/** 클래스별 조회수 조회하기
+	 * @param conn
+	 * @param memberNo
+	 * @return
+	 * @throws Exception
+	 */
+	public List<Dashboard> selectPaidCount(Connection conn, int memberNo) throws Exception {
 		
+		List<Dashboard> paidgraph = new ArrayList<>();
+		try {
+			
+			String sql = prop.getProperty("selectPaidCount");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memberNo);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				Dashboard paid = new Dashboard();
+				paid.setClassNo(rs.getInt(1));
+				paid.setClassName(rs.getNString(2));
+				paid.setPaidCount(rs.getInt(3));
+				
+				paidgraph.add(paid);
+			}
+			
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return paidgraph;
+	}
+
+	/** 총 결제수 조회하기
+	 * @param conn
+	 * @param memberNo
+	 * @return
+	 * @throws Exception
+	 */
+	public int allCountPaid(Connection conn, int memberNo) throws Exception {
+
+		int result = 0;
 		
 		try {
 			
-			String sql = prop.getProperty("selectClassNo");
+			String sql = prop.getProperty("allCountPaid");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memberNo);
+			rs = pstmt.executeQuery();
 			
+			if(rs.next()) {
+				result = rs.getInt(1);
+			}
 			
 		} finally {
-			
-			
-			
+			close(rs);
+			close(pstmt);
 		}
 		
 		
-		
-		return null;
+		return result;
 	}
+
+	
 
 
 

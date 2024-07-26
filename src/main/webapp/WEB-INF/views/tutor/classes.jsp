@@ -20,7 +20,6 @@
             <article class="titleP"><span>내 클래스</span></article>
             <article class="class-subtitleP">
                 <span>운영 중인 클래스</span>
-                ${loginMember}
                 <button type="button"><a href="${contextPath}/detailPage?&mode=write">클래스 만들기</a></button>
             </article>
             <article class="class-areaP">
