@@ -13,7 +13,27 @@ if (document.getElementById("d-classInfoBtn") != null) {
     })
 }
 
+// 클래스 상세 페이지 a태그 이동 시, sticky로 인해 위치 조절
+const header = document.getElementsByTagName("header")[0];
+const pageMove = document.getElementsByClassName("pageMove");
 
+for (let pm of pageMove) {
+    pm.addEventListener('click', function(e) {
+        e.preventDefault(); // 기본 링크 동작 방지
+        const targetId = pm.getAttribute('href').substring(1); // 링크의 href 속성에서 #을 제거한 id 추출
+        const targetElement = document.getElementById(targetId);
+        
+        if (targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop - header.offsetHeight,
+                behavior: 'smooth'
+            });
+        }
+    });
+}
+
+
+// 클래스 작성 시, 함수
 window.onload = function () {
     var input1 = document.getElementById('inputTtile1');
     var input2 = document.getElementById('inputTtile2');
@@ -32,41 +52,45 @@ window.onload = function () {
     const inputImage = document.getElementsByClassName("inputImage")[0];
     const deleteImage = document.getElementsByClassName("delete-image")[0];
 
-    inputImage.addEventListener("change", function() {
+    if(inputImage != null){
+        inputImage.addEventListener("change", function() {
 
-        if (this.files[0] != undefined) {
-
-            const reader = new FileReader();
-            // 선택된 파일을 읽을 객체 생성
-
-            reader.readAsDataURL(this.files[0]);
-            // 지정된 파일을 읽음 -> result에 저장(URL 포함)
-            // -> URL을 이용해서 이미지 볼 수 있음
-
-            reader.onload = function (e) { // reader가 파일을 다 읽어온 경우
-                // e.target == reader
-                // e.target.result == 읽어들인 이미지의 URL
-                // preview[i] == 파일이 선택된 input태그와 인접한 preview 이미지 태그
-                preview.setAttribute("src", e.target.result);
+            if (this.files[0] != undefined) {
+    
+                const reader = new FileReader();
+                // 선택된 파일을 읽을 객체 생성
+    
+                reader.readAsDataURL(this.files[0]);
+                // 지정된 파일을 읽음 -> result에 저장(URL 포함)
+                // -> URL을 이용해서 이미지 볼 수 있음
+    
+                reader.onload = function (e) { // reader가 파일을 다 읽어온 경우
+                    // e.target == reader
+                    // e.target.result == 읽어들인 이미지의 URL
+                    // preview[i] == 파일이 선택된 input태그와 인접한 preview 이미지 태그
+                    preview.setAttribute("src", e.target.result);
+                }
+    
+            } else { // 파일 선택이 되지 않았을 때(취소)
+                preview.removeAttribute("src");
             }
+        })
+    }
 
-        } else { // 파일 선택이 되지 않았을 때(취소)
-            preview.removeAttribute("src");
-        }
-    })
-
-    deleteImage.addEventListener("click", function(){
+    if(deleteImage != null) {
+        deleteImage.addEventListener("click", function(){
         
-        // 미리보기가 존재하는 경우에만 X 버튼 동작
-        if(preview.getAttribute("src") != ""){
-
-            // 미리보기 삭제
-            preview.removeAttribute("src");
-        
-            // input의 값 "" 만들기
-            inputImage.value = "";
-        }
-    })
+            // 미리보기가 존재하는 경우에만 X 버튼 동작
+            if(preview.getAttribute("src") != ""){
+    
+                // 미리보기 삭제
+                preview.removeAttribute("src");
+            
+                // input의 값 "" 만들기
+                inputImage.value = "";
+            }
+        })
+    }
 
     $('#mainCategory').change(function() {
         var mainCategoryCode = $(this).val();

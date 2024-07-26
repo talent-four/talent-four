@@ -87,7 +87,7 @@ a {
 }
 
 .detailedNav > ul > li {
-  flex-grow: 1; 
+  flex-grow: 1;
 }
 
 /* 클래스 본문 */
@@ -215,7 +215,11 @@ a {
 }
 
 #detailedSide-d1 > div > * {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+#detailedSide-d1 > div {
+  margin-bottom: 20px;
 }
 
 .detailedPageBrn{

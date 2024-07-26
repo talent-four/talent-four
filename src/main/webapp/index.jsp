@@ -697,7 +697,6 @@
     </div>
    	<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
     
-    <link rel="stylesheet" href="${contextPath}/resources/css/common/hf.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/pages/mainPage.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/common/slider.css">
 
