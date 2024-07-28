@@ -14,30 +14,28 @@
 </head>
 <body>
     <jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
+        	${classInfo }
     <section id="content">
         <h2>클래스 결제</h2>
         <section id="credit">
-            
             <section>
-                
                 <aside>
                     <h3>클래스 정보</h3>
                     <table class="classinfo">
                         <tr>
-                        <td ><img src="${contextPath}/resources/img/art/copywriting.png"></td>
+                        <td>
+                        	<img src="${contextPath}${classInfo.classPhoto}">
+                        </td>
                         <td>
                             <span>
-                            <strong>VOD</strong>
-                            <br>
-                            읽는 순간 기억에 남는 카피쓰기
+                            ${classInfo.className}
                             </span>
                         </td>
                         </tr>
-              
                     </table>
                
                 </aside>
-                <aside>
+<!--                 <aside>
                     <h3>수강권신청</h3>
                     
                     <div id="month12">
@@ -78,36 +76,36 @@
                         </label>
                     </div>
                     
-                </aside>
+                </aside> -->
             </section>
             <section>
                 <div id="creditS">
-                <h3>결재 수단</h3>
-                <label><input type="radio" name="creditSelect">카드/간편결제</label>
-                <label><input type="radio" name="creditSelect">네이버페이<img src="${contextPath}/resources/img/nPay.png" class="imgPay"></label>
-                <label><input type="radio" name="creditSelect">카카오페이<img src="${contextPath}/resources/img/kaPay.png" class="imgPay"></label>
-                <label><input type="radio" name="creditSelect">가상계좌입금</label>
+                <h3>결제 수단</h3>
+                <label><input type="radio" name="creditSelect"> 카드/간편결제</label>
+                <label><input type="radio" name="creditSelect"> 네이버페이 <img src="${contextPath}/resources/img/nPay.png" class="imgPay"></label>
+                <label><input type="radio" name="creditSelect"> 카카오페이 <img src="${contextPath}/resources/img/kaPay.png" class="imgPay"></label>
+                <label><input type="radio" name="creditSelect"> 가상계좌입금</label>
                 </div>
 
             </section>
             <section>
                 <h3>결제금액</h3>
                 <table class="craditCheck">
-                    <tr>
+                    <tr class="lastMoney">
                         <td>클래스 금액</td>
-                        <td>199,000원</td>
+                        <td>${classInfo.classPrice }</td>
                         
                     </tr>
-                    <tr>
+<!--                     <tr>
                         <td>지금 결제시 할인<span id="discount">50% 할인</span></td>
                         <td>-100,000원</td>
-                    </tr>
+                    </tr> -->
                     
-                    <tr class="lastMoney">
+<!--                     <tr class="lastMoney">
                        
-                        <td>최종 결재금액 </td>
+                        <td>최종 결제금액 </td>
                         <td>99,000원</td>
-                    </tr>
+                    </tr> -->
                     <tr>
                         <td colspan="2">
                             아래 내용을 확인하였으며, 결제 및 정보 제공에 동의합니다.

@@ -90,17 +90,13 @@ input[name="selectMonth"]{
 }
 
 #discount{
-    border: 3px solid #ff1058;
+    border: 0;
     padding:5px;
     border-radius: 50px;
-    color:#ff1058;
+    color:#ffb703;
     font-weight: bold;
     margin-left: 100px;
 }
-
-
-
-
 
 
 

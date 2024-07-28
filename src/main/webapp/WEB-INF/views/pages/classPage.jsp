@@ -40,8 +40,16 @@
            	</c:if>
         </div>
     </nav>
-    <c:forEach var="j" begin="0" end="${fn:length(classList)/5}">
+
+    <c:forEach var="j" begin="0" end="${fn:length(classList)/5}" varStatus="status">
     <div class="contentWrapper">
+    	<c:if test="${status.first}">
+    	    <div class="buttonBox">
+    			<button type="button" onclick="location.href='?sort=score'">평점순</button>
+    			<button type="button" onclick="location.href='?sort=review'">리뷰순</button>
+    			<button type="button" onclick="location.href='?sort=date'">최신순</button>
+   	 		</div>
+    	</c:if>
         <div class="contentBoxs" id="contentSlider">
             <div class="contentBoxsSet" id="contentBoxSet">
             	    <c:if test="${empty classList}">

@@ -24,6 +24,17 @@ public class Util {
 		
 		return content;
 	}
+	
+	// HTML 표기를 위한, XSS 해제
+	public static String unescapeXSS(String content) {
+	    content = content.replaceAll("&quot;", "\"");
+	    content = content.replaceAll("&gt;", ">");
+	    content = content.replaceAll("&lt;", "<");
+	    content = content.replaceAll("&amp;", "&");
+	    
+	    return content;
+	}
+
 
 	// PW 인코딩 메소드
 	public static String encodingPw(String pw) {

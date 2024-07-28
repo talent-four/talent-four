@@ -28,10 +28,14 @@ public class mainPageServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		try {
-			// 클래스 목록 
+			// 클래스 목록1
 			ClassPageService classService = new ClassPageService();
-			List<Class> classList = new ArrayList(classService.getAllClasses().subList(0, 30));
-			req.setAttribute("classList", classList);
+			List<Class> classList1 = new ArrayList(classService.getAllClasses("review").subList(0, 15));
+			req.setAttribute("classList1", classList1);
+			
+			// 클래스 목록2
+			List<Class> classList2 = new ArrayList(classService.getAllClasses("date").subList(0, 15));
+			req.setAttribute("classList2", classList2);
 			
 			// 수강후기 목록
 			BoardService reviewService = new BoardService();
