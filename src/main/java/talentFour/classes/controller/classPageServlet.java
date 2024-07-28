@@ -42,12 +42,15 @@ public class classPageServlet extends HttpServlet {
 		
 		try {
 			req.setAttribute("categoryList", categoryList);
-			
+			 String orderTag = req.getParameter("sort");
+			 
 			// 맨 처음, all로 요청시,
 			if(command.equals("all")) {
+				
 				 ClassPageService service = new ClassPageService();
                  try {
-                 	List<Class> classList = service.getAllClasses();
+                	
+                 	List<Class> classList = service.getAllClasses(orderTag);
                  	req.setAttribute("classList", classList);
                  } catch (Exception e) {
                  	e.printStackTrace();
@@ -64,7 +67,7 @@ public class classPageServlet extends HttpServlet {
 	                    	
 	                        ClassPageService service = new ClassPageService();
 	                        try {
-	                        	List<Class> classList = service.getMainClasses(mainCategoryCode);
+	                        	List<Class> classList = service.getMainClasses(mainCategoryCode, orderTag);
 	                        	req.setAttribute("classList", classList);
 	                        	req.setAttribute("mainCategory", category);
 
@@ -82,7 +85,7 @@ public class classPageServlet extends HttpServlet {
 	                
 	                ClassPageService service = new ClassPageService();
 	                try {
-	                	List<Class> classList = service.getClasses(subCategoryCode);
+	                	List<Class> classList = service.getClasses(subCategoryCode, orderTag);
 	                	req.setAttribute("classList", classList);
 	                } catch (Exception e) {
 	                	e.printStackTrace();

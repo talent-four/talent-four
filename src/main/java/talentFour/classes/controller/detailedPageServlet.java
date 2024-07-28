@@ -57,9 +57,6 @@ public class detailedPageServlet extends HttpServlet {
 				
 				Class classInfo = service.getClass(classNo);
 				String[] tutorInfo = service.getTutorInfoClass(classNo);
-				System.out.println(tutorInfo[0]);
-				System.out.println(tutorInfo[1]);
-				System.out.println(tutorInfo[2]);
 				
 				List<Review> reviewList = mService.getDetailPageReview(classNo);
 			

@@ -32,26 +32,26 @@
 
 	<div class="slideContentWrapper contentWrapper">
 		<div class="contentHeader">
-			<div class="contentHeaderTitle">주간 베스트 TOP20</div>
-			<div class="contentHeaderShowAll">모두보기</div>
+			<div class="contentHeaderTitle">수강생들이 가장 많이 들은 수업</div>
+			<a href="${contextPath}/classPage/all?sort=review" class="contentHeaderShowAll">모두보기</a>
 		</div>
 
 		<div class="contentBoxs" id="contentSlider">
 			<c:forEach var="j" begin="0" end="2">
 				<div class="contentBoxsSet" id="contentBoxSet"><!-- 큰 박스 3번 반복 -->
 					<c:forEach var="i" begin="${j*5}" end="${(j+1)*5-1}"><!-- 작은 박스안에 5개씩 -->
-						<c:if test="${!empty classList[i]}"><!-- 비어있으면 출력 안함 --><!-- 이녀석을 기준으로 클래스 불러와야 함 -->
-							<a href="${contextPath}/detailedPage/class?classNo=${classList[i].classNo}" class="contentBox"> 
-								<c:if test="${classList[i].classPhoto == 'PHOTO URL'}">
+						<c:if test="${!empty classList1[i]}"><!-- 비어있으면 출력 안함 --><!-- 이녀석을 기준으로 클래스 불러와야 함 -->
+							<a href="${contextPath}/detailedPage/class?classNo=${classList1[i].classNo}" class="contentBox"> 
+								<c:if test="${classList1[i].classPhoto == 'PHOTO URL'}">
 									<img src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
 								</c:if>
-								<c:if test="${classList[i].classPhoto != 'PHOTO URL'}">
-									<img src="${contextPath}${classList[i].classPhoto}">
+								<c:if test="${classList1[i].classPhoto != 'PHOTO URL'}">
+									<img src="${contextPath}${classList1[i].classPhoto}">
 								</c:if>
-								<div class="contentTitle">${classList[i].className}</div>
-								<div class="contentAuthor">${classList[i].memberNickname}</div>
-								<div class="contentStars"><span class="star">★</span> <span>(${classList[i].score})</span> <span><i class="fa-solid fa-users"></i> ${classList[i].reviews}</span></div>
-								<div class="contentPrice"><fmt:formatNumber value="${classList[i].classPrice}" pattern="#,###원" /></div>
+								<div class="contentTitle">${classList1[i].className}</div>
+								<div class="contentAuthor">${classList1[i].memberNickname}</div>
+								<div class="contentStars"><span class="star">★</span> <span>(${classList1[i].score})</span> <span><i class="fa-solid fa-users"></i> ${classList1[i].reviews}</span></div>
+								<div class="contentPrice"><fmt:formatNumber value="${classList1[i].classPrice}" pattern="#,###원" /></div>
 							</a>
 						</c:if>
 					</c:forEach>
@@ -64,28 +64,28 @@
 	</div>
 	<div class="slideContentWrapper contentWrapper">
 		<div class="contentHeader">
-			<div class="contentHeaderTitle">주간 베스트 TOP20</div>
-			<div class="contentHeaderShowAll">모두보기</div>
+			<div class="contentHeaderTitle">최근에 등록된 강의</div>
+			<a href="${contextPath}/classPage/all?sort=date" class="contentHeaderShowAll">모두보기</a>
 		</div>
 
 		<!-- 15개만 출력되야 함 -->
 		<div class="contentBoxs" id="contentSlider">
-			<c:forEach var="j" begin="3" end="5">
+			<c:forEach var="j" begin="0" end="2">
 				<div class="contentBoxsSet" id="contentBoxSet"><!-- 큰 박스 3번 반복 -->
 					<c:forEach var="i" begin="${j*5}" end="${(j+1)*5-1}"><!-- 작은 박스안에 5개씩 -->
-						<c:if test="${!empty classList[i]}"><!-- 비어있으면 출력 안함 --><!-- 이녀석을 기준으로 클래스 불러와야 함 -->
-							<a href="${contextPath}/detailedPage?classNo=${classList[i].classNo}" class="contentBox"> 
-								<c:if test="${classList[i].classPhoto == 'PHOTO URL'}">
+						<c:if test="${!empty classList2[i]}"><!-- 비어있으면 출력 안함 --><!-- 이녀석을 기준으로 클래스 불러와야 함 -->
+							<a href="${contextPath}/detailedPage/class?classNo=${classList2[i].classNo}" class="contentBox"> 
+								<c:if test="${classList2[i].classPhoto == 'PHOTO URL'}">
 									<img src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
 								</c:if>
-								<c:if test="${classList[i].classPhoto != 'PHOTO URL'}">
-									<img src="${contextPath}${classList[i].classPhoto}">
-									${contextPath}${classList[i].classPhoto}
+								<c:if test="${classList2[i].classPhoto != 'PHOTO URL'}">
+									<img src="${contextPath}${classList2[i].classPhoto}">
+									${contextPath}${classList2[i].classPhoto}
 								</c:if>
-								<div class="contentTitle">${classList[i].className}</div>
-								<div class="contentAuthor">${classList[i].memberNickname}</div>
-								<div class="contentStars"><span class="star">★</span> <span>(${classList[i].score})</span> <span><i class="fa-solid fa-users"></i> ${classList[i].reviews}</span></div>
-								<div class="contentPrice"><fmt:formatNumber value="${classList[i].classPrice}" pattern="#,###원" /></div>
+								<div class="contentTitle">${classList2[i].className}</div>
+								<div class="contentAuthor">${classList2[i].memberNickname}</div>
+								<div class="contentStars"><span class="star">★</span> <span>(${classList2[i].score})</span> <span><i class="fa-solid fa-users"></i> ${classList2[i].reviews}</span></div>
+								<div class="contentPrice"><fmt:formatNumber value="${classList2[i].classPrice}" pattern="#,###원" /></div>
 							</a>
 						</c:if>
 					</c:forEach>
@@ -138,36 +138,24 @@
 			<div class="gridBoxTitle">Best Sellers</div>
 			<div class="gridBoxContents">
 				<div id="gridFade">
+					<c:forEach var="i" begin="0" end="3">
 					<div class="gridFadecontentBox">
-						<img
-							src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
-						<div class="contentTitle">50만 어쩌구</div>
-						<div class="contentAuthor">홍길동</div>
-						<div class="contentStars">
-							★ (<span>3.9</span>)
-						</div>
-						<div class="contentPrice">160,000원</div>
+					<c:if test="${!empty classList1[i]}"><!-- 비어있으면 출력 안함 --><!-- 이녀석을 기준으로 클래스 불러와야 함 -->
+							<a href="${contextPath}/detailedPage/class?classNo=${classList1[i].classNo}" class="contentBox"> 
+								<c:if test="${classList1[i].classPhoto == 'PHOTO URL'}">
+									<img src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
+								</c:if>
+								<c:if test="${classList1[i].classPhoto != 'PHOTO URL'}">
+									<img src="${contextPath}${classList1[i].classPhoto}">
+								</c:if>
+								<div class="contentTitle">${classList1[i].className}</div>
+								<div class="contentAuthor">${classList1[i].memberNickname}</div>
+								<div class="contentStars"><span class="star">★</span> <span>(${classList1[i].score})</span> <span><i class="fa-solid fa-users"></i> ${classList1[i].reviews}</span></div>
+								<div class="contentPrice"><fmt:formatNumber value="${classList1[i].classPrice}" pattern="#,###원" /></div>
+							</a>
+						</c:if>
 					</div>
-					<div class="gridFadecontentBox">
-						<img
-							src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F9d277aa56493ec815c5a2b0e6803bf20352e4f1e.png&w=640&q=75">
-						<div class="contentTitle">50만 어쩌구</div>
-						<div class="contentAuthor">홍길동</div>
-						<div class="contentStars">
-							★ (<span>3.9</span>)
-						</div>
-						<div class="contentPrice">160,000원</div>
-					</div>
-					<div class="gridFadecontentBox">
-						<img
-							src="https://www.taling.me/_next/image?url=https%3A%2F%2Fimg.taling.me%2FContent%2FUploads%2FImages%2F85b0d8ca8eb43e350b84487b3fb7783d9ef84215.png&w=640&q=75">
-						<div class="contentTitle">50만 어쩌구</div>
-						<div class="contentAuthor">홍길동</div>
-						<div class="contentStars">
-							★ (<span>3.9</span>)
-						</div>
-						<div class="contentPrice">160,000원</div>
-					</div>
+					</c:forEach>
 				</div>
 				<div id="gridFadeController">
 					<ul>

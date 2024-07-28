@@ -21,7 +21,7 @@
 	
 	<!-- 클래스 전부 가져오기 -->
 	<entry key="getAllClasses">
-		SELECT C.*, M.MEMBER_NM, NVL(CR.리뷰수, 0) AS 리뷰수, NVL(TRUNC(CR.평점, 1), 0) AS 평점
+		SELECT C.*, M.MEMBER_NM, NVL(CR.리뷰수, 0) AS 리뷰수, NVL(TRUNC(CR.평점, 1), 0) AS 평점, C.CLASS_CREATE_DT AS 날짜
 		FROM CLASS C
 		JOIN MEMBER M ON C.MEMBER_NO = M.MEMBER_NO
 		LEFT JOIN (
@@ -29,12 +29,13 @@
 		    FROM CLASS C
 		    LEFT JOIN REVIEW R ON C.CLASS_NO = R.CLASS_NO
 		    GROUP BY C.CLASS_NO) CR ON C.CLASS_NO = CR.CLASS_NO
+		WHERE CLASS_STATUS = 1
 	</entry>
 	
 	
 	<!-- 대분류로 클래스 가져오기 -->
 	<entry key="getMainClasses">
-		SELECT C.*, M.MEMBER_NM, NVL(CR.리뷰수, 0) AS 리뷰수, NVL(TRUNC(CR.평점, 1), 0) AS 평점
+		SELECT C.*, M.MEMBER_NM, NVL(CR.리뷰수, 0) AS 리뷰수, NVL(TRUNC(CR.평점, 1), 0) AS 평점, C.CLASS_CREATE_DT AS 날짜
 		FROM CLASS C
 		JOIN MEMBER M ON C.MEMBER_NO = M.MEMBER_NO
 		LEFT JOIN (
@@ -47,6 +48,7 @@
 		    FROM CATEGORY
 		    WHERE PARENT_ID = ?
 		    )
+		AND CLASS_STATUS = 1
 	</entry>
 	
 	<!-- 클래스 정보 업데이트 -->
@@ -58,7 +60,7 @@
 	
 	<!-- 소분류로 클래스 가져오기 -->
 	<entry key="getClasses">
-		SELECT C.*, M.MEMBER_NM, NVL(CR.리뷰수, 0) AS 리뷰수, NVL(TRUNC(CR.평점, 1), 0) AS 평점
+		SELECT C.*, M.MEMBER_NM, NVL(CR.리뷰수, 0) AS 리뷰수, NVL(TRUNC(CR.평점, 1), 0) AS 평점, C.CLASS_CREATE_DT AS 날짜
 		FROM CLASS C
 		JOIN MEMBER M ON C.MEMBER_NO = M.MEMBER_NO
 		LEFT JOIN (
@@ -66,7 +68,7 @@
 		    FROM CLASS C
 		    LEFT JOIN REVIEW R ON C.CLASS_NO = R.CLASS_NO
 		    GROUP BY C.CLASS_NO) CR ON C.CLASS_NO = CR.CLASS_NO
-		WHERE CATEGORY_CODE = ?
+		WHERE CATEGORY_CODE = ? AND CLASS_STATUS = 1
 	</entry>
 	
 	<!-- 클래스 디테일 페이지 조회 -->
@@ -83,7 +85,7 @@
 		    FROM CLASS C2
 		    LEFT JOIN REVIEW R ON C2.CLASS_NO = R.CLASS_NO
 		    GROUP BY C2.CLASS_NO) CR ON C.CLASS_NO = CR.CLASS_NO
-		WHERE C.CLASS_NO = ?
+		WHERE C.CLASS_NO = ? AND CLASS_STATUS = 1
 	</entry>
 	
 	<!-- 튜터 소개 가져오기 -->

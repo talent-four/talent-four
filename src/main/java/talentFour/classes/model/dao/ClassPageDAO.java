@@ -89,11 +89,11 @@ public class ClassPageDAO {
 	}
 
 
-	public List<Class> getClasses(Connection conn, String subCategoryCode) throws Exception {
+	public List<Class> getClasses(Connection conn, String subCategoryCode, String orderBy) throws Exception {
 		List<Class> classList = new ArrayList<>();
 		
 		try {
-			String sql = prop.getProperty("getClasses");
+			String sql = prop.getProperty("getClasses") + orderBy;
 				
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, subCategoryCode);
@@ -128,11 +128,11 @@ public class ClassPageDAO {
 	}
 
 
-	public List<Class> getMainClasses(Connection conn, String mainCategoryCode) throws Exception {
+	public List<Class> getMainClasses(Connection conn, String mainCategoryCode, String orderBy) throws Exception {
 		List<Class> classList = new ArrayList<>();
 		
 		try {
-			String sql = prop.getProperty("getMainClasses");
+			String sql = prop.getProperty("getMainClasses") + orderBy;
 				
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, mainCategoryCode);
@@ -167,11 +167,11 @@ public class ClassPageDAO {
 	}
 
 
-	public List<Class> getAllClasses(Connection conn) throws Exception {
+	public List<Class> getAllClasses(Connection conn, String orderBy) throws Exception {
 		List<Class> classList = new ArrayList<>();
 		
 		try {
-			String sql = prop.getProperty("getAllClasses");
+			String sql = prop.getProperty("getAllClasses") + orderBy;
 				
 			stmt = conn.prepareStatement(sql);
 			

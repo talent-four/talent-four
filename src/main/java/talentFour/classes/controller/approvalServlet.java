@@ -9,6 +9,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import talentFour.classes.model.service.BoardService;
+import talentFour.classes.model.service.ClassPageService;
+import talentFour.classes.model.service.DetailPageService;
+import talentFour.classes.model.vo.Class;
+
 @WebServlet("/approval/*")
 public class approvalServlet extends HttpServlet {
 	
@@ -26,8 +31,19 @@ public class approvalServlet extends HttpServlet {
             // 로그인 안하면, 로그인 화면으로
             // 현재 요청 URL을 세션에 저장
             resp.sendRedirect(req.getContextPath() + "/member/login");
+            return;
         } else {
-            path = "/WEB-INF/views/approval/approval.jsp";
+        	try {
+        		DetailPageService service = new DetailPageService();
+        		int boardNo = Integer.parseInt(req.getParameter("classNo"));
+				Class c = service.getClass(boardNo);
+				req.setAttribute("classInfo", c);
+
+				path = "/WEB-INF/views/approval/approval.jsp";
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
         }
 		
 		req.getRequestDispatcher(path).forward(req, resp);
