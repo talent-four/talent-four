@@ -180,3 +180,26 @@ function writeValidate() {
 
     return false;
 }
+
+
+// html 텍스트 전환하기
+const textarea = document.getElementById('textarea');
+const output = document.getElementById('output');
+const button = document.getElementById('toggleButton');
+let showingHTML = false;
+
+button.addEventListener('click', () => {
+    if (showingHTML) {
+        output.style.display = 'none';
+        textarea.style.display = 'block';
+        button.textContent = 'HTML 미리보기';
+		button.style.border ="1px solid black";
+    } else {
+        output.innerHTML = textarea.value;
+        output.style.display = 'block';
+        textarea.style.display = 'none';
+        button.textContent = '글 작성하기';
+		button.style.border ="1px solid #ffb703";
+    }
+    showingHTML = !showingHTML;
+});

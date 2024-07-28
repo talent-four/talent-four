@@ -9,13 +9,18 @@ const fifthCategory = sideCategory[4];
 
 thirdCategory.classList.add('a-style');
 
-// 클래스 만들기
+// 클래스 수정, 삭제 버튼
+const statusBtn = document.querySelectorAll(".class-statusBtn");
+function removeAllStatusBtns() {
+    const updateBtns = document.querySelectorAll(".update-statusBtn");
+    const deleteBtns = document.querySelectorAll(".delete-statusBtn");
 
+    updateBtns.forEach(btn => btn.parentElement.removeChild(btn));
+    deleteBtns.forEach(btn => btn.parentElement.removeChild(btn));
+}
 
-// 클래스 지우기
-const deleteBtns = document.querySelectorAll(".class-rowP>div:nth-child(3)>div");
-for(let deleteBtn of deleteBtns){
-    deleteBtn.addEventListener("click", function(){
+for(let status of statusBtn){
+    status.addEventListener("click", function(){
         const parentElement = this.parentNode;
         let classNo = this.parentElement.parentElement.id;
 
@@ -32,8 +37,8 @@ for(let deleteBtn of deleteBtns){
             parentElement.removeChild(updateBtn);
             parentElement.removeChild(deleteBtn);
         } else {
-
-
+			removeAllStatusBtns();
+			
             const div1 = document.createElement("div");
             const span1 = document.createElement("span");
 
@@ -44,9 +49,9 @@ for(let deleteBtn of deleteBtns){
 
             // 스타일 설정
             div1.style.position = "absolute";
-            div1.style.top = "50px";
+            div1.style.top = "57px";
             div1.style.backgroundColor = "#ffb703";
-            div1.style.zIndex = "3";
+            div1.style.zIndex = "2";
             
             // 부모 요소에 추가
             parentElement.append(div1);
@@ -62,9 +67,9 @@ for(let deleteBtn of deleteBtns){
 
             // 스타일 설정
             div2.style.position = "absolute";
-            div2.style.top = "76px";
+            div2.style.top = "80px";
             div2.style.backgroundColor = "#DB4F4D";
-            div2.style.zIndex = "3";
+            div2.style.zIndex = "2";
 
             // 부모 요소에 추가
             parentElement.append(div2);
