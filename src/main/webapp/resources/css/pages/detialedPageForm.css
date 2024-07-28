@@ -119,10 +119,14 @@ a {
 .classDetailContent {
   width: 100%;
   min-height: 1000px;
-  font-size: 16px;
   resize: none;
   font-size: 18px;
   padding: 10px;
+  border: 1px solid black;
+}
+
+.classDetailContent > img {
+	width: 100%;
 }
 
 .classDetailContent:focus {
@@ -575,3 +579,14 @@ background-color: #ddd;
 #url:focus-within {
   border-bottom-color: #ffb703;
 }
+
+#toggleButton {
+    position: absolute;
+    top: 40px;
+    left: 30px;
+    border: 1px solid black;
+    background: white;
+    width: 100px;
+    height: 30px;
+}
+

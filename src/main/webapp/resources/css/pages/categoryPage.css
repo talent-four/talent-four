@@ -47,10 +47,6 @@ nav {
 }
 
 /* 카테고리 바 아래쪽 */
-.categorBarlower {
-  height: 50px;
-}
-
 .categorBarlower > ul {
   display: flex;
   align-items: center;

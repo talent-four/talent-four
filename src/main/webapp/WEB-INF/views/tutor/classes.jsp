@@ -76,7 +76,7 @@
                                 <div class="class-rowP">
                                     <div><img src="${contextPath }${tutorclassesfin.classPhoto}" class="class-thumbnail"></div>
                                     <div><a href="#">${tutorclassesfin.className}</a></div>
-                                    <div><div id="finclassdiv" class="class-statusBtn"><span>
+                                    <div><div id="finclassdiv" class="class-closed"><span>
                                         <c:if test="${tutorclassesfin.classStatus == 2}">
                                             운영 종료
                                         </c:if>
