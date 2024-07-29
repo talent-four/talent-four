@@ -14,9 +14,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import talentFour.group.model.service.GroupService;
 import talentFour.group.model.vo.GroupMain;
+import talentFour.member.model.vo.Member;
 
 @WebServlet("/groupMain")
 public class GroupMainServlet extends HttpServlet{
@@ -29,14 +31,9 @@ public class GroupMainServlet extends HttpServlet{
 
 			GroupService service = new GroupService();
 			
-			// 페이지네이션 객체, 게시글 리스트를 한 번에 반환하는 Service 호출
-//			List<GroupMain> GroupBoardList = service.selectBoardList();
+			List<GroupMain> GroupBoardList = service.selectBoardList();
 			
-			// request 범위로 map 세팅
-			
-//			req.setAttribute("GroupBoardList", GroupBoardList);
-			
-//			System.out.println(GroupBoardList);
+			req.setAttribute("GroupBoardList", GroupBoardList);
 			
 			req.getRequestDispatcher("/WEB-INF/views/group/groupMain.jsp").forward(req, resp);
 		} catch (Exception e) {

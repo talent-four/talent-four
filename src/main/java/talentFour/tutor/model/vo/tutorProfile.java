@@ -8,17 +8,19 @@ import lombok.ToString;
 
 @Setter
 @Getter
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class TutorRegister {
+@ToString
+public class tutorProfile {
 
 	private String tutorProfile;
 	private String tutorTel;
-	private String tutorIntroduce;
-	private String accountName;
+	private String tutorName;
 	private String bankName;
 	private String account;
-	private String education;
+	private String tutorIntroduce;
+	
+	private String tutorEducation;
+	private String educationText;
 	
 }

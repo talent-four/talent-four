@@ -11,38 +11,45 @@ secondCategory.classList.add('a-style');
 
 /* 공통 끝 */
 /*------------------------------------------------------------------------------------------------ */
-/*------------------------------------------------------------------------------------------------ */
-/*------------------------------------------------------------------------------------------------ */
-/* 전화번호 시작 */
+/* 전화번호 수정하기 */ 
 
+const telInfo = document.getElementById("tel-info")
+const telInput = document.getElementById("tel-input")
 
+function showWarning() {
+    telInfo.style.display = "block";
+}
 
-
-/* 전화번호 끝 */
+function hideWarning() {
+    telInfo.style.display = "none";
+}
 /*------------------------------------------------------------------------------------------------ */
-/*------------------------------------------------------------------------------------------------ */
-/*------------------------------------------------------------------------------------------------ */
-/* 튜터 소개 시작 */ 
-
-const changeIntro = document.getElementById("change-introduce")
-const checkIntro = document.getElementById("check-introduce")
-const cancelIntro = document.getElementById("cancel-introduce")
+/* 튜터소개 수정하기 */ 
 const introduce = document.getElementById("introduce")
-const hiddenArea2 = document.getElementById("hiddenArea2")
+const countArea = document.getElementById("countArea")
+const Infocount = document.getElementById("Infocount")
 
-changeIntro.addEventListener("click",function(){
-    this.style.display = 'none';
-    hiddenArea2.style.display = 'block';
-    introduce.focus();
-})
+function showCount() {
+    document.getElementById('countArea').style.display = 'block';
+    updateCount();  
+}
 
-checkIntro.addEventListener("click",function(){
-    hiddenArea2.style.display = 'none';
+function hideCount() {
+    document.getElementById('countArea').style.display = 'none';
+}
 
-})
+function updateCount() {
+    var textarea = document.getElementById('introduce');
+    var count = textarea.value.length;
+    document.getElementById('Infocount').innerText = count;
+}
 
-Infotextarea.addEventListener("keyup",function(){
-    const length = Infotextarea.value.length;
+document.addEventListener('DOMContentLoaded', (event) => {
+    updateCount();
+});
+
+introduce.addEventListener("input",function(){
+    const length = introduce.value.length;
     Infocount.innerText = length;
 
     if(length<250){
@@ -55,5 +62,41 @@ Infotextarea.addEventListener("keyup",function(){
 
 })
 
-/* 튜터 소개 끝 */ 
 /* -----------------------------------------------------------------------------------------------*/
+/* 전체 수정하기 */ 
+
+function updateValidate(){
+
+    const regExp1 = /^([a-z]|[0-9]|[가-힣]){2,10}$/;
+    // const regExp1 = /^([a-zA-Z0-9가-힣]){2,10}$/;
+    const regExp2 = /^[0-9]{10,11}$/;
+    // const regExp2 = /^0(1[079]|2|[3-6][1-5]|70)\d{3,4}\d{4}$/;
+
+
+    if(nickname.value.trim().length == 0){
+        return printAlert(nickname, "닉네임을 입력해 주세요")
+    } else if(!regExp1.test(nickname.value)){
+        return printAlert(nickname, "닉네임은 영어/숫자/한글 2~10글자 사이로 작성해 주세요.")
+    }
+
+    if(tel.value.trim().length == 0){
+        return printAlert(tel, "전화번호를 입력해 주세요(- 제외)");
+    } else if(!regExp2.test(tel.value)){
+        return printAlert(tel, "전화번호 형식이 올바르지 않습니다.");
+        
+    }
+    return true;
+
+}
+
+function printAlert(el, message){ // 매개변수 el은 요소 
+    alert(message);
+    el.focus();
+    return false
+}
+
+/*------------------------------------------------------------------------------------ */
+/*취소하기 버튼 누르기 */
+function resetForm() {
+    location.reload();
+}

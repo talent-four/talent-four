@@ -31,7 +31,7 @@ footer{
 main {
     /* 메인 */
     width: 1280px;
-    min-height: 1000px;
+    min-height: 850px;
     max-height: 1700px;
     display: flex;
 }
@@ -40,7 +40,7 @@ main {
 /* 사이드 */
 .sideP {
     width: 300px;
-    min-height: 1000px;
+    min-height: 850px;
     max-height: 1700px;
     border-right: 1px solid rgb(243, 243, 243);
 }
@@ -87,7 +87,7 @@ main {
 /* 사이드 아래 */
 .side-bottomP {
     width: 300px;
-    height: 850px;
+    height: 700px;
     display: flex;
 }
 
@@ -154,7 +154,7 @@ main {
 .mainsectionsP {
     /*대시보드*/
     width: 980px;
-    min-height: 1000px;
+    min-height: 850px;
     max-height: 1700px;
 }
 
@@ -164,6 +164,11 @@ main {
 /*-----------------------------------------------------------------------------------------*/
 /* 대시보드 */
 /* 대시보드 타이틀 / 서브 타이틀 */
+
+form{
+    height: 850px;
+}
+
 
 .titleP {
     width: 980px;
@@ -180,15 +185,15 @@ main {
 
 .text-areaP {
     width: 920px;
-    height: 800px;
+    height: 850px;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 0 0 0 30px;
 }
 
+/* 각 프로필 입력 영역 */
 .text-areaP>div {
-    /* 각 프로필 입력 영역 */
     width: 920px;
     height: 100px;
     display: flex;
@@ -229,8 +234,8 @@ main {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    top: 250px;
-    left: 980px;
+    top: 240px;
+    right: 890px;
     border: none;
     background-color: #219ebc;
 }
@@ -250,59 +255,14 @@ main {
     outline: none;
     border: 1px solid rgb(220, 220, 220);
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
+    border-radius: 10px;
+    padding-left: 10px;
 }
 
-#tel-input::placeholder {
-    padding: 0 0 0 10px;
-}
-
-#changeTel{
-    width: 35px;
-    height: 35px;
-    font-size: 20px;
-    margin: 0 0 0 15px;
-    border-radius: 50%;
-    background-color: transparent;
-    border: none;
-    box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-}
-
-#hide-tel-area{
-    display: none;
-}
-
-#change-input {
-    width: 150px;
-    font-size: 18px;
-    border: none;
-    outline: none;
-    border-bottom: 1px solid rgb(220, 220, 220);
-}
-
-#change-input:focus {
-    border-bottom: 2px solid #219ebc;
-
-}
-
-#hide-tel-area>button {
-    width: 30px;
-    height: 30px;
-    border-radius: 7px;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    font-size: 16px;
-    margin: 0 2px 0 2px;
-}
-
-#hide-tel-area>button:hover {
-    background-color: rgb(220, 220, 220);
-}
-
-#hide-tel-area>div>span {
+#tel-info{
+    margin-left: 10px;
     font-size: 12px;
+    display: none;
 }
 
 /* 전화 번호 끝  */
@@ -329,13 +289,24 @@ main {
     width: 80px;
 }
 
+#bankName{
+    outline: none;
+    width: 200px;
+    height: 35px;
+    border: 1px solid rgb(220, 220, 220);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding-left: 5px;
+}
+
 .text-areaP input{
     outline: none;
     width: 200px;
     height: 35px;
     border: 1px solid rgb(220, 220, 220);
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
+    border-radius: 10px;
+    padding-left: 10px;
 }
 
 /* 정산 계좌 끝 */
@@ -343,24 +314,30 @@ main {
 /* 튜터 소개 */
 
 .text-areaP>div:nth-child(4) {
-    height: 450px;
+    height: 300px;
 }
 
-.text-areaP>div:nth-child(5)>div:nth-child(2) {
+.text-areaP>div:nth-child(4)>div{
     border: 1px solid rgb(220, 220, 220);
     width: 400px;
     height: 260px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     border-radius: 20px;
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
+#countArea{
+    margin-left: 300px;
+    font-size: 12px;
+    display: none;
+}
 
 #introduce{
-    width: 350px;
-    height: 240px;
+    width: 90%;
+    height: 90%;
     resize: none;
     margin-top: 5px;
     border: none;
@@ -371,46 +348,32 @@ main {
     border-bottom: 2px solid #219ebc;
 }
 
-#change-introduce {
-    cursor: pointer;
-    width: 40px;
+/* 취소 저장 버튼 */
+.text-areaP>div:nth-child(5){
+    height: 100px;
+}
+
+.text-areaP>div:nth-child(5)>div{
+    width: 700px;
+    display: flex;
+    justify-content: center;
+}
+
+.text-areaP>div:nth-child(5)>div>button{
+    width: 150px;
     height: 40px;
-    border-radius: 50%;
-    border: 1px solid rgb(220, 220, 220);
-    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-    background-color: white;
-    margin-left: 20px;
-}
-
-#change-introduce>i {
-    font-size: 22px;
-}
-
-.hidden-area2{
-    display: none;
-    position: relative;
-} 
-
-.hidden-area2>button {
-    border: none;
-    background-color: transparent;
+    margin: 0 20px;
+    font-weight: bold;
     font-size: 16px;
-    position: absolute;
+    border-radius: 10px;
+    border: 1px solid rgb(220, 220, 220);
     cursor: pointer;
+    background-color: white;
+    color: rgb(26, 26, 26);
 }
 
-#check-introduce{
-    top: 100px;
-    left: 10px;
+#change{
+    background-color: #219ebc;
+    color: white;
 }
 
-#cancel-introduce{
-    top: 100px;
-    left: 40px;
-}
-
-.hidden-area2>span{
-    position: absolute;
-    top: 130px;
-    right: 10px;
-}

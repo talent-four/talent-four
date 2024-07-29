@@ -18,7 +18,7 @@
         </thead>
         <tbody class="cal-all-rows" id="cal-all-rows">
             <c:choose>
-                <c:when test="${empty tutorcalculate}">
+                <c:when test="${tutorcalculate.allsum == 0}">
                     <tr aria-rowspan="4">
                         <th colspan="7"><h1>정산 내용이 없습니다.</h1></th>
                     </tr>

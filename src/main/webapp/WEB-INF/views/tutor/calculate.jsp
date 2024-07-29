@@ -50,7 +50,7 @@
                 </div>
             </article>
 
-            <form action="calculate?cp=2" method="post">
+            <form action="calculate?cp=1" method="post">
                 <article>
                     <div class="btn-info-area">
                         <button id="calculate-btnP">정산 요청</button>
@@ -89,6 +89,12 @@
         <!-- message 1회 출력 후 session에서 제거 -->
         <c:remove var="message" scope="session"/>
     </c:if>
+
+    <script>
+        const contextPath = "${contextPath}";
+        const tutorcalculateList = "${tutorcalculateList}";
+
+    </script>
 
     <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
     <script src="${contextPath}/resources/js/tutor/tutorCalculate.js"></script>

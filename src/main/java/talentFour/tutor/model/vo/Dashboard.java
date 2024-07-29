@@ -17,8 +17,9 @@ public class Dashboard {
 	private int classNo;
 	private int paidCount;
 	private int views;
-	private int review;
+	private int reviewCount;
 	private int allPaidcount;
 	private int allreviewcount;
+	private int count;
 
 }

@@ -11,32 +11,38 @@ fifthCategory.classList.add('a-style');
 /*-******************************************************************************/ 
 /* 정산하기 시작 */
 
+// function selectcalList(){
+//     $.ajax({
+//         url : contextPath + "/calculate/calmoney",
+//         type : "POST",
+//         dataType : "JSON", // JSON 형태의 문자열 응답 데이터를 JS 객체로 자동 변환
+
+//         success : function(tutorcalculateList){
+
+//             const calArea = document.getElementById("cal-all-rows"); // ul 태그
+//             calArea.innerHTML="";
+//             console("일단됨")
+
+
+
+
+//         },
+//         error : function(req, status, error){
+//             console.log("에러 발생");
+//             console.log(req.responseText);
+//         }
+
+
+//     })
+// }
+
+
+
 const calbtn = document.getElementById("calculate-btnP")
 
 calbtn.addEventListener("click",function(){
-
-    $.ajax({
-
-        url : "calculate?cp=2",
-        type : "POST",
-        dataType : "JSON", // JSON 형태의 문자열 응답 데이터를 JS 객체로 자동 변환
-
-        success : function(){
-            console.log("제발 되라")
-
-            const calArea = document.getElementById("cal-all-rows"); // ul 태그
-            calArea.innerHTML="";
-
-        },
-        error : function(req, status, error){
-            console.log("에러 발생");
-            console.log(req.responseText);
-        }
-
-    })
-
-
-
+    // selectcalList()
+    
 })
 
 
