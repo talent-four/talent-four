@@ -1,89 +1,57 @@
-// function iamport(){
+function approvalValidate(event){
+    // 체크박스 요소 가져오기
+    const privacyPolicyCheckbox = document.getElementById("privacyPolicy");
+    const refundPolicyCheckbox = document.getElementById("refundPolicy");
+	const paymentMethods = document.getElementsByName("creditSelect");
+	
+	let isSelected = false;
+	
+	// 라디오 버튼 중 하나라도 선택되어 있는지 확인
+	for (let i = 0; i < paymentMethods.length; i++) {
+	    if (paymentMethods[i].checked) {
+	        isSelected = true;
+	        break;
+	    }
+	}
 
-//     var flag = $("#flag").val();
-//     var principalId = $("#principalId").val();
-//     var name = $("#name").val();
-//     var phone = $("#phone").val();
-//     var email = $("#email").val();
-//     var postcode = $("#postcode").val();
-//     var address = $("#address").val() + " " + $("#detailAddress").val();
+	// 하나도 선택되지 않았다면 경고 메시지 표시
+	if (!isSelected) {
+	    alert("결제 수단을 선택해주세요.");
+	    return false; // 폼 제출 막기
+	}
+	
+    // 에러 메시지 초기화
+    let errorMessage = "";
+    // 체크박스 체크 여부 확인
+    if (!privacyPolicyCheckbox.checked) {
+        errorMessage += "개인정보 수집 이용 및 제 3자 제공 동의는 필수입니다.\n";
+    }
 
-//     var productName;
-//     var productId = $("#productId").val();
-//     var detailName = $("#productName").val();
-//     var cartName = $("#cartName").val();
-//     var amount = $("#amount").val();
-//     var price = $("#total-price").text();
+    if (!refundPolicyCheckbox.checked) {
+        errorMessage += "환불 규정 동의는 필수입니다.\n";
+    }
 
-//     //가맹점 식별코드
-//     IMP.init("imp52158546");
-//     IMP.request_pay({
-//         pg : 'kcp',
-//         pay_method : 'card',
-//         merchant_uid : 'merchant_' + new Date().getTime(),
-//         name : productName,
-//         amount : price,
-//         buyer_email : email,
-//         buyer_name : name,
-//         buyer_tel : phone,
-//         buyer_addr : address,
-//         buyer_postcode : postcode
-//     }, function(res) {
-
-//         // 결제검증
-//         $.ajax({
-//             type : "POST",
-//             url : "/verifyIamport/" + res.imp_uid
-//         }).done(function(data) {
-
-//             if(res.paid_amount == data.response.amount){
-//                 alert("결제 및 결제검증완료");
-
-//                 //결제 성공 시 비즈니스 로직
-
-//             } else {
-//                 alert("결제 실패");
-//             }
-//         });
-//     });
-// }
-
-// function requestPay() {
-//      IMP.init('imp52158546'); //iamport 대신 자신의 "가맹점 식별코드"를 사용
-//   IMP.request_pay({
-//     pg: "html5_inicis",
-//     pay_method: "trans",
-//     merchant_uid : 'merchant_'+new Date().getTime(),
-//     name : '결제테스트',
-//     amount : 12000,
-//     buyer_email : 'iamport@siot.do',
-//     buyer_name : '구매자',
-//     buyer_tel : '010-1234-5678',
-//     buyer_addr : '서울특별시 강남구 삼성동',
-//     buyer_postcode : '123-456'
-//   }, function (rsp) { // callback
-//     console.log(rsp);
-//       if (rsp.success) {
-//         console.log(rsp.success);
-//         // 결제 성공 시 로직,
-
-//       } else {
-//           // 결제 실패 시 로직,
-//         alert("결제 실패");
-//       }
-//   });
-// }
-
-console.log("test");
-
-function getSelectedValue() {
-  const selectedOption = document.querySelector('input[name="creditSelect"]:checked');
-  if (selectedOption) {
-    alert("선택된 결제 방식: " + selectedOption.value);
-  } else {
-    alert("결제 방식을 선택해주세요.");
-  }
+    // 에러 메시지가 있으면 폼 제출 막고 에러 메시지 표시
+    if (errorMessage) {
+        alert(errorMessage);    // 에러 메시지 표시
+		return false;
+    }
+	
+	return true;
 }
+
+function handleSubmit(event) {
+    // 폼 제출 막기
+    event.preventDefault();
+    // 검증 통과 시 결제 함수 호출
+    if (approvalValidate()) {
+	    requestPay(); // 결제 함수 호출
+	    return false; // 폼 제출 막기
+	} else {
+	    return false; // 검증 실패 시 폼 제출 막기
+	}
+}
+
 
 function requestPay() {
   // 로그 출력
@@ -103,13 +71,10 @@ function requestPay() {
       buyer_name: memberName,
     },
     function (rsp) {
-      // callback
-      console.log("rsp : " + rsp);
-      console.log("rsp.success : " + rsp.success);
-      if (rsp.success) {
-        alert("결제 성공");
-        window.location.href = `${contextPath}/detailedPage/class?classNo=${classNo}`;
-      } else {
+	  if (rsp.success) {
+	      alert("결제 성공");
+		  document.getElementById("paymentForm").submit();
+	    } else {
         // 결제 실패 시 로직,
         alert("결제 실패");
       }
