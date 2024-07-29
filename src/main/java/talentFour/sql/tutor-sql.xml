@@ -12,33 +12,79 @@
 		LEFT JOIN PAID p ON c.CLASS_NO = p.CLASS_NO
 		WHERE t.MEMBER_NO = ?
 		GROUP BY c.CLASS_NO, c.CLASS_NAME
+		ORDER BY 1
 	</entry>
 	
 	
 	<!-- 클래스 총 결제수 확인하기 -->
 	<entry key="allCountPaid">
-	SELECT SUM(payment_count) AS total_payment_count
-	FROM (
-	    SELECT c.CLASS_NO,c.CLASS_NAME,COUNT(p.MEMBER_NO) AS payment_count
-	    FROM CLASS c
-	    JOIN TUTOR t ON c.MEMBER_NO = t.MEMBER_NO
-	    LEFT JOIN PAID p ON c.CLASS_NO = p.CLASS_NO
-	    WHERE t.MEMBER_NO = ?
-	    GROUP BY c.CLASS_NO, c.CLASS_NAME
-	) subquery
+		SELECT SUM(payment_count) AS total_payment_count
+		FROM (
+		    SELECT c.CLASS_NO,c.CLASS_NAME,COUNT(p.MEMBER_NO) AS payment_count
+		    FROM CLASS c
+		    JOIN TUTOR t ON c.MEMBER_NO = t.MEMBER_NO
+		    LEFT JOIN PAID p ON c.CLASS_NO = p.CLASS_NO
+		    WHERE t.MEMBER_NO = ?
+		    GROUP BY c.CLASS_NO, c.CLASS_NAME
+		) subquery
 	</entry>
+	
+	<!-- 튜터가 개설한 강의번호와 해당 강의를 리뷰한 수 조회하기 -->
+	<entry key="selectReviewCount">
+		SELECT c.CLASS_NO AS class_no, c.CLASS_NAME AS class_name,
+		    COUNT(r.BOARD_NO) AS review_count
+		FROM CLASS c
+		JOIN TUTOR t ON c.MEMBER_NO = t.MEMBER_NO
+		LEFT JOIN REVIEW r ON c.CLASS_NO = r.CLASS_NO
+		WHERE t.MEMBER_NO = ?
+		GROUP BY c.CLASS_NO, c.CLASS_NAME
+		ORDER BY 1
+	</entry>
+	
+	<!-- 클래스 총 리뷰수 확인하기 -->
+	<entry key="allCountReview">
+		SELECT SUM(review_count) AS total_payment_count
+		FROM (
+		    SELECT c.CLASS_NO,c.CLASS_NAME,COUNT(r.BOARD_NO) AS review_count
+		    FROM CLASS c
+		    JOIN TUTOR t ON c.MEMBER_NO = t.MEMBER_NO
+		    LEFT JOIN REVIEW r ON c.CLASS_NO = r.CLASS_NO
+		    WHERE t.MEMBER_NO = ?
+		    GROUP BY c.CLASS_NO, c.CLASS_NAME
+		) subquery
+	</entry>
+	
+	<!-- 튜터의 클래스별 리뷰수, 결제수 조회하기 -->
+	<entry key="selectReviewPaidCount">
+		SELECT C.CLASS_NO, C.CLASS_NAME, NVL(R.REVIEW_COUNT, 0) AS REVIEW_COUNT,
+		    NVL(P.PAID_COUNT, 0) AS PAID_COUNT
+		FROM CLASS C
+		LEFT JOIN (
+		    SELECT CLASS_NO, COUNT(*) AS REVIEW_COUNT
+		    FROM REVIEW
+		    GROUP BY CLASS_NO
+		) R ON C.CLASS_NO = R.CLASS_NO
+		LEFT JOIN (
+		    SELECT CLASS_NO, COUNT(*) AS PAID_COUNT
+		    FROM PAID
+		    GROUP BY CLASS_NO
+		) P ON C.CLASS_NO = P.CLASS_NO
+		WHERE C.MEMBER_NO = ?
+		ORDER BY 1
+	</entry>
+	
 	<!-- 운영중인 / 만료된 클래스 조회 -->
 	<entry key="selectClassesList">
 		SELECT CLASS_NO, CLASS_PHOTO, CLASS_NAME, CLASS_STATUS, TO_CHAR(CLASS_CREATE_DT,'YYYY.MM.DD')
 		FROM CLASS
 		WHERE CLASS_STATUS = ?
-		AND MEMBER_NO = 100
+		AND MEMBER_NO = ?
 	</entry>
  
 	<!-- 운영중인 / 만료된 클래스 숫자 세기 -->
 	<entry key="classcount">
 		SELECT COUNT(*) FROM CLASS WHERE CLASS_STATUS = ?
-		AND MEMBER_NO = 100
+		AND MEMBER_NO = ?
 	</entry>
   
 	<!-- 판매된 클래스 리스트 조회 -->
@@ -118,5 +164,58 @@
 		AND SETTLE_STATUS = 2
 		ORDER BY 7 DESC
 	</entry>
+	
+	<!-- 프로필 조회하기 -->
+	<entry key="selectProfile">
+		SELECT TUTOR_TEL, TUTOR_PROFILE ,TUTOR_INTRODUCER, TUTOR_ACCOUNT, BANK_NAME, ACCOUNT_NAME
+		FROM TUTOR t
+		JOIN SETTLE_ACCOUNT s ON t.MEMBER_NO = s.MEMBER_NO
+		WHERE t.MEMBER_NO = ?
+	</entry>
+	
+	<!-- 프로필 수정하기1 -->
+	<entry key="updateProfile">
+		UPDATE TUTOR SET 
+		    TUTOR_TEL = ?,
+		    TUTOR_PROFILE = ?,
+		    TUTOR_INTRODUCER = ?
+		WHERE MEMBER_NO = ?
+	</entry>
+	
+	<!-- 프로필 수정하기2 -->
+	<entry key="updateAccount">
+		UPDATE SETTLE_ACCOUNT SET 
+		    TUTOR_ACCOUNT = ?,
+		    BANK_NAME = ?,
+		    ACCOUNT_NAME = ?
+		WHERE MEMBER_NO = ?
+	</entry>
+	
+	<!-- 튜터 등록하기(회원 상태 변경) -->
+	<entry key="registerTutor">
+		UPDATE MEMBER SET MEMBER_ST = 2
+		WHERE MEMBER_NO = ?
+	</entry>
+	
+	<!-- 튜터 등록하기(회원 정보 입력) -->
+	<entry key="registerTutorInfo">
+		INSERT INTO TUTOR VALUES(?, ?, ?, ?, ?)
+				<!--번호, 학력, 전화번호, 프로필, 소개 -->
+	</entry>
+	
+	<!-- 튜터 등록하기(정산 계좌 입력) -->
+	<entry key="registerAccount">
+		INSERT INTO SETTLE_ACCOUNT VALUES(?, ?, ?, ?)
+		<!-- 회원 번호 , 예금주명, 은행명, 계좌번호 -->
+	</entry>
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 </properties>
