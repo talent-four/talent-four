@@ -53,9 +53,16 @@
 	
 	<!-- 클래스 정보 업데이트 -->
 	<entry key="updateClass">
-		UPDATE CLASS
-		SET CLASS_NAME = ?, CLASS_INTRO = ?, CLASS_PHOTO = ?, CLASS_URL = ?, CLASS_PRAICE = ?, CATEGORY_CODE = ?
-		WHERE CLASS_NO = ?
+		UPDATE CLASS c
+		SET 
+		    CLASS_NAME = ?, 
+		    CLASS_INTRO = ?, 
+		    CLASS_PHOTO = ?, 
+		    CLASS_URL = ?, 
+		    CLASS_PRICE = ?, 
+		    CATEGORY_CODE = (SELECT CATEGORY_CODE FROM CATEGORY WHERE CATEGORY_NAME = ?)
+		WHERE 
+		    CLASS_NO = ?
 	</entry>
 	
 	<!-- 소분류로 클래스 가져오기 -->

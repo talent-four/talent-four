@@ -241,13 +241,13 @@ public class DetailPageDAO {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setInt(1, c.getClassNo());
-			pstmt.setString(2, c.getClassName());
-			pstmt.setString(3, c.getClassIntro());
-			pstmt.setString(4, c.getClassPhoto());
-			pstmt.setString(5, c.getClassUrl());
-			pstmt.setInt(6, c.getClassPrice());
-			pstmt.setString(7, c.getSub());
+			pstmt.setString(1, c.getClassName());
+			pstmt.setString(2, c.getClassIntro());
+			pstmt.setString(3, c.getClassPhoto());
+			pstmt.setString(4, c.getClassUrl());
+			pstmt.setInt(5, c.getClassPrice());
+			pstmt.setString(6, c.getSub());
+			pstmt.setInt(7, c.getClassNo());
 			
 			result = pstmt.executeUpdate();
 			
