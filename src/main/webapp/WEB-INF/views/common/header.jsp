@@ -8,10 +8,17 @@
 	        </div>
 	        <div id="categoryBar">
 	            <ul>
+<<<<<<< HEAD
+	                <li><a href="${contextPath}/classPage/all">클래스</a></li>
+	                <li><a href="${contextPath}/groupMain">스터디 모집</a></li>
+	                <li><a href="${contextPath}/review">수강 후기</a></li>
+	                <li><a href="${contextPath}/wonder/free">궁금해요</a></li>
+=======
 	                <li><a href="${contextPath}/classPage">클래스</a></li>
 	                <li><a href="">스터디 모집</a></li>
 	                <li><a href="">수강 후기</a></li>
 	                <li><a href="${contextPath}/wonder">궁금해요</a></li>
+>>>>>>> 63f5e571f38a5a5fc951cbda85e684e3ecebeb48
 	            </ul>
 	        </div>
 	        <input type="text" id="searchBar" placeholder="재능을 입력해주세요.">
