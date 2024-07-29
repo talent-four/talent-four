@@ -54,11 +54,25 @@
 	</entry>
 	
 	<entry key="selectPaid">
-		SELECT CLASS_URL, CLASS_NAME, TO_CHAR(PAYMENT_DATE, 'YY-MM-DD')
+		SELECT CLASS_PHOTO, CLASS_NAME, TO_CHAR(PAYMENT_DATE, 'YY-MM-DD') , c.class_no
 		FROM PAID P 
 		JOIN CLASS C ON (P.CLASS_NO=C.CLASS_NO)
 		WHERE P.MEMBER_NO=?
 	</entry>
 	
-
+	<entry key="profileImage">
+		UPDATE MEMBER SET MEMBER_PROFILE=? WHERE MEMBER_NO=?
+	</entry>
+	
+	<entry key="searchMemberNo">
+		SELECT MEMBER_NO FROM MEMBER WHERE MEMBER_NM=?
+	</entry>
+		
+	<entry key="insertChatting">
+		INSERT INTO CHATTING VALUES (SEQ_CHAT_NO.NEXTVAL, ? , ? , ? , SYSDATE)
+	</entry>
+	
+	<entry key="signUp">
+		INSERT INTO MEMBER VALUES (SEQ_MEMBER_NO.NEXTVAL , ?, ?, ?, SYSDATE, DEFAULT, DEFAULT , NULL)
+	</entry>
 </properties>

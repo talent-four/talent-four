@@ -74,7 +74,6 @@ public class reviewController extends HttpServlet {
 			
 			
 			if(command.equals("/write")) {
-				
 				int memberNo=Integer.parseInt(req.getParameter("writeMember"));
 				String tag=req.getParameter("tag");
 				int rawTag = Integer.parseInt(tag);
@@ -130,7 +129,9 @@ public class reviewController extends HttpServlet {
 					session.setAttribute("message", "리뷰 작성 실패");
 				}
 				
-				req.getRequestDispatcher("/WEB-INF/views/review/review.jsp").forward(req, resp);	
+
+		        // 현재 페이지로 리다이렉트
+		        resp.sendRedirect(req.getContextPath()+"/review");
 			}
 			
 			if(command.equals("/updateForm")) {

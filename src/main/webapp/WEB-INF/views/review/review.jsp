@@ -37,65 +37,8 @@
                     </div>
                     <div id="startLine">
                     </div>
+                    <!-- 리뷰 삽입 지점 -->
 
-
-
-                    <!-- <div id="background-modal"></div>
-                    
-                    <div id="write-modal">
-                        <div class="write-wrapper">
-                            <form action="${contextPath}/review/write" method="POST">
-                                <div class="write-lecture">
-                                    <label for="lecture" class="selectlabel">리뷰할 강의를 골라주세요</label>
-                                    <select name="parents" class="selectBox" required>
-                                    </select>
-                                </div>
-                                <div class="write-tag">
-                                    <div class="write-tag-question">태그를 선택해 주세요</div>
-                                    <div class="write-tag-select">
-                                        <div class="radio-button selected" data-value="1">#친절해요</div>
-                                        <div class="radio-button" data-value="2">#재밌어요</div>
-                                        <div class="radio-button" data-value="3">#시간가는줄 몰라요</div>
-                                        <div class="radio-button" data-value="4">#가격대비최고</div>
-                                        <div class="radio-button" data-value="5">#강의 맛집</div>
-                                        <div class="radio-button" data-value="6">#다음에 또 올께요</div>
-                                        <div class="radio-button" data-value="7">#완강했어요</div>
-                                        <div class="radio-button" data-value="8">#후회 안해요</div>
-                                        <div class="radio-button" data-value="9">#고민은 시간낭비</div>
-                                        <input type="radio" name="tag" value="1" id="option1" required checked
-                                            hidden>
-                                        <input type="radio" name="tag" value="2" id="option2" hidden>
-                                        <input type="radio" name="tag" value="3" id="option3" hidden>
-                                        <input type="radio" name="tag" value="4" id="option4" hidden>
-                                        <input type="radio" name="tag" value="5" id="option5" hidden>
-                                        <input type="radio" name="tag" value="6" id="option6" hidden>
-                                        <input type="radio" name="tag" value="7" id="option7" hidden>
-                                        <input type="radio" name="tag" value="8" id="option8" hidden>
-                                        <input type="radio" name="tag" value="9" id="option9" hidden>
-                                    </div>
-                                </div>
-                                <div class="write-content">
-                                    <div class="writestarbox">
-                                        <div class="starsel">
-                                            <input type="radio" name="writeStar" value="5" id="star1" checked
-                                                hidden><label for="star1">★ </label><input type="radio" name="writestar"
-                                                value="4" id="star2" hidden><label for="star2">★ </label><input
-                                                type="radio" name="writestar" value="3" id="star3" hidden><label
-                                                for="star3">★ </label><input type="radio" name="writestar" value="2"
-                                                id="star4" hidden><label for="star4">★ </label><input type="radio"
-                                                name="writestar" value="1" id="star5" hidden><label for="star5">★
-                                            </label>
-                                            별점을 선택해주세요
-                                        </div>
-                                        <input type="text" placeholder="제목을 입력해주세요" id="writeTitle" name="writeTitle" maxlength="30">
-                                        <textarea name="writetext" cols="60" rows="6" id="writecontext" maxlength="300"
-                                            placeholder="내용을 입력해주세요"></textarea>
-                                    </div>
-                                    <button id="write-btn1" type="submit">글 쓰기</button>
-                                    <button id="write-btn2" type="button">취소</button>
-                            </form>
-                        </div>
-                    </div> -->
                 </main>
                 <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
                 <!-- CSS -->
@@ -103,11 +46,11 @@
                 <link rel="stylesheet" href="${contextPath}/resources/css/common/hf.css">
                 <script src="https://code.jquery.com/jquery-3.7.1.min.js"
                     integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-                <script type="text/javascript">
+            <!--     <script type="text/javascript">
                     const memberNickname = "${loginMember.memberNickname}";
                     const memberNo = "${loginMember.memberNo}"
                     const contextPath = "${contextPath}";
-                </script>
+                </script> -->
                 <script src="${contextPath}/resources/js/review/review.js"></script>
             </body>
 

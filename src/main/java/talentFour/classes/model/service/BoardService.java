@@ -35,11 +35,11 @@ public class BoardService {
 	 * @param memberNickname
 	 * @return List<Chatting>
 	 */
-	public List<Chatting> chatting(String memberNickname , String toId) throws Exception {
+	public List<Chatting> chatting(int memberNo , String toId) throws Exception {
 		
 		Connection conn = getConnection();
 		
-		List<Chatting> chattingList = dao.chatting(conn,memberNickname, toId);
+		List<Chatting> chattingList = dao.chatting(conn,memberNo, toId);
 		
 		close(conn);
 		

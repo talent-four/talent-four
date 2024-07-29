@@ -13,7 +13,7 @@
 	<!-- 세션 스코프 메시지 알림 -->
 	<c:if test="${!empty sessionScope.message }">
 	<script>
-		alert("${message}")}
+		alert("${message}")
 	</script>
 	<c:remove var="message" scope="session"/>
 	</c:if>

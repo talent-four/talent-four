@@ -1,5 +1,6 @@
 package talentFour.member.model.service;
 
+import talentFour.classes.model.vo.Message;
 import talentFour.member.model.dao.MemberDAO;
 import talentFour.member.model.vo.Member;
 import talentFour.member.model.vo.Paid;
@@ -182,5 +183,89 @@ public class MemberService {
 		return paidList;
 	}
 
-	
-}
+
+	/** 프로필 사진 경로 변경
+	 * @param loginMember
+	 * @return result
+	 * @throws Exception
+	 */
+	public int profileImage(Member loginMember) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		int result = dao.profileImage(conn, loginMember);
+		
+		if(result>0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return result;
+	}
+
+	/** 채팅 서비스를 위한 아이디로 memberNo 반환
+	 * @param toId
+	 * @return memberNo
+	 */
+	public int searchMemberNo(String toId) {
+
+		Connection conn = getConnection();
+		
+		int memberNo = dao.searchMemberNo(conn, toId);
+		
+		close(conn);
+		
+		return memberNo;
+	}
+
+	/** 채팅 DB 삽입
+	 * @param msg
+	 * @return result
+	 * @throws Exception
+	 */
+	public int insertChatting(Message msg) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		int result = dao.insertChatting(conn, msg);
+		
+		if(result>0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return result;
+	}
+
+	/** 회원 가입
+	 * @param member
+	 * @return result
+	 * @throws Exception
+	 */
+	public int signUp(Member member) throws Exception {
+
+		
+		Connection conn = getConnection();
+		
+		int result = dao.signUp(conn, member);
+		
+		if(result>0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		
+		return result;
+	}
+
+
+
