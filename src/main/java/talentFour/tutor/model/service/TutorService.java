@@ -10,9 +10,12 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import talentFour.tutor.dao.TutorDAO;
+import talentFour.tutor.model.vo.Dashboard;
 import talentFour.tutor.model.vo.TutorCalculate;
 import talentFour.tutor.model.vo.TutorClass;
 import talentFour.tutor.model.vo.TutorClassSell;
+import talentFour.tutor.model.vo.TutorRegister;
+import talentFour.tutor.model.vo.tutorProfile;
 
 public class TutorService {
 	private TutorDAO dao = new TutorDAO();
@@ -140,14 +143,11 @@ public class TutorService {
 	public int updateSettleStatus(int intValue, String stringValue) throws Exception {
 		Connection conn = getConnection();
 		
-		int result = dao.updateSettleStatus(conn,intValue, stringValue);
+		int result = dao.updateSettleStatus(conn, intValue, stringValue);
 		
-		if(result>0) {
-			conn.commit();
-		}
-		else {
-			conn.rollback();
-		}
+		if(result>0) conn.commit();
+		else         conn.rollback();
+		
 		close(conn);
 		
 		return result;
@@ -168,20 +168,179 @@ public class TutorService {
 		return calculatemoney;
 		
 	}
-
-	/** 튜터가 개설한 클래스 번호들 얻어오기
+	
+	/** 리뷰수 그래프 그리기
 	 * @param memberNo
 	 * @return
 	 * @throws Exception
 	 */
-	public List<TutorClass> selectClassNo(int memberNo) throws Exception {
+	public List<Dashboard> selectReviewCount(int memberNo) throws Exception{
 		Connection conn = getConnection();
 		
-		int[] classNoArray = dao.selectClassNo(conn,memberNo);
+		List<Dashboard> reviewgraph = dao.selectReviewCount(conn,memberNo);
 		
 		close(conn);
-		return null;
+		
+		return reviewgraph;
 	}
+	
+	/** 클래스 총 리뷰수 구하기
+	 * @param memberNo
+	 * @return
+	 * @throws Exception
+	 */
+	public int allCountReview(int memberNo) throws Exception {
+		Connection conn = getConnection();
+		int count = dao.allCountReview(conn, memberNo);
+		
+		close(conn);
+		
+		return count;
+	}
+
+	/** 결제수 그래프 그리기
+	 * @param memberNo
+	 * @return
+	 * @throws Exception
+	 */
+	public List<Dashboard> selectPaidCount(int memberNo)throws Exception{
+		
+		Connection conn = getConnection();
+		
+		List<Dashboard> paidgraph = dao.selectPaidCount(conn,memberNo);
+		
+		close(conn);
+		
+		return paidgraph;
+	}
+
+	/** 클래스 총 결제수 조회하기
+	 * @param memberNo
+	 * @return
+	 * @throws Exception
+	 */
+	public int allCountPaid(int memberNo) throws Exception {
+
+		Connection conn = getConnection();
+		int count = dao.allCountPaid(conn, memberNo);
+		
+		close(conn);
+		
+		return count;
+	}
+
+	
+	/** 클래스별 결제수 / 리뷰수 조회하기
+	 * @param memberNo
+	 * @return
+	 * @throws Exception
+	 */
+	public List<Dashboard> selectReviewPaidCount(int memberNo) throws Exception {
+		Connection conn = getConnection();
+		List<Dashboard> scattergraph = dao.selectReviewPaidCount(conn, memberNo);
+		
+		close(conn);
+		
+		return scattergraph;
+	}
+	
+	/** 튜터 프로필 조회하기
+	 * @param memberNo
+	 * @return
+	 * @throws Exception
+	 */
+	public tutorProfile selectProfile(int memberNo) throws Exception {
+		
+		Connection conn = getConnection();
+		tutorProfile tutorProfile = dao.selectProfile(conn,memberNo);
+		
+		close(conn);
+		
+		return tutorProfile;
+		
+	}
+
+	
+	/** 튜터 프로필 수정하기
+	 * @param updateProfile
+	 * @param memberNo
+	 * @return
+	 * @throws Exception
+	 */
+	public int updateProfile(tutorProfile updateProfile, int memberNo) throws Exception {
+		
+		Connection conn = getConnection();
+		int result = dao.updateProfile(conn, updateProfile, memberNo);
+		
+		if(result>0) conn.commit();
+		else         conn.rollback();
+		
+		close(conn);
+		
+		return result;
+	}
+
+
+	/** 튜터 등록하기(회원 정보 변경)
+	 * @param memberNo
+	 * @return
+	 * @throws Exception
+	 */
+	public int registerTutor(int memberNo) throws Exception {
+		Connection conn = getConnection();
+		int result1 = dao.registerTutor(conn, memberNo);
+		
+		if(result1>0) conn.commit();
+		else         conn.rollback();
+		
+		close(conn);
+		
+		return result1;
+	}
+ 
+	/** 튜터 등록하기(튜터 정보 입력)
+	 * @param memberNo
+	 * @param register
+	 * @return
+	 * @throws Exception
+	 */
+	public int registerTutorInfo(int memberNo, TutorRegister register) throws Exception {
+		Connection conn = getConnection();
+		int result2 = dao.registerTutorInfo(conn, register, memberNo);
+		
+		if(result2>0) conn.commit();
+		else         conn.rollback();
+		
+		close(conn);
+		
+		return result2;
+	}
+
+	/** 튜터 등록하기(정산 계좌 입력)
+	 * @param memberNo
+	 * @param register
+	 * @return
+	 * @throws Exception
+	 */
+	public int registerAccount(int memberNo, TutorRegister register) throws Exception{
+		Connection conn = getConnection();
+		int result3 = dao.registerAccount(conn, register, memberNo);
+		
+		if(result3>0) conn.commit();
+		else         conn.rollback();
+		
+		close(conn);
+		
+		return result3;
+	}
+
+	
+
+	
+
+	
+
+	
 
 	
 

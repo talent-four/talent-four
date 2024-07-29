@@ -10,18 +10,21 @@ import java.util.List;
 import java.util.Properties;
 
 import talentFour.group.dao.GroupDAO;
+import talentFour.tutor.model.vo.Dashboard;
 import talentFour.tutor.model.vo.TutorCalculate;
 import talentFour.tutor.model.vo.TutorClass;
 import talentFour.tutor.model.vo.TutorClassSell;
+import talentFour.tutor.model.vo.TutorRegister;
+import talentFour.tutor.model.vo.tutorProfile;
 
 import static talentFour.common.JDBCTemplate.*;
 
 public class TutorDAO {
 
 	private Statement stmt;
-	private Statement stmt2;
 	private PreparedStatement pstmt;
 	private PreparedStatement pstmt2;
+	private PreparedStatement pstmt3;
 	private ResultSet rs;
 	private ResultSet rs2;
 
@@ -53,14 +56,16 @@ public class TutorDAO {
 			String sql = prop.getProperty("selectClassesList");
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, status);
+			pstmt.setInt(2, memberNo);
 			rs = pstmt.executeQuery();
 
 			while(rs.next()) {
 				TutorClass tutorclass = new TutorClass();
-				tutorclass.setClassPhoto(rs.getString(1));
-				tutorclass.setClassName(rs.getString(2));
-				tutorclass.setClassStatus(rs.getInt(3));
-				tutorclass.setClassCreateDate(rs.getString(4));
+				tutorclass.setClassNo(rs.getInt(1));
+				tutorclass.setClassPhoto(rs.getString(2));
+				tutorclass.setClassName(rs.getString(3));
+				tutorclass.setClassStatus(rs.getInt(4));
+				tutorclass.setClassCreateDate(rs.getString(5));
 				tutorclasses.add(tutorclass);
 			}
 		} finally {
@@ -87,6 +92,7 @@ public class TutorDAO {
 			String sql = prop.getProperty("classcount");
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, status);
+			pstmt.setInt(2, memberNo);
 			rs = pstmt.executeQuery();
 
 			if(rs.next()) {
@@ -116,14 +122,16 @@ public class TutorDAO {
 			String sql = prop.getProperty("selectClassesList");
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, statusfin);
+			pstmt.setInt(2, memberNo);
 			rs = pstmt.executeQuery();
 
 			while(rs.next()) {
 				TutorClass tutorclassfin = new TutorClass();
-				tutorclassfin.setClassPhoto(rs.getString(1));
-				tutorclassfin.setClassName(rs.getString(2));
-				tutorclassfin.setClassStatus(rs.getInt(3));
-				tutorclassfin.setClassCreateDate(rs.getString(4));
+				tutorclassfin.setClassNo(rs.getInt(1));
+				tutorclassfin.setClassPhoto(rs.getString(2));
+				tutorclassfin.setClassName(rs.getString(3));
+				tutorclassfin.setClassStatus(rs.getInt(4));
+				tutorclassfin.setClassCreateDate(rs.getString(5));
 				tutorclassesfin.add(tutorclassfin);
 
 			}
@@ -151,6 +159,7 @@ public class TutorDAO {
 			String sql = prop.getProperty("classcount");
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, statusfin);
+			pstmt.setInt(2, memberNo);
 			rs = pstmt.executeQuery();
 
 			if(rs.next()) {
@@ -277,6 +286,13 @@ public class TutorDAO {
 		return tutorcalculate;
 	}
 
+	/** 정산하기 상태 업데이트
+	 * @param conn
+	 * @param intValue
+	 * @param stringValue
+	 * @return
+	 * @throws Exception
+	 */
 	public int updateSettleStatus(Connection conn, int intValue, String stringValue) throws Exception{
 		int result = 0;
 
@@ -295,6 +311,12 @@ public class TutorDAO {
 		return result;
 	}
 
+	/** 정산하기 중 총정산금액, 결제완료 금액, 총 정산금액 조회하기
+	 * @param conn
+	 * @param memberNo
+	 * @return
+	 * @throws Exception
+	 */
 	public TutorCalculate calculatemoney(Connection conn, int memberNo) throws Exception {
 
 		TutorCalculate calculatemoney = new TutorCalculate();
@@ -368,29 +390,396 @@ public class TutorDAO {
 		} finally {
 			close(rs);
 			close(pstmt);
+			close(pstmt2);
 		}
 
 		return calculatemoney;
 	}
 
-	public int[] selectClassNo(Connection conn, int memberNo) throws Exception {
+	/** 리뷰수 그래프 그리기
+	 * @param conn
+	 * @param memberNo
+	 * @return
+	 * @throws Exception
+	 */
+	public List<Dashboard> selectReviewCount(Connection conn, int memberNo) throws Exception {
 		
+		List<Dashboard> reviewgraph = new ArrayList<>();
+		try {
+			
+			String sql = prop.getProperty("selectReviewCount");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memberNo);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				Dashboard review = new Dashboard();
+				review.setClassNo(rs.getInt(1));
+				review.setClassName(rs.getNString(2));
+				review.setReviewCount(rs.getInt(3));
+				
+				reviewgraph.add(review);
+			}
+			
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return reviewgraph;
+	}
+	
+	/** 총 리뷰수 구하기
+	 * @param conn
+	 * @param memberNo
+	 * @return
+	 * @throws Exception
+	 */
+	public int allCountReview(Connection conn, int memberNo) throws Exception {
+		int result = 0;
 		
 		try {
 			
-			String sql = prop.getProperty("selectClassNo");
+			String sql = prop.getProperty("allCountReview");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memberNo);
+			rs = pstmt.executeQuery();
 			
+			if(rs.next()) {
+				result = rs.getInt(1);
+			}
 			
 		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		return result;
+	}
+
+	
+	
+	/** 클래스별 결제수 조회하기
+	 * @param conn
+	 * @param memberNo
+	 * @return
+	 * @throws Exception
+	 */
+	public List<Dashboard> selectPaidCount(Connection conn, int memberNo) throws Exception {
+		
+		List<Dashboard> paidgraph = new ArrayList<>();
+		try {
 			
+			String sql = prop.getProperty("selectPaidCount");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memberNo);
+			rs = pstmt.executeQuery();
 			
+			while(rs.next()) {
+				Dashboard paid = new Dashboard();
+				paid.setClassNo(rs.getInt(1));
+				paid.setClassName(rs.getNString(2));
+				paid.setPaidCount(rs.getInt(3));
+				
+				paidgraph.add(paid);
+			}
 			
+		} finally {
+			close(rs);
+			close(pstmt);
 		}
 		
-		
-		
-		return null;
+		return paidgraph;
 	}
+
+	/** 총 결제수 조회하기
+	 * @param conn
+	 * @param memberNo
+	 * @return
+	 * @throws Exception
+	 */
+	public int allCountPaid(Connection conn, int memberNo) throws Exception {
+
+		int result = 0;
+		
+		try {
+			
+			String sql = prop.getProperty("allCountPaid");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memberNo);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				result = rs.getInt(1);
+			}
+			
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		return result;
+	}
+	
+	public List<Dashboard> selectReviewPaidCount(Connection conn, int memberNo) throws Exception {
+		List<Dashboard> scattergraph = new ArrayList<>();
+		try {
+			
+			String sql = prop.getProperty("selectReviewPaidCount");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memberNo);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				Dashboard paidreview = new Dashboard();
+				paidreview.setClassNo(rs.getInt(1));
+				paidreview.setClassName(rs.getNString(2));
+				paidreview.setReviewCount(rs.getInt(3));
+				paidreview.setPaidCount(rs.getInt(4));
+				
+				scattergraph.add(paidreview);
+			}
+			
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return scattergraph;
+	}
+	
+
+	/** 프로필 조회하기
+	 * @param conn
+	 * @param memberNo
+	 * @return
+	 */
+	public tutorProfile selectProfile(Connection conn, int memberNo) throws Exception {
+		
+		tutorProfile tutorProfile = new tutorProfile();
+		
+		try {
+			
+			String sql = prop.getProperty("selectProfile");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memberNo);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				tutorProfile.setTutorTel(rs.getString("TUTOR_TEL"));
+	            tutorProfile.setTutorProfile(rs.getString("TUTOR_PROFILE"));
+	            tutorProfile.setTutorIntroduce(rs.getString("TUTOR_INTRODUCER"));
+	            tutorProfile.setAccount(rs.getString("TUTOR_ACCOUNT"));
+	            tutorProfile.setBankName(rs.getString("BANK_NAME"));
+	            tutorProfile.setTutorName(rs.getString("ACCOUNT_NAME"));
+				
+			}
+			
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		return tutorProfile;
+	}
+
+	/** 튜터 프로필 변경하기
+	 * @param conn
+	 * @param updateProfile
+	 * @param memberNo
+	 * @return
+	 * @throws Exception
+	 */
+	public int updateProfile(Connection conn, tutorProfile updateProfile, int memberNo) throws Exception {
+		
+		int result = 0; // 두개 성공시 반환 예정
+		int result1 = 0; // sql문 update 성공여부 확인
+		int result2 = 0; // sql2문 update 성공여부 확인
+		
+		try {
+			
+			// 두개의 테이블 동시에 UPDATE하는 거 불가능해서 SQL문 2개 사용 예정
+			
+			String sql = prop.getProperty("updateProfile");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, updateProfile.getTutorTel());
+			pstmt.setString(2, updateProfile.getTutorProfile());
+			pstmt.setString(3, updateProfile.getTutorIntroduce());
+			pstmt.setInt(4,memberNo);
+			
+			result1 = pstmt.executeUpdate();
+			
+			String sql2 = prop.getProperty("updateAccount");
+			pstmt2 = conn.prepareStatement(sql2);
+			pstmt2.setString(1,updateProfile.getAccount());
+			pstmt2.setString(2,updateProfile.getBankName());
+			pstmt2.setString(3,updateProfile.getTutorName());
+			pstmt2.setInt(4,memberNo);
+			
+			result2 = pstmt2.executeUpdate();
+			
+			if(result1 ==1 && result2 ==1) {
+				result = 1;
+			}
+			
+			System.out.println(result);
+			
+		} finally {
+			close(pstmt2);
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+	/** 튜터 등록하기
+	 * @param conn
+	 * @param register
+	 * @param memberNo
+	 * @return
+	 * @throws Exception
+	 */
+	public int register(Connection conn, TutorRegister register, int memberNo) throws Exception {
+		
+		int result = 0;
+		int result1 = 0;
+		int result2 = 0;
+		int result3 = 0;
+		
+		try {
+			
+			String sql = prop.getProperty("registerTutor");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memberNo);
+			
+			result1 = pstmt.executeUpdate();
+			System.out.println("result1 : " + result1);
+			
+			if(result1>0) conn.commit();
+			else conn.rollback();
+			
+			String sql2 = prop.getProperty("registerTutorInfo");
+			pstmt2 = conn.prepareStatement(sql2);
+			pstmt2.setInt(1, memberNo);
+			pstmt2.setString(2, register.getEducation());
+			pstmt2.setString(3, register.getTutorTel());
+			pstmt2.setString(4, register.getTutorProfile());
+			pstmt2.setString(5, register.getTutorIntroduce());
+			
+			result2 = pstmt2.executeUpdate();
+			System.out.println("result2 : " + result2);
+			
+			if(result2>0) conn.commit();
+			else conn.rollback();
+			
+			
+			String sql3 = prop.getProperty("registerAccount");
+			pstmt3 = conn.prepareStatement(sql3);
+			pstmt3.setInt(1, memberNo);
+			pstmt3.setString(2, register.getAccountName());
+			pstmt3.setString(3,register.getBankName());
+			pstmt3.setString(4,register.getAccount());
+			
+			result3 = pstmt3.executeUpdate();
+			System.out.println("result3 : " + result3);
+			
+			if(result3>0) conn.commit();
+			else conn.rollback();
+			
+			
+			if (result1 == 1 && result2 == 1 && result3 == 1) {
+	            result = 1;
+	        } 
+			
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
+
+	/** 튜터 등록하기(회원 상태 변경)
+	 * @param conn
+	 * @param memberNo
+	 * @return
+	 * @throws Exception
+	 */
+	public int registerTutor(Connection conn, int memberNo) throws Exception {
+		
+		int result1 = 0;
+		
+		try {
+			String sql = prop.getProperty("registerTutor");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memberNo);
+			
+			result1 = pstmt.executeUpdate();
+			System.out.println("result1 : " + result1);
+			
+		} finally {
+			close(pstmt);
+		}
+		return result1;
+	}
+
+	/** 튜터 등록하기(튜터 정보 입력)
+	 * @param conn
+	 * @param register
+	 * @param memberNo
+	 * @return
+	 * @throws Exception
+	 */
+	public int registerTutorInfo(Connection conn, TutorRegister register, int memberNo) throws Exception {
+		int result2 = 0;
+		
+		try {
+			String sql = prop.getProperty("registerTutorInfo");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memberNo);
+			pstmt.setString(2, register.getEducation());
+			pstmt.setString(3, register.getTutorTel());
+			pstmt.setString(4, register.getTutorProfile());
+			pstmt.setString(5, register.getTutorIntroduce());
+			
+			result2 = pstmt.executeUpdate();
+			System.out.println("result2 : " + result2);
+			
+		} finally {
+			close(pstmt);
+		}
+		return result2;
+	}
+
+	/**튜터 등록하기(정산 계좌 입력)
+	 * @param conn
+	 * @param register
+	 * @param memberNo
+	 * @return
+	 * @throws Exception
+	 */
+	public int registerAccount(Connection conn, TutorRegister register, int memberNo) throws Exception {
+		int result3 = 0;
+		
+		try {
+			String sql = prop.getProperty("registerAccount");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memberNo);
+			pstmt.setString(2, register.getAccountName());
+			pstmt.setString(3,register.getBankName());
+			pstmt.setString(4,register.getAccount());
+			
+			result3 = pstmt.executeUpdate();
+			System.out.println("result3 : " + result3);
+			
+		} finally {
+			close(pstmt);
+		}
+		return result3;
+	}
+
+	
+
+	
+	
+
+	
 
 
 

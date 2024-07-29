@@ -23,9 +23,7 @@
             <article>
                 <div>
                     <div class="calculate-upP">
-                        <div class="calculate-upP">
-                            <span>정산 신청 가능 금액</span>
-                        </div>
+                        <span>정산 신청 가능 금액</span>
                     </div>
                     <div class="calculate-downP">
                         <span id="now-calculate-moneyP">${tutorcalculate.ingsum}</span>
@@ -52,11 +50,10 @@
                 </div>
             </article>
 
-            <form action="calculate?cp=2" method="post">
+            <form action="calculate?cp=1" method="post">
                 <article>
                     <div class="btn-info-area">
-                            <button id="calculate-btnP">정산 요청</button>
-                        
+                        <button id="calculate-btnP">정산 요청</button>
                         <div>
                             <i class="fa-regular fa-credit-card"></i>
                             <span id="account-infoP">${tutorcalculate.bankName} ${tutorcalculate.account} ${tutorcalculate.accountName}</span>
@@ -74,60 +71,7 @@
 
                 </article>
 
-                <article class="calculate-all-areaP">
-                    <table class="calculate-table">
-                        <thead>
-                            <tr>
-                                <th><input type="checkbox" id="title-checkP"></th>
-                                <th>정산상태</th>
-                                <th>수강생명</th>
-                                <th>클래스명</th>
-                                <th>정산 금액</th>
-                                <th>수수료율</th>
-                                <th>정산 신청 시간</th>
-                            </tr> 
-                        </thead>
-                        <tbody class="cal-all-rows">
-                            <c:choose>
-                                <c:when test="${empty tutorcalculate}">
-                                    <tr aria-rowspan="4">
-                                        <th colspan="7"><h1>정산 내용이 없습니다.</h1></th>
-                                    </tr>
-                                    <tr></tr>
-                                    <tr></tr>
-                                    <tr></tr>
-                                </c:when>
-                                <c:otherwise>
-                                    <c:forEach var="tutorcalculate"  items="${tutorcalculateList}" varStatus="status">
-                                        <tr class="cal-each-rows">
-                                            <td><input type="checkbox" name="money" value="${tutorcalculate.memberNo} ${tutorcalculate.memberNickname}"></td>
-                                            <td>
-                                                <c:if test="${tutorcalculate.settleStatus == 1}">
-                                                    <div class="cal-status">정산미신청</div>
-                                                </c:if>
-                                                <c:if test="${tutorcalculate.settleStatus == 2}">
-                                                    <div class="cal-status ing">정산완료</div>
-                                                </c:if>
-                                            </td>
-                                            <td>${tutorcalculate.memberNickname}</td>
-                                            <td>${tutorcalculate.className}</td>
-                                            <td>${tutorcalculate.classPrice}</td>
-                                            <td>${tutorcalculate.commission}%</td>
-                                            <td>
-                                                <c:if test="${tutorcalculate.settleStatus == 1}">
-                                                    -
-                                                </c:if>
-                                                <c:if test="${tutorcalculate.settleStatus == 2}">
-                                                    ${tutorcalculate.settleDate}    
-                                                </c:if>
-                                            </td>
-                                        </tr>
-                                    </c:forEach>
-                                </c:otherwise>
-                            </c:choose>
-                        </tbody>
-                    </table>
-                </article>
+                <jsp:include page="/WEB-INF/views/tutor/calculateList.jsp"></jsp:include>
             </form>
         </section>
     </main>
@@ -146,8 +90,15 @@
         <c:remove var="message" scope="session"/>
     </c:if>
 
+    <script>
+        const contextPath = "${contextPath}";
+        const tutorcalculateList = "${tutorcalculateList}";
+
+    </script>
+
     <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
     <script src="${contextPath}/resources/js/tutor/tutorCalculate.js"></script>
+    <script src="${contextPath}/resources/js/tutor/calculateList.js"></script>
     <script src="${contextPath}/resources/js/common/hf.js"></script>
 </body>
 </html>

@@ -81,8 +81,6 @@ public class TutorcalculateServlet extends HttpServlet{
 			req.setAttribute("tutorcalculate", tutorcalculate);
 			
 			req.getRequestDispatcher("/WEB-INF/views/tutor/calculate.jsp").forward(req, resp);
-			new Gson().toJson(tutorcalculateList,resp.getWriter());
-			new Gson().toJson(tutorcalculate,resp.getWriter());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

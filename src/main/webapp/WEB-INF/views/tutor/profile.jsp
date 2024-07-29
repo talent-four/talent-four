@@ -17,27 +17,21 @@
     <main> <!-- 메인 -->
     <jsp:include page="/WEB-INF/views/tutor/tutorside.jsp"></jsp:include>
         
-        <form action="">
+        <form action="profile" method="post" onsubmit="return updateValidate()">
             <section class="mainsectionsP" id="profileP">
                 <article class="titleP"><span>내 프로필</span></article>
                     <div class="text-areaP">
-
                         <div>
                             <span>프로필 이미지</span>
-                            <img src= "${contextPath}/resources/img/profile_default_removebg.png" id="PI-defaultP">
-                            <input type="file" id="PIhide-btnP">
+                            <img src= "${tutorProfile.tutorProfile}" id="PI-defaultP">
+                            <input type="file" id="PIhide-btnP" name="tutorProfile" value="${tutorProfile.tutorProfile}">
                             <label for="PIhide-btnP" id="PIchange-btnP"><i class="fa-solid fa-camera"></i></label>
                         </div>
 
                         <div>
                             <span>전화 번호</span>
-                            <input type="text" id="tel-input" name="tel-input" value="${loginMember.tutorTel}" maxlength="11">
-                            <button id="changeTel" type="button"><i class="fa-regular fa-pen-to-square"></i></button>
-                            
-                            <div id="hide-tel-area">
-                                <button id="tel-check"><i class="fa-solid fa-check"></i></button>
-                                <button id="tel-cancel" type="button"><i class="fa-solid fa-xmark"></i></button>
-                            </div>
+                            <input type="text" id="tel-input" name="tel-input" value="${tutorProfile.tutorTel}" maxlength="11" onfocus="showWarning()" onblur="hideWarning()">
+                            <span id="tel-info">전화번호는 (-)제외 입력하세요</span>
                         </div>
 
                         <div>
@@ -45,36 +39,40 @@
                             <div>
                                 <div>
                                     <span>예금주명</span>
-                                    <input type="text" name="accountName">
+                                    <input type="text" name="accountName" value="${tutorProfile.tutorName}">
                                 </div>
                                 <div>
                                     <span>은행명</span>
-                                    <select name="bankName" id="bankName">
-                                        <option value="국민은행">국민은행</option>
-                                        <option value="농협은행">농협은행</option>
-                                        <option value="신한은행">신한은행</option>
-                                        <option value="IBK기업은행">IBK기업은행</option>
-                                        <option value="우리은행">우리은행</option>
+                                    <select name="bankName" id="bankName" value="${tutorProfile.bankName}">
+                                        <option value="농협은행" ${tutorProfile.bankName == '농협은행' ? 'selected' : ''}>농협은행</option>
+                                        <option value="국민은행" ${tutorProfile.bankName == '국민은행' ? 'selected' : ''}>국민은행</option>
+                                        <option value="신한은행" ${tutorProfile.bankName == '신한은행' ? 'selected' : ''}>신한은행</option>
+                                        <option value="IBK기업은행" ${tutorProfile.bankName == 'IBK기업은행' ? 'selected' : ''}>IBK기업은행</option>
+                                        <option value="우리은행" ${tutorProfile.bankName == '우리은행' ? 'selected' : ''}>우리은행</option>
+                                    </select>
                                     </select>
                                 </div>
                                 <div>
                                     <span>계좌번호</span>
-                                    <input type="text" name="accountNumber">
+                                    <input type="text" name="accountNumber" value="${tutorProfile.account}">
                                 </div>
                             </div>
-                            <button id="changeTel" type="button"><i class="fa-regular fa-pen-to-square"></i></button>
                         </div>
                         
                         <div>
                             <span>튜터 소개</span>
                             <div>
-                                <textarea name="introduce" id="introduce" maxlength="300"></textarea>
+                                <textarea name="introduce" id="introduce" maxlength="300" onfocus="showCount()" onblur="hideCount()">${tutorProfile.tutorIntroduce}</textarea>
+                                <div id="countArea">
+                                    <span id="Infocount">0</span>
+                                    <span>/300</span>
+                                </div>
                             </div>
-                            <button type="button" id="change-introduce"><i class="fa-regular fa-pen-to-square"></i></button>
-                            <div class="hidden-area2" id="hiddenArea2">
-                                <button type="button" id="check-introduce"><i class="fa-solid fa-check"></i></button>
-                                <button type="button" id="cancel-introduce"><i class="fa-solid fa-xmark"></i></button>
-                                <span><span>0</span>/300</span>
+                        </div>
+                        <div>
+                            <div>
+                                <button id="cancel" type="button" onclick="resetForm()">취소하기</button>
+                                <button id="change">변경하기</button>
                             </div>
                         </div>
                     </div>

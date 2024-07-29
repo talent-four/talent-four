@@ -47,10 +47,6 @@ nav {
 }
 
 /* 카테고리 바 아래쪽 */
-.categorBarlower {
-  height: 50px;
-}
-
 .categorBarlower > ul {
   display: flex;
   align-items: center;
@@ -60,7 +56,6 @@ nav {
 .categorBarlower > ul > li {
   list-style: none;
 }
-
 
 .categorBarlower > ul > li > a {
   padding: 5px 10px;
@@ -94,9 +89,24 @@ nav {
 }
 
 .contentStars > span {
-	font-size: 12px;
+  font-size: 12px;
 }
 
-.star{
+.star {
+  color: #ffb703;
+}
+
+.buttonBox {
+  float: right;
+}
+
+.buttonBox > button {
+  background-color: white;
+  border: 0;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.buttonBox > button:hover {
   color: #ffb703;
 }

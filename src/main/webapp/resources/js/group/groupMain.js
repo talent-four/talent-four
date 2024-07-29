@@ -29,15 +29,12 @@ typeFinished.addEventListener("click",function(){
 
 document.addEventListener('DOMContentLoaded', function() {
     const choiceLocation = document.getElementById('choice-location');
-    const choiceStuck = document.getElementById('choice-stuck');
     const choiceStatus = document.getElementById('choice-status');
     const hiddenLocationArea = document.getElementById('hidden-location-area');
-    const hiddenStackArea = document.getElementById('hidden-stack-area');
     const hiddenTypeArea = document.getElementById('hidden-type-area');
 
     function hideAllAreas() {
         hiddenLocationArea.style.display = 'none';
-        hiddenStackArea.style.display = 'none';
         hiddenTypeArea.style.display = 'none';
     }
 
@@ -46,10 +43,6 @@ document.addEventListener('DOMContentLoaded', function() {
         hiddenLocationArea.style.display = 'block';
     });
 
-    choiceStuck.addEventListener('click', function() {
-        hideAllAreas();
-        hiddenStackArea.style.display = 'block';
-    });
 
     choiceStatus.addEventListener('click', function() {
         hideAllAreas();
@@ -76,25 +69,25 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    const maxSelections = 7; // 최대 선택 항목 수
-    const stackDivs = document.querySelectorAll('#hidden-stack-area .stuckDiv');
+// document.addEventListener('DOMContentLoaded', function() {
+//     const maxSelections = 7; // 최대 선택 항목 수
+//     const stackDivs = document.querySelectorAll('#hidden-stack-area .stuckDiv');
 
-    stackDivs.forEach(div => {
-        div.addEventListener('click', function() {
-            const selectedDivs = document.querySelectorAll('#hidden-stack-area .stuckDiv.selected');
+//     stackDivs.forEach(div => {
+//         div.addEventListener('click', function() {
+//             const selectedDivs = document.querySelectorAll('#hidden-stack-area .stuckDiv.selected');
             
-            if (div.classList.contains('selected')) {
-                // 선택 해제
-                div.classList.remove('selected');
-            } else {
-                // 선택된 항목 수가 최대치를 초과하지 않도록 확인
-                if (selectedDivs.length < maxSelections) {
-                    div.classList.add('selected');
-                } else {
-                    alert(`최대 ${maxSelections}개 항목까지 선택할 수 있습니다.`);
-                }
-            }
-        });
-    });
-});
+//             if (div.classList.contains('selected')) {
+//                 // 선택 해제
+//                 div.classList.remove('selected');
+//             } else {
+//                 // 선택된 항목 수가 최대치를 초과하지 않도록 확인
+//                 if (selectedDivs.length < maxSelections) {
+//                     div.classList.add('selected');
+//                 } else {
+//                     alert(`최대 ${maxSelections}개 항목까지 선택할 수 있습니다.`);
+//                 }
+//             }
+//         });
+//     });
+// });
