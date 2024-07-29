@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import talentFour.common.Util;
 import talentFour.member.model.service.MemberService;
 import talentFour.member.model.vo.Member;
 
@@ -67,11 +66,8 @@ public class MemberServlet extends HttpServlet {
 		// doPost가 만약, 로그인일 경우
 		if(command.equals("login")) {
 			String id = req.getParameter("id");
-			
-			
 			String pw = req.getParameter("pw");
-			//String encodingpw = Util.encodingPw(pw);
-		
+			
 			MemberService service = new MemberService();
 			
 			Member mem = Member.builder()

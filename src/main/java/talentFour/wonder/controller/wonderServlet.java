@@ -20,6 +20,7 @@ public class wonderServlet extends HttpServlet{
 		String uri = req.getRequestURI();
 		String contextPath = req.getContextPath();
 		String command = uri.substring(  (contextPath + "/wonder/").length()  );
+		
 
 		try {
 			if(command.equals("free")) {
@@ -59,6 +60,7 @@ public class wonderServlet extends HttpServlet{
 				
 				req.getRequestDispatcher("/WEB-INF/views/wonder/wonderClass.jsp").forward(req, resp);}
 			
+
 		}catch(Exception e){
 			e.printStackTrace();
 		}

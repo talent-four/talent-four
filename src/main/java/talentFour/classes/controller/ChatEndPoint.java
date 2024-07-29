@@ -13,8 +13,6 @@ import javax.websocket.server.ServerEndpoint;
 import com.google.gson.Gson;
 
 import talentFour.classes.model.vo.Message;
-import talentFour.common.Util;
-import talentFour.member.model.service.MemberService;
 
 
 
@@ -26,56 +24,70 @@ public class ChatEndPoint {
     @OnOpen
     public void onOpen(Session session) {
         String query = session.getQueryString();
-        String clientId = Util.getClientIdFromQuery(query);
+        String clientId = getClientIdFromQuery(query);
         
         
-        
-        
+        System.out.println("쿼리는 : "+query);
+        System.out.println("클라이언트 ID는 : " + clientId);
+        System.out.println(session);
+        System.out.println(session.getId());
+
+        // sql에서 
+        // SELECT CHAT_ROOM FROM CHATTING WHERE CHAT_FROM = clientId OR CHAT_TO = clientId
+        // 이후 CHAT_ROOM을 받아와서
+        // SELECT CHAT_MESSAGE, CHAT_FROM , CHAT_TO FROM CHATTING WHERE CHAT_ROOM = ? 
+        // 을 통해서 채팅방에 대한 정보를 받아옴
+        // 대화 RS를 리스트로 받아온 다음,
+        // CLIENTID와 LOGINMEMBER이 일치하면 우측, 다르면 좌측에 메시지를 배치하는 화면을 구성한다.
         try {
            if (clientId != null) {
                sessions.put(clientId, session);
-           } 
-           else {
+               System.out.println("클라이언트 연결: " + clientId);
+           } else {
                session.close();
            }
         
         } catch(Exception e) {
            e.printStackTrace();
         }
-        
-        
     }
 
     @OnMessage
     public String onMessage(String message, Session session) {
+        System.out.println("Received message: " + message);
+
+
+
 
         
         try {
            Gson gson = new Gson();
            Message msg = gson.fromJson(message, Message.class);
-           System.out.println("msg.getToId" + msg.getToId());
-           // 홍길동1의 memberNo가 몇인지 DB조회를 통해 얻어온다
+           System.out.println(msg);
            
-           MemberService service = new MemberService();
-           int memberNo=service.searchMemberNo(msg.getToId());
-           System.out.println(sessions.values());
-           System.out.println("멤버 번호"+memberNo);
-           msg.setToId(String.valueOf(memberNo));
-
+//          나를 뺀 전원에게 메시지 보내기           
+//           for (Session ses : sessions.values()) {
+//              if(ses==session) {
+//                 
+//              }else {
+//                 ses.getBasicRemote().sendText(message);
+//              }
+//           }
            
-           int result = service.insertChatting(msg);
+           // 특정 유저에게 메세지 보내기
+//           sessions.get(msg.getToId()).getBasicRemote().sendText(msg.getMessage());
            
-           if(result>0) {
-        	   System.out.println("db에 메세지 무사히 넣었음");
-           } else {
-        	   System.out.println("db에 메세지 못넣었음");
-           }
+           
+           
+           //  CHAT_FROM/CHAT_TO msg.getToId() / msg.getFromId() 넣어 DB에 INSERT시킨다.
+           //
+           
            // 받는 사람이 접속중이지 않다면(msg.getToId()) 
            if(sessions.get(msg.getToId())==null) {
         	   //메시지를 보내지 않는다.
         	   
            } else { // 상대 유저 접속중
-        	   // 메세지를 보낸다
+        	   // 메세지를 보낸다 (보낸 사람 포함)
                sessions.get(msg.getToId()).getBasicRemote().sendText(gson.toJson(msg)); 
 
            }
@@ -83,7 +95,7 @@ public class ChatEndPoint {
            
            
            // 보낸사람에게도 메시지 전송
-//           sessions.get(msg.getFromId()).getBasicRemote().sendText(gson.toJson(msg));
+           sessions.get(msg.getFromId()).getBasicRemote().sendText(gson.toJson(msg));
  
            
         } catch(Exception e) {
@@ -98,6 +110,19 @@ public class ChatEndPoint {
     public void onClose(Session session) {
         System.out.println("Session closed, id: " + session.getId());
     }
+   
+    private String getClientIdFromQuery(String query) {
+        if (query != null) {
+            String[] params = query.split("&");
+            for (String param : params) {
+                String[] keyValue = param.split("=");
+                if (keyValue.length == 2 && "clientId".equals(keyValue[0])) {
+                    return keyValue[1];
+                }
+            }
+        }
+        return null;
+    }
     
     public void sendMessageToClient(String clientId, String message) throws Exception {
         Session session = sessions.get(clientId);
@@ -107,11 +132,4 @@ public class ChatEndPoint {
     }
     
 }
-//나를 뺀 전원에게 메시지 보내기           
-//for (Session ses : sessions.values()) {
-// if(ses==session) {
-//    
-// }else {
-//    ses.getBasicRemote().sendText(message);
-// }
-//}
+

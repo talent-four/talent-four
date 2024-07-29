@@ -285,18 +285,9 @@ main{ /* 메인 */
     justify-content: center;
 }
 
-.class-rowP div:nth-child(3){
-    position: relative;
-}
 
-.hide {
-    display: none;
-}
-
-
-.class-statusBtn {
-    width: 80px !important;
-    display: inline-block !important;
+.class-rowP>div:nth-child(3)>div{
+    width: 80px;
     height: 25px;
     border-radius: 15px;
     border: 1px solid rgb(220, 220, 220);
@@ -304,40 +295,11 @@ main{ /* 메인 */
     background-color: #95DBB8;
     color: white;
     font-weight: bold;
-
-    cursor: pointer;
-}
-
-.class-statusBtn > span {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.class-closed {
-    width: 80px !important;
-    display: inline-block !important;
-    height: 25px;
-    border-radius: 15px;
-    border: 1px solid rgb(220, 220, 220);
-    font-size: 13px;
-    background-color: #95DBB8;
-    color: white;
-    font-weight: bold;
-}
-
-.class-closed > span {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .class-rowP:nth-child(3)>div:nth-child(3)>div{
     color: white;
     font-weight: bold;
-}
-
-#finclassdiv{
     background-color: #DB4F4D;
 }
 

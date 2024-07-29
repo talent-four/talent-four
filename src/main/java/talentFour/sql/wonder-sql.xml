@@ -4,7 +4,6 @@
 <properties>
 <comment>woder-sql.xml</comment>
 
-
 <!-- 자유게시판 목록 조회 -->
 <entry key="selectlistFree">
 SELECT BOARD_NO,BOARD_TITLE,BOARD_CONTENT,TO_CHAR(CREATED_DT, 'YYYY-MM-DD') AS CREATED_DT,READ_COUNT,MEMBER_NM,QA_STATUS,WONDER_TYPE FROM BOARD
@@ -49,6 +48,7 @@ AND BOARD_ST = 1 AND WONDER_TYPE='자유 궁금증'
         )A
 	)
 	WHERE RNUM BETWEEN ? AND ?;
+
 </entry>
 
 </properties>

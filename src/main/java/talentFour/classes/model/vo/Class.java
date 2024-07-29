@@ -27,7 +27,5 @@ public class Class {
 	private String memberProfile;
 	private String main;
 	private String sub;
-	private int reviews;
-	private float score;
 
 }

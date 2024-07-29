@@ -29,7 +29,7 @@ COMMENT ON COLUMN "MEMBER"."MEMBER_PW" IS '회원 비밀번호';
 
 COMMENT ON COLUMN "MEMBER"."ENROLL_DT" IS '회원가입일';
 
-COMMENT ON COLUMN "MEMBER"."SECESSION_FL" IS '회원 탈퇴(탈퇴시 Y)';
+COMMENT ON COLUMN "MEMBER"."SECESSION_FL" IS '회원 탈퇴(탈퇴시 'Y')';
 
 COMMENT ON COLUMN "MEMBER"."MEMBER_ST" IS '회원(1), 튜터(2), 관리자(3), 정지(4)';
 
@@ -523,18 +523,13 @@ REFERENCES "PAID" (
 	"CLASS_NO"
 );
 
---MEMBER_PW 크기 변경
-ALTER TABLE MEMBER MODIFY MEMBER_PW VARCHAR2(200);
-
 -- 멤버 시퀀스 생성
 CREATE SEQUENCE SEQ_MEMBER_NO;
 
 -- 유저 삽입
 
 -- 유저1
-INSERT INTO MEMBER VALUES (SEQ_MEMBER_NO.NEXTVAL, 'KH@NAVER.COM', 'USER1', 'TBSrjPXus0Ua1I39EDPUK9G4Ve5Sau9VmmErjnUxWAbV5SHSpfue1kAlA7wLThHkf7EhDmDpRC5jBij6KWiFOQ==', DEFAULT, 'N', '1', NULL);
---비밀번호 PASS1
-
+INSERT INTO MEMBER VALUES (SEQ_MEMBER_NO.NEXTVAL, 'KH@NAVER.COM', 'USER1', 'PASS1', DEFAULT, 'N', '1', NULL);
 --튜터1
 INSERT INTO MEMBER VALUES (SEQ_MEMBER_NO.NEXTVAL, 'KH2@NAVER.COM', 'USER2', 'PASS2', DEFAULT, 'N', '2', NULL);
 --관리자1
@@ -580,7 +575,7 @@ INSERT INTO BOARD VALUES (SEQ_BOARD_NO.NEXTVAL, '강의후기 제목2', '강의 
 INSERT INTO BOARD VALUES (SEQ_BOARD_NO.NEXTVAL, '강의후기 제목3', '강의 후기 내용입니다.', SYSDATE, SYSDATE, DEFAULT, DEFAULT,1,3);
 INSERT INTO BOARD VALUES (SEQ_BOARD_NO.NEXTVAL, '강의후기 제목4', '강의 후기 내용입니다.', SYSDATE, SYSDATE, DEFAULT, DEFAULT,1,3);
 INSERT INTO BOARD VALUES (SEQ_BOARD_NO.NEXTVAL, '강의후기 제목5', '강의 후기 내용입니다.', SYSDATE, SYSDATE, DEFAULT, DEFAULT,1,3);
-select * from board;
+
 
 -- 게시판 종류 
 INSERT INTO BOARD_TYPE VALUES (1, '클래스');
@@ -629,60 +624,52 @@ SELECT * FROM MEMBER;
 UPDATE MEMBER SET MEMBER_NM='USER1' WHERE MEMBER_NM='ASD'; 
 
 -- 비밀번호 검사 SQL문
-SELECT COUNT(MEMBER_NO) FROM MEMBER WHERE MEMBER_PW='PASS2' AND MEMBER_NO=2;
+SELECT COUNT(MEMBER_NO) FROM MEMBER WHERE MEMBER_PW='PASS1' AND MEMBER_NO=1;
 
--- 비밀번호 변경
-UPDATE MEMBER SET MEMBER_PW='새로운 비밀번호' WHERE MEMBER_NO=2; 
+-- 궁금해요 게시판 
+INSERT INTO BOARD VALUES (SEQ_BOARD_NO.NEXTVAL, 'sql이 궁금해요', 'sql알려주세요', SYSDATE, SYSDATE, DEFAULT, DEFAULT,1,4);
+INSERT INTO WONDER_BOARD VALUES(8, 'N', '강의가궁금해요');
 
--- KH@NAVER.COM 현재 비밀번호 p임
+INSERT INTO WONDER_BOARD VALUES(SEQ_BOARD_NO.NEXTVAL, 'Y', '강의가궁금해요');
+SELECT SEQ_BOARD_NO.CURRVAL FROM DUAL;
 
--- 회원 탈퇴
-UPDATE MEMBER SET SECESSION_FL='N' WHERE MEMBER_NO=1;
+INSERT INTO BOARD VALUES (2000, 'sql이 궁금해요', 'sql알려주세요', SYSDATE, SYSDATE, DEFAULT, DEFAULT,1,4);
+INSERT INTO WONDER_BOARD VALUES(2000, 'Y', '강의가궁금해요');
 commit;
-select * from member;
 
----------------------------------------------------------
--- 리뷰테이블 복합키로 클래스를 설정해야함
-
--- 리뷰 테이블 CLASS_NO 추가
-ALTER TABLE "REVIEW" ADD "CLASS_NO" NUMBER;
-update review set class_no =1;
+INSERT INTO BOARD VALUES (SEQ_BOARD_NO.NEXTVAL, 'vscode설치법', 'vscode설치 하는방법', SYSDATE, SYSDATE, DEFAULT, DEFAULT,1,4);
+INSERT INTO WONDER_BOARD VALUES(9, 'Y', '자유로운궁금증');
+INSERT INTO WONDER_BOARD VALUES(501, 'N', '자유로운궁금증');
 commit;
-select * from review;
+-- 궁금해요 더미게시판더미.
+BEGIN
+    FOR I IN 1..500 LOOP
+    
+    INSERT INTO BOARD
+    VALUES(SEQ_BOARD_NO.NEXTVAL,
+           SEQ_BOARD_NO.CURRVAL || '번째 게시글',
+           SEQ_BOARD_NO.CURRVAL || '번째 게시글 내용입니다.',
+           DEFAULT, DEFAULT, DEFAULT, DEFAULT,1,4
+    
+    );
+    END LOOP;
 
-ALTER TABLE "REVIEW" ADD CONSTRAINT "FK_BOARD_TO_REVIEW_2" FOREIGN KEY (
-	"CLASS_NO"
-)
-REFERENCES "CLASS" (
-	"CLASS_NO"
-);
+END;
+/
 
-ALTER TABLE "REVIEW" DROP PRIMARY KEY;
+-- 해시태그
 
-ALTER TABLE "REVIEW" ADD CONSTRAINT pk_review PRIMARY KEY ("BOARD_NO", "CLASS_NO");
---------------------------------------------------------------------------------------
-	private int boardNo;
-	private String boardTitle;
-	private String boardContent;
-	private String createdDate;
-	private String updateDate;
-	private int readCount;
-	private int boardStatus;
-	private int memberNo; //게시글(리뷰) 작성자
-    -----
-	private double reviewStar;
-	private int parents; // 리뷰의 상위 게시글
-    ---
-	private String report;
-	---
-    private String thumb;
-	---
-    private String tag;
+INSERT INTO HASHTAG VALUES (SEQ_HASHTAG_NO.NEXTVAL, 'sql', NULL, 1);
+commit;
+rollback;
 
-SELECT BOARD_NO, BOARD_TITLE, BOARD_CONTENT, CREATED_DT, UPDATE_DT, READ_COUNT, BOARD_ST, MEMBER_NO, REIVEW_STAR, CLASS_NO as parents
-FROM BOARD
-JOIN REVIEW USING(BOARD_NO);
+CREATE SEQUENCE BOARD_SEQ START WITH 1 INCREMENT BY 1;
 
----- review 오타 수정해야함
 
-select * from review;
+-- 원더보드 리스트
+SELECT BOARD_NO,BOARD_TITLE,BOARD_CONTENT,CREATED_DT,READ_COUNT,MEMBER_NM,QA_STATUS,WONDER_TYPE FROM BOARD
+JOIN WONDER_BOARD USING(BOARD_NO)
+JOIN MEMBER USING(MEMBER_NO)
+WHERE WONDER_TYPE ='자유로운궁금증' AND BOARD_CD='4';
+
+

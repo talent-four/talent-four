@@ -33,16 +33,14 @@ public class GroupDAO {
 		}
 	}
 
-	/** 스터디 모집 리스트 조회하기
-	 * @param conn
-	 * @return
-	 * @throws Exception
-	 */
 	public List<GroupMain> selectBoardList(Connection conn) throws Exception {
 
 		List<GroupMain> GroupBoardList = new ArrayList<>();
 		
+		
 		try {
+			
+			
 			String sql = prop.getProperty("selectBoardList");
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
@@ -53,14 +51,16 @@ public class GroupDAO {
 				GroupMain GroupMain = new GroupMain();
 				
 				GroupMain.setStudyStatus(rs.getString(1));
-				GroupMain.setLocation(rs.getString(2));
-				GroupMain.setStartDate(rs.getString(3));
+				GroupMain.setTagName(rs.getString(2));
+				GroupMain.setStartDate(rs.getDate(3));
 				GroupMain.setBoardContent(rs.getString(4));
 				GroupMain.setMemberNickname(rs.getString(5));
 				GroupMain.setStudyNumber(rs.getInt(6));
 				GroupMain.setReadCount(rs.getInt(7));
+				GroupMain.setTagImage(rs.getString(8));
 				
 				GroupBoardList.add(GroupMain);
+				
 			}
 			
 		} finally {

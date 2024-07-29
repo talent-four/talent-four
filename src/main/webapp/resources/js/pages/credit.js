@@ -15,6 +15,7 @@
 //     var amount = $("#amount").val();
 //     var price = $("#total-price").text();
 
+
 //     //가맹점 식별코드
 //     IMP.init("imp52158546");
 //     IMP.request_pay({
@@ -48,6 +49,7 @@
 //     });
 // }
 
+
 // function requestPay() {
 //      IMP.init('imp52158546'); //iamport 대신 자신의 "가맹점 식별코드"를 사용
 //   IMP.request_pay({
@@ -74,45 +76,28 @@
 //   });
 // }
 
-console.log("test");
-
-function getSelectedValue() {
-  const selectedOption = document.querySelector('input[name="creditSelect"]:checked');
-  if (selectedOption) {
-    alert("선택된 결제 방식: " + selectedOption.value);
-  } else {
-    alert("결제 방식을 선택해주세요.");
-  }
-}
-
 function requestPay() {
-  // 로그 출력
-  console.log("memberName:", memberName);
-  console.log("price:", price);
-  console.log("memberEmail:", memberEmail);
+    IMP.init('imp52158546'); //iamport 대신 자신의 "가맹점 식별코드"를 사용
+ IMP.request_pay({
+   pg: "kakaopay",
+   pay_method: "trans",
+   merchant_uid : 'merchant_'+new Date().getTime(),
+   name : '결제테스트',
+   amount : 12000,
+   buyer_email : 'iamport@siot.do',
+   buyer_name : '구매자',
+   buyer_tel : '010-1234-5678',
+   buyer_addr : '서울특별시 강남구 삼성동',
+   buyer_postcode : '123-456'
+ }, function (rsp) { // callback
+   console.log(rsp);
+     if (rsp.success) {
+       console.log(rsp.success);
+       // 결제 성공 시 로직,
 
-  http: IMP.init("imp52158546"); //iamport 대신 자신의 "가맹점 식별코드"를 사용
-
-  IMP.request_pay(
-    {
-      pg: "kakaopay",
-      merchant_uid: "merchant_" + new Date().getTime(),
-      name: memberName,
-      amount: price,
-      buyer_email: memberEmail,
-      buyer_name: memberName,
-    },
-    function (rsp) {
-      // callback
-      console.log("rsp : " + rsp);
-      console.log("rsp.success : " + rsp.success);
-      if (rsp.success) {
-        alert("결제 성공");
-        window.location.href = `${contextPath}/detailedPage/class?classNo=${classNo}`;
-      } else {
-        // 결제 실패 시 로직,
-        alert("결제 실패");
-      }
-    }
-  );
+     } else {
+         // 결제 실패 시 로직,
+       alert("결제 실패");
+     }
+ });
 }

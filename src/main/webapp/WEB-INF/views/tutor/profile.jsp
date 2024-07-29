@@ -17,62 +17,64 @@
     <main> <!-- 메인 -->
     <jsp:include page="/WEB-INF/views/tutor/tutorside.jsp"></jsp:include>
         
-        <form action="profile" method="post" enctype="multipart/form-data" onsubmit="return updateValidate()">
+        <form action="">
             <section class="mainsectionsP" id="profileP">
                 <article class="titleP"><span>내 프로필</span></article>
                     <div class="text-areaP">
                         <div>
-                            <span>프로필 이미지</span>
-                            <img src= "${loginMember.memberProfile}" id="PI-defaultP">
-                            <input type="file" id="PIhide-btnP" name="tutorProfile" value="${tutorProfile.tutorProfile}">
-                            <label for="PIhide-btnP" id="PIchange-btnP"><i class="fa-solid fa-camera"></i></label>
-                        </div>
-
-                        <div>
-                            <span>전화 번호</span>
-                            <input type="text" id="tel-input" name="tel-input" value="${tutorProfile.tutorTel}" maxlength="11" onfocus="showWarning()" onblur="hideWarning()">
-                            <span id="tel-info">전화번호는 (-)제외 입력하세요</span>
-                        </div>
-
-                        <div>
-                            <span>정산 계좌</span>
-                            <div>
+                            <span>닉네임</span>
+                            <div id="change-areaP">
+                                <input type="text" name="tutorNickname" value="${loginMember.memberNickname }" maxlength="12">
+                                <button id="Nchange-btnP" type="button"><i class="fa-regular fa-pen-to-square"></i></button>
+                            </div>
+                            <div id="Nhide-areaP">
+                                <!-- <input type="text" id="Nchange-inputP" name="Nchange-inputP" maxlength="12"> -->
+                                <button id="NcheckP"><i class="fa-solid fa-check"></i></button>
+                                <button id="NcancelP" type="button"><i class="fa-solid fa-xmark"></i></button>
                                 <div>
-                                    <span>예금주명</span>
-                                    <input type="text" name="accountName" value="${tutorProfile.tutorName}" id="accountName">
-                                </div>
-                                <div>
-                                    <span>은행명</span>
-                                    <select name="bankName" id="bankName" value="${tutorProfile.bankName}">
-                                        <option value="농협은행" ${tutorProfile.bankName == '농협은행' ? 'selected' : ''}>농협은행</option>
-                                        <option value="국민은행" ${tutorProfile.bankName == '국민은행' ? 'selected' : ''}>국민은행</option>
-                                        <option value="신한은행" ${tutorProfile.bankName == '신한은행' ? 'selected' : ''}>신한은행</option>
-                                        <option value="IBK기업은행" ${tutorProfile.bankName == 'IBK기업은행' ? 'selected' : ''}>IBK기업은행</option>
-                                        <option value="우리은행" ${tutorProfile.bankName == '우리은행' ? 'selected' : ''}>우리은행</option>
-                                    </select>
-                                    </select>
-                                </div>
-                                <div>
-                                    <span>계좌번호</span>
-                                    <input type="text" name="accountNumber" id="accountNumber" value="${tutorProfile.account}">
+                                    <span id="Nchange-countP">0</span>
+                                    <span>/12</span>
                                 </div>
                             </div>
                         </div>
-                        
+                        <div>
+                            <span>프로필 이미지</span>
+                            <img src= "${contextPath}/resources/img/profile_default_removebg.png" id="PI-defaultP">
+                            <input type="file" id="PIhide-btnP">
+                            <label for="PIhide-btnP" id="PIchange-btnP"><i class="fa-solid fa-camera"></i></label>
+                        </div>
+                        <div>
+                            <span>전화 번호</span>
+                            <input type="text" id="Tel-inputP" name="Tel-inputP" value="${loginMember.tutorTel}" maxlength="11">
+                            <button id="Nchange-btnP" type="button"><i class="fa-regular fa-pen-to-square"></i></button>
+                            <div id="Nhide-areaP">
+                                <input type="text" id="Nchange-inputP" name="Nchange-inputP" maxlength="12">
+                                <button id="NcheckP"><i class="fa-solid fa-check"></i></button>
+                                <button id="NcancelP" type="button"><i class="fa-solid fa-xmark"></i></button>
+                                <div>
+                                    <span id="Nchange-countP">0</span>
+                                    <span>/12</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <span>자격증</span>
+                            <div></div>
+                            <input type="file" id="careerP">
+                            <label for="careerP"><span id="add-careerP"><i class="fa-solid fa-plus"></i>자격증 추가하기</span></label>
+                            <div></div>
+                        </div>
                         <div>
                             <span>튜터 소개</span>
                             <div>
-                                <textarea name="introduce" id="introduce" maxlength="300" onfocus="showCount()" onblur="hideCount()">${tutorProfile.tutorIntroduce}</textarea>
-                                <div id="countArea">
-                                    <span id="Infocount">0</span>
-                                    <span>/300</span>
-                                </div>
+                                <textarea name="introduce" id="introduce" value="${loginMember.tutorTel}" maxlength="300"></textarea>
                             </div>
-                        </div>
-                        <div>
-                            <div>
-                                <button id="cancel" type="button" onclick="resetForm()">취소하기</button>
-                                <button id="change">변경하기</button>
+                            <button type="button" id="change-introduce"><i class="fa-regular fa-pen-to-square"></i></button>
+                            <div class="hidden-area2" id="hiddenArea2">
+                                <button type="button" id="check-introduce"><i class="fa-solid fa-check"></i></button>
+                                <button type="button" id="cancel-introduce"><i class="fa-solid fa-xmark"></i></button>
+                                <span><span>0</span>/300</span>
                             </div>
                         </div>
                     </div>

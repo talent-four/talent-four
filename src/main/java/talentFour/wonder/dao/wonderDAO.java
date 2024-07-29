@@ -9,6 +9,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
+
+
 import static talentFour.common.JDBCTemplate.*;
 
 import talentFour.wonder.vo.Pagination;
@@ -36,6 +38,7 @@ public class wonderDAO {
 		}
 
 	}
+
 
 	/** 게시판 이름 조회 DAO
 	 * @param conn
@@ -96,7 +99,6 @@ public class wonderDAO {
 			close(pstmt);
 			
 		}
-
 		return listCount;
 	}
 
@@ -131,6 +133,8 @@ public class wonderDAO {
 		
 		return null;
 	}
+	
+	
 
 
 

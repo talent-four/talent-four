@@ -15,7 +15,7 @@
 <body>
     <jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
     <main>
-        <form action="register" method="post">
+        <form action="${contextPath}/tutor/dashboard" method="post">
             <section class="titleP">
                 <span>튜터등록</span>
                 <span>*<span>필수</span></span>
@@ -91,7 +91,7 @@
                     </div>
                     <div>
                         <span>계좌번호</span>
-                        <input type="text" name="account">
+                        <input type="text" name="accountNumber">
                     </div>
                 </div>
             </section>
@@ -115,7 +115,7 @@
                         <span>최종학력<span>대학교/대학원(학생증/재학,졸업증명서)</span></span><br>
                         <input type="text" name="university" id="university-nameP" placeholder="탈잉대학교">
                         <input type="text" name="university" id="university-major-nameP" placeholder="탈잉학과">
-                        <input type="file" id="university-btnP" name="university">
+                        <input type="file" id="university-btnP">
                         <label for="university-btnP" id="upload-universityP">업로드</label>
                     </div>
                     

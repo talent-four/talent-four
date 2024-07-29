@@ -77,19 +77,12 @@
                     <div>   
                         <label for="offline"><input type="radio" name="meetvalue" id="offline" checked value="N">오프라인</label>
                         <label for="online"><input type="radio" name="meetvalue" id="online" value="Y">온라인</label> <br>
-                        <select value="location">
-                            <option value="서울">서울</option>
-                            <option value="부산">부산</option>
-                            <option value="인천">인천</option>
-                            <option value="광주">광주</option>
-                            <option value="울산">울산</option>
-                            <option value="대전">대전</option>
-                            <option value="대구">대구</option>
-                            <option value="경기">경기</option>
-                        </select>
-                        <input type="text" placeholder="상세주소를 입력하세요" id="address" name="address">
+                        <input type="text" placeholder="위치를 검색하세요" id="locate1">
+                        <input type="text" placeholder="장소이름을 입력하세요" id="locate2" name="studyaddress">
                         <div>
-                            <span class="input-info">※ 지역 선택 후 상세주소를 입력하세요.</span>
+                            <span class="input-info">※ 상세주소를 입력하세요.</span>
+                        </div>
+                        <div id="selectlocation">
                         </div>
                     </div>
                 </article>
@@ -112,6 +105,78 @@
                     </div>
                     <div>
                         <input type="text" placeholder="ex) 스터디룸 비용 1/N" name="studycost">
+                    </div>
+                </article>
+                <article class="inputTag">
+                    <div class="categoryTitle">
+                        <span>태그</span> 
+                    </div>
+                    <div id="tag-stack">
+                        <ul>
+                            <li class="stuckDiv">
+                                <img src="${contextPath}/resources/img/group/javascript.svg" alt="">
+                                <input type="checkbox" name="stack" value="javascript"><span>JavaScript</span>
+                            </li>
+                            <li class="stuckDiv">
+                                <img src="${contextPath}/resources/img/group/typescript.svg" alt="">
+                                <input type="checkbox" name="stack" value="typescript"><span>TypeScript</span>
+                            </li>
+                            <li class="stuckDiv">
+                                <img src="${contextPath}/resources/img/group/react.svg" alt="">
+                                <input type="checkbox" name="stack" value="react"><span>React</span>
+                            </li>
+                            <li class="stuckDiv">
+                                <img src="${contextPath}/resources/img/group/svelte.svg" alt="">
+                                <input type="checkbox" name="stack" value="svelte"><span>Svelte</span>
+                            </li>
+                            <li class="stuckDiv">
+                                <img src="${contextPath}/resources/img/group/nextjs.svg" alt="">
+                                <input type="checkbox" name="stack" value="nextjs"><span>Nextjs</span>
+                            </li>
+                            <li class="stuckDiv">
+                                <img src="${contextPath}/resources/img/group/nodejs.svg" alt="">
+                                <input type="checkbox" name="stack" value="nodejs"><span>Nodejs</span>
+                            </li>
+                            <li class="stuckDiv">
+                                <img src="${contextPath}/resources/img/group/java.svg" alt="">
+                                <input type="checkbox" name="stack" value="java"><span>Java</span>
+                            </li>
+                            <li class="stuckDiv">
+                                <img src="${contextPath}/resources/img/group/spring.svg" alt="">
+                                <input type="checkbox" name="stack" value="spring"><span>Spring</span>
+                            </li>
+                            <li class="stuckDiv">
+                                <img src="${contextPath}/resources/img/group/nestjs.svg" alt="">
+                                <input type="checkbox" name="stack" value="nestjs"><span>Nestjs</span>
+                            </li>
+                            <li class="stuckDiv">
+                                <img src="${contextPath}/resources/img/group/mysql.svg" alt="">
+                                <input type="checkbox" name="stack" value="mysql"><span>MySql</span>
+                            </li>
+                            <li class="stuckDiv">
+                                <img src="${contextPath}/resources/img/group/mongodb.svg" alt="">
+                                <input type="checkbox" name="stack" value="mongodb"><span>MongoDB</span>
+                            </li>
+                            <li class="stuckDiv">
+                                <img src="${contextPath}/resources/img/group/python.svg" alt="">
+                                <input type="checkbox" name="stack" value="python"><span>Python</span>
+                            </li>
+                            <li class="stuckDiv">
+                                <img src="${contextPath}/resources/img/group/django.svg" alt="">
+                                <input type="checkbox" name="stack" value="django"><span>Django</span>
+                            </li>
+                            <li class="stuckDiv">
+                                <img src="${contextPath}/resources/img/group/graphql.svg" alt="">
+                                <input type="checkbox" name="stack" value="graphql"><span>GraphQL</span>
+                            </li>
+                            <li class="stuckDiv">
+                                <img src="${contextPath}/resources/img/group/firebase.svg" alt="">
+                                <input type="checkbox" name="stack" value="firebase"><span>Firebase</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <span class="input-info">※ 태그는 7개까지 입력가능 합니다.</span>
                     </div>
                 </article>
             </section>

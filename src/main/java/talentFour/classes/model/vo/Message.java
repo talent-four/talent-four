@@ -6,15 +6,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Builder
-@Setter
 @Getter
-@AllArgsConstructor
+@Setter
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Message {
-   private String toId; // 보낼 아이디
-   private String fromId; // 보낸 아이디
+   private String toId;
    private String message;
+   private String fromId;
     @Override
     public String toString() {
         return toId+"/"+message+"/"+fromId;
