@@ -1,7 +1,7 @@
 (function(){
 
     const freeBtn = document.getElementById("freeBtn");
-
+    
     freeBtn.addEventListener("click",function(){
         let url = "wonder/free"; 
         location.href=url;
@@ -34,6 +34,9 @@ function setBoardTitleAndStatus(board) {
 }
 
 setBoardTitleAndStatus(board);
+
+
+
 
 
 //자유게시판 검색
