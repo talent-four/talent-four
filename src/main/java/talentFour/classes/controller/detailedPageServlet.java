@@ -47,17 +47,21 @@ public class detailedPageServlet extends HttpServlet {
 		MemberService mService = new MemberService();
 		Member loginMember = (Member) session.getAttribute("loginMember");
 		
+		int classNo =  Integer.parseInt(req.getParameter("classNo"));
+		
 		try {
 			// classNo 페이지 조회
 			if(command.equals("class")) {
-				int classNo =  Integer.parseInt(req.getParameter("classNo"));
-				
 				
 				Class classInfo = service.getClass(classNo);
 				String[] tutorInfo = service.getTutorInfoClass(classNo);
 				
 				List<Review> reviewList = mService.getDetailPageReview(classNo);
-			
+				if(loginMember != null) {
+					Boolean[] checkList = service.checkList(loginMember.getMemberNo(), classNo);
+					req.setAttribute("checkList", checkList); // 0, 자기 강의 1, 구매한 강의
+				}
+				
 				req.setAttribute("classInfo", classInfo);
 				req.setAttribute("tutorInfo", tutorInfo);
 				req.setAttribute("reviewList", reviewList);
@@ -77,7 +81,7 @@ public class detailedPageServlet extends HttpServlet {
 				
 				// update일 경우
 				if(req.getParameter("mode").equals("update")) {
-					int classNo =  Integer.parseInt(req.getParameter("classNo"));
+					classNo =  Integer.parseInt(req.getParameter("classNo"));
 					
 					Class classInfo = service.getClass(classNo);
 					
@@ -91,7 +95,7 @@ public class detailedPageServlet extends HttpServlet {
 			
 			// delete일 경우
 			if(command.equals("delete")) {
-				int classNo =  Integer.parseInt(req.getParameter("classNo"));
+				classNo =  Integer.parseInt(req.getParameter("classNo"));
 				
 				int result = service.deleteClass(classNo);
 				

@@ -258,4 +258,56 @@ public class DetailPageDAO {
 		return result;
 	}
 
+
+	public Boolean checkMyClass(Connection conn, int memberNo, int classNo) throws Exception {
+		Boolean result = false;
+		
+		String sql = prop.getProperty("checkMyClass");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, memberNo);
+			pstmt.setInt(2, classNo);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				result = true;
+			}
+			
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+
+	public Boolean checkPaidClass(Connection conn, int memberNo, int classNo) throws Exception {
+		Boolean result = false;
+		
+		String sql = prop.getProperty("checkPaidClass");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, memberNo);
+			pstmt.setInt(2, classNo);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				result = true;
+			}
+			
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
 }

@@ -60,6 +60,7 @@
 		WHERE P.MEMBER_NO=?
 	</entry>
 	
+	
 	<entry key="profileImage">
 		UPDATE MEMBER SET MEMBER_PROFILE=? WHERE MEMBER_NO=?
 	</entry>
