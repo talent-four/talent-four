@@ -166,8 +166,8 @@ div {
 }
 
 .gridFadecontentBox img {
-  width: 500px;
-  height: 300px;
+  width: 500px !important;
+  height: 300px !important;
 }
 
 /* 그리드 페이드 조작 */

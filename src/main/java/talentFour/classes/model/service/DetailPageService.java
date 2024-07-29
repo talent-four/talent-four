@@ -161,4 +161,17 @@ public class DetailPageService {
 		return result;
 	}
 
+	public Boolean[] checkList(int memberNo, int classNo) throws Exception {
+		Connection conn = getConnection();
+		
+		Boolean checkMyClass = dao.checkMyClass(conn, memberNo, classNo);
+		Boolean checkPaidClass = dao.checkPaidClass(conn, memberNo, classNo);
+		
+		Boolean[] result = {checkMyClass, checkPaidClass};
+		
+		close(conn);
+		
+		return result;
+	}
+
 }

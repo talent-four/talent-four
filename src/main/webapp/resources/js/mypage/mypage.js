@@ -519,7 +519,7 @@ function selectPayment() {
                     // 썸네일 설정해야함           
                     `<div id="payment-main-3-1-box">
                         <img src="${contextPath}${payment.classPhoto}" class="profile-payment">
-                        <a href="${contextPath}/detailedPage?classNo=${payment.classNo}"><span id="payment-title">${payment.className}</span></a>
+                        <a href="${contextPath}/detailedPage/class?classNo=${payment.classNo}"><span id="payment-title">${payment.className}</span></a>
                         <span id="payment-date">${payment.paymentDate}</span>
                     </div>`
                 );
