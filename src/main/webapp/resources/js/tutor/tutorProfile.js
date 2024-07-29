@@ -65,26 +65,42 @@ introduce.addEventListener("input",function(){
 /* -----------------------------------------------------------------------------------------------*/
 /* 전체 수정하기 */ 
 
+const tel = document.getElementById('tel-input')
+const accountName = document.getElementById('accountName')
+const accountNumber = document.getElementById('accountNumber')
+
 function updateValidate(){
 
-    const regExp1 = /^([a-z]|[0-9]|[가-힣]){2,10}$/;
-    // const regExp1 = /^([a-zA-Z0-9가-힣]){2,10}$/;
-    const regExp2 = /^[0-9]{10,11}$/;
-    // const regExp2 = /^0(1[079]|2|[3-6][1-5]|70)\d{3,4}\d{4}$/;
-
-
-    if(nickname.value.trim().length == 0){
-        return printAlert(nickname, "닉네임을 입력해 주세요")
-    } else if(!regExp1.test(nickname.value)){
-        return printAlert(nickname, "닉네임은 영어/숫자/한글 2~10글자 사이로 작성해 주세요.")
-    }
+    // const regExp2 = /^[0-9]{10,11}$/;
+    const regExp1 = /^0(1[079]|2|[3-6][1-5]|70)\d{3,4}\d{4}$/; // 전화번호
+    const regExp2 = /^[가-힣]{2,16}$/; // 예금주명
+    const regExp3 = /^(?:\d{1,4}-?){0,3}\d{6,10}$/; // 계좌번호
+    const regExp4 = /^.{10,300}$/; // 튜터 소개
 
     if(tel.value.trim().length == 0){
         return printAlert(tel, "전화번호를 입력해 주세요(- 제외)");
-    } else if(!regExp2.test(tel.value)){
+    } else if(!regExp1.test(tel.value)){
         return printAlert(tel, "전화번호 형식이 올바르지 않습니다.");
-        
     }
+
+    if(accountName.value.trim().length == 0){
+        return printAlert(accountName, "예금주명을 입력해주세요");
+    } else if(!regExp2.test(accountName.value)){
+        return printAlert(accountName, "예금주명을 다시한번 확인해주세요.");
+    }
+
+    if(accountNumber.value.trim().length == 0){
+        return printAlert(accountNumber, "계좌번호를 입력해주세요");
+    } else if(!regExp3.test(accountNumber.value)){
+        return printAlert(accountNumber, "계좌번호를 다시한번 확인해주세요.");
+    }
+
+    if(introduce.value.trim().length == 0){
+        return printAlert(introduce, "튜터 소개를 입력해주세요");
+    } else if(!regExp4.test(introduce.value)){
+        return printAlert(introduce, "튜터 소개글은 10글자 이상 작성해주세요.");
+    }
+
     return true;
 
 }

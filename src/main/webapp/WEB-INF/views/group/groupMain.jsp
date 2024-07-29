@@ -68,7 +68,29 @@
             </c:choose>
         </section>
         <section class="pagination">
+            <!-- 페이지네이션 a 태그에 사용될 공통 주소를 저장할 변수 선언 -->
+            <c:set var="url" value="groupMain?&cp="/>
 
+            <ul class="pagination">
+                <li><a href="${url}1${sURL}">&lt;&lt;</a></li>
+                <li><a href="${url}${pagination.prevPage}${sURL}">&lt;</a></li>
+
+                <!-- 범위가 정해진 일반 for문 사용 -->                    
+                <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
+                    <c:choose>
+                        <c:when test="${i == pagination.currentPage}">
+                            <li><a class="current">${i}</a></li>
+                        </c:when>
+                        <c:otherwise>
+                            <li><a href="${url}${i}${sURL}">${i}</a></li>
+                        </c:otherwise>
+                    </c:choose>
+
+                </c:forEach>
+                <!-- 위의 cp는 currentPage의 약자 -->
+                <li><a href="${url}${pagination.nextPage}${sURL}">&gt;</a></li>
+                <li><a href="${url}${pagination.maxPage}${sURL}">&gt;&gt;</a></li>
+            </ul>
         </section>
     </main>
     <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>

@@ -16,8 +16,8 @@
 
 body{
     width: 100%;
-    min-height: 1000px;
-    max-height: 2000px;
+    min-height: 1800px;
+    max-height: 2800px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -34,8 +34,8 @@ footer{
 
 main{
     width: 1280px;
-    min-height: 900px;
-    max-height: 1700px;
+    min-height: 1700px;
+    max-height: 2500px;
 }
 /* 타이틀 영역 */
 main>section:nth-child(1){
@@ -275,8 +275,8 @@ fieldset>i{
 
 .content-area{
     width: 1280px;
-    min-height: 400px;
-    max-height: 1200px;
+    min-height: 1200px;
+    max-height: 2000px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;

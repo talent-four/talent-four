@@ -73,6 +73,13 @@
 		ORDER BY 1
 	</entry>
 	
+	<!-- 튜터의 클래스 총 갯수 구하기 -->
+	<entry key="classCount">
+		SELECT COUNT(*) AS CLASS_COUNT
+		FROM CLASS
+		WHERE MEMBER_NO = ?
+	</entry>
+	
 	<!-- 운영중인 / 만료된 클래스 조회 -->
 	<entry key="selectClassesList">
 		SELECT CLASS_NO, CLASS_PHOTO, CLASS_NAME, CLASS_STATUS, TO_CHAR(CLASS_CREATE_DT,'YYYY.MM.DD')
@@ -163,6 +170,17 @@
 		WHERE t.MEMBER_NO = ?
 		AND SETTLE_STATUS = 2
 		ORDER BY 7 DESC
+	</entry>
+	
+	<!-- 정산 가능한 리스트 갯수 구하기 -->
+	<entry key="counting">
+		SELECT COUNT(*)
+		FROM SETTLE s
+		JOIN TUTOR t ON s.MEMBER_NO = t.MEMBER_NO
+		JOIN MEMBER m ON s.MEMBER_NO2 = m.MEMBER_NO
+		JOIN CLASS c ON s.CLASS_NO = c.CLASS_NO
+		WHERE t.MEMBER_NO = ?
+		AND SETTLE_STATUS = ?
 	</entry>
 	
 	<!-- 프로필 조회하기 -->

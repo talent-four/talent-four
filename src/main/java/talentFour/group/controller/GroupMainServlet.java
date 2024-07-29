@@ -29,11 +29,23 @@ public class GroupMainServlet extends HttpServlet{
 		
 		try {
 
+			int cp = 1;
+			
+			// 페이지네이션의 번호 선택 시
+			// 쿼리 스트링에 cp가 있음 --> cp = 쿼리스트링의 cp 값
+			
+			if(req.getParameter("cp") != null) { // 쿼리스트링에 "cp"가 존재한다면
+				cp = Integer.parseInt(req.getParameter("cp"));
+			}
+			
 			GroupService service = new GroupService();
+			Map<Object, String> map = null;
 			
 			List<GroupMain> GroupBoardList = service.selectBoardList();
 			
 			req.setAttribute("GroupBoardList", GroupBoardList);
+			
+			req.setAttribute("map", map);
 			
 			req.getRequestDispatcher("/WEB-INF/views/group/groupMain.jsp").forward(req, resp);
 		} catch (Exception e) {

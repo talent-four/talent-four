@@ -4,7 +4,7 @@
 <section class="sideP">  <!-- 사이드-->
 	<div class="side-topP"> <!-- 사이드 위쪽-->
 	   <div>
-	       <img src="${contextPath}/resources/img/cat1.jpg" id="profile-imgP"> <!-- 사이드 프로필 사진 -->
+	       <img src="${loginMember.memberProfile}" id="profile-imgP"> <!-- 사이드 프로필 사진 -->
 	    </div>
 	    <div>
 	        <span id="profile-idP">${loginMember.memberNickname}</span>

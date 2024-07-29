@@ -26,8 +26,8 @@
                 <c:otherwise>
                     <c:forEach var="tutorcalculate"  items="${tutorcalculateList}" varStatus="status">
                         <tr class="cal-each-rows">
-                            <td><input type="checkbox" name="money" value="${tutorcalculate.memberNo} ${tutorcalculate.memberNickname}"></td>
-                            <td>
+                            <td class="checkbox"><input type="checkbox" name="money" value="${tutorcalculate.memberNo} ${tutorcalculate.memberNickname}"></td>
+                            <td class="cal-status-area">
                                 <c:if test="${tutorcalculate.settleStatus == 1}">
                                     <div class="cal-status">정산미신청</div>
                                 </c:if>
@@ -35,11 +35,11 @@
                                     <div class="cal-status ing">정산완료</div>
                                 </c:if>
                             </td>
-                            <td>${tutorcalculate.memberNickname}</td>
-                            <td>${tutorcalculate.className}</td>
-                            <td>${tutorcalculate.classPrice}</td>
-                            <td>${tutorcalculate.commission}%</td>
-                            <td>
+                            <td class="nicknameArea">${tutorcalculate.memberNickname}</td>
+                            <td class="classNameArea">${tutorcalculate.className}</td>
+                            <td class="classPriceArea">${tutorcalculate.classPrice}</td>
+                            <td class="commissionArea">${tutorcalculate.commission}%</td>
+                            <td class="settleStatusArea">
                                 <c:if test="${tutorcalculate.settleStatus == 1}">
                                     -
                                 </c:if>

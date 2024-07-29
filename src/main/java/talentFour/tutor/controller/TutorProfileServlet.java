@@ -30,6 +30,7 @@ public class TutorProfileServlet extends HttpServlet {
 			tutorProfile tutorProfile = service.selectProfile(memberNo);
 			
 			
+			req.setAttribute("loginMember", loginMember);
 			req.setAttribute("tutorProfile", tutorProfile);
 			
 			req.getRequestDispatcher("/WEB-INF/views/tutor/profile.jsp").forward(req, resp);

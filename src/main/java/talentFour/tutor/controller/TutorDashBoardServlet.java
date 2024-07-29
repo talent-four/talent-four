@@ -54,15 +54,16 @@ public class TutorDashBoardServlet extends HttpServlet{
 	            new Gson().toJson(scattergraph, resp.getWriter());
 	            return;
 	        }
-
-	        int count = service.allCountPaid(memberNo);
 	        
+	        int classCount = service.classCount(memberNo);
+	        int count = service.allCountPaid(memberNo);
 	        int count2 = service.allCountReview(memberNo);
 	        int count3 =0;
-	        if(count2>0&&count>0) {
-	        	count3 = count2*100/count;
+	        if(count2 > 0 && count > 0) {
+	        	count3 = count2 * 100 / count;
 	        }
 	        
+	        req.setAttribute("classCount", classCount);
 	        req.setAttribute("countPaid", count);
 	        req.setAttribute("countReview", count2);
 	        req.setAttribute("percent", count3);

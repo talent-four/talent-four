@@ -18,24 +18,43 @@ import com.google.gson.Gson;
 import talentFour.member.model.vo.Member;
 import talentFour.tutor.model.service.TutorService;
 import talentFour.tutor.model.vo.TutorCalculate;
-@WebServlet("/tutor/calculate")
+@WebServlet("/tutor/calculate/*")
 public class TutorcalculateServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		int status=1;
 		
 		try {
+			String uri = req.getRequestURI();
+	        String contextPath = req.getContextPath();
+	        String command = uri.substring((contextPath + "/tutor/calculate").length());
+			
 			TutorService service = new TutorService();
 			
 			HttpSession session = req.getSession();
 			Member loginMember = (Member)session.getAttribute("loginMember");
 			int memberNo = loginMember.getMemberNo();
 			
+			if(command.equals("/calmoney")) {
+		    	
+				List<TutorCalculate> tutorcalculateList = new ArrayList<>();
+				if(req.getParameter("cp")!= null) {
+					status = Integer.parseInt(req.getParameter("cp"));
+				}
+				tutorcalculateList = service.selectCalculateList(status,memberNo);
+				
+				resp.setContentType("application/json");
+				resp.setCharacterEncoding("UTF-8");
+				new Gson().toJson(tutorcalculateList, resp.getWriter());
+	            return;
+		    }
+			
 			List<TutorCalculate> tutorcalculateList = new ArrayList<>();
 			if(req.getParameter("cp")!= null) {
 				status = Integer.parseInt(req.getParameter("cp"));
 			}
 			tutorcalculateList = service.selectCalculateList(status,memberNo);
+			
 			
 			TutorCalculate tutorcalculate = new TutorCalculate();
 			tutorcalculate = service.getaccount(memberNo);
@@ -62,6 +81,8 @@ public class TutorcalculateServlet extends HttpServlet{
 		            }
 		        }
 		    }
+		    
+		    
 		    // ------------------------------------------------------------------------------------------
 		    // 정산 금액 구하기
 		    int ingsum = 0;
@@ -75,7 +96,6 @@ public class TutorcalculateServlet extends HttpServlet{
 		    finsum = calculatemoney.getFinsum();
 		    allsum = calculatemoney.getIngsum()+calculatemoney.getFinsum();
 		    tutorcalculate.setAllsum(allsum);
-		    
 		    
 			req.setAttribute("tutorcalculateList", tutorcalculateList);
 			req.setAttribute("tutorcalculate", tutorcalculate);

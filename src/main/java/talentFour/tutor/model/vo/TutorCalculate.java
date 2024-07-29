@@ -25,6 +25,9 @@ public class TutorCalculate {
 	private int finsum;
 	private int allsum;
 	private int memberNo;
+	private int counting;
+	private int countfin;
+	private int countall;
 	
 	
 	private String bankName;

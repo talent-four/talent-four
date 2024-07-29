@@ -31,6 +31,9 @@ public class TutorRegisterServlet extends HttpServlet {
 			HttpSession session = req.getSession();
 			Member loginMember = (Member)session.getAttribute("loginMember");
 			int memberNo = loginMember.getMemberNo();
+			int memberStatus = loginMember.getMemberStatus();
+			String memberNickname = loginMember.getMemberNickname();
+			String memberProfile = loginMember.getMemberProfile();
 			
 			String educationList = null;
 			String tutorProfile = req.getParameter("inputImage");
@@ -40,6 +43,7 @@ public class TutorRegisterServlet extends HttpServlet {
 			String bankName = req.getParameter("bankName");
 			String account = req.getParameter("account");
 			String education[] = req.getParameterValues("university");
+			
 			if(!education[0].equals("")) {
 				educationList =  String.join(",,", education);
 			}
@@ -61,12 +65,15 @@ public class TutorRegisterServlet extends HttpServlet {
 			int result3 = service.registerAccount(memberNo,register);
 			
 			
-			
 			// 튜터 등록 이후 메인페이지로 이동 -> 바로 튜터 페이지 이용하기 위해
 			// 또는 튜터 페이지로 바로 이동
 			
-			if(result1>0) {
-				System.out.println("등록됨");
+			if(result1 > 0 && result2 > 0 && result3 > 0) {
+				session.setAttribute("message", "튜터등록에 성공하였습니다."); 
+				session.removeAttribute("loginMember");
+				session.setAttribute("loginMember",register);
+				
+				resp.sendRedirect( req.getContextPath() );
 			}
 			
 			

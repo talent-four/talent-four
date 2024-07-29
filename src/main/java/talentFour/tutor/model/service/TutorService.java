@@ -244,6 +244,21 @@ public class TutorService {
 		return scattergraph;
 	}
 	
+	
+	/** 튜터가 개설한 총 클래스 수 구하기
+	 * @param memberNo
+	 * @return
+	 * @throws Exception
+	 */
+	public int classCount(int memberNo) throws Exception{
+		Connection conn = getConnection();
+		int classCount = dao.classCount(conn,memberNo);
+		close(conn);
+		
+		return classCount;
+	}
+
+	
 	/** 튜터 프로필 조회하기
 	 * @param memberNo
 	 * @return
@@ -334,6 +349,8 @@ public class TutorService {
 		return result3;
 	}
 
+
+	
 	
 
 	
