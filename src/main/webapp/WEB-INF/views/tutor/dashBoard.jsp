@@ -42,7 +42,7 @@
                         <div class="graphP" id="graphP">
                             <canvas id="viewsChart" width="800px" height="330px"></canvas>
                             <div id="total-content">
-                                <h1>${loginMember.memberNickname}님의 총 클래스 개수는 개입니다.</h1>
+                                <h1>${loginMember.memberNickname}님의 총 클래스 개수는 ${classCount}개입니다.</h1>
                             </div>
                         </div>
 

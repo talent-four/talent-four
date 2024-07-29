@@ -17,13 +17,13 @@
     <main> <!-- 메인 -->
     <jsp:include page="/WEB-INF/views/tutor/tutorside.jsp"></jsp:include>
         
-        <form action="profile" method="post" onsubmit="return updateValidate()">
+        <form action="profile" method="post" enctype="multipart/form-data" onsubmit="return updateValidate()">
             <section class="mainsectionsP" id="profileP">
                 <article class="titleP"><span>내 프로필</span></article>
                     <div class="text-areaP">
                         <div>
                             <span>프로필 이미지</span>
-                            <img src= "${tutorProfile.tutorProfile}" id="PI-defaultP">
+                            <img src= "${loginMember.memberProfile}" id="PI-defaultP">
                             <input type="file" id="PIhide-btnP" name="tutorProfile" value="${tutorProfile.tutorProfile}">
                             <label for="PIhide-btnP" id="PIchange-btnP"><i class="fa-solid fa-camera"></i></label>
                         </div>
@@ -39,7 +39,7 @@
                             <div>
                                 <div>
                                     <span>예금주명</span>
-                                    <input type="text" name="accountName" value="${tutorProfile.tutorName}">
+                                    <input type="text" name="accountName" value="${tutorProfile.tutorName}" id="accountName">
                                 </div>
                                 <div>
                                     <span>은행명</span>
@@ -54,7 +54,7 @@
                                 </div>
                                 <div>
                                     <span>계좌번호</span>
-                                    <input type="text" name="accountNumber" value="${tutorProfile.account}">
+                                    <input type="text" name="accountNumber" id="accountNumber" value="${tutorProfile.account}">
                                 </div>
                             </div>
                         </div>

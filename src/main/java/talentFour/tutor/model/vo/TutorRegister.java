@@ -13,6 +13,10 @@ import lombok.ToString;
 @AllArgsConstructor
 public class TutorRegister {
 
+	private int memberNo;
+	private int memberStatus;
+	private String memberProfile;
+	private String memberNickname;
 	private String tutorProfile;
 	private String tutorTel;
 	private String tutorIntroduce;

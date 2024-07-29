@@ -455,8 +455,6 @@ public class TutorDAO {
 		}
 		return result;
 	}
-
-	
 	
 	/** 클래스별 결제수 조회하기
 	 * @param conn
@@ -487,7 +485,6 @@ public class TutorDAO {
 			close(rs);
 			close(pstmt);
 		}
-		
 		return paidgraph;
 	}
 
@@ -519,6 +516,12 @@ public class TutorDAO {
 		return result;
 	}
 	
+	/** 클래스별 리뷰수, 결제수 비교하는 그래프 조회하기
+	 * @param conn
+	 * @param memberNo
+	 * @return
+	 * @throws Exception
+	 */
 	public List<Dashboard> selectReviewPaidCount(Connection conn, int memberNo) throws Exception {
 		List<Dashboard> scattergraph = new ArrayList<>();
 		try {
@@ -545,6 +548,29 @@ public class TutorDAO {
 		
 		return scattergraph;
 	}
+	
+	public int classCount(Connection conn, int memberNo) throws Exception{
+		
+		int classCount = 0;
+		
+		try {
+			
+			String sql = prop.getProperty("classCount");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memberNo);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				classCount = rs.getInt(1);
+			}
+			
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		return classCount;
+	}
+	
 	
 
 	/** 프로필 조회하기
@@ -711,7 +737,6 @@ public class TutorDAO {
 			pstmt.setInt(1, memberNo);
 			
 			result1 = pstmt.executeUpdate();
-			System.out.println("result1 : " + result1);
 			
 		} finally {
 			close(pstmt);
@@ -739,7 +764,6 @@ public class TutorDAO {
 			pstmt.setString(5, register.getTutorIntroduce());
 			
 			result2 = pstmt.executeUpdate();
-			System.out.println("result2 : " + result2);
 			
 		} finally {
 			close(pstmt);
@@ -766,25 +790,13 @@ public class TutorDAO {
 			pstmt.setString(4,register.getAccount());
 			
 			result3 = pstmt.executeUpdate();
-			System.out.println("result3 : " + result3);
+			System.out.println("result3:"+result3);
 			
 		} finally {
 			close(pstmt);
 		}
 		return result3;
 	}
-
-	
-
-	
-	
-
-	
-
-
-
-
-
 
 
 }
