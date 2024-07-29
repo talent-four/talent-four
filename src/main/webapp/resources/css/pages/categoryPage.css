@@ -2,13 +2,13 @@
   border: 1px solid black;
 } */
 
-* {
-  text-decoration: none;
-  color: black;
-}
-
 header {
   position: relative !important;
+}
+
+a {
+	text-decoration: none;
+  color: black;
 }
 
 /* 카테고리 바 */
@@ -34,7 +34,6 @@ nav {
 
   width: 200px;
   height: 50px;
-  border: 1px solid black;
 }
 
 .categorBarUpper > ul > li > a {
@@ -57,9 +56,10 @@ nav {
   list-style: none;
 }
 
+
 .categorBarlower > ul > li > a {
   padding: 5px 10px;
-  border: 1px solid black;
+  border: 1px solid #023047;
   border-radius: 10px;
 
   margin: 8px 10px;
@@ -67,6 +67,8 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  transition-duration: 0.1s;
 }
 
 .categorBarlower > ul > li > a:hover {
@@ -86,27 +88,4 @@ nav {
   outline: none;
   cursor: pointer;
   margin-left: 20px;
-}
-
-.contentStars > span {
-  font-size: 12px;
-}
-
-.star {
-  color: #ffb703;
-}
-
-.buttonBox {
-  float: right;
-}
-
-.buttonBox > button {
-  background-color: white;
-  border: 0;
-  padding: 5px 10px;
-  cursor: pointer;
-}
-
-.buttonBox > button:hover {
-  color: #ffb703;
 }

@@ -15,10 +15,8 @@ public class GroupService {
 	private Connection conn;
 	
 	
-	
-	/** 스터디 모집 메인 리스트 조회하기
+	/**
 	 * @return
-	 * @throws Exception
 	 */
 	public List<GroupMain> selectBoardList() throws Exception {
 
@@ -29,10 +27,5 @@ public class GroupService {
 		close(conn);
 		
 		return GroupBoardList;
-		
-		
-		
-		
-		
 	}
 }

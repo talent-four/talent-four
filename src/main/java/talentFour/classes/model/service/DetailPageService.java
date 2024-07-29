@@ -1,17 +1,10 @@
 package talentFour.classes.model.service;
 
 import talentFour.classes.model.dao.DetailPageDAO;
-import talentFour.classes.model.vo.Category;
 import talentFour.classes.model.vo.Class;
-import talentFour.member.model.vo.Member;
-import talentFour.common.Util;
-
 import static talentFour.common.JDBCTemplate.*;
 
 import java.sql.Connection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class DetailPageService {
 	
@@ -20,12 +13,8 @@ public class DetailPageService {
 	public Class getClass(int classNo) throws Exception {
 		Connection conn = getConnection();
 		
-		// 클래스 정보 가져오기
 		Class c = dao.getClass(conn, classNo);
-		
-		// XSS 핸들링
-		c.setClassIntro(Util.unescapeXSS(c.getClassIntro()));
-		
+				
 		close(conn);
 		
 		return c;

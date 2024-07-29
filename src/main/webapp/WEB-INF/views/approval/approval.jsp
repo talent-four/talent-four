@@ -40,6 +40,7 @@
                             </aside>
                             <!--                 <aside>
                     <h3>수강권신청</h3>
+                    
                     <div id="month12">
                         <label>
                         <table>
@@ -49,7 +50,9 @@
                                     <span>12개월 선택권</span>
                                 </td>
                             </tr>
+      
                             <tr>
+                                
                                 <td> <i class="fa-regular fa-credit-card"></i>
                                 <span>월 10750원</span></td>
                             </tr>
@@ -63,11 +66,16 @@
                                         <span>3개월 선택권</span>
                                     </td>
                                 </tr>
+          
                                 <tr>
+                                    
                                     <td> <i class="fa-regular fa-credit-card"></i>
                                     <span>월 33000원</span></td>
                                 </tr>
                             </table>
+                       
+                        
+                       
                         </label>
                     </div>
                 </aside> -->
@@ -128,4 +136,6 @@
                 <script src="${contextPath}/resources/js/pages/credit.js"></script>
             </body>
 
-            </html>
+    <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
+</body>
+</html>

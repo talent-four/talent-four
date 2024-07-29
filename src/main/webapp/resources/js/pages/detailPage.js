@@ -1,23 +1,6 @@
-(function () {
-  // blur 생성/삭제 메소드
-  const blur = document.getElementById("blur");
-  const dclassInfoBtn = document.getElementById("d-classInfoBtn");
-  if (blur && dclassInfoBtn) {
-    if (dclassInfoBtn.clientHeight >= 500) {
-      blur.style.display = "block";
-      dclassInfoBtn.style.display = "block";
-    } else {
-      blur.style.display = "none";
-      dclassInfoBtn.style.display = "none";
-    }
-  }
-})();
-
 // 클래스 소개 더보기 버튼
-if (document.getElementById("d-classInfoBtn") != null) {
-  document.getElementById("d-classInfoBtn").addEventListener("click", function () {
+document.getElementById("d-classInfoBtn").addEventListener("click", function(){
     const classIntro = document.querySelector(".classDetail");
-
     classIntro.classList.toggle("classDetailShow");
 
     // 버튼 텍스트 변경
@@ -217,3 +200,4 @@ button.addEventListener("click", () => {
   }
   showingHTML = !showingHTML;
 });
+

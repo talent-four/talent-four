@@ -27,10 +27,10 @@ function approvalValidate(event){
         errorMessage += "개인정보 수집 이용 및 제 3자 제공 동의는 필수입니다.\n";
     }
 
+
     if (!refundPolicyCheckbox.checked) {
         errorMessage += "환불 규정 동의는 필수입니다.\n";
     }
-
     // 에러 메시지가 있으면 폼 제출 막고 에러 메시지 표시
     if (errorMessage) {
         alert(errorMessage);    // 에러 메시지 표시
@@ -52,14 +52,24 @@ function handleSubmit(event) {
 	}
 }
 
-
 function requestPay() {
-  // 로그 출력
-  console.log("memberName:", memberName);
-  console.log("price:", price);
-  console.log("memberEmail:", memberEmail);
-
-  http: IMP.init("imp52158546"); //iamport 대신 자신의 "가맹점 식별코드"를 사용
+    IMP.init('imp52158546'); //iamport 대신 자신의 "가맹점 식별코드"를 사용
+ IMP.request_pay({
+   pg: "kakaopay",
+   pay_method: "trans",
+   merchant_uid : 'merchant_'+new Date().getTime(),
+   name : '결제테스트',
+   amount : 12000,
+   buyer_email : 'iamport@siot.do',
+   buyer_name : '구매자',
+   buyer_tel : '010-1234-5678',
+   buyer_addr : '서울특별시 강남구 삼성동',
+   buyer_postcode : '123-456'
+ }, function (rsp) { // callback
+   console.log(rsp);
+     if (rsp.success) {
+       console.log(rsp.success);
+       // 결제 성공 시 로직,
 
   IMP.request_pay(
     {
@@ -81,3 +91,4 @@ function requestPay() {
     }
   );
 }
+

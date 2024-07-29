@@ -5,37 +5,37 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
+
+
 import static talentFour.common.JDBCTemplate.*;
 
 import talentFour.wonder.vo.Pagination;
 import talentFour.wonder.vo.wonderBoard;
 
 public class wonderDAO {
-	
-	private Statement stmt;
+
 	private PreparedStatement pstmt;
 	private ResultSet rs;
 	private Properties prop;
 
-
 	public wonderDAO() {
-
 		try {
 			prop = new Properties();
 			String filePath = wonderDAO.class.getResource("/talentFour/sql/wonder-sql.xml").getPath();
-
 			prop.loadFromXML(new FileInputStream(filePath));
-
-
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
+
+<<<<<<< HEAD
+	public String selectBoardName(Connection conn, int type) throws SQLException {
+		String sql = "SELECT BOARD_NM FROM BOARD_TYPE WHERE BOARD_CD = ?";
+		String boardName = null;
+=======
 
 	/** 게시판 이름 조회 DAO
 	 * @param conn
@@ -66,74 +66,99 @@ public class wonderDAO {
 		
 		
 	}
+>>>>>>> 63f5e571f38a5a5fc951cbda85e684e3ecebeb48
 
-
-	/** 게시글 목록 조회 DAO
-	 * @param conn
-	 * @param type
-	 * @return listCount
-	 * @throws Exception 
-	 * 
-	 */
-	
-	public int getListCount(Connection conn, int type) throws Exception {
-		int listCount = 0;
-		
-		try {
-			String sql = prop.getProperty("getListCount");
-			pstmt = conn.prepareStatement(sql);
-			
+		try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
 			pstmt.setInt(1, type);
-			
-			rs = pstmt.executeQuery();
-			
-			if(rs.next()) {
-				listCount = rs.getInt(1);
+			try (ResultSet rs = pstmt.executeQuery()) {
+				if (rs.next()) {
+					boardName = rs.getString("BOARD_NM");
+				}
 			}
-			
-		}finally{
-			close(rs);
-			close(pstmt);
-			
 		}
+<<<<<<< HEAD
 
+		return boardName;
+=======
 		return listCount;
+>>>>>>> 63f5e571f38a5a5fc951cbda85e684e3ecebeb48
 	}
 
+	public int getListCount(Connection conn, int type) throws SQLException {
+		String sql = "SELECT COUNT(*) AS COUNT FROM BOARD WHERE BOARD_CD = ? AND BOARD_ST = '1'";
+		int count = 0;
 
-	/** 특정 게시판에서 일정한 범위의 목록 조회 dAO
-	 * @param conn
-	 * @param type
-	 * @param pagination
-	 * @return
-	 * @throws Exception 
-	 */
-	public List<wonderBoard> selectBoardList(Connection conn, int type, Pagination pagination) throws Exception {
-		
-		List<wonderBoard> boardList = new ArrayList<>();
-		
-		try {
-			String sql = prop.getProperty("selectBoardList");
-			
-			int start = (pagination.getCurrentPage() -1) * pagination.getLimit()+1;
-			int end = start + pagination.getLimit() -1;
-			
-			pstmt = conn.prepareStatement(sql);
-			
-			pstmt.setInt(1,type);
-			pstmt.setInt(2, start);
-			pstmt.setInt(3, end);
-			
-		}finally {
-			
+		try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setInt(1, type);
+			try (ResultSet rs = pstmt.executeQuery()) {
+				if (rs.next()) {
+					count = rs.getInt("COUNT");
+				}
+			}
 		}
-		
-		
-		return null;
+
+		return count;
 	}
-
-
-
+	
 	
 
+	public List<wonderBoard> selectBoardList(Connection conn, int type, Pagination pagination) throws SQLException {
+		List<wonderBoard> wonderFreeList = new ArrayList<>();
+		String sql = prop.getProperty("selectlistFree");
+
+		try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			int itemsPerPage = pagination.getItemsPerPage();
+			int startRow = (pagination.getCurrentPage() - 1) * itemsPerPage + 1; // 시작 행
+			int endRow = startRow + itemsPerPage - 1; // 끝 행
+
+			pstmt.setInt(1, startRow); // 시작 행
+			pstmt.setInt(2, endRow); // 끝 행
+
+			try (ResultSet rs = pstmt.executeQuery()) {
+				while (rs.next()) {
+					wonderBoard wonderBoard = new wonderBoard();
+					wonderBoard.setBoardNo(rs.getInt("BOARD_NO"));
+					wonderBoard.setBoardTitle(rs.getString("BOARD_TITLE"));
+					wonderBoard.setBoardContent(rs.getString("BOARD_CONTENT"));
+					wonderBoard.setCreateDate(rs.getString("CREATED_DT"));
+					wonderBoard.setReadCount(rs.getInt("READ_COUNT"));
+					wonderBoard.setMemberNickname(rs.getString("MEMBER_NM"));
+					wonderBoard.setQaStatus(rs.getString("QA_STATUS"));
+					wonderBoard.setWonderType(rs.getString("WONDER_TYPE"));
+					wonderBoard.setTagName(rs.getString("TAG_NAMES"));
+
+					wonderFreeList.add(wonderBoard);
+				}
+			}
+		}
+
+		return wonderFreeList;
+	}
+
+	public wonderBoard getBoardById(Connection conn, String id) throws Exception {
+	    wonderBoard board = null;
+	    String sql = prop.getProperty("boardDetail"); // SQL 쿼리를 XML 파일에서 가져옵니다.
+
+	    try (PreparedStatement pstmt = conn.prepareStatement(sql)) { // PreparedStatement 객체 생성
+	        pstmt.setString(1, id); // 게시글 ID를 설정합니다.
+
+	        try (ResultSet rs = pstmt.executeQuery()) { // 쿼리 실행
+	            if (rs.next()) { // 결과가 있는 경우
+	                board = new wonderBoard();
+	                board.setBoardNo(rs.getInt("BOARD_NO")); 
+	                board.setBoardTitle(rs.getString("BOARD_TITLE"));
+	                board.setBoardContent(rs.getString("BOARD_CONTENT"));
+	                board.setCreateDate(rs.getString("CREATED_DT")); 
+	                board.setMemberNickname(rs.getString("MEMBER_NM"));
+	                board.setQaStatus(rs.getString("QA_STATUS"));
+	              
+	            }
+	        }
+	    } finally {
+	    	close(rs);
+	    	close(pstmt);
+	    }
+
+	    return board;
+	}
 }

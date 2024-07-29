@@ -14,8 +14,7 @@ import lombok.ToString;
 @ToString
 @Builder
 public class Paid {
-	private String classPhoto;
+	private String classURL;
 	private String className;
 	private String paymentDate;
-	private int classNo;
 }

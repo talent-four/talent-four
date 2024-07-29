@@ -1,8 +1,6 @@
 package filter;
 
 import java.io.IOException;
-import java.util.List;
-
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -13,9 +11,6 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpFilter;
 import javax.servlet.http.HttpServletRequest;
-
-import talentFour.classes.model.service.ClassPageService;
-import talentFour.classes.model.vo.Category;
 
 @WebFilter(filterName = "common", urlPatterns = "/*")
 public class common extends HttpFilter implements Filter {
@@ -32,18 +27,6 @@ public class common extends HttpFilter implements Filter {
 		ServletContext application = request.getServletContext();
 		String contextPath = ((HttpServletRequest)request).getContextPath();
 		application.setAttribute("contextPath", contextPath);
-
-        try {
-            // 서블릿 초기화 시 카테고리 정보를 한 번만 가져옴
-            ClassPageService service = new ClassPageService();
-            List<Category> categoryList = service.getCategory();
-            application.setAttribute("categoryList", categoryList);
-        } catch (Exception e) {
-            System.out.println("카테고리 불러오는 중 오류");
-            e.printStackTrace();
-        }
-		
-		
 		chain.doFilter(request, response);
 	}
 	

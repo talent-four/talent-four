@@ -89,11 +89,11 @@ public class ClassPageDAO {
 	}
 
 
-	public List<Class> getClasses(Connection conn, String subCategoryCode, String orderBy) throws Exception {
+	public List<Class> getClasses(Connection conn, String subCategoryCode) throws Exception {
 		List<Class> classList = new ArrayList<>();
 		
 		try {
-			String sql = prop.getProperty("getClasses") + orderBy;
+			String sql = prop.getProperty("getClasses");
 				
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, subCategoryCode);
@@ -114,8 +114,6 @@ public class ClassPageDAO {
 				c.setMemberNo(rs.getInt(9));
 				c.setCategoryCode(rs.getString(10));
 				c.setMemberNickname(rs.getString(11));
-				c.setReviews(rs.getInt(12));
-				c.setScore(rs.getFloat(13));
 				classList.add(c);
 			}
 			
@@ -128,11 +126,11 @@ public class ClassPageDAO {
 	}
 
 
-	public List<Class> getMainClasses(Connection conn, String mainCategoryCode, String orderBy) throws Exception {
+	public List<Class> getMainClasses(Connection conn, String mainCategoryCode) throws Exception {
 		List<Class> classList = new ArrayList<>();
 		
 		try {
-			String sql = prop.getProperty("getMainClasses") + orderBy;
+			String sql = prop.getProperty("getMainClasses");
 				
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, mainCategoryCode);
@@ -153,8 +151,6 @@ public class ClassPageDAO {
 				c.setMemberNo(rs.getInt(9));
 				c.setCategoryCode(rs.getString(10));
 				c.setMemberNickname(rs.getString(11));
-				c.setReviews(rs.getInt(12));
-				c.setScore(rs.getFloat(13));
 				classList.add(c);
 			}
 			
@@ -167,11 +163,11 @@ public class ClassPageDAO {
 	}
 
 
-	public List<Class> getAllClasses(Connection conn, String orderBy) throws Exception {
+	public List<Class> getAllClasses(Connection conn) throws Exception {
 		List<Class> classList = new ArrayList<>();
 		
 		try {
-			String sql = prop.getProperty("getAllClasses") + orderBy;
+			String sql = prop.getProperty("getAllClasses");
 				
 			stmt = conn.prepareStatement(sql);
 			
@@ -191,8 +187,6 @@ public class ClassPageDAO {
 				c.setMemberNo(rs.getInt(9));
 				c.setCategoryCode(rs.getString(10));
 				c.setMemberNickname(rs.getString(11));
-				c.setReviews(rs.getInt(12));
-				c.setScore(rs.getFloat(13));
 				classList.add(c);
 			}
 			

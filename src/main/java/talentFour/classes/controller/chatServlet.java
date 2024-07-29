@@ -14,7 +14,6 @@ import com.google.gson.Gson;
 
 import talentFour.classes.model.service.BoardService;
 import talentFour.classes.model.vo.Chatting;
-import talentFour.member.model.service.MemberService;
 import talentFour.member.model.vo.Member;
 
 
@@ -36,30 +35,12 @@ public class chatServlet extends HttpServlet {
 		
 		try {
 		
-			List<Chatting> chattingList = service.chatting(loginMember.getMemberNo(), toId);
+			List<Chatting> chattingList = service.chatting(loginMember.getMemberNickname(), toId);
 			
 			new Gson().toJson(chattingList , resp.getWriter());
 			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-	}
-	
-	
-	
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-		String toId = req.getParameter("toId");
-		try {
-	           MemberService service = new MemberService();
-	           int memberNo=service.searchMemberNo(toId);
-	           
-	           new Gson().toJson(memberNo , resp.getWriter());
-	           
-		}catch(Exception e){
-			e.printStackTrace();
-		}
-		
 	}
 }

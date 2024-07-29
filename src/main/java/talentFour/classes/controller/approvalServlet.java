@@ -9,12 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import talentFour.classes.model.service.BoardService;
-import talentFour.classes.model.service.ClassPageService;
-import talentFour.classes.model.service.DetailPageService;
-import talentFour.classes.model.vo.Class;
-
-@WebServlet("/approval/*")
+@WebServlet("/approval")
 public class approvalServlet extends HttpServlet {
 	
 	@Override

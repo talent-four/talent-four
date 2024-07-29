@@ -14,7 +14,6 @@ import java.util.Properties;
 
 import talentFour.classes.model.vo.Category;
 import talentFour.classes.model.vo.Class;
-import talentFour.member.model.vo.Member;
 
 public class DetailPageDAO {
 
@@ -64,10 +63,8 @@ public class DetailPageDAO {
 				c.setCategoryCode(rs.getString(10));
 				c.setMemberNickname(rs.getString(11));
 				c.setMemberProfile(rs.getString(12));
-				c.setSub(rs.getString(13));
-				c.setMain(rs.getString(14));
-				c.setReviews(rs.getInt(15));
-				c.setScore(rs.getFloat(16));
+				c.setMain(rs.getString(13));
+				c.setSub(rs.getString(14));
 			}
 			
 		} finally {
@@ -331,5 +328,4 @@ public class DetailPageDAO {
 		
 		return result;
 	}
-
 }

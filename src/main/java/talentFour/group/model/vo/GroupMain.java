@@ -20,14 +20,15 @@ public class GroupMain {
 	private int boardNo;
 	private String boardTitle;
 	private String studyStatus;
-	private String startDate; // 모집 시작일
-	private String boardContent; // 내용 
-	private String memberNickname; // 닉네임
-	private int studyNumber; // 모집인원
-	private int readCount; // 조회수
+	private String tagName;
+	private Date startDate;
+	private String boardContent;
+	private String memberNickname;
+	private int studyNumber;
+	private int readCount;
+	private int memberNo;
 	private int boardCode;
-	private String location;
-	private String address;
+	private String tagImage;
 	
 	
 	
