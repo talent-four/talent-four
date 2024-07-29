@@ -49,11 +49,11 @@ public class LoginServlet extends HttpServlet {
 		try {
 			Member loginMember = service.login(mem);
 			if(loginMember == null) {
-				System.out.println("로긴멤버가 널값임");
+//				System.out.println("로긴멤버가 널값임");
 				session.setAttribute("message", "아이디 또는 비밀번호가 일치하지 않습니다.");
 				path = "login";
 			} else {
-				System.out.println("나는 sql이 가져온 멤버야"+loginMember);
+//				System.out.println("나는 sql이 가져온 멤버야"+loginMember);
 				session.setAttribute("message", "로그인이 성공하였습니다.");
 				session.setAttribute("loginMember", loginMember);
 				path = req.getContextPath();

@@ -91,7 +91,7 @@ public class BoardDAO {
 	 * @param memberNickname
 	 * @return List<Chatting>
 	 */
-	public List<Chatting> chatting(Connection conn, String memberNickname,String toId) throws Exception {
+	public List<Chatting> chatting(Connection conn, int memberNo,String toId) throws Exception {
 		
 		List<Chatting> chattingList = new ArrayList<>();
 		
@@ -100,9 +100,9 @@ public class BoardDAO {
 			String sql = prop.getProperty("chatting");
 			pstmt=conn.prepareStatement(sql);
 			
-			pstmt.setString(1, memberNickname);
+			pstmt.setInt(1, memberNo);
 			pstmt.setString(2, toId);
-			pstmt.setString(3, memberNickname);
+			pstmt.setInt(3, memberNo);
 			pstmt.setString(4, toId);
 			
 			rs=pstmt.executeQuery();

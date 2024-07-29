@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 import static talentFour.common.JDBCTemplate.*;
+
+import talentFour.classes.model.vo.Message;
 import talentFour.member.model.vo.Member;
 import talentFour.member.model.vo.Paid;
 import talentFour.member.model.vo.Review;
@@ -318,9 +320,10 @@ public class MemberDAO {
 				Paid paid = new Paid();
 				
 				paid=Paid.builder()
-						.classURL(rs.getString(1))
+						.classPhoto(rs.getString(1))
 						.className(rs.getString(2))
 						.paymentDate(rs.getString(3))
+						.classNo(rs.getInt(4))
 						.build();
 				paidList.add(paid);
 			}
@@ -331,6 +334,133 @@ public class MemberDAO {
 		}
 		
 		return paidList;
+	}
+
+
+	/** 프로필 사진 이미지 경로 변경
+	 * @param conn
+	 * @param loginMember
+	 * @return result
+	 * @throws SQLException
+	 */
+	public int profileImage(Connection conn, Member loginMember) throws SQLException {
+		
+		int result = 0 ;
+		
+		try {
+			
+			String sql=prop.getProperty("profileImage");
+			
+			pstmt=conn.prepareStatement(sql);
+			
+			pstmt.setString(1, loginMember.getMemberProfile());
+			pstmt.setInt(2, loginMember.getMemberNo());
+			
+			result = pstmt.executeUpdate();
+			
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+
+	/** 채팅 서비스를 위한 아이디로 memberNo 반환
+	 * @param conn
+	 * @param toId
+	 * @return memberNo
+	 */
+	public int searchMemberNo(Connection conn, String toId) {
+		
+		int memberNo=0;
+		
+		try {
+			
+			String sql=prop.getProperty("searchMemberNo");
+			
+			pstmt=conn.prepareStatement(sql);
+			
+			pstmt.setString(1, toId);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				memberNo=rs.getInt(1);
+			}
+			
+		} catch(SQLException e) {
+			System.out.println("조회된 아이디는 없는 아이디임");
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return memberNo;
+	}
+
+
+	/** 채팅 DB 삽입
+	 * @param conn
+	 * @param msg
+	 * @return result
+	 * @throws Exception
+	 */
+	public int insertChatting(Connection conn, Message msg) throws Exception {
+		
+		int result=0;
+		
+		try {
+			
+			String sql=prop.getProperty("insertChatting");
+			
+			pstmt=conn.prepareStatement(sql);
+			
+			pstmt.setString(1, msg.getFromId());
+			pstmt.setString(2, msg.getToId());
+			pstmt.setString(3, msg.getMessage());
+					
+			
+			result = pstmt.executeUpdate();
+
+			
+		} catch(SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+
+	/** 회원 가입
+	 * @param conn
+	 * @param member
+	 * @return result
+	 * @throws SQLException
+	 */
+	public int signUp(Connection conn, Member member) throws SQLException {
+		
+		int result=0;
+		
+		try {
+			String sql=prop.getProperty("signUp");
+			
+			pstmt=conn.prepareStatement(sql);
+			
+			pstmt.setString(1, member.getMemberEmail());
+			pstmt.setString(2, member.getMemberNickname());
+			pstmt.setString(3, member.getMemberPw());
+					
+			
+			result = pstmt.executeUpdate();
+			
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
 	}
 
 }

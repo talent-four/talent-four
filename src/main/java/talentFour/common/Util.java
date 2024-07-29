@@ -63,4 +63,18 @@ public class Util {
 		return encryptPw;
 	}
 
+    public static String getClientIdFromQuery(String query) {
+        if (query != null) {
+            String[] params = query.split("&");
+            for (String param : params) {
+                String[] keyValue = param.split("=");
+                if (keyValue.length == 2 && "clientId".equals(keyValue[0])) {
+                    return keyValue[1];
+                }
+            }
+        }
+        return null;
+    }
+	
+	
 }

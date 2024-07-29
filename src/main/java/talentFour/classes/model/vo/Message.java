@@ -12,9 +12,9 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Message {
-   private String toId;
+   private String toId; // 보낼 아이디
+   private String fromId; // 보낸 아이디
    private String message;
-   private String fromId;
     @Override
     public String toString() {
         return toId+"/"+message+"/"+fromId;

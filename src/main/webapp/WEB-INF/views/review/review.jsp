@@ -46,11 +46,11 @@
                 <link rel="stylesheet" href="${contextPath}/resources/css/common/hf.css">
                 <script src="https://code.jquery.com/jquery-3.7.1.min.js"
                     integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-                <script type="text/javascript">
+            <!--     <script type="text/javascript">
                     const memberNickname = "${loginMember.memberNickname}";
                     const memberNo = "${loginMember.memberNo}"
                     const contextPath = "${contextPath}";
-                </script>
+                </script> -->
                 <script src="${contextPath}/resources/js/review/review.js"></script>
             </body>
 

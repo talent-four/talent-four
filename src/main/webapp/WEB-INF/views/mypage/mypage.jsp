@@ -22,7 +22,16 @@
         <section class="sideP"> <!-- 카테고리 사이드바 -->
             <article class="profileP"> <!-- 프로필 사진 / 이름 -->
                 <div class="profile-areaP"> <!-- 프로필 사진 -->
-                    <img src="${contextPath}/resources/img/profile-default.jpg" id="profile-img">
+	
+				<c:choose>
+    				<c:when test="${empty loginMember.memberProfile}">
+        				<img src="${contextPath}/resources/img/profile-default.jpg" id="profile-img">
+    				</c:when>
+    				<c:otherwise>
+        				<img src="${contextPath}${loginMember.memberProfile}" id="profile-img">
+    				</c:otherwise>
+				</c:choose>
+					
                 </div>
                 <div class="nameP"> <!-- 이름 -->
                     <span id="idP">${loginMember.memberNickname}</span>
@@ -68,9 +77,8 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script type="text/javascript">
         const memberEmail = "${loginMember.memberEmail}";
-        const memberNickname = "${loginMember.memberNickname}";
-        const memberNo ="${loginMember.memberNo}"
-        const contextPath = "${contextPath}";
+        let memberProfile = "${loginMember.memberProfile}";
+
     </script>
     <script src="${contextPath}/resources/js/mypage/mypage.js"></script>
 </body>

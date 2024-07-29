@@ -25,89 +25,92 @@ menu.push(payment);
 menu.push(review);
 menu.push(QA);
 
-let user = {
-    name: '홍길동',
-    age: '25',
-    email: 'wh8299@gmail.com',
-    nickname: '홍길동123',
-    tel: '010-1234-1234',
-    favorites: [
-        '코딩1', '코딩2'
-    ],
-    review: {
-        title: '어려워용',
-        description: '진짜 어려움'
-    },
-    QA: {
-        title: '제목이안됨',
-        description: '내용이안됨'
-    }
-};
+let currentId = memberNickname;
 
 // if 문으로 0개 일시 출력문구 변경
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    profile.classList.add('selected');
 
-    container.innerHTML = `<div id="main-1">
-                <div>내 프로필</div>
-            </div>
-            <div id="main-2">
-                <div id="main-2-1">닉네임(별명)</div>
-                <div id="main-2-2"><p>${memberNickname}</p><button id="main-2-2-write" class="fa-regular fa-pen-to-square"></button></div>
-                <div id="main-2-3"></div>
-            </div>
-            <div id="main-3">
-                <div id="main-3-1">프로필이미지</div>
-                <div id="main-3-2">
-                    <img src="${contextPath}/resources/img/profile-default.jpg" id="profile-img">
-                    <label for="main-3-2-btn-2">
-                        <div id="main-3-2-btn-1" class="fa-solid fa-camera"></div>
-                    </label>
-                  <input type="file" name="main-3-2-btn-2" id="main-3-2-btn-2"></div>
-            </div>
-            <div id="main-4">
-                <div id="main-4-1">이메일(로그인ID)</div>
-                <div id="main-4-2">${memberEmail}<button id="main-4-2-write">이메일 인증하기</button></div></div>
-            </div>
-            <div id="main-5">
-                <div id="main-5-1">전화번호</div>
-                <div id="main-5-2">폐쇄 예정</div>
-            </div>
-            <div id="main-6">
-                <div id="main-6-1">
-                    <button id="main-6-1-btn-1">비밀번호 변경</button>
-                    <button id="main-6-1-btn-2">회원 탈퇴</button>
-                </div>
-            </div>
-            <div id="background-modal" hidden></div>
-            <div id="changePw-modal" hidden>
-                <div id="changePw-modal-container">
-                    <form action="${contextPath}/mypage/changePw" method="POST">
-                        <p>비밀번호 변경</p><br>
-                        <span>현재 비밀번호</span><input type="password" name="currentPw" id="currentPw"><br>
-                        <div id="pwCheck1" hidden>현재 비밀번호가 일치하지 않습니다.</div>
-                        <span>새 비밀번호 </span><input type="password" name="newPw1" id="newPw1"><br>
-                        <div id="pwCheck2" hidden>새 비밀번호와 비밀번호 확인이 일치하지 않습니다.</div>
-                        <span>비밀번호 확인 </span><input type="password" name="newPw2" id="newPw2">
-                        <button type="submit" id="modal-btn1">수정</button>
-                        <button id="modal-btn2" type="button" style="background-color: white; border: 1px solid rgb(33,33,33); color: rgb(33,33,33);">취소</button>
-                    </form>
-                </div>
-            </div>
-            <div id="resign-modal" hidden>
-                <div id="resign-modal-container">
-                    <form action="${contextPath}/mypage/secession" method="POST"}>
-                        <p>회원 탈퇴</p><br>
-                        <div id="real">정말 탈퇴하시겠습니까?</div>
-                        <span>비밀번호</span><input type="password" name="currentPw"><br>
-                        <button type="submit" id="modal-btn1">회원 탈퇴</button>
-                        <button id="modal-btn2" type="button" style="background-color: white; border: 1px solid rgb(33,33,33); color: rgb(33,33,33);">취소</button>
-                    </form>
-                </div>
-            </div>
-            `;
+    if (memberNo) {
+
+        profile.classList.add('selected');
+
+        if (memberProfile == "") {
+            memberProfile = "/resources/img/profile-default.jpg";
+        }
+
+        container.innerHTML =
+            `<div id="main-1">
+    <div>내 프로필</div>
+</div>
+<div id="main-2">
+    <div id="main-2-1">닉네임(별명)</div>
+    <div id="main-2-2">
+        <p>${memberNickname}</p>
+        <button id="main-2-2-write" class="fa-regular fa-pen-to-square"></button>
+    </div>
+    <div id="main-2-3"></div>
+</div>
+<div id="main-3">
+    <div id="main-3-1">프로필이미지</div>
+    <div id="main-3-2">
+        <img src="${contextPath}${memberProfile}" id="profile-img">
+        <form action="${contextPath}/mypage/profileImage" method="post" enctype="multipart/form-data">
+            <label for="main-3-2-btn-2">
+                <div id="main-3-2-btn-1" class="fa-solid fa-camera"></div>
+            </label>
+            <input type="file" name="main-3-2-btn-2" id="main-3-2-btn-2">
+            <button id="main-4-2-write" type="submit">이미지 수정하기</button>
+        </form>
+    </div>
+</div>
+<div id="main-4">
+    <div id="main-4-1">이메일(로그인ID)</div>
+    <div id="main-4-2">${memberEmail}</div>
+</div>
+<div id="main-5">
+    <div id="main-5-1">전화번호</div>
+    <div id="main-5-2">폐쇄 예정</div>
+</div>
+<div id="main-6">
+    <div id="main-6-1">
+        <button id="main-6-1-btn-1">비밀번호 변경</button>
+        <button id="main-6-1-btn-2">회원 탈퇴</button>
+    </div>
+</div>
+<div id="background-modal" hidden></div>
+<div id="changePw-modal" hidden>
+    <div id="changePw-modal-container">
+        <form action="${contextPath}/mypage/changePw" method="POST">
+            <p>비밀번호 변경</p><br>
+            <span>현재 비밀번호</span><input type="password" name="currentPw" id="currentPw"><br>
+            <div id="pwCheck1" hidden>현재 비밀번호가 일치하지 않습니다.</div>
+            <span>새 비밀번호 </span><input type="password" name="newPw1" id="newPw1"><br>
+            <div id="pwCheck2" hidden>새 비밀번호와 비밀번호 확인이 일치하지 않습니다.</div>
+            <div id="pwCheck3" hidden>영문+숫자+특수문자(!,_,~)를 포함한 5~15자를 입력해주세요</div>
+            <span>비밀번호 확인 </span><input type="password" name="newPw2" id="newPw2">
+            <button type="submit" id="modal-btn1">수정</button>
+            <button id="modal-btn2" type="button" style="background-color: white; border: 1px solid rgb(33,33,33); color: rgb(33,33,33);">취소</button>
+        </form>
+    </div>
+</div>
+<div id="resign-modal" hidden>
+    <div id="resign-modal-container">
+        <form action="${contextPath}/mypage/secession" method="POST">
+            <p>회원 탈퇴</p><br>
+            <div id="real">정말 탈퇴하시겠습니까?</div>
+            <span>비밀번호</span><input type="password" name="currentPw"><br>
+            <button type="submit" id="modal-btn3">회원 탈퇴</button>
+            <button id="modal-btn2" type="button" style="background-color: white; border: 1px solid rgb(33,33,33); color: rgb(33,33,33);">취소</button>
+        </form>
+    </div>
+</div>`;
+    } else {
+        window.history.back();
+    }
+
+
 
 });
 
@@ -122,64 +125,76 @@ profile.addEventListener('click', () => {
 
     profile.classList.add('selected');
 
-    container.innerHTML = `<div id="main-1">
-                <div>내 프로필</div>
-            </div>
-            <div id="main-2">
-                <div id="main-2-1">닉네임(별명)</div>
-                <div id="main-2-2"><p>${memberNickname}</p><button id="main-2-2-write" class="fa-regular fa-pen-to-square"></button></div>
-                        <div id="main-2-3"></div>
-            </div>
-            <div id="main-3">
-                <div id="main-3-1">프로필이미지</div>
-                <div id="main-3-2">
-                    <img src="${contextPath}/resources/img/profile-default.jpg" id="profile-img">
-                    <label for="main-3-2-btn-2">
-                        <div id="main-3-2-btn-1" class="fa-solid fa-camera"></div>
-                    </label>
-                  <input type="file" name="main-3-2-btn-2" id="main-3-2-btn-2"></div>
-            </div>
-            <div id="main-4">
-                <div id="main-4-1">이메일(로그인ID)</div>
-                <div id="main-4-2">${memberEmail}<button id="main-4-2-write">이메일 인증하기</button></div></div>
-            </div>
-            <div id="main-5">
-                <div id="main-5-1">전화번호</div>
-                <div id="main-5-2">폐쇄예정</div>
-            </div>
-            <div id="main-6">
-                <div id="main-6-1">
-                    <button id="main-6-1-btn-1">비밀번호 변경</button>
-                    <button id="main-6-1-btn-2">회원 탈퇴</button>
-                </div>
-            </div>
-            <div id="background-modal" hidden></div>
-            <div id="changePw-modal" hidden>
-                <div id="changePw-modal-container">
-                    <form action="${contextPath}/mypage/changePw" method="POST">
-                        <p>비밀번호 변경</p><br>
-                        <span>현재 비밀번호</span><input type="password" name="currentPw" id="currentPw"><br>
-                        <div id="pwCheck1" hidden>현재 비밀번호가 일치하지 않습니다.</div>
-                        <span>새 비밀번호 </span><input type="password" name="newPw1" id="newPw1"><br>
-                        <div id="pwCheck2" hidden>새 비밀번호와 비밀번호 확인이 일치하지 않습니다.</div>
-                        <span>비밀번호 확인 </span><input type="password" name="newPw2" id="newPw2">
-                        <button type="submit" id="modal-btn1">수정</button>
-                        <button id="modal-btn2" type="button" style="background-color: white; border: 1px solid rgb(33,33,33); color: rgb(33,33,33);">취소</button>
-                    </form>
-                </div>
-            </div>
-            <div id="resign-modal" hidden>
-                <div id="resign-modal-container">
-                    <form action="${contextPath}/mypage/secession">
-                        <p>회원 탈퇴</p><br>
-                        <div id="real">정말 탈퇴하시겠습니까?</div>
-                        <span>비밀번호</span><input type="password"><br>
-                        <button type="submit" id="modal-btn1">회원 탈퇴</button>
-                        <button id="modal-btn2" type="button" style="background-color: white; border: 1px solid rgb(33,33,33); color: rgb(33,33,33);">취소</button>
-                    </form>
-                </div>
-            </div>
-            `;
+    if (memberProfile == "") {
+        memberProfile = "/resources/img/profile-default.jpg";
+    }
+
+    container.innerHTML =
+        `<div id="main-1">
+    <div>내 프로필</div>
+</div>
+<div id="main-2">
+    <div id="main-2-1">닉네임(별명)</div>
+    <div id="main-2-2">
+        <p>${memberNickname}</p>
+        <button id="main-2-2-write" class="fa-regular fa-pen-to-square"></button>
+    </div>
+    <div id="main-2-3"></div>
+</div>
+<div id="main-3">
+    <div id="main-3-1">프로필이미지</div>
+    <div id="main-3-2">
+        <img src="${contextPath}${memberProfile}" id="profile-img">
+        <form action="${contextPath}/mypage/profileImage" method="post" enctype="multipart/form-data">
+            <label for="main-3-2-btn-2">
+                <div id="main-3-2-btn-1" class="fa-solid fa-camera"></div>
+            </label>
+            <input type="file" name="main-3-2-btn-2" id="main-3-2-btn-2">
+            <button id="main-4-2-write" type="submit">이미지 수정하기</button>
+        </form>
+    </div>
+</div>
+<div id="main-4">
+    <div id="main-4-1">이메일(로그인ID)</div>
+    <div id="main-4-2">${memberEmail}</div>
+</div>
+<div id="main-5">
+    <div id="main-5-1">전화번호</div>
+    <div id="main-5-2">폐쇄 예정</div>
+</div>
+<div id="main-6">
+    <div id="main-6-1">
+        <button id="main-6-1-btn-1">비밀번호 변경</button>
+        <button id="main-6-1-btn-2">회원 탈퇴</button>
+    </div>
+</div>
+<div id="background-modal" hidden></div>
+<div id="changePw-modal" hidden>
+    <div id="changePw-modal-container">
+        <form action="${contextPath}/mypage/changePw" method="POST">
+            <p>비밀번호 변경</p><br>
+            <span>현재 비밀번호</span><input type="password" name="currentPw" id="currentPw"><br>
+            <div id="pwCheck1" hidden>현재 비밀번호가 일치하지 않습니다.</div>
+            <span>새 비밀번호 </span><input type="password" name="newPw1" id="newPw1"><br>
+            <div id="pwCheck2" hidden>새 비밀번호와 비밀번호 확인이 일치하지 않습니다.</div>
+            <div id="pwCheck3" hidden>영문+숫자+특수문자(!,_,~)를 포함한 5~15자를 입력해주세요</div>
+            <span>비밀번호 확인 </span><input type="password" name="newPw2" id="newPw2">
+            <button type="submit" id="modal-btn1">수정</button>
+            <button id="modal-btn2" type="button" style="background-color: white; border: 1px solid rgb(33,33,33); color: rgb(33,33,33);">취소</button>
+        </form>
+    </div>
+</div>
+<div id="resign-modal" hidden>
+    <div id="resign-modal-container">
+        <form action="${contextPath}/mypage/secession" method="POST">
+            <p>회원 탈퇴</p><br>
+            <div id="real">정말 탈퇴하시겠습니까?</div>
+            <span>비밀번호</span><input type="password" name="currentPw"><br>
+            <button type="submit" id="modal-btn1">회원 탈퇴</button>
+            <button id="modal-btn2" type="button" style="background-color: white; border: 1px solid rgb(33,33,33); color: rgb(33,33,33);">취소</button>
+        </form>
+    </div>
+</div>`;
 
 });
 
@@ -190,11 +205,11 @@ payment.addEventListener('click', () => {
     })
 
     payment.classList.add('selected');
-    
+
     selectPayment();
 
-    container.innerHTML = 
-           `<div id="payment-main-1">
+    container.innerHTML =
+        `<div id="payment-main-1">
                 <div>결제 내역</div>
             </div>
             <div id="payment-main-3">
@@ -290,9 +305,17 @@ document.querySelector('.containerH').addEventListener('click', (e) => {
         document.querySelector("#main-2-2").innerHTML = `<input type="text" id="main-2-2-inputId"><button id="input-check" class="fa-solid fa-check"> </button> <button id="input-cancle" class="fa-solid fa-x"></button>`;
     }
 
-    if (e.target.id == 'main-4-2-write') {
-        document.querySelector("#main-4-2").innerHTML =
-            `<input type="text" id="main-4-2-inputId"><button id="input2-check" class="fa-solid fa-check"> </button> <button id="input2-cancle" class="fa-solid fa-x"></button>`;
+
+    // 리뷰 작성 페이지
+    if (e.target.id == 'review-main-2-1') {
+
+        reviewWrite();
+
+        selectMylecture();
+
+        tagButtonController();
+
+
     }
 
     if (e.target.id == 'input2-check') {
@@ -315,7 +338,7 @@ document.querySelector('.containerH').addEventListener('click', (e) => {
     };
 
 
-    // 중복 검사
+    // 중복, 닉네임 유효성 검사
     if (e.target.id == 'input-check') {
 
 
@@ -325,7 +348,7 @@ document.querySelector('.containerH').addEventListener('click', (e) => {
 
     }
     if (e.target.id == 'input-cancle') {
-        document.querySelector("#main-2-2").innerHTML = `<p>${memberNickname}</p><button id="main-2-2-write" class="fa-regular fa-pen-to-square"></button>`;
+        document.querySelector("#main-2-2").innerHTML = `<p>${currentId}</p><button id="main-2-2-write" class="fa-regular fa-pen-to-square"></button>`;
         document.querySelector("#main-2-3").innerText = ``;
     };
     // 모달 관련 js
@@ -346,11 +369,23 @@ document.querySelector('.containerH').addEventListener('click', (e) => {
         const newPw1 = document.querySelector("#newPw1").value;
         const newPw2 = document.querySelector("#newPw2").value;
 
+        // 비밀번호 형식 추가
+        const regExpPw = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!~_])[A-Za-z\d!~_]{5,15}$/;
+
         if (newPw1 == newPw2) {
-            console.log("db를 통한 검사 진행 가능, 패러미터는 newPw1만 넘김");
+
+            if (regExpPw.test(newPw1)) {
+                console.log("db를 통한 검사 진행 가능, 패러미터는 newPw1만 넘김");
+            } else {
+                e.preventDefault();
+                document.querySelector("#pwCheck3").hidden = false;
+                document.querySelector("#pwCheck2").hidden = true;
+            }
+
         } else {
             e.preventDefault();
             document.querySelector("#pwCheck2").hidden = false;
+            document.querySelector("#pwCheck3").hidden = true;
         }
 
     }
@@ -377,29 +412,41 @@ document.querySelector('.containerH').addEventListener('change', (e) => {
 
 
 function checkId(id) {
-    $.ajax({
 
-        url: contextPath + "/mypage/checkId",
-        data: {
-            "id": id,
-        },
-        type: "POST",
-        success(res) {
-            if (res == 1) {
-                alert("중복된 닉네임 입니다.");
-                document.querySelector("#main-2-3").innerText = `중복된 닉네임 입니다.`;
-                document.querySelector("#main-2-3").classList.add("itsbad");
-            } else {
-                alert("닉네임 변경 완료");
-                document.querySelector("#main-2-2").innerHTML = `<p>${id}</p><button id="main-2-2-write" class="fa-regular fa-pen-to-square"></button>`;
-                document.querySelector("#main-2-3").innerText = ``;
+    // 닉네임 형식 검사
+    const regExpNick = /^[가-힣0-9]{2,8}$/;
+
+    if (regExpNick.test(id)) {
+
+        $.ajax({
+
+            url: contextPath + "/mypage/checkId",
+            data: {
+                "id": id,
+            },
+            type: "POST",
+            success(res) {
+                if (res == 1) {
+                    alert("중복된 닉네임 입니다.");
+                    document.querySelector("#main-2-3").innerText = `중복된 닉네임 입니다.`;
+                    document.querySelector("#main-2-3").classList.add("itsbad");
+                } else {
+                    alert("닉네임 변경 완료");
+                    document.querySelector("#main-2-2").innerHTML = `<p>${id}</p><button id="main-2-2-write" class="fa-regular fa-pen-to-square"></button>`;
+                    document.querySelector("#main-2-3").innerText = ``;
+                    document.querySelector("#idP").innerText = `${id}`;
+                    currentId = id;
+                }
+            },
+            error() {
+                console.log("에러임");
             }
-        },
-        error() {
-            console.log("에러임");
-        }
 
-    });
+        });
+
+    } else {
+        alert("사용 불가능한 아이디 입니다. 한글/숫자 2-8글자를 입력해주세요.");
+    }
 }
 
 function selectReview() {
@@ -411,24 +458,24 @@ function selectReview() {
         success(res) {
 
             const result = JSON.parse(res);
-
+            console.log(result);
 
             result.forEach((review) => {
-               
-                if(review.reviewStar==1){
-                    review.reviewStar="★";
-                } else if(review.reviewStar==2){
-                    review.reviewStar="★★";
-                } else if(review.reviewStar==3){
-                    review.reviewStar="★★★";
-                } else if(review.reviewStar==4){
-                    review.reviewStar="★★★★";
-                } else if(review.reviewStar==5){
-                    review.reviewStar="★★★★★";
+
+                if (review.reviewStar == 1) {
+                    review.reviewStar = "★";
+                } else if (review.reviewStar == 2) {
+                    review.reviewStar = "★★";
+                } else if (review.reviewStar == 3) {
+                    review.reviewStar = "★★★";
+                } else if (review.reviewStar == 4) {
+                    review.reviewStar = "★★★★";
+                } else if (review.reviewStar == 5) {
+                    review.reviewStar = "★★★★★";
                 }
 
-                if(review.profileImage==null){
-                    review.profileImage="/resources/img/profile-default.jpg";
+                if (review.profileImage == null) {
+                    review.profileImage = "/resources/img/profile-default.jpg";
                 }
 
                 document.querySelector("#review-main-3-1").insertAdjacentHTML("afterbegin",
@@ -451,36 +498,35 @@ function selectReview() {
     });
 }
 
-function selectPayment(){
+function selectPayment() {
 
     $.ajax({
 
-        url:contextPath + "/mypage/payment",
-        type:"POST",
-        success(res){
+        url: contextPath + "/mypage/payment",
+        type: "POST",
+        success(res) {
             const result = JSON.parse(res);
 
-            document.querySelector("#payment-main-1").insertAdjacentHTML("afterend", 
+            document.querySelector("#payment-main-1").insertAdjacentHTML("afterend",
                 `<div id="payment-main-2">
                     <div id="payment-main-2-1">결제 클래스 : ${result.length}개</div>
                 </div>`
             );
 
 
-            result.forEach((payment)=>{
+            result.forEach((payment) => {
                 document.querySelector("#payment-main-3-2-title").insertAdjacentHTML("afterend",
-                    // 썸네일 설정해야함
-
+                    // 썸네일 설정해야함           
                     `<div id="payment-main-3-1-box">
-                        <img src="${contextPath}${payment.classURL}" class="profile-payment">
-                        <span id="payment-title">${payment.className}</span>
+                        <img src="${contextPath}${payment.classPhoto}" class="profile-payment">
+                        <a href="${contextPath}/detailedPage?classNo=${payment.classNo}"><span id="payment-title">${payment.className}</span></a>
                         <span id="payment-date">${payment.paymentDate}</span>
                     </div>`
                 );
             });
 
         },
-        error(){
+        error() {
             console.log("에러임");
         }
 
@@ -490,6 +536,125 @@ function selectPayment(){
 }
 
 
+function reviewWrite() {
+
+    document.querySelector(".containerH").insertAdjacentHTML("afterbegin",
+        `<div id="background-modal"></div>
+                    
+                    <div id="write-modal">
+                        <div class="write-wrapper">
+                            <form action="${contextPath}/review/write" method="GET">
+                                <div class="write-lecture">
+                                    <label for="lecture" class="selectlabel">리뷰할 강의를 골라주세요</label>
+                                    <select name="parents" class="selectBox" required>
+                                    </select>
+                                </div>
+                                <div class="write-tag">
+                                    <div class="write-tag-question">태그를 선택해 주세요</div>
+                                    <div class="write-tag-select">
+                                        <div class="radio-button selected" data-value="1">#친절해요</div>
+                                        <div class="radio-button" data-value="2">#재밌어요</div>
+                                        <div class="radio-button" data-value="3">#시간가는줄 몰라요</div>
+                                        <div class="radio-button" data-value="4">#가격대비최고</div>
+                                        <div class="radio-button" data-value="5">#강의 맛집</div>
+                                        <div class="radio-button" data-value="6">#다음에 또 올께요</div>
+                                        <div class="radio-button" data-value="7">#완강했어요</div>
+                                        <div class="radio-button" data-value="8">#후회 안해요</div>
+                                        <div class="radio-button" data-value="9">#고민은 시간낭비</div>
+                                        <input type="radio" name="tag" value="1" id="option1" required checked
+                                            hidden>
+                                        <input type="radio" name="tag" value="2" id="option2" hidden>
+                                        <input type="radio" name="tag" value="3" id="option3" hidden>
+                                        <input type="radio" name="tag" value="4" id="option4" hidden>
+                                        <input type="radio" name="tag" value="5" id="option5" hidden>
+                                        <input type="radio" name="tag" value="6" id="option6" hidden>
+                                        <input type="radio" name="tag" value="7" id="option7" hidden>
+                                        <input type="radio" name="tag" value="8" id="option8" hidden>
+                                        <input type="radio" name="tag" value="9" id="option9" hidden>
+                                    </div>
+                                </div>
+                                <div class="write-content">
+                                    <div class="writestarbox">
+                                        <div class="starsel">
+                                            <input type="radio" name="writeStar" value="5" id="star1" required
+                                                hidden><label for="star1">★ </label><input type="radio" name="writeStar"
+                                                value="4" id="star2" hidden><label for="star2">★ </label><input
+                                                type="radio" name="writeStar" value="3" id="star3" hidden><label
+                                                for="star3">★ </label><input type="radio" name="writeStar" value="2"
+                                                id="star4" hidden><label for="star4">★ </label><input type="radio"
+                                                name="writeStar" value="1" id="star5" hidden><label for="star5">★
+                                            </label>
+                                            별점을 선택해주세요
+                                        </div>
+                                        <input type="text" placeholder="제목을 입력해주세요" id="writeTitle" name="writeTitle" maxlength="30">
+                                        <textarea name="writetext" cols="60" rows="6" id="writecontext" maxlength="300"
+                                            placeholder="내용을 입력해주세요"></textarea>
+                                    </div>
+                                    <button id="write-btn1" type="submit">글 쓰기</button>
+                                    <button id="write-btn2" type="button">취소</button>
+                            </form>
+                        </div>
+                    </div>`
+    )
+}
+
+
+// 글쓰기 창 화면 만들기
+function selectMylecture() {
+    $.ajax({
+
+        url: contextPath + "/review/writeForm",
+        type: "POST",
+        data: {
+            "memberNo": memberNo
+        },
+        success(res) {
+            let result = JSON.parse(res);
+            let str = "";
+            result.forEach((item) => {
+                str += `<option value="${item.classNo}" name="parents">${item.className}</option>`
+                console.log(`멤버 번호(item.classNo) : ${item.classNo}`);
+
+            })
+            document.querySelector(".selectBox").innerHTML = str
+
+            document.querySelector(".write-tag-question").insertAdjacentHTML("afterbegin", `<input type="text" value="${memberNo}" name="writeMember" hidden>`)
+
+        },
+        error() {
+            console.log("error");
+        }
+
+    })
+
+}
+
+function tagButtonController() {
+    const buttons = document.querySelectorAll('.radio-button');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            buttons.forEach(btn => btn.classList.remove('selected'));
+
+            button.classList.add('selected');
+
+            const value = button.getAttribute('data-value');
+            const radioButton = document.querySelector(`input[type="radio"][value="${value}"]`);
+            radioButton.checked = true;
+        });
+    });
+
+    document.querySelector("#write-btn2").addEventListener("click", () => {
+        const background = document.querySelector("#background-modal");
+        const writemodal = document.querySelector("#write-modal");
+        if (background) {
+            background.remove();
+        }
+        if (writemodal) {
+            writemodal.remove();
+        }
+    });
+}
 
 
 // async function SendVerifyEmail(emailAddress) {

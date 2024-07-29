@@ -2,6 +2,7 @@ package talentFour.member.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -12,7 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
+import com.oreilly.servlet.MultipartRequest;
 
+import talentFour.classes.model.vo.Class;
+import talentFour.common.MyRenamePolicy;
 import talentFour.common.Util;
 import talentFour.member.model.service.MemberService;
 import talentFour.member.model.vo.Member;
@@ -36,6 +40,7 @@ public class myPageController extends HttpServlet{
 		
 		HttpSession session = req.getSession();
 		
+			
 		Member loginMember =  (Member) session.getAttribute("loginMember");
 		
 		try {
@@ -46,7 +51,7 @@ public class myPageController extends HttpServlet{
 		
 			if(command.equals("/checkId")) {
 			
-				System.out.println(req.getParameter("id"));
+//				System.out.println(req.getParameter("id"));
 				String id = req.getParameter("id");
 				
 				// 아이디 체크
@@ -109,9 +114,8 @@ public class myPageController extends HttpServlet{
 			}
 
 			if(command.equals("/secession")) {
-				
-				String currentPw = Util.encodingPw(req.getParameter("currentPw"));
-				
+				String currentPw=req.getParameter("currentPw");
+//				String currentPw = Util.encodingPw(req.getParameter("currentPw"));
 				//현재 비밀번호 검사
 				int result = service.checkCurrentpw(currentPw, loginMember.getMemberNo());
 				if(result==1) {
@@ -120,12 +124,11 @@ public class myPageController extends HttpServlet{
 					
 					if(secRes==1) {
 						// 회원 탈퇴 성공
-						session.setAttribute("message", "회원 탈퇴에 성공하였습니다.");
+						req.setAttribute("message", "회원 탈퇴에 성공하였습니다.");
 						session.invalidate();
-						resp.sendRedirect(req.getContextPath());
-						
+						req.getRequestDispatcher("/index.jsp").forward(req, resp);
 					} else {
-						session.setAttribute("message", "회원 탈퇴에 실패하였습니다. 다음에 다시 시도해주세요.");
+						session.setAttribute("message", "회원 탈퇴에 실패하였습니다. 다시 시도해주세요.");
 						req.getRequestDispatcher("/WEB-INF/views/mypage/mypage.jsp").forward(req, resp);
 					}
 					
@@ -154,6 +157,51 @@ public class myPageController extends HttpServlet{
 				
 				paidList = service.selectPaid(loginMember.getMemberNo());
 				new Gson().toJson(paidList , resp.getWriter());
+			}
+			
+			if(command.equals("/profileImage")) {
+
+				// insert / update 공통 요청
+				int maxSize = 1024 * 1024 * 100; // 업로드 최대 용량 (100MB)
+				
+				String root = session.getServletContext().getRealPath("/");
+				String folderPath = "/resources/img/profileImage/";
+				String filePath = root + folderPath;
+				String encoding = "UTF-8";
+				
+				
+				MultipartRequest mpReq = new MultipartRequest(req, filePath, maxSize, encoding, new MyRenamePolicy());
+				
+				Enumeration<String> files = mpReq.getFileNames();
+				
+				if(files.hasMoreElements()) {
+					String name = files.nextElement();
+					String rename = mpReq.getFilesystemName(name);
+					
+					System.out.println("name : " + name);
+					System.out.println("rename : " + rename);
+					
+					if(rename != null) {
+						
+						loginMember.setMemberProfile(folderPath+rename);
+						// 이제 해당 파일 경로를 loginMember와 같은 memberNo 에 업데이트 시키면 됨
+						int result = service.profileImage(loginMember);
+						
+						if(result>0) {
+							session.setAttribute("message", "프로필 사진이 변경 되었습니다.");
+							req.getRequestDispatcher("/WEB-INF/views/mypage/mypage.jsp").forward(req, resp);
+						} else {
+							session.setAttribute("message", "프로필 사진이 변경을 실패했습니다.");
+							req.getRequestDispatcher("/WEB-INF/views/mypage/mypage.jsp").forward(req, resp);							
+						}
+						
+					}
+				}
+				
+
+				
+				
+			
 			}
 			
 			
