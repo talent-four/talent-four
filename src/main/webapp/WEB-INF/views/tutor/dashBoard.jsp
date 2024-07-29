@@ -21,29 +21,31 @@
             <article class="titleP"><span>대시보드</span></article>
             <article class="subtitleP"><span>클래스 분석</span></article>
             <article class="data-areaP">
-                    <div id="views">
-                        <span>조회수</span>
-                        <span id="view-count">0</span>
+                    <div id="reviews">
+                        <span>리뷰수</span>
+                        <span id="view-count">${countReview}</span>
                     </div>
-                    <div id="calculate">
-                        <span>결제수</span>
-                        <span id="calaulate-count">0</span>
+                    <div id="paid">
+                        <span>총 결제수</span>
+                        <span id="calaulate-count">${countPaid}</span>
                     </div>
-                    <div id="persent">
+                    <div id="scatter">
                         <span>결제율</span>
-                        <span id="calculate-persent">0<span>%</span></span>
+                        <span id="calculate-persent">${percent}<span>%</span></span>
                     </div>  
             </article>
             
             <article class="graph-areaP" id="graph-areaP">
                 <div class="div1">
-                    <div class="graph-titleP"><span id="title">클래스 조회수</span></div>
+                    <div class="graph-titleP"><span id="title"></span></div>
                     <div class="graph-contentP">
-                        <div class="graphP">
+                        <div class="graphP" id="graphP">
                             <canvas id="viewsChart" width="800px" height="330px"></canvas>
-                            <!-- <canvas id="calcualteChart" width="800px" height="330px"></canvas> -->
-                            <!-- <canvas id="persentChart" width="800px" height="330px"></canvas> -->
+                            <div id="total-content">
+                                <h1>${loginMember.memberNickname}님의 총 클래스 개수는 ${classCount}개입니다.</h1>
+                            </div>
                         </div>
+
                     </div>
                 </div>
             </article>
@@ -53,7 +55,18 @@
     
     <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
     
-    <script src="${contextPath}/resources/js/tutor/tutorDashboard.js"></script>
+
     <script src="${contextPath}/resources/js/common/hf.js"></script>
+    <script>
+        // 게시글 번호
+        const paidgraph = "${paidgraph}";  // 500
+
+        const contextPath = "${contextPath}";
+
+        // 로그인한 회원 번호
+        const loginMemberNo = "${loginMember.memberNo}";
+
+    </script>
+    <script src="${contextPath}/resources/js/tutor/tutorDashboard.js"></script>
 </body>
 </html>

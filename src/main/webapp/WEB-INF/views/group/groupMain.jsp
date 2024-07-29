@@ -27,28 +27,29 @@
         </section>
         <jsp:include page="/WEB-INF/views/group/groupChoice.jsp"></jsp:include>
         <section class="content-area">
-            <!-- <a href="detail?no=${GroupBoardList.boardNo}&type=${param.type}&cp=${pagination.currentPage}"> -->
             <c:choose>
             	<c:when test="${empty GroupBoardList}"> 
 	                <!-- 게시글 목록 조회 결과가 비어있다면(없다면)  -->
-	            	<!-- <h1>게시글이 존재하지 않습니다.</h1> -->
+	            	<h1>게시글이 존재하지 않습니다.</h1>
 	            </c:when>
 	            <c:otherwise>
 	            	<c:forEach var="GroupBoardList"  items="${GroupBoardList}">
-			            <a href="detail?no=${GroupBoardList.boardNo}&type=${param.type}">
+			            <a href="">
 			                <article class="each-board">
 			                    <div>
-			                        <div class="group-type finished">${GroupBoardList.studyStatus}</div>
-			                        <div class="group-locate">${GroupBoardList.tagName}</div>
+                                    <c:if test="${GroupBoardList.studyStatus == 'Y'}">
+                                        <div class="group-type finished">모집완료</div>
+                                    </c:if>
+                                    <c:if test="${GroupBoardList.studyStatus =='N'}">
+                                        <div class="group-type ing">모집중</div>
+                                    </c:if>
+			                        <div class="group-locate">${GroupBoardList.location}</div>
 			                    </div>
 			                    <div class="group-date">
 			                        <i class="fa-regular fa-calendar"></i><span>${GroupBoardList.startDate}</span>
 			                    </div>
 			                    <div class="group-title">
 			                        <span class="group-content">${GroupBoardList.boardContent}</span>
-			                    </div>
-			                    <div class="tag-area">
-			                        ${GroupBoardList.tagName}
 			                    </div>
 			                    <div class="etc-info">
 			                        <div class="nick-num-area">
@@ -65,115 +66,31 @@
 	            	</c:forEach>
 	            </c:otherwise>
             </c:choose>
-            <a href="${contextPath}/group/groupDetail">
-                <article class="each-board">
-                    <div>
-                        <div class="group-type ing">모집중</div>
-                        <div class="group-locate">서울 강남구</div>
-                    </div>
-                    <div class="group-date">
-                        <i class="fa-regular fa-calendar"></i><span>7월 15일 오전 10시</span>
-                    </div>
-                    <div class="group-title">
-                        <span class="group-content">스터디 모집 게시글 작성 내용입니다.</span>
-                    </div>
-                    <div class="tag-area">
-                        
-                    </div>
-                    <div class="etc-info">
-                        <div class="nick-num-area">
-                            <span>작성자 닉네임</span>
-                            <span>모집인원 : <span>0</span>명</span>
-                        </div>
-                        <div class="view-area">
-                            <i class="fa-regular fa-eye"></i>
-                            <span>10</span>
-                        </div>
-                    </div>
-                </article>
-            </a>
-            
-            <a href="#">
-                <article class="each-board">
-                    <div>
-                        <div class="group-type ing">모집중</div>
-                        <div class="group-locate">서울 강남구</div>
-                    </div>
-                    <div class="group-date">
-                        <i class="fa-regular fa-calendar"></i><span>7월 15일 오전 10시</span>
-                    </div>
-                    <div class="group-title">
-                        <span class="group-content">스터디 모집 게시글 작성 내용입니다.</span>
-                    </div>
-                    <div class="tag-area">
-                    </div>
-                    <div class="etc-info">
-                        <div class="nick-num-area">
-                            <span>작성자 닉네임</span>
-                            <span>모집인원 : <span>0</span>명</span>
-                        </div>
-                        <div class="view-area">
-                            <i class="fa-regular fa-eye"></i>
-                            <span>10</span>
-                        </div>
-                    </div>
-                </article>
-            </a>
-            <a href="#">
-                <article class="each-board">
-                    <div>
-                        <div class="group-type ing">모집중</div>
-                        <div class="group-locate">서울 강남구</div>
-                    </div>
-                    <div class="group-date">
-                        <i class="fa-regular fa-calendar"></i><span>7월 15일 오전 10시</span>
-                    </div>
-                    <div class="group-title">
-                        <span class="group-content">스터디 모집 게시글 작성 내용입니다.</span>
-                    </div>
-                    <div class="tag-area">
-                    </div>
-                    <div class="etc-info">
-                        <div class="nick-num-area">
-                            <span>작성자 닉네임</span>
-                            <span>모집인원 : <span>0</span>명</span>
-                        </div>
-                        <div class="view-area">
-                            <i class="fa-regular fa-eye"></i>
-                            <span>10</span>
-                        </div>
-                    </div>
-                </article>
-            </a>
-            <a href="#">
-                <article class="each-board">
-                    <div>
-                        <div class="group-type ing">모집중</div>
-                        <div class="group-locate">서울 강남구</div>
-                    </div>
-                    <div class="group-date">
-                        <i class="fa-regular fa-calendar"></i><span>7월 15일 오전 10시</span>
-                    </div>
-                    <div class="group-title">
-                        <span class="group-content">스터디 모집 게시글 작성 내용입니다.</span>
-                    </div>
-                    <div class="tag-area">
-                    </div>
-                    <div class="etc-info">
-                        <div class="nick-num-area">
-                            <span>작성자 닉네임</span>
-                            <span>모집인원 : <span>0</span>명</span>
-                        </div>
-                        <div class="view-area">
-                            <i class="fa-regular fa-eye"></i>
-                            <span>10</span>
-                        </div>
-                    </div>
-                </article>
-            </a>
         </section>
         <section class="pagination">
+            <!-- 페이지네이션 a 태그에 사용될 공통 주소를 저장할 변수 선언 -->
+            <c:set var="url" value="groupMain?&cp="/>
 
+            <ul class="pagination">
+                <li><a href="${url}1${sURL}">&lt;&lt;</a></li>
+                <li><a href="${url}${pagination.prevPage}${sURL}">&lt;</a></li>
+
+                <!-- 범위가 정해진 일반 for문 사용 -->                    
+                <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
+                    <c:choose>
+                        <c:when test="${i == pagination.currentPage}">
+                            <li><a class="current">${i}</a></li>
+                        </c:when>
+                        <c:otherwise>
+                            <li><a href="${url}${i}${sURL}">${i}</a></li>
+                        </c:otherwise>
+                    </c:choose>
+
+                </c:forEach>
+                <!-- 위의 cp는 currentPage의 약자 -->
+                <li><a href="${url}${pagination.nextPage}${sURL}">&gt;</a></li>
+                <li><a href="${url}${pagination.maxPage}${sURL}">&gt;&gt;</a></li>
+            </ul>
         </section>
     </main>
     <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>

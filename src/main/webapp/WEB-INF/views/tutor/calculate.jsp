@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ page import="java.util.ArrayList" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,131 +24,82 @@
             <article>
                 <div>
                     <div class="calculate-upP">
-                         <span>총 정산 금액</span>
+                        <span>정산 신청 가능 금액</span>
                     </div>
                     <div class="calculate-downP">
-                        <span id="all-calculate-moneyP">0</span>
+                        <span id="now-calculate-moneyP">${tutorcalculate.ingsum}</span>
                         <span>원</span>
-                        <span>(</span>
-                        <span id="all-calculate-countP">0</span>
-                        <span>)건</span>
                     </div>
                 </div>
                 <div>
                     <div class="calculate-upP">
-                        <span>정산 신청 가능 금액</span>
+                        <span>정산 완료한 금액</span>
                     </div>
                     <div class="calculate-downP">
-                        <span id="now-calculate-moneyP">0</span>
+                        <span id="fin-calculate-moneyP">${tutorcalculate.finsum}</span>
                         <span>원</span>
-                        <span>(</span>
-                        <span id="now-calculate-countP">0</span>
-                        <span>)건</span>
                     </div>
                 </div>
-            </article>
-
-            
-            <article>
-                <div class="btn-info-area">
-                    <button id="calculate-btnP">정산 요청</button>
-                    <div>
-                        <i class="fa-regular fa-credit-card"></i>
-                        <span id="account-infoP">재능은행 111-111-11111 김재능</span>
-                    </div>
-                    <button id="change-account-btnP"><i class="fa-regular fa-pen-to-square"></i></button>
-                </div>
-
-                <div class="hidden-area">
-                    <div class="background-div" id="background-div"></div>
-                    <div id="account-input-areaP">
-                        <span>계좌정보</span>
-                        <div>
-                            <form action="#">
-                                <div>
-                                    <span>은행</span>
-                                    <select name="banknameP" id="banknameP">
-                                        <option value="국민은행">국민은행</option>
-                                        <option value="농협은행">농협은행</option>
-                                        <option value="신한은행">신한은행</option>
-                                        <option value="IBK기업은행">IBK기업은행</option>
-                                        <option value="우리은행">우리은행</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <span>정산 계좌</span><input type="text" id="accountP" name="accountP">
-                                </div>
-                                <div>
-                                    <span>예금주</span><input type="text" id="usernameP" name="usernameP">
-                                </div>
-                            </form>
-                        </div>
-                        <div>
-                            <button id="save-btnP">저장</button>
-                            <button id="cancel-btnP">취소</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="type-area">
-                    <div class="calculate-status choiced">
-                        <span>정산중</span>
-                    </div>
-                    <div class="calculate-status">
-                        <span>정산완료</span>
-                    </div>
-                </div>
-
-            </article>
-
-            <article class="calculate-all-areaP">
-                <table>
-                    <thead>
-                        <tr>
-                             <th><input type="checkbox" id="title-checkP"></th>
-                             <th>정산상태</th>
-                             <th>클래스명</th>
-                             <th>정산 예정 금액</th>
-                             <th>수수료율</th>
-                             <th>정산 신청 시간</th>
-                        </tr> 
-                    </thead>
-                    <tbody>
-                        <tr>
-                            
-                        </tr>
-                    </tbody>
-                </table>
-                
                 <div>
-                    <div class="calculate-each-contentP">
-                        <div><input type="checkbox" name="money"></div>
-                        <div><div class="calculate-borderP" id="calculate-borderP"><div class="circleP" id="circleP"></div><span>정산 미신청</span></div></div>
-                        <div><span>탈잉</span></div>
-                        <div><span>좋아하는 영화로 영어회화 따라잡기</span></div>
-                        <div><span>36,346원</span></div>
-                        <div><span>20%</span></div>
-                        <div><span>2024.02.16</span></div>
+                    <div class="calculate-upP">
+                        <span>총 정산 금액</span>
                     </div>
-                    
-                    
+                    <div class="calculate-downP">
+                        <span id="all-calculate-moneyP">${tutorcalculate.allsum}</span>
+                        <span>원</span>
+                    </div>
                 </div>
             </article>
-            <div class="cal-btn-areaP">
-                <span>총 </span>
-                <span id="calculate-countP">O</span>
-                <span>개, </span>
-                <span id="calculate-page-countP">O</span>
-                <span>페이지</span>
-                <button id="cal-page-left-btnP" class="cal-page-change-btnP"><i class="fa-solid fa-angle-left"></i></button>
-                <button id="cal-page-right-btnP" class="cal-page-change-btnP"><i class="fa-solid fa-angle-right"></i></button>
-            </div>
+
+            <form action="calculate?cp=1" method="post">
+                <article>
+                    <div class="btn-info-area">
+                        <button id="calculate-btnP">정산 요청</button>
+                        <div>
+                            <i class="fa-regular fa-credit-card"></i>
+                            <span id="account-infoP">${tutorcalculate.bankName} ${tutorcalculate.account} ${tutorcalculate.accountName}</span>
+                        </div>
+                    </div>
+
+                    <div class="type-area">
+                        <div class="calculate-status choiced">
+                            <a href="${contextPath}/tutor/calculate?cp=1" class="status-link" data-id="1">정산중</a>
+                        </div>
+                        <div class="calculate-status">
+                            <a href="${contextPath}/tutor/calculate?cp=2" class="status-link" data-id="2">정산완료</a>
+                        </div>
+                    </div>
+
+                </article>
+
+                <jsp:include page="/WEB-INF/views/tutor/calculateList.jsp"></jsp:include>
+            </form>
         </section>
-       
     </main>
     
+    <c:if test="${!empty sessionScope.message}">
+        <script>
+            alert("${message}");
+            
+            // EL 작성시 scope를 지정하지 않으면 
+            // page -> request -> session -> application 순서대로 검색하여
+            // 일치하는 속성이 있으면 출력
+            
+        </script>
+        
+        <!-- message 1회 출력 후 session에서 제거 -->
+        <c:remove var="message" scope="session"/>
+    </c:if>
+
+    <script>
+        const contextPath = "${contextPath}";
+        const tutorcalculateList = "${tutorcalculateList}";
+
+    </script>
+
     <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
     <script src="${contextPath}/resources/js/tutor/tutorCalculate.js"></script>
+    <script src="${contextPath}/resources/js/tutor/calculateList.js"></script>
     <script src="${contextPath}/resources/js/common/hf.js"></script>
 </body>
 </html>

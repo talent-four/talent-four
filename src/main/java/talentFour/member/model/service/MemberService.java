@@ -1,11 +1,15 @@
 package talentFour.member.model.service;
 
+import talentFour.classes.model.vo.Message;
 import talentFour.member.model.dao.MemberDAO;
 import talentFour.member.model.vo.Member;
+import talentFour.member.model.vo.Paid;
+import talentFour.member.model.vo.Review;
 
 import static talentFour.common.JDBCTemplate.*;
 
 import java.sql.Connection;
+import java.util.List;
 
 
 public class MemberService {
@@ -67,5 +71,201 @@ public class MemberService {
 		
 		return result;
 	}
+
+	/** 현재 비밀번호 일치 검사
+	 * @param currentPw
+	 * @param memberNo
+	 * @return result
+	 */
+	public int checkCurrentpw(String currentPw, int memberNo) throws Exception {
+		
+		Connection conn= getConnection();
+		
+		int result = dao.checkCurrentpw(currentPw, memberNo, conn);
+		
+		close(conn);
+		
+		return result;
+	}
+
 	
+	
+	
+	/** 비밀번호 변경
+	 * @param newPw
+	 * @param memberNo
+	 * @return result
+	 */
+	public int changePw(String newPw, int memberNo) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		int result = dao.changePw(newPw, memberNo, conn);
+		
+		if(result==1) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return result;
+	}
+
+	
+	
+	
+	/** 회원 탈퇴
+	 * @param memberNo
+	 * @return result
+	 */
+	public int secession(int memberNo) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		int result = dao.secession(conn, memberNo);
+		
+		if(result==1) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return result;
+	}
+
+	/** 리뷰 검색
+	 * @return List<Review>
+	 */
+	public List<Review> selectReview(int memberNo) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		List<Review> reviewList = dao.selectReview(conn, memberNo);
+		
+		close(conn);
+		
+		return reviewList;
+	}
+
+	/** 상세 페이지 리뷰 조회
+	 * @param memberNo
+	 * @return reviewList
+	 * @throws Exception
+	 */
+	public List<Review> getDetailPageReview(int classNo) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		List<Review> reviewList = dao.getDetailPageReview(conn, classNo);
+		
+		close(conn);
+		
+		return reviewList;
+	}
+	
+	/** 결제 내역 조회
+	 * @param memberNo
+	 * @return List<Paid>
+	 * @throws Exception
+	 */
+	public List<Paid> selectPaid(int memberNo) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		List<Paid> paidList = dao.selectPaid(conn, memberNo);
+		
+		close(conn);
+		
+		return paidList;
+	}
+
+
+	/** 프로필 사진 경로 변경
+	 * @param loginMember
+	 * @return result
+	 * @throws Exception
+	 */
+	public int profileImage(Member loginMember) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		int result = dao.profileImage(conn, loginMember);
+		
+		if(result>0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return result;
+	}
+
+	/** 채팅 서비스를 위한 아이디로 memberNo 반환
+	 * @param toId
+	 * @return memberNo
+	 */
+	public int searchMemberNo(String toId) {
+
+		Connection conn = getConnection();
+		
+		int memberNo = dao.searchMemberNo(conn, toId);
+		
+		close(conn);
+		
+		return memberNo;
+	}
+
+	/** 채팅 DB 삽입
+	 * @param msg
+	 * @return result
+	 * @throws Exception
+	 */
+	public int insertChatting(Message msg) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		int result = dao.insertChatting(conn, msg);
+		
+		if(result>0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return result;
+	}
+
+	/** 회원 가입
+	 * @param member
+	 * @return result
+	 * @throws Exception
+	 */
+	public int signUp(Member member) throws Exception {
+
+		
+		Connection conn = getConnection();
+		
+		int result = dao.signUp(conn, member);
+		
+		if(result>0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		
+		return result;
+	}
+
+
 }
