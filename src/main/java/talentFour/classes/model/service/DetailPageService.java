@@ -4,6 +4,7 @@ import talentFour.classes.model.dao.DetailPageDAO;
 import talentFour.classes.model.vo.Category;
 import talentFour.classes.model.vo.Class;
 import talentFour.member.model.vo.Member;
+import talentFour.common.Util;
 
 import static talentFour.common.JDBCTemplate.*;
 
@@ -21,6 +22,9 @@ public class DetailPageService {
 		
 		// 클래스 정보 가져오기
 		Class c = dao.getClass(conn, classNo);
+		
+		// XSS 핸들링
+		c.setClassIntro(Util.unescapeXSS(c.getClassIntro()));
 		
 		close(conn);
 		
@@ -42,6 +46,13 @@ public class DetailPageService {
 		
 		// 가져온 클래스 번호를 클래스 vo에 삽입
 		c.setClassNo(classNo);
+		
+		// XSS 방지
+		c.setClassName(Util.XSSHandling(c.getClassName()));
+		c.setClassIntro(Util.XSSHandling(c.getClassIntro()));
+		
+		// 개행문자 처리
+		c.setClassIntro(Util.newLineHandling(c.getClassIntro()));
 		
 		// 클래스 데이터 삽입
 		int result = dao.insertClass(conn, c, loginMember);
@@ -132,6 +143,13 @@ public class DetailPageService {
 	 */
 	public int updateClass(Class c) throws Exception {
 		Connection conn = getConnection();
+		
+		// XSS 방지
+		c.setClassName(Util.XSSHandling(c.getClassName()));
+		c.setClassIntro(Util.XSSHandling(c.getClassIntro()));
+		
+		// 개행문자 처리
+		c.setClassIntro(Util.newLineHandling(c.getClassIntro()));
 		
 		int result = dao.updateClass(conn, c);
 		

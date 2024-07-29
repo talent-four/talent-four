@@ -47,8 +47,6 @@ public class detailedPageServlet extends HttpServlet {
 		MemberService mService = new MemberService();
 		Member loginMember = (Member) session.getAttribute("loginMember");
 		
-		System.out.println(command);
-		
 		try {
 			// classNo 페이지 조회
 			if(command.equals("class")) {
@@ -71,8 +69,6 @@ public class detailedPageServlet extends HttpServlet {
 			if(command.equals("write")) { // 게시글 작성
 				
 				// 튜터 정보 얻어오기
-				
-				
 				String[] tutorInfo = service.getTutorInfo(loginMember.getMemberNo());
 				
 				path = "/WEB-INF/views/pages/detailedPageForm.jsp";
@@ -151,12 +147,11 @@ public class detailedPageServlet extends HttpServlet {
 			String name = files.nextElement();
 			String rename = mpReq.getFilesystemName(name);
 			
-			System.out.println("name : " + name);
-			System.out.println("rename : " + rename);
-			
 			if(rename != null) {
 				
 				c.setClassPhoto(folderPath + rename);
+				System.out.println(name);
+				System.out.println(rename);
 			}
 		}
 		
@@ -181,15 +176,13 @@ public class detailedPageServlet extends HttpServlet {
 		
 		String path = "";
 		String mode = mpReq.getParameter("mode"); // hidden
-		System.out.println("mode : " + mode);
-		
+
 		// detailPage/write?mode=insert 일 때,
 		if(mode.equals("insert")) {
 			DetailPageService service = new DetailPageService();
 			
 			try {
 				int classNo = service.insertClass(c, loginMember);
-				System.out.println("등록 실행됨");
 				
 				session.setAttribute("message", "클래스가 등록되었습니다.");
 				path = "class?classNo=" + classNo;
@@ -200,16 +193,19 @@ public class detailedPageServlet extends HttpServlet {
 		}
 		
 		if(mode.equals("update")) {
-			System.out.println("update 요청 들어옴");
+			String existingClassPhoto = mpReq.getParameter("existingClassPhoto");
+			int classNo = Integer.parseInt(mpReq.getParameter("classNo"));
+			c.setClassNo(classNo);
+			c.setClassPhoto(existingClassPhoto);
+			
 			DetailPageService service = new DetailPageService();
 			
 			try {
-				int classNo = Integer.parseInt(req.getParameter("classNo"));
 				c.setClassNo(classNo);
 				int result = service.updateClass(c);
 				
-				req.setAttribute("message", "클래스가 등록되었습니다.");
-				path = "detailedPage?classNo=" + classNo;
+				session.setAttribute("message", "클래스가 수정되었습니다.");
+				path = "class?classNo=" + classNo;
 				
 			} catch (Exception e) {
 				e.printStackTrace();

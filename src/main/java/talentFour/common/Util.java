@@ -8,8 +8,9 @@ import java.util.Base64;
 public class Util {
 
 	// 개행 문자-> <br> 변경 메소드
-	public static String newLineHandling(String content) {		
-		return content.replaceAll("(\r\n|\n\r|\n|\r)", "<br>");
+	public static String newLineHandling(String content) {
+		System.out.println("개행문자 삽입");
+		return content.replaceAll("(\n|\r|\r\n|\n\r)", "<br>");
 		//textarea의 엔터 : \r\n
 		// \r : 캐리지 리턴(첫 번째로 돌아가기)
 		// \n : new line(다음줄로 이동)
