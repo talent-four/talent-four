@@ -96,7 +96,7 @@ function BarChart() {
                     callbacks: {
                         title: function(tooltipItems) {
                             const index = tooltipItems[0].dataIndex;
-                            return `클래스 ${barLabels[index]}`;
+                            return `클래스 : ${barLabels[index]}`;
                         },
                         label: function(tooltipItem) {
                             return `값: ${tooltipItem.raw}`;
@@ -126,9 +126,9 @@ function updateChart(url, label, type) {
             }
 
             if (type === 'bar') {
-                barLabels = data.map(item => item.classNo); // 클래스 번호를 레이블로 사용
+                barLabels = data.map(item => item.classNo); // 클래스 번호
                 barData = data.map(item => item.reviewCount || item.paidCount); // 리뷰수 또는 결제수
-                barClassNames = data.map(item => item.className); // 클래스 이름 저장
+                barClassNames = data.map(item => item.className); // 클래스 이름 
 
                 chartData = {
                     labels: barLabels,
@@ -186,7 +186,7 @@ function updateChart(url, label, type) {
                                         return '클래스: ' + item.className;
                                     } else if (type === 'bar') {
                                         const index = tooltipItems[0].dataIndex;
-                                        return `클래스 ${barClassNames[index]}`; // 클래스 이름 표시
+                                        return `클래스 : ${barClassNames[index]}`; // 클래스 이름 표시
                                     }
                                 },
                                 label: function(tooltipItem) {

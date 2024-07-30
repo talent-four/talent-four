@@ -330,6 +330,7 @@ public class TutorService {
 		Connection conn = getConnection();
 		int result2 = dao.registerTutorInfo(conn, register, memberNo);
 		
+		register.setTutorIntroduce(Util.XSSHandling(register.getTutorIntroduce()));
 		if(result2>0) conn.commit();
 		else         conn.rollback();
 		
