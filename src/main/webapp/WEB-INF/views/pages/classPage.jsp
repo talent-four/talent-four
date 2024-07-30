@@ -43,12 +43,14 @@
 
     <c:forEach var="j" begin="0" end="${fn:length(classList)/5}" varStatus="status">
     <div class="contentWrapper">
-    	<c:if test="${status.first}">
+    	<c:if test="${empty param.query}">
+   	    	<c:if test="${status.first}">
     	    <div class="buttonBox">
     			<button type="button" onclick="location.href='?sort=score'">평점순</button>
     			<button type="button" onclick="location.href='?sort=review'">리뷰순</button>
     			<button type="button" onclick="location.href='?sort=date'">최신순</button>
    	 		</div>
+    		</c:if>
     	</c:if>
         <div class="contentBoxs" id="contentSlider">
             <div class="contentBoxsSet" id="contentBoxSet">
@@ -124,7 +126,7 @@
     </div> --%>
     <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
     
-    <script src="${contextPath}/resources/js/pages/categoryPage.js">
+    <script src="${contextPath}/resources/js/pages/categoryPage.js"></script>
     <script src="${contextPath}/resources/js/common/slider.js"></script>
 </body>
 

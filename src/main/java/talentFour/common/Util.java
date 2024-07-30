@@ -8,13 +8,14 @@ import java.util.Base64;
 public class Util {
 
 	// 개행 문자-> <br> 변경 메소드
-	public static String newLineHandling(String content) {
-		System.out.println("개행문자 삽입");
-		return content.replaceAll("(\n|\r|\r\n|\n\r)", "<br>");
-		//textarea의 엔터 : \r\n
-		// \r : 캐리지 리턴(첫 번째로 돌아가기)
-		// \n : new line(다음줄로 이동)
-	}
+	   public static String newLineHandling(String content) {
+	       System.out.println("개행 문자 삽입");
+	       // 우선 \r\n을 <br>로 변환
+	       content = content.replaceAll("\r\n", "<br>");
+	       // 남은 \r과 \n을 <br>로 변환
+	       content = content.replaceAll("[\r\n]", "<br>");
+	       return content;
+	   }
 	
 	// Cross Site Scripting(XSS , 크로스 사이트 스크립팅) 공격 방지 메소드
 	public static String XSSHandling(String content) {
