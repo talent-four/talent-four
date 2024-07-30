@@ -31,8 +31,8 @@ footer{
 main {
     /* 메인 */
     width: 1280px;
-    min-height: 850px;
-    max-height: 1700px;
+    min-height: 900px;
+    max-height: 1900px;
     display: flex;
 }
 
@@ -234,8 +234,8 @@ form{
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    top: 240px;
-    right: 890px;
+    top: 290px;
+    right: 1000px;
     border: none;
     background-color: #219ebc;
 }
@@ -245,9 +245,13 @@ form{
     color: white;
     font-size: 18px;
 }
-
 /* --------------------------------------------------------------------------- */
 /* 전화 번호 */
+
+.text-areaP>div:nth-child(1){
+    border-top: 1px solid rgb(220, 220, 220);
+    margin-top: 50px;
+}
 
 #tel-input{
     width: 200px;
@@ -351,6 +355,7 @@ form{
 /* 취소 저장 버튼 */
 .text-areaP>div:nth-child(5){
     height: 100px;
+    border: none
 }
 
 .text-areaP>div:nth-child(5)>div{

@@ -9,6 +9,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import talentFour.member.model.vo.Member;
 import talentFour.tutor.dao.TutorDAO;
 import talentFour.tutor.model.vo.Dashboard;
 import talentFour.tutor.model.vo.TutorCalculate;
@@ -347,6 +348,20 @@ public class TutorService {
 		close(conn);
 		
 		return result3;
+	}
+
+	/** 등록한 튜터 정보 얻어오기
+	 * @param memberNo
+	 * @return
+	 * @throws Exception
+	 */
+	public Member updatetutor(int memberNo) throws Exception {
+		Connection conn = getConnection();
+		Member loginmember2 = dao.updatetutor(conn,memberNo);
+		
+		close(conn);
+		
+		return loginmember2;
 	}
 
 

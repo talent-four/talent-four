@@ -49,7 +49,7 @@ public class TutorRegisterServlet extends HttpServlet {
 			}
 			
 			TutorRegister register = new TutorRegister();
-			
+			register.setMemberNo(memberNo);
 			register.setTutorProfile(tutorProfile);
 			register.setTutorTel(tutorTel);
 			register.setTutorIntroduce(tutorIntroduce);
@@ -64,14 +64,21 @@ public class TutorRegisterServlet extends HttpServlet {
 			int result2 = service.registerTutorInfo(memberNo,register);
 			int result3 = service.registerAccount(memberNo,register);
 			
+			Member loginmember2 = new Member();
+			System.out.println(result1+","+result2+","+result3);
 			
+			loginmember2 = service.updatetutor(memberNo);
+			
+			loginMember.setMemberStatus(loginmember2.getMemberStatus());
+			
+			System.out.println(loginmember2);
 			// 튜터 등록 이후 메인페이지로 이동 -> 바로 튜터 페이지 이용하기 위해
 			// 또는 튜터 페이지로 바로 이동
 			
 			if(result1 > 0 && result2 > 0 && result3 > 0) {
 				session.setAttribute("message", "튜터등록에 성공하였습니다."); 
-				session.removeAttribute("loginMember");
-				session.setAttribute("loginMember",register);
+				
+				req.setAttribute("loginMember", loginMember);
 				
 				resp.sendRedirect( req.getContextPath() );
 			}
