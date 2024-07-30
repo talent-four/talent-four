@@ -174,4 +174,17 @@ public class DetailPageService {
 		return result;
 	}
 
+	public int insertPaid(int classNo, int memberNo, String payment) throws Exception {
+		Connection conn = getConnection();
+		
+		int result = dao.insertPaid(conn, classNo, memberNo, payment);
+		
+		if(result > 0) commit(conn);
+		else rollback(conn);
+		
+		close(conn);
+		
+		return result;
+	}
+
 }

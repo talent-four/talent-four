@@ -69,7 +69,6 @@ window.onload = function () {
 
   if (inputImage != null) {
     inputImage.addEventListener("change", function () {
-      console.log("이벤트 ");
       if (this.files[0] != undefined) {
         const reader = new FileReader();
         // 선택된 파일을 읽을 객체 생성

@@ -310,4 +310,26 @@ public class DetailPageDAO {
 		return result;
 	}
 
+
+	public int insertPaid(Connection conn, int classNo, int memberNo, String payment) throws Exception {
+		int result = 0;
+		
+		String sql = prop.getProperty("insertPaid");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, memberNo);
+			pstmt.setInt(2, classNo);
+			pstmt.setString(3, payment);
+			
+			result = pstmt.executeUpdate();
+			
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
 }
