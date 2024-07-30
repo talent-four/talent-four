@@ -59,4 +59,31 @@ public class WonderService {
         
         return result;
     }
+
+	/** 글쓰기
+	 * @param title
+	 * @param content
+	 * @param memberNo
+	 * @return
+	 */
+	public int writeBoard(String title, String content, int memberNo) throws Exception {
+		int result =0;
+		Connection conn = null;
+		try {
+	        conn = getConnection();
+	        conn.setAutoCommit(false); // Begin transaction
+
+	        result = dao.insertBoard(conn, title, content, memberNo);
+
+	        if (result > 0) {
+	            conn.commit();
+	        } else {
+	            conn.rollback();
+	        }
+	    }finally {
+	    	close(conn);
+	    }
+		return result;
+		
+	}
 }

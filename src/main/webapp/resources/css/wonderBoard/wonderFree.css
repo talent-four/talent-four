@@ -233,7 +233,6 @@
     width:1050px;
     height:230px;
     padding-top:30px;
-    margin-bottom:1000px;
     
 }
 
@@ -433,7 +432,7 @@
     margin-bottom: 20px;
 }
 
-.wonder-write>button{
+.wonder-write>a{
     background-color: #219EBC;
     color:white;
     border:0;
@@ -443,9 +442,10 @@
     display: flex;
     align-items: center;
     cursor: pointer;
+    text-decoration: none;
 }
 
-.wonder-write>button:hover{
+.wonder-write>a:hover{
     background-color: #023047;
 
 }

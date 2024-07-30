@@ -51,10 +51,9 @@
             </ul>
         </div>
         -->
-        <div class="wonder-write">
-            <button>글쓰기</button>
-        </div>
-
+      	<div class="wonder-write">
+       <a href="<%= request.getContextPath() %>/wonder/write" >글쓰기</a>
+    	</div>
         <div>
         <c:if test="${empty freeList}">
             <p>게시글이 없습니다.</p>
