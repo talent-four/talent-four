@@ -56,7 +56,6 @@
     <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
     
 
-    <script src="${contextPath}/resources/js/common/hf.js"></script>
     <script>
         // 게시글 번호
         const paidgraph = "${paidgraph}";  // 500

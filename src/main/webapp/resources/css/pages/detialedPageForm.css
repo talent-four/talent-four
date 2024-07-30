@@ -112,7 +112,7 @@ a {
 }
 
 /* 클래스 본문 */
-#classDetail {
+.classDetail {
   display: inline-block;
   position: relative;
   width: 100%;
@@ -141,7 +141,7 @@ a {
   height: auto;
 }
 
-#classDetail > img {
+.classDetail > img {
   min-width: 100%;
 }
 

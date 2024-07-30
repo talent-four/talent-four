@@ -199,11 +199,8 @@ public class detailedPageServlet extends HttpServlet {
 		}
 		
 		if(mode.equals("update")) {
-			String existingClassPhoto = mpReq.getParameter("existingClassPhoto");
 			int classNo = Integer.parseInt(mpReq.getParameter("classNo"));
 			c.setClassNo(classNo);
-			c.setClassPhoto(existingClassPhoto);
-			
 			DetailPageService service = new DetailPageService();
 			
 			try {

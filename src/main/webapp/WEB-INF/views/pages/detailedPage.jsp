@@ -248,9 +248,9 @@
 			</section>
 		</section>
 		<script>
-                    	const loginMemberNo = "${loginMember.memberNo}";
-                    	const parents = "${classInfo.classNo}";
-                    </script>
+	       	const loginMemberNo = "${loginMember.memberNo}";
+	       	const parents = "${classInfo.classNo}";
+       </script>
 	</main>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
 	<script src="${contextPath}/resources/js/pages/detailPage.js"></script>

@@ -250,7 +250,7 @@ public class DetailPageDAO {
 			pstmt.setInt(7, c.getClassNo());
 			
 			result = pstmt.executeUpdate();
-			
+			System.out.println("result : " + result);
 		} finally {
 			close(pstmt);
 		}

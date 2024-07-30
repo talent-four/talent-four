@@ -99,6 +99,5 @@
     </main>
     <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
     <script src="${contextPath}/resources/js/tutor/tutorRegister.js"></script>
-    <script src="${contextPath}/resources/js/common/hf.js"></script>
 </body>
 </html>
