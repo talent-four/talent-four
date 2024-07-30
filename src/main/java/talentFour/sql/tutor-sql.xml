@@ -195,7 +195,6 @@
 	<entry key="updateProfile">
 		UPDATE TUTOR SET 
 		    TUTOR_TEL = ?,
-		    TUTOR_PROFILE = ?,
 		    TUTOR_INTRODUCER = ?
 		WHERE MEMBER_NO = ?
 	</entry>
@@ -217,7 +216,7 @@
 	
 	<!-- 튜터 등록하기(회원 정보 입력) -->
 	<entry key="registerTutorInfo">
-		INSERT INTO TUTOR VALUES(?, ?, ?, ?, ?)
+		INSERT INTO TUTOR VALUES(?, ?, ?, 'null', ?)
 	</entry>
 				<!--번호, 학력, 전화번호, 프로필, 소개 -->
 	

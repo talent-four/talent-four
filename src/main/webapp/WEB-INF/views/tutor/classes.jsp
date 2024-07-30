@@ -38,7 +38,7 @@
                             <c:forEach var="tutorclasses"  items="${tutorclasses}">
                                 <div class="class-rowP" id=${tutorclasses.classNo}>
                                     <div><img src="${contextPath }${tutorclasses.classPhoto}" class="class-thumbnail"></div>
-                                    <div><a href="#">${tutorclasses.className}</a></div>
+                                    <div><a href="${contextPath }/detailedPage/class?classNo=${tutorclasses.classNo}">${tutorclasses.className}</a></div>
                                     <div><div class="class-statusBtn"><span>
                                         <c:if test="${tutorclasses.classStatus == 1}">
                                             운영중
@@ -73,9 +73,9 @@
                         </c:when>
                         <c:otherwise>
                             <c:forEach var="tutorclassesfin"  items="${tutorclassesfin}">
-                                <div class="class-rowP">
-                                    <div><img src="${contextPath }${tutorclassesfin.classPhoto}" class="class-thumbnail"></div>
-                                    <div><a href="#">${tutorclassesfin.className}</a></div>
+                                <div class="class-rowP" id=${tutorclassesfin.classNo}>
+                                    <div><img src="${contextPath}${tutorclassesfin.classPhoto}" class="class-thumbnail"></div>
+                                    <div><a href="${contextPath}/detailedPage/class?classNo=${tutorclassesfin.classNo}">${tutorclassesfin.className}</a></div>
                                     <div><div id="finclassdiv" class="class-closed"><span>
                                         <c:if test="${tutorclassesfin.classStatus == 2}">
                                             운영 종료

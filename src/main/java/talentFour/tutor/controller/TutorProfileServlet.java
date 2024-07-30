@@ -56,7 +56,6 @@ public class TutorProfileServlet extends HttpServlet {
 			String bankName = req.getParameter("bankName");
 			String account = req.getParameter("accountNumber");
 			String tutorIntroduce = req.getParameter("introduce");
-			String tutorProfile = req.getParameter("tutorProfile");
 			
 			tutorProfile updateProfile = new tutorProfile();
 			
@@ -65,7 +64,6 @@ public class TutorProfileServlet extends HttpServlet {
 			updateProfile.setBankName(bankName);
 			updateProfile.setAccount(account);
 			updateProfile.setTutorIntroduce(tutorIntroduce);
-			updateProfile.setTutorProfile(tutorProfile);
 			
 			result = service.updateProfile(updateProfile, memberNo);
 			

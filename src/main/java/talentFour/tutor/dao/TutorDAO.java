@@ -628,9 +628,8 @@ public class TutorDAO {
 			String sql = prop.getProperty("updateProfile");
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, updateProfile.getTutorTel());
-			pstmt.setString(2, updateProfile.getTutorProfile());
-			pstmt.setString(3, updateProfile.getTutorIntroduce());
-			pstmt.setInt(4,memberNo);
+			pstmt.setString(2, updateProfile.getTutorIntroduce());
+			pstmt.setInt(3,memberNo);
 			
 			result1 = pstmt.executeUpdate();
 			
@@ -761,8 +760,7 @@ public class TutorDAO {
 			pstmt.setInt(1, memberNo);
 			pstmt.setString(2, register.getEducation());
 			pstmt.setString(3, register.getTutorTel());
-			pstmt.setString(4, register.getTutorProfile());
-			pstmt.setString(5, register.getTutorIntroduce());
+			pstmt.setString(4, register.getTutorIntroduce());
 			
 			result2 = pstmt.executeUpdate();
 			
@@ -786,9 +784,9 @@ public class TutorDAO {
 			String sql = prop.getProperty("registerAccount");
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, memberNo);
-			pstmt.setString(2, register.getAccountName());
+			pstmt.setString(2, register.getAccount());
 			pstmt.setString(3, register.getBankName());
-			pstmt.setString(4, register.getAccount());
+			pstmt.setString(4, register.getAccountName());
 			
 			result3 = pstmt.executeUpdate();
 			System.out.println("result3:"+ result3);

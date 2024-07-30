@@ -3,8 +3,15 @@
 
 <section class="sideP">  <!-- 사이드-->
 	<div class="side-topP"> <!-- 사이드 위쪽-->
-	   <div>
-	       <img src="${loginMember.memberProfile}" id="profile-imgP"> <!-- 사이드 프로필 사진 -->
+	    <div>
+			<c:choose>
+				<c:when test="${empty loginMember.memberProfile}">
+					<img src="${contextPath}/resources/img/profile-default.jpg" id="profile-imgP">
+				</c:when>
+				<c:otherwise>
+					<img src="${contextPath}${loginMember.memberProfile}" id="profile-imgP">
+				</c:otherwise>
+			</c:choose>
 	    </div>
 	    <div>
 	        <span id="profile-idP">${loginMember.memberNickname}</span>
