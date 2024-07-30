@@ -1,4 +1,6 @@
 // 임포트 예시
+https://www.youtube.com/playlist?list=PL6i7rGeEmTvoea5d4Xr_Awhi_ES5GvkBA
+
 <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/ca1a32ac54e1a160ef3542b9f9be04dca1c614f7.jpg">
 <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/3d8f60050749e7ad92e02c56a0ec9a8bec780554.gif">
 <img src="https://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/editaling/d55ab5246ef4c0e324025814e3e99bd8ea61b4ae.gif">
