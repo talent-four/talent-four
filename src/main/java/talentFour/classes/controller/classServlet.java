@@ -19,7 +19,6 @@ public class classServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		int classNo = Integer.parseInt(req.getParameter("classNo"));
-		System.out.println(classNo);
 		try {
 			DetailPageService service = new DetailPageService();
 			Class c = service.getClass(classNo);

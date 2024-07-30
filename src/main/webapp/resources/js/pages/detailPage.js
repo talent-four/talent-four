@@ -1,30 +1,33 @@
-(function () {
-  // blur 생성/삭제 메소드
-  const blur = document.getElementById("blur");
-  const dclassInfoBtn = document.getElementById("d-classInfoBtn");
-  if (blur && dclassInfoBtn) {
-    if (dclassInfoBtn.clientHeight >= 500) {
-      blur.style.display = "block";
-      dclassInfoBtn.style.display = "block";
-    } else {
-      blur.style.display = "none";
-      dclassInfoBtn.style.display = "none";
-    }
+const blur = document.getElementById("blur");
+const dclassInfoBtn = document.getElementById("d-classInfoBtn");
+const classDetail = document.getElementById("classDetail");
+
+// blur 생성/삭제 메소드
+if (blur && dclassInfoBtn) {
+  if (classDetail.clientHeight >= 500) {
+    blur.style.display = "block";
+    dclassInfoBtn.style.display = "block";
+  } else {
+    blur.style.display = "none";
+    dclassInfoBtn.style.display = "none";
   }
-})();
+}
 
 // 클래스 소개 더보기 버튼
 if (document.getElementById("d-classInfoBtn") != null) {
   document.getElementById("d-classInfoBtn").addEventListener("click", function () {
-    const classIntro = document.querySelector(".classDetail");
+    const classIntro = document.querySelector("#classDetail");
 
     classIntro.classList.toggle("classDetailShow");
 
     // 버튼 텍스트 변경
     if (classIntro.classList.contains("classDetailShow")) {
       this.textContent = "클래스 소개 접기";
+      blur.style.display = "none";
+
     } else {
       this.textContent = "클래스 소개 더보기";
+      blur.style.display = "block";
     }
   });
 }
@@ -205,11 +208,11 @@ if(button != null){
     button.style.border = "1px solid black";
   } else {
     // 개행 문자(\n)를 <br> 태그로 변환
-    const escapedText = textarea.value;
+    const escapedText = textarea.value
     //   .replace(/&/g, "&amp;")
     //   .replace(/</g, "&lt;")
     //   .replace(/>/g, "&gt;")
-    //   .replace(/(\r\n|\n\r|\n|\r)/g, "<br>");
+      .replace(/(\r\n|\n\r|\n|\r)/g, "<br>");
     output.innerHTML = escapedText;
     output.style.display = "block";
     textarea.style.display = "none";

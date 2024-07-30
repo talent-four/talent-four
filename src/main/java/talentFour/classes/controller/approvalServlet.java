@@ -23,10 +23,6 @@ public class approvalServlet extends HttpServlet {
 		String path = "";
 		HttpSession session = req.getSession();
 		
-		
-		System.out.println("loginMember : " + session.getAttribute("loginMember"));
-		System.out.println("req.getContextPath() : " + req.getContextPath());
-		
 		if(session.getAttribute("loginMember") == null) {
             // 로그인 안하면, 로그인 화면으로
             // 현재 요청 URL을 세션에 저장
@@ -35,7 +31,6 @@ public class approvalServlet extends HttpServlet {
         } else {
         	try {
         		DetailPageService service = new DetailPageService();
-        		System.out.println(req.getParameter("classNo"));
         		int boardNo = Integer.parseInt(req.getParameter("classNo"));
 				Class c = service.getClass(boardNo);
 				req.setAttribute("classInfo", c);
