@@ -78,7 +78,7 @@ public class TutorRegisterServlet extends HttpServlet {
 			if(result1 > 0 && result2 > 0 && result3 > 0) {
 				session.setAttribute("message", "튜터등록에 성공하였습니다."); 
 				
-				req.setAttribute("loginMember", loginMember);
+				req.setAttribute("loginMember", loginmember2);
 				
 				resp.sendRedirect( req.getContextPath() );
 			}

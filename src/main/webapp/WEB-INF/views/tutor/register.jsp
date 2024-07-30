@@ -15,40 +15,10 @@
 <body>
     <jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
     <main>
-        <form action="register" method="post">
+        <form action="register" method="post" onsubmit="return updateValidate1()"> 
             <section class="titleP">
                 <span>튜터등록</span>
                 <span>*<span>필수</span></span>
-            </section>
-
-            <section class="regist-img-areaP">
-                <div class="side-textP">
-                    <span>프로필사진</span><span>*</span>
-                </div>
-                <div>
-                    <div class="example-areaP">
-                        <div>
-                            <span>주의</span>
-                            <span>얼굴이 나오지 않은 동물/캐릭터/단순배경사진/증명사진은 승인되지 않습니다.</span>
-                        </div>
-                        <div class="example-imgP">
-                            <img src="${contextPath}/resources/img/cat1.jpg" >
-                            <img src="${contextPath}/resources/img/cat1.jpg" >
-                            <img src="${contextPath}/resources/img/cat1.jpg" >
-                            <img src="${contextPath}/resources/img/cat1.jpg">
-                            <div class="i-areaP">
-                                <span class="fa-solid fa-x"></span>
-                                <span class="fa-solid fa-x"></span>
-                                <span class="fa-solid fa-x"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="confirm-imgP">
-                        <img src="${contextPath}/resources/img/cat1.jpg" id="profile-imgP">
-                        <input type="file" id="change-img-btnP" name="inputImage">
-                        <label for="change-img-btnP" id="upload-imgP"><i class="fa-solid fa-camera"></i></label>
-                    </div>
-                </div>
             </section>
 
             <section class="regist-tel-areaP">
@@ -77,7 +47,7 @@
                 <div>
                     <div>
                         <span>예금주명</span>
-                        <input type="text" name="accountName">
+                        <input type="text" name="accountName" id="accountName1">
                     </div>
                     <div>
                         <span>은행명</span>
@@ -91,7 +61,7 @@
                     </div>
                     <div>
                         <span>계좌번호</span>
-                        <input type="text" name="account">
+                        <input type="text" name="account" id="account1">
                     </div>
                 </div>
             </section>

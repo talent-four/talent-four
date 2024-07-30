@@ -1,4 +1,3 @@
-
 const chatIcon = document.querySelector("#chatBtn");
 const chatClose = document.querySelector("#chat-close");
 const chatBox = document.querySelector("#chat-box");

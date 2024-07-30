@@ -40,7 +40,7 @@
                                     <tr class="sell-each-rows">
                                         <td>${tutorclassSell.startDate}</td>
                                         <td>${tutorclassSell.memberNickname}</td>
-                                        <td><a href="${contextPath}/tutor/register">${tutorclassSell.boardTitle}</a></td>
+                                        <td>${tutorclassSell.boardTitle}</td>
                                         <td><div>${tutorclassSell.paymentStatus}</div></td>
                                     </tr>
                                 </c:forEach>

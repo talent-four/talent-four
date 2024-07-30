@@ -17,16 +17,11 @@
     <main> <!-- 메인 -->
     <jsp:include page="/WEB-INF/views/tutor/tutorside.jsp"></jsp:include>
         
-        <form action="profile" method="post" enctype="multipart/form-data" onsubmit="return updateValidate()">
+        <form action="profile" method="post" onsubmit="return updateValidate()">
             <section class="mainsectionsP" id="profileP">
                 <article class="titleP"><span>내 프로필</span></article>
                     <div class="text-areaP">
-                        <div>
-                            <span>프로필 이미지</span>
-                            <img src= "${contextPath}/resources/img/profile_default_removebg.png" id="PI-defaultP">
-                            <input type="file" id="PIhide-btnP">
-                            <label for="PIhide-btnP" id="PIchange-btnP"><i class="fa-solid fa-camera"></i></label>
-                        </div>
+                        
                         <div>
                             <span>전화 번호</span>
                             <input type="text" id="tel-input" name="tel-input" value="${tutorProfile.tutorTel}" maxlength="11" onfocus="showWarning()" onblur="hideWarning()">
