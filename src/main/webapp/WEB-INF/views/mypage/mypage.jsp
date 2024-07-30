@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>this</title>
+    <title>myPage</title>
     <link rel="stylesheet" href="${contextPath}/resources/css/mypage/mypage.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/common/hf.css">
     <script src="https://kit.fontawesome.com/71eaa9d255.js" crossorigin="anonymous"></script>
@@ -40,9 +40,9 @@
             <article class="category-areaH"> <!-- 카테고리 -->
                 <table class="category-tableH">
                     <tr class="categoryH">
-                        <td><button id="tutor-btn"><i class="fa-solid fa-rocket"
+                        <td><a href="${contextPath}/tutor/register"><button id="tutor-btn"><i class="fa-solid fa-rocket"
                                     style="color : #219EBC ;font-size:15pt; padding-right: 5px;"></i> <b>튜터 신청
-                                    하기</b></button></td>
+                                    하기</b></button></a></td>
                     </tr>
                     <tr class="categoryH selected" id="category-profile">
                         <td>
@@ -59,7 +59,7 @@
                             <p>리뷰</p>
                         </td>
                     </tr>
-                    <tr class="categoryH" id="category-QA">
+                    <tr class="categoryH" id="category-QA" style="display:none;">
                         <td>
                             <p>Q&A(삭제 예정)</p>
                         </td>
