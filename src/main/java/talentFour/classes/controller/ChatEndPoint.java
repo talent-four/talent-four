@@ -53,13 +53,13 @@ public class ChatEndPoint {
         try {
            Gson gson = new Gson();
            Message msg = gson.fromJson(message, Message.class);
-           System.out.println("msg.getToId" + msg.getToId());
+//           System.out.println("msg.getToId" + msg.getToId());
            // 홍길동1의 memberNo가 몇인지 DB조회를 통해 얻어온다
            
            MemberService service = new MemberService();
            int memberNo=service.searchMemberNo(msg.getToId());
            System.out.println(sessions.values());
-           System.out.println("멤버 번호"+memberNo);
+//           System.out.println("멤버 번호"+memberNo);
            msg.setToId(String.valueOf(memberNo));
 
            

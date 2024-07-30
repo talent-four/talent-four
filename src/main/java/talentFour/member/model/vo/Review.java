@@ -29,6 +29,6 @@ public class Review {
 	private String profileImage;
 	private String lectureName; // 상위 게시글의 이름
 	private String instructorName;
-	private String classURL;
+	private String classPhoto;
 	private int memberNo; // 게시글 작성자의 시퀀스 멤버번호
 }

@@ -181,7 +181,7 @@ function selectReview() {
                     <div class="declaration-btn">신고</div>
                 </div>
                 <div class="classimgcontainer">
-                    <img src="${contextPath}${review.classURL}" class="classimg">
+                    <img src="${contextPath}${review.classPhoto}" class="classimg">
                 </div>
                 <div class="reviewcontentbox">
                     <div class="reviewtitle">
@@ -349,7 +349,7 @@ function selectReviewByThumbs() {
                     <div class="declaration-btn">신고</div>
                 </div>
                 <div class="classimgcontainer">
-                    <img src="${contextPath}${review.classURL}" class="classimg">
+                    <img src="${contextPath}${review.classPhoto}" class="classimg">
                 </div>
                 <div class="reviewcontentbox">
                     <div class="reviewtitle">
@@ -718,7 +718,7 @@ function thumbsReview(reviewBoardNo, loginMemberNickName) {
 function searchReview() {
 
     const searchReview = document.getElementById("searchReview");
-
+    
     $.ajax({
 
         url: contextPath + "/review/searchReview",
@@ -778,7 +778,7 @@ function searchReview() {
                     <div class="declaration-btn">신고</div>
                 </div>
                 <div class="classimgcontainer">
-                    <img src="${contextPath}${review.classURL}" class="classimg">
+                    <img src="${contextPath}${review.classPhoto}" class="classimg">
                 </div>
                 <div class="reviewcontentbox">
                     <div class="reviewtitle">
@@ -867,170 +867,6 @@ function searchReview() {
 }
 
 
-// function scrollEvent(results, currentIndex, hasScrolled, scrollPositionBeforeLoad){
-
-
-
-//                 // 스크롤 위치 리뷰 만들어지기 전 마지막 요소로 변경
-
-//                 const moveHere = document.querySelectorAll(".reviewtag");
-
-//                 // 마지막 요소 선택
-//                 const lastMove = moveHere[moveHere.length - 1];
-
-
-
-
-//                 // 두 번째 부터는 스크롤이 90%에 올때 마다 20개씩 추가 리뷰를 불러낸다.
-//                 const scrollTop = window.scrollY; // 현재 스크롤 위치
-//                 const windowHeight = window.innerHeight; // 현재 창의 높이
-//                 const documentHeight = document.documentElement.scrollHeight; // 전체 문서 높이
-
-
-
-//                 // 현재 스크롤 위치가 문서 전체 높이의 90% 이상일 때
-//                 if (scrollTop + windowHeight > documentHeight * 0.95) {
-//                     if (!hasScrolled) { // 한 번만 실행되도록 체크
-//                         hasScrolled = true; // 처리 완료
-
-//                         // 리뷰 추가 전의 스크롤 위치 저장
-//                         scrollPositionBeforeLoad = scrollTop;
-
-//                         results[currentIndex].forEach((review) => {
-//                             let starText = "";
-//                             if (review.profileImage == null) {
-//                                 review.profileImage = "/resources/img/profile-default.jpg";
-//                             }
-
-//                             let memberBtn = "";
-//                             if (memberNickname == review.memberNickname) {
-//                                 memberBtn = `<div class='updateBtn' id='update${review.boardNo}${review.memberNickname}'>수정하기</div><div class='deleteBtn' id=delete${review.boardNo}${review.memberNickname}>삭제하기</div>`
-//                             }
-
-//                             if (review.reviewStar == 1) {
-//                                 review.reviewStar = "★";
-//                                 starText = "1.0";
-//                             } else if (review.reviewStar == 2) {
-//                                 review.reviewStar = "★★";
-//                                 starText = "2.0";
-//                             } else if (review.reviewStar == 3) {
-//                                 review.reviewStar = "★★★";
-//                                 starText = "3.0";
-//                             } else if (review.reviewStar == 4) {
-//                                 review.reviewStar = "★★★★";
-//                                 starText = "4.0";
-//                             } else if (review.reviewStar == 5) {
-//                                 review.reviewStar = "★★★★★";
-//                                 starText = "5.0";
-//                             }
-//                             document.querySelector("#startLine").insertAdjacentHTML("afterend",
-//                                 `<div id="main-box" class=mapping${review.boardNo}>
-//                                 <div class="content">
-//                             <div class="titlebox">
-//                                 <span class="title">${review.lectureName}</span>${memberBtn}
-//                                 <span class="lecturer">강사</span>
-//                                 <span class="name">${review.instructorName}</span>
-//                                 <div class="recommend-btn" id="thumbs${review.boardNo}${review.memberNickname}">추천</div>
-//                                 <div class="declaration-btn">신고</div>
-//                             </div>
-//                             <div class="classimgcontainer">
-//                                 <img src="${contextPath}${review.classURL}" class="classimg">
-//                             </div>
-//                             <div class="reviewcontentbox">
-//                                 <div class="reviewtitle">
-//                                     <img src="${contextPath}${review.profileImage}" class="profileimg">
-//                                     <div class="name1">
-//                                         <div class="reviewer">${review.memberNickname}</div>
-//                                         <div class="reviewScore">
-//                                             <div class="star" style="color:gold">${review.reviewStar}</div>
-//                                             <div class="starnum">(${starText})</div>
-//                                         </div>
-//                                     </div>
-//                                     <div class="title1">
-//                                         <div class="title1-reviewtitle">${review.boardTitle}</div>
-//                                         <div class="title1-reviewsubtitle">
-//                                             <div class="title1-reviewsubtitle-date color626262" id="${review.boardNo}${review.updateDate}">작성일 ${review.createdDate}</div>
-//                                             <div class="title1-reviewsubtitle-recommend color595959" id="recommend${review.boardNo}">추천${review.thumbs}</div>
-//                                             <div class="title1-reviewsubtitle-report color595959">신고${review.report}</div>
-//                                         </div>
-//                                     </div>
-//                                 </div>
-//                                 <div class="contentbox">
-//                                     <div class="reviewcontext">${review.boardContent}
-//                                     </div>
-//                                     <div class="reviewtag">#${review.tag}</div>
-//                                 </div>
-//                             </div>
-//                             </div>
-//                             </div>`
-
-//                             )
-
-
-
-
-//                             if (review.updateDate) {
-//                                 document.getElementById(`${review.boardNo}${review.updateDate}`).insertAdjacentHTML("afterbegin",
-//                                     `<div class="title1-reviewsubtitle-update color626262">수정일 ${review.updateDate}</div>`
-//                                 );
-//                             }
-
-
-//                             // 리뷰 작성자와 로그인 멤버가 일치해서 버튼이 필요한 경우 이벤트 리스너 추가
-//                             // 수정하기 이벤트 추가
-//                             if (memberBtn != "") {
-//                                 document.getElementById(`update${review.boardNo}${review.memberNickname}`).addEventListener("click", () => {
-//                                     // 내가 선택한 boardno를 넘겨서 value들을 가져온후 그 값을 기반으로 글쓰기 페이지 생성
-//                                     updateMylecture(`${review.boardNo}`);
-//                                 })
-//                             }
-
-//                             // 삭제하기 이벤트 추가
-//                             if (memberBtn != "") {
-//                                 document.getElementById(`delete${review.boardNo}${review.memberNickname}`).addEventListener("click", () => {
-//                                     if (confirm("정말 삭제하시겠습니까?")) {
-//                                         deleteReview(review.boardNo);
-//                                     }
-//                                 })
-//                             }
-
-//                             // 추천하기 이벤트 추가
-//                             if (document.getElementById(`thumbs${review.boardNo}${review.memberNickname}`)) {
-//                                 document.getElementById(`thumbs${review.boardNo}${review.memberNickname}`).addEventListener("click", () => {
-
-//                                     if (memberNickname) {
-//                                         console.log(`리뷰 번호 : ${review.boardNo}, 추천할사람 닉네임 : ${memberNickname}`);
-
-//                                         thumbsReview(review.boardNo, memberNickname);
-
-//                                     } else {
-//                                         alert("로그인 이후 추천을 할 수 있습니다.");
-//                                     }
-
-//                                 });
-//                             }
-
-//                         });
-
-//                         // 리뷰가 추가된 후 스크롤을 원래 위치로 이동
-//                         setTimeout(() => {
-//                             window.scrollTo({
-//                                 top: scrollPositionBeforeLoad,
-//                                 behavior: 'smooth'
-//                             });
-//                         }, 100); // 딜레이를 주어 리뷰가 추가된 후 스크롤 위치를 이동시킴
-
-//                         currentIndex++;
-//                     }
-//                 } else {
-//                     hasScrolled = false; // 95% 지점을 지나면 다시 실행 가능
-//                 }
-            
-// }
-
-
-
-
 
 function createScrollEventHandler(results, memberNickname, contextPath) {
     let currentIndex = 1; // 현재 리뷰의 인덱스
@@ -1093,7 +929,7 @@ function createScrollEventHandler(results, memberNickname, contextPath) {
                                     <div class="declaration-btn">신고</div>
                                 </div>
                                 <div class="classimgcontainer">
-                                    <img src="${contextPath}${review.classURL}" class="classimg">
+                                    <img src="${contextPath}${review.classPhoto}" class="classimg">
                                 </div>
                                 <div class="reviewcontentbox">
                                     <div class="reviewtitle">

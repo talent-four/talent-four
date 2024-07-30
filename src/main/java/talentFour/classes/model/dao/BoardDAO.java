@@ -71,7 +71,7 @@ public class BoardDAO {
 						.profileImage(rs.getString(13))
 						.lectureName(rs.getString(14))
 						.instructorName(rs.getString(15))
-						.classURL(rs.getString(16))
+						.classPhoto(rs.getString(16))
 						.build();
 				reviewList.add(review);
 			}
@@ -334,7 +334,7 @@ public class BoardDAO {
 						.profileImage(rs.getString(13))
 						.lectureName(rs.getString(14))
 						.instructorName(rs.getString(15))
-						.classURL(rs.getString(16))
+						.classPhoto(rs.getString(16))
 						.build();
 				reviewList.add(review);
 			}
@@ -500,7 +500,7 @@ public class BoardDAO {
 						.profileImage(rs.getString(13))
 						.lectureName(rs.getString(14))
 						.instructorName(rs.getString(15))
-						.classURL(rs.getString(16))
+						.classPhoto(rs.getString(16))
 						.build();
 				reviewList.add(review);
 			}
