@@ -59,7 +59,7 @@
                         <input type="email" id="inputEmail" name="email" autocomplete="off">
                         <button type="button" class="Confirmbtn" id="ck-numBtn">인증번호 받기</button>
                     </div>
-                    <div id="nickNameCkText" class="sign-font">한글로만 2~8글자 입력</div>
+                    <div id="nickNameCkText" class="sign-font"></div>
                 </div>
 
                 <div class="formRow">
@@ -96,7 +96,6 @@
 
                 <div class="formRow noBottomLine">
                     <ul class="agreeCk">
-                        <li><input type="checkbox" name="agree1" value="allAgree" id="agree1">모두 동의합니다.</li>
                         <li><input type="checkbox" name="agree2" value="age14" id="agree2">만 14세 이상입니다(필수)</li>
                         <li><input type="checkbox" name="agree3" value="serviceAgree" id="agree3">개인정보 수집/이용에 동의합니다.(필수)</li>
                     </ul>

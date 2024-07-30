@@ -58,12 +58,9 @@ function openWebSocket() {
         };
         
         websocket.onclose = function(event) {
-        console.log('WebSocket is closed now.');
         if (websocket.readyState!=websocket.OPEN) {
-            setTimeout(openWebSocket, 5000); // 일정 시간 후 재연결 시도
-        } else {
-            console.log('Stopping reconnection attempts.');
-        }
+            setTimeout(openWebSocket, 10000); // 일정 시간 후 재연결 시도
+        } 
     };
     }
 
@@ -121,6 +118,7 @@ function startChatting() {
                                 hasChattingId = true;
                             },
                             error() {
+                                console.log("채팅 시작 오류");
                             }
                         })
                         document.querySelector("#chatToBtn").insertAdjacentHTML("afterend", "<div id='myPartner'>현재 대화중인 상대 : " + toId + "</div>")

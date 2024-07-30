@@ -288,11 +288,10 @@ document.querySelector("#sinupBtn").addEventListener("click", function (e) {
         return;
     }
 
-    const allAgree = document.querySelector("#agree1").checked;
     const age14 = document.querySelector("#agree2").checked;
     const serviceAgree = document.querySelector("#agree3").checked;
 
-    if (!allAgree && !age14 && !serviceAgree) {
+    if (!age14 && !serviceAgree) {
         alert("체크 박스를 확인해주세요.");
         document.querySelector(".agreeCk").focus()
         e.preventDefault();
