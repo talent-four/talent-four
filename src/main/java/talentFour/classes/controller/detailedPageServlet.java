@@ -47,19 +47,21 @@ public class detailedPageServlet extends HttpServlet {
 		MemberService mService = new MemberService();
 		Member loginMember = (Member) session.getAttribute("loginMember");
 		
-		System.out.println(command);
+		int classNo =  Integer.parseInt(req.getParameter("classNo"));
 		
 		try {
 			// classNo 페이지 조회
 			if(command.equals("class")) {
-				int classNo =  Integer.parseInt(req.getParameter("classNo"));
-				
 				
 				Class classInfo = service.getClass(classNo);
 				String[] tutorInfo = service.getTutorInfoClass(classNo);
 				
 				List<Review> reviewList = mService.getDetailPageReview(classNo);
-			
+				if(loginMember != null) {
+					Boolean[] checkList = service.checkList(loginMember.getMemberNo(), classNo);
+					req.setAttribute("checkList", checkList); // 0, 자기 강의 1, 구매한 강의
+				}
+				
 				req.setAttribute("classInfo", classInfo);
 				req.setAttribute("tutorInfo", tutorInfo);
 				req.setAttribute("reviewList", reviewList);
@@ -71,8 +73,6 @@ public class detailedPageServlet extends HttpServlet {
 			if(command.equals("write")) { // 게시글 작성
 				
 				// 튜터 정보 얻어오기
-				
-				
 				String[] tutorInfo = service.getTutorInfo(loginMember.getMemberNo());
 				
 				path = "/WEB-INF/views/pages/detailedPageForm.jsp";
@@ -81,7 +81,7 @@ public class detailedPageServlet extends HttpServlet {
 				
 				// update일 경우
 				if(req.getParameter("mode").equals("update")) {
-					int classNo =  Integer.parseInt(req.getParameter("classNo"));
+					classNo =  Integer.parseInt(req.getParameter("classNo"));
 					
 					Class classInfo = service.getClass(classNo);
 					
@@ -95,7 +95,7 @@ public class detailedPageServlet extends HttpServlet {
 			
 			// delete일 경우
 			if(command.equals("delete")) {
-				int classNo =  Integer.parseInt(req.getParameter("classNo"));
+				classNo =  Integer.parseInt(req.getParameter("classNo"));
 				
 				int result = service.deleteClass(classNo);
 				
@@ -151,12 +151,11 @@ public class detailedPageServlet extends HttpServlet {
 			String name = files.nextElement();
 			String rename = mpReq.getFilesystemName(name);
 			
-			System.out.println("name : " + name);
-			System.out.println("rename : " + rename);
-			
 			if(rename != null) {
 				
 				c.setClassPhoto(folderPath + rename);
+				System.out.println(name);
+				System.out.println(rename);
 			}
 		}
 		
@@ -181,15 +180,13 @@ public class detailedPageServlet extends HttpServlet {
 		
 		String path = "";
 		String mode = mpReq.getParameter("mode"); // hidden
-		System.out.println("mode : " + mode);
-		
+
 		// detailPage/write?mode=insert 일 때,
 		if(mode.equals("insert")) {
 			DetailPageService service = new DetailPageService();
 			
 			try {
 				int classNo = service.insertClass(c, loginMember);
-				System.out.println("등록 실행됨");
 				
 				session.setAttribute("message", "클래스가 등록되었습니다.");
 				path = "class?classNo=" + classNo;
@@ -200,16 +197,19 @@ public class detailedPageServlet extends HttpServlet {
 		}
 		
 		if(mode.equals("update")) {
-			System.out.println("update 요청 들어옴");
+			String existingClassPhoto = mpReq.getParameter("existingClassPhoto");
+			int classNo = Integer.parseInt(mpReq.getParameter("classNo"));
+			c.setClassNo(classNo);
+			c.setClassPhoto(existingClassPhoto);
+			
 			DetailPageService service = new DetailPageService();
 			
 			try {
-				int classNo = Integer.parseInt(req.getParameter("classNo"));
 				c.setClassNo(classNo);
 				int result = service.updateClass(c);
 				
-				req.setAttribute("message", "클래스가 등록되었습니다.");
-				path = "detailedPage?classNo=" + classNo;
+				session.setAttribute("message", "클래스가 수정되었습니다.");
+				path = "class?classNo=" + classNo;
 				
 			} catch (Exception e) {
 				e.printStackTrace();

@@ -326,9 +326,19 @@
     
                                 <div class="detailedPageBrn">
                                     <a href="#" class="chatBtn"><img src="${contextPath}/resources/img/chat.png"></a>
-    
-                                    <a class="creditBtnSub" href="${contextPath}/approval?classNo=${classInfo.classNo}">클래스
-                                        결제하기</a>
+                                    <c:set var="checkMyClass" value="${checkList[0]}"></c:set>
+                                    <c:set var="checkPaidClass" value="${checkList[1]}"></c:set>
+                                    <c:choose>
+                                    	<c:when test="${checkMyClass}">
+                          	            	<a class="creditBtnSub" href="${contextPath}/detailedPage/write?mode=update&classNo=${classInfo.classNo}">클래스 수정하기</a>
+                                    	</c:when>
+                                    	<c:when test="${checkPaidClass}">
+                          	            	<a class="creditBtnSub" href="${contextPath}/class?classNo=${classInfo.classNo}">클래스 수강하기</a>
+                                    	</c:when>
+                                    	<c:otherwise>
+                          	            	<a class="creditBtnSub" href="${contextPath}/approval?classNo=${classInfo.classNo}">클래스 결제하기</a>
+                                    	</c:otherwise>
+                                    </c:choose>
                                 </div>
                             </section>
                         </section>

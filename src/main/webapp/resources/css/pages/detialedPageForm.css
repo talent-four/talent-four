@@ -1,11 +1,15 @@
-@font-face {font-family: 'Noto Sans KR';font-style: normal;font-weight: 400;src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff2) format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.otf) format('opentype');}
+@font-face {
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-weight: 400;
+  src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff2) format("woff2"), url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff) format("woff"), url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.otf) format("opentype");
+}
 
-
-*{  
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Noto Sans KR', sans-serif;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans KR", sans-serif;
 }
 
 a {
@@ -13,10 +17,10 @@ a {
 }
 
 /* 메인 페이지 */
-#detailed{
-    width:1280px;
-    margin: 0 auto;
-    grid-template-columns: 70% 30%;  
+#detailed {
+  width: 1280px;
+  margin: 0 auto;
+  grid-template-columns: 70% 30%;
 }
 
 /* 위쪽 부분 */
@@ -55,7 +59,7 @@ a {
   border-bottom: 3px solid #ddd;
 }
 
-.classTitle>input:focus-within {
+.classTitle > input:focus-within {
   border-bottom-color: #ffb703;
 }
 
@@ -63,7 +67,7 @@ a {
   font-size: 16px;
 }
 
-.star{
+.star {
   color: #ffb703;
 }
 
@@ -97,14 +101,14 @@ a {
   width: 850px;
 }
 
-.detailedNav > ul{
-    list-style: none;
-    display: flex;
-    margin: 0;
+.detailedNav > ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
 }
 
 .detailedNav > ul > li {
-  flex-grow: 1; 
+  flex-grow: 1;
 }
 
 /* 클래스 본문 */
@@ -126,7 +130,7 @@ a {
 }
 
 .classDetailContent > img {
-	width: 100%;
+  width: 100%;
 }
 
 .classDetailContent:focus {
@@ -147,11 +151,11 @@ a {
   align-items: center;
 }
 
-.detailedNav>ul li a{
+.detailedNav > ul li a {
   display: inline-block;
   height: 50px;
 
-  color:black;
+  color: black;
   text-decoration: none;
   font-weight: bold;
 
@@ -160,7 +164,7 @@ a {
   align-items: center;
 }
 
-.detailedNav>ul li a:hover {
+.detailedNav > ul li a:hover {
   background-color: #b7def0;
 }
 
@@ -179,68 +183,68 @@ a {
   margin: 15px 0;
 }
 
-.nav-min-15{
-    font-size: 12px;
-    color:#ff1058;
+.nav-min-15 {
+  font-size: 12px;
+  color: #ff1058;
 }
 
-.creditBtnSub{
+.creditBtnSub {
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  width:250px;
+  width: 250px;
   height: 50px;
   cursor: pointer;
   background-color: #ffb703;
-  border:0;
+  border: 0;
   border-radius: 10px;
-  color:white;
+  color: white;
   font-size: 20px;
   font-weight: bold;
 }
 
-.creditBtnSub:hover{
+.creditBtnSub:hover {
   color: #ffb703;
   border: 3px solid #ffb703;
   background-color: white;
-  opacity : 0.8;
+  opacity: 0.8;
 }
 
-.credit50Pro{
-    color:#ff1058;
-    font-weight: bold;
-    font-size:30px;
+.credit50Pro {
+  color: #ff1058;
+  font-weight: bold;
+  font-size: 30px;
 }
 
-.detailedCon{
-    padding:10px;
-    display: flex;
-    flex-direction: column;
+.detailedCon {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
-#detailedSide{
- width: 400px;
- padding-left: 50px;
+#detailedSide {
+  width: 400px;
+  padding-left: 50px;
 }
 
-#detailedSilde>section{
-    height: 500px;
-    top: 50px;
+#detailedSilde > section {
+  height: 500px;
+  top: 50px;
 }
 
-.detailedCon>span{
-    display: flex;
-    align-items: center
+.detailedCon > span {
+  display: flex;
+  align-items: center;
 }
 
-.fontGcolor{
-    color:#bbb;
+.fontGcolor {
+  color: #bbb;
 }
 
-#detailedSide-d1{
-    position: sticky;
-    top: 20%;
+#detailedSide-d1 {
+  position: sticky;
+  top: 20%;
 }
 
 #detailedSide-d1 > div {
@@ -251,34 +255,32 @@ a {
   margin-bottom: 10px;
 }
 
-.detailedPageBrn{
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-
+.detailedPageBrn {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
 .chatBtn {
   height: 50px;
 }
 
-.chatBtn>img{
-    width:50px;
-    padding:10px;
-    cursor: pointer;
-    border:1px solid black;
-    border-radius: 10px;
-    margin-right:20px;
+.chatBtn > img {
+  width: 50px;
+  padding: 10px;
+  cursor: pointer;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin-right: 20px;
 }
 
-
-#d-classInfoBtn{
-    width:800px;
-    padding:12px;
-    background-color: white;
-    border: 1px solid #bbb;
-    cursor: pointer;
-    font-weight: bold;
-    border-radius: 10px;
+#d-classInfoBtn {
+  width: 800px;
+  padding: 12px;
+  background-color: white;
+  border: 1px solid #bbb;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 10px;
 }
 
 /* 흐리게 추가 */
@@ -290,8 +292,8 @@ a {
   bottom: 0px;
 }
 
-#d-classInfoBtn:hover{
-    background-color: #ddd;
+#d-classInfoBtn:hover {
+  background-color: #ddd;
 }
 
 /* 튜터소개 */
@@ -307,7 +309,7 @@ a {
   align-items: center;
 }
 
-.detialedPage-tutorInfo img{
+.detialedPage-tutorInfo img {
   width: 50px;
   height: 50px;
   margin: auto 0;
@@ -338,63 +340,62 @@ a {
   margin: 20px 0;
 }
 
-
 /* 몰라 여긴 */
-.detialedPage-tutorInfo>div:nth-of-type(1){
-    display: flex;
-    flex-direction: column;
-    border:1px solid #ddd;
-    padding:30px;
-    border-radius: 5px;
-    justify-content: center;
+.detialedPage-tutorInfo > div:nth-of-type(1) {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ddd;
+  padding: 30px;
+  border-radius: 5px;
+  justify-content: center;
 }
 
-  /* 리뷰 */
-  #dp-review>div:nth-child(1){
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  #dp-review>div:nth-child(1)>h3{
-    width:300px;
-  }
+/* 리뷰 */
+#dp-review > div:nth-child(1) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#dp-review > div:nth-child(1) > h3 {
+  width: 300px;
+}
 
-  #dp-review>div:nth-child(1)>div>a{
-    padding-left:20px;
-    color:black;
-    text-decoration: 0;
-    font-weight: bold;
-  }
+#dp-review > div:nth-child(1) > div > a {
+  padding-left: 20px;
+  color: black;
+  text-decoration: 0;
+  font-weight: bold;
+}
 
-  #dp-review>div:nth-child(1)>div>a:hover{
-    color:#ff1058;
-  }
+#dp-review > div:nth-child(1) > div > a:hover {
+  color: #ff1058;
+}
 
-  .d-review{
-    border:1px solid #ddd;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 20px;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-    min-height: 100px;
-  }
+.d-review {
+  border: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  min-height: 100px;
+}
 
-  .d-review>div{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-  }
+.d-review > div {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
 
-  .d-review > div:last-child {
-    justify-content: right;
-  }
+.d-review > div:last-child {
+  justify-content: right;
+}
 
-  .d-review>div>div{
-    display: flex;
-    align-items: center;
-  }
+.d-review > div > div {
+  display: flex;
+  align-items: center;
+}
 
 .profileBox {
   width: 180px;
@@ -413,8 +414,8 @@ a {
 }
 
 .starBox {
- font-size: 12px;
- color: #ffb703;
+  font-size: 12px;
+  color: #ffb703;
 }
 
 .titleBox > span {
@@ -423,109 +424,103 @@ a {
   width: 450px;
 }
 
-  .dp-date-review{
-    display: flex;
-    justify-content: right;
-    margin-right: 10px;
-    font-size: 12px;
-  }
-
-  .d-review-content{
-    margin: 0 40px ;
-    padding: 20px 0;
-  }
-
-  .reviewBtnArea {
-    margin-right: 10px;
-  }
-
-  .reviewBtnArea > button {
-    padding: 2px 8px;
-    background-color: white;
-    border: 0;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-
-  .reviewBtnArea > button:hover {
-    background-color: #ffb703;
-    color: white;
-  }
-
-  /* 비슷한 클래스 */
-
-  #d-similarClass{
-    font-size:14px;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  #d-similarClass>div>img{
-    width:300px;
-  }
-
-  #d-similarC-1{
-    width:300px;
-    cursor: pointer;
-  }
-
-  #d-similarClass>div>div{
-    display: flex;
-    flex-direction: column;
-    margin-left:10px;
-
-  }
-  #d-similarClass>div>div>strong{
-    padding-left:1px;
-    padding-bottom: 3px;
-    font-size:13px;
-  }
-
-  #d-similarClass>div>div>span>strong{
-    padding-left:1px;
-    padding-bottom: 3px;
-    font-size:17px;
-  }
-
-
-  
-#d-similarBtn{
-    margin:40px 0;
-    padding:12px;
-    background-color: white;
-    border: 1px solid #bbb;
-    cursor: pointer;
-    font-weight: bold;
-    border-radius: 10px;
-
+.dp-date-review {
+  display: flex;
+  justify-content: right;
+  margin-right: 10px;
+  font-size: 12px;
 }
 
-#d-similarBtn:hover{
+.d-review-content {
+  margin: 0 40px;
+  padding: 20px 0;
+}
 
-background-color: #ddd;
+.reviewBtnArea {
+  margin-right: 10px;
+}
+
+.reviewBtnArea > button {
+  padding: 2px 8px;
+  background-color: white;
+  border: 0;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.reviewBtnArea > button:hover {
+  background-color: #ffb703;
+  color: white;
+}
+
+/* 비슷한 클래스 */
+
+#d-similarClass {
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+}
+
+#d-similarClass > div > img {
+  width: 300px;
+}
+
+#d-similarC-1 {
+  width: 300px;
+  cursor: pointer;
+}
+
+#d-similarClass > div > div {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+#d-similarClass > div > div > strong {
+  padding-left: 1px;
+  padding-bottom: 3px;
+  font-size: 13px;
+}
+
+#d-similarClass > div > div > span > strong {
+  padding-left: 1px;
+  padding-bottom: 3px;
+  font-size: 17px;
+}
+
+#d-similarBtn {
+  margin: 40px 0;
+  padding: 12px;
+  background-color: white;
+  border: 1px solid #bbb;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+#d-similarBtn:hover {
+  background-color: #ddd;
 }
 
 /* 추천 클래스 */
 
-#d-suggestBtn{
-    margin:40px 0;
-    padding:12px;
-    background-color: white;
-    border: 1px solid #bbb;
-    cursor: pointer;
-    font-weight: bold;
-    border-radius: 10px;
-
+#d-suggestBtn {
+  margin: 40px 0;
+  padding: 12px;
+  background-color: white;
+  border: 1px solid #bbb;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 10px;
 }
 
-#d-suggestBtn:hover{
-background-color: #ddd;
+#d-suggestBtn:hover {
+  background-color: #ddd;
 }
 
-.d-red{
-    color:#ff1058;
-    font-size: 20px;
-    font-weight: bold;
+.d-red {
+  color: #ff1058;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 /* 이미지 삭제 */
@@ -541,7 +536,9 @@ background-color: #ddd;
   position: relative;
 }
 
-.inputImage { display: none; }
+.inputImage {
+  display: none;
+}
 
 #inputTtile2 {
   border-bottom: 2px solid #ddd;
@@ -571,9 +568,9 @@ background-color: #ddd;
 }
 
 #url {
- border-bottom: 2px solid #ddd;
- width: 400px;
- margin-left: 50px;
+  border-bottom: 2px solid #ddd;
+  width: 400px;
+  margin-left: 50px;
 }
 
 #url:focus-within {
@@ -581,12 +578,15 @@ background-color: #ddd;
 }
 
 #toggleButton {
-    position: absolute;
-    top: 40px;
-    left: 30px;
-    border: 1px solid black;
-    background: white;
-    width: 100px;
-    height: 30px;
+  position: absolute;
+  top: 40px;
+  left: 30px;
+  border: 1px solid black;
+  background: white;
+  width: 100px;
+  height: 30px;
 }
 
+#output {
+  display: none;
+}

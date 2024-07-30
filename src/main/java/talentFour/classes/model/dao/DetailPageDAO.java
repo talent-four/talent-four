@@ -241,13 +241,87 @@ public class DetailPageDAO {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setInt(1, c.getClassNo());
-			pstmt.setString(2, c.getClassName());
-			pstmt.setString(3, c.getClassIntro());
-			pstmt.setString(4, c.getClassPhoto());
-			pstmt.setString(5, c.getClassUrl());
-			pstmt.setInt(6, c.getClassPrice());
-			pstmt.setString(7, c.getSub());
+			pstmt.setString(1, c.getClassName());
+			pstmt.setString(2, c.getClassIntro());
+			pstmt.setString(3, c.getClassPhoto());
+			pstmt.setString(4, c.getClassUrl());
+			pstmt.setInt(5, c.getClassPrice());
+			pstmt.setString(6, c.getSub());
+			pstmt.setInt(7, c.getClassNo());
+			
+			result = pstmt.executeUpdate();
+			
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+
+	public Boolean checkMyClass(Connection conn, int memberNo, int classNo) throws Exception {
+		Boolean result = false;
+		
+		String sql = prop.getProperty("checkMyClass");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, memberNo);
+			pstmt.setInt(2, classNo);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				result = true;
+			}
+			
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+
+	public Boolean checkPaidClass(Connection conn, int memberNo, int classNo) throws Exception {
+		Boolean result = false;
+		
+		String sql = prop.getProperty("checkPaidClass");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, memberNo);
+			pstmt.setInt(2, classNo);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				result = true;
+			}
+			
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+
+	public int insertPaid(Connection conn, int classNo, int memberNo, String payment) throws Exception {
+		int result = 0;
+		
+		String sql = prop.getProperty("insertPaid");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, memberNo);
+			pstmt.setInt(2, classNo);
+			pstmt.setString(3, payment);
 			
 			result = pstmt.executeUpdate();
 			

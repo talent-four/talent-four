@@ -14,7 +14,9 @@
 	                <li><a href="">궁금해요</a></li>
 	            </ul>
 	        </div>
-	        <input type="text" id="searchBar" placeholder="재능을 입력해주세요.">
+	        <form action="${contextPath}/classPage/all">
+		        <input type="text" id="searchBar" name="query" placeholder="검색할 클래스를 입력해주세요.">
+	        </form>
 	    </div>
 	    
 		<ul id="loginBox">
