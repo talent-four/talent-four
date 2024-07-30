@@ -229,7 +229,7 @@ function reviewWrite() {
 // 리뷰 화면 만들기
 function createWrite() {
 
-    document.querySelector("#writeReview").insertAdjacentHTML("afterbegin",
+    document.querySelector("#dp-review").insertAdjacentHTML("afterbegin",
         `<div id="background-modal"></div>
                     
                     <div id="write-modal">

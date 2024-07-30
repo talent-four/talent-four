@@ -69,10 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
     <div id="main-4-1">이메일(로그인ID)</div>
     <div id="main-4-2">${memberEmail}</div>
 </div>
-<div id="main-5">
-    <div id="main-5-1">전화번호</div>
-    <div id="main-5-2">폐쇄 예정</div>
-</div>
 <div id="main-6">
     <div id="main-6-1">
         <button id="main-6-1-btn-1">비밀번호 변경</button>
@@ -157,10 +153,6 @@ profile.addEventListener('click', () => {
 <div id="main-4">
     <div id="main-4-1">이메일(로그인ID)</div>
     <div id="main-4-2">${memberEmail}</div>
-</div>
-<div id="main-5">
-    <div id="main-5-1">전화번호</div>
-    <div id="main-5-2">폐쇄 예정</div>
 </div>
 <div id="main-6">
     <div id="main-6-1">
@@ -524,7 +516,7 @@ function selectPayment() {
                     </div>`
                 );
             });
-
+            
         },
         error() {
             console.log("에러임");
@@ -535,7 +527,7 @@ function selectPayment() {
 
 }
 
-
+// 리뷰 화면 만들기
 function reviewWrite() {
 
     document.querySelector(".containerH").insertAdjacentHTML("afterbegin",
@@ -655,45 +647,3 @@ function tagButtonController() {
         }
     });
 }
-
-
-// async function SendVerifyEmail(emailAddress) {
-
-//     let verifyCode = 10000 + (Math.floor(Math.random() * 89999));
-//     let data = {
-//         service_id: 'service_8lls798',
-//         template_id: 'template_uywyx8m',
-//         user_id: '5Vm42iOtNtSnQK34-',
-//         template_params: {
-//             to_email: emailAddress,
-//             message: verifyCode
-//         }
-//     };
-
-//     try {
-//         await fetch('https://api.emailjs.com/api/v1.0/email/send', {
-//             method: 'POST',
-//             headers: {
-//                 'Content-Type': 'application/json'
-//             },
-//             body: JSON.stringify(data)
-//         })
-
-//             .then(function (res) {
-//                 if (res.ok) {
-//                     console.log('보내짐');
-//                 } else {
-//                     console.log('실패함' + res.statusText);
-//                 }
-//             })
-
-//     } catch (err) {
-//         console.log('err발생', err);
-//     }
-//     console.log(verifyCode)
-//     return verifyCode;
-
-// }
-
-
-
