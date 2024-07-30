@@ -9,6 +9,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import talentFour.common.*;
 import talentFour.member.model.vo.Member;
 import talentFour.tutor.dao.TutorDAO;
 import talentFour.tutor.model.vo.Dashboard;
@@ -286,6 +287,11 @@ public class TutorService {
 	public int updateProfile(tutorProfile updateProfile, int memberNo) throws Exception {
 		
 		Connection conn = getConnection();
+		
+		updateProfile.setTutorIntroduce(Util.XSSHandling(updateProfile.getTutorIntroduce()));
+		// 2) 개행 문자 처리(내용)
+//		updateProfile.setTutorIntroduce(Util.newLineHandling(updateProfile.getTutorIntroduce()));
+		
 		int result = dao.updateProfile(conn, updateProfile, memberNo);
 		
 		if(result>0) conn.commit();

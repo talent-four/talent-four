@@ -75,7 +75,6 @@ function updateValidate(){
     const regExp1 = /^0(1[079]|2|[3-6][1-5]|70)\d{3,4}\d{4}$/; // 전화번호
     const regExp2 = /^[가-힣]{2,16}$/; // 예금주명
     const regExp3 = /^(?:\d{1,4}-?){0,3}\d{6,10}$/; // 계좌번호
-    const regExp4 = /^.{10,300}$/; // 튜터 소개
 
     if(tel.value.trim().length == 0){
         return printAlert(tel, "전화번호를 입력해 주세요(- 제외)");
@@ -97,9 +96,7 @@ function updateValidate(){
 
     if(introduce.value.trim().length == 0){
         return printAlert(introduce, "튜터 소개를 입력해주세요");
-    } else if(!regExp4.test(introduce.value)){
-        return printAlert(introduce, "튜터 소개글은 10글자 이상 작성해주세요.");
-    }
+    } 
 
     return true;
 
