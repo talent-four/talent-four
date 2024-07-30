@@ -55,7 +55,6 @@ public class detailedPageServlet extends HttpServlet {
 				
 				Class classInfo = service.getClass(classNo);
 				String[] tutorInfo = service.getTutorInfoClass(classNo);
-				
 				List<Review> reviewList = mService.getDetailPageReview(classNo);
 				if(loginMember != null) {
 					Boolean[] checkList = service.checkList(loginMember.getMemberNo(), classNo);

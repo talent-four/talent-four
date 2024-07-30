@@ -10,6 +10,7 @@
                 <title>상세페이지</title>
                 <link rel="stylesheet" href="${contextPath}/resources/css/common/hf.css">
                 <link rel="stylesheet" href="${contextPath}/resources/css/pages/detialedPage.css">
+                <link rel="stylesheet" href="${contextPath}/resources/css/review/review.css">
 
                 <script src="https://code.jquery.com/jquery-3.7.1.js"
                     integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
@@ -20,7 +21,8 @@
 
             <body>
                 <jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
-
+                <c:set var="checkMyClass" value="${checkList[0]}"></c:set> <!-- 자신이 만든 클래스인지 체크 -->
+                <c:set var="checkPaidClass" value="${checkList[1]}"></c:set> <!-- 결제한 클래스인지 체크 -->
                 <c:set var="classInfo" value="${classInfo}"></c:set>
                 <main id="detailed">
                     <section class="upper">
@@ -200,6 +202,9 @@
                                 <div>
                                     <span class="boxTitle">수강생 리뷰</span>
                                     <div>
+                                       	<c:if test="${checkPaidClass}">
+                          	            	<button id="writeReview" onclick="reviewWrite()">리뷰 쓰기</button>
+                                    	</c:if>
                                         <a href="#">추천순</a>
                                         <a href="#">최신순</a>
                                     </div>
@@ -326,8 +331,6 @@
     
                                 <div class="detailedPageBrn">
                                     <a href="#" class="chatBtn"><img src="${contextPath}/resources/img/chat.png"></a>
-                                    <c:set var="checkMyClass" value="${checkList[0]}"></c:set>
-                                    <c:set var="checkPaidClass" value="${checkList[1]}"></c:set>
                                     <c:choose>
                                     	<c:when test="${checkMyClass}">
                           	            	<a class="creditBtnSub" href="${contextPath}/detailedPage/write?mode=update&classNo=${classInfo.classNo}">클래스 수정하기</a>
