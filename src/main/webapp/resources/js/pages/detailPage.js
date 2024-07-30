@@ -196,7 +196,8 @@ const output = document.getElementById("output");
 const button = document.getElementById("toggleButton");
 let showingHTML = false;
 
-button.addEventListener("click", () => {
+if(button != null){
+	button.addEventListener("click", () => {
   if (showingHTML) {
     output.style.display = "none";
     textarea.style.display = "block";
@@ -217,3 +218,100 @@ button.addEventListener("click", () => {
   }
   showingHTML = !showingHTML;
 });
+}
+
+
+
+function reviewWrite() {
+	createWrite();
+};
+
+// 리뷰 화면 만들기
+function createWrite() {
+
+    document.querySelector("#writeReview").insertAdjacentHTML("afterbegin",
+        `<div id="background-modal"></div>
+                    
+                    <div id="write-modal">
+                        <div class="write-wrapper">
+                            <form action="${contextPath}/review/write" method="GET">
+                                <div class="write-tag">
+                                    <div class="write-tag-question">태그를 선택해 주세요</div>
+                                    <div class="write-tag-select">
+                                        <div class="radio-button selected" data-value="1">#친절해요</div>
+                                        <div class="radio-button" data-value="2">#재밌어요</div>
+                                        <div class="radio-button" data-value="3">#시간가는줄 몰라요</div>
+                                        <div class="radio-button" data-value="4">#가격대비최고</div>
+                                        <div class="radio-button" data-value="5">#강의 맛집</div>
+                                        <div class="radio-button" data-value="6">#다음에 또 올께요</div>
+                                        <div class="radio-button" data-value="7">#완강했어요</div>
+                                        <div class="radio-button" data-value="8">#후회 안해요</div>
+                                        <div class="radio-button" data-value="9">#고민은 시간낭비</div>
+                                        <input type="radio" name="tag" value="1" id="option1" required checked
+                                            hidden>
+                                        <input type="radio" name="tag" value="2" id="option2" hidden>
+                                        <input type="radio" name="tag" value="3" id="option3" hidden>
+                                        <input type="radio" name="tag" value="4" id="option4" hidden>
+                                        <input type="radio" name="tag" value="5" id="option5" hidden>
+                                        <input type="radio" name="tag" value="6" id="option6" hidden>
+                                        <input type="radio" name="tag" value="7" id="option7" hidden>
+                                        <input type="radio" name="tag" value="8" id="option8" hidden>
+                                        <input type="radio" name="tag" value="9" id="option9" hidden>
+                                    </div>
+                                </div>
+                                <div class="write-content">
+                                    <div class="writestarbox">
+                                        <div class="starsel">
+                                            <input type="radio" name="writeStar" value="5" id="star1" required
+                                                hidden><label for="star1">★ </label><input type="radio" name="writeStar"
+                                                value="4" id="star2" hidden><label for="star2">★ </label><input
+                                                type="radio" name="writeStar" value="3" id="star3" hidden><label
+                                                for="star3">★ </label><input type="radio" name="writeStar" value="2"
+                                                id="star4" hidden><label for="star4">★ </label><input type="radio"
+                                                name="writeStar" value="1" id="star5" hidden><label for="star5">★
+                                            </label>
+                                            별점을 선택해주세요
+                                        </div>
+                                        <input type="text" placeholder="제목을 입력해주세요" id="writeTitle" name="writeTitle" maxlength="30">
+                                        <textarea name="writetext" cols="60" rows="6" id="writecontext" maxlength="300"
+                                            placeholder="내용을 입력해주세요"></textarea>
+                                    </div>
+                                    <button id="write-btn1" type="submit">글 쓰기</button>
+                                    <button id="write-btn2" type="button">취소</button>
+                            </form>
+                        </div>
+                    </div>`
+    );
+	tagButtonController();
+}
+
+
+function tagButtonController() {
+    const buttons = document.querySelectorAll('.radio-button');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            buttons.forEach(btn => btn.classList.remove('selected'));
+
+            button.classList.add('selected');
+
+            const value = button.getAttribute('data-value');
+            const radioButton = document.querySelector(`input[type="radio"][value="${value}"]`);
+            radioButton.checked = true;
+        });
+    });
+
+    document.querySelector("#write-btn2").addEventListener("click", () => {
+        const background = document.querySelector("#background-modal");
+        const writemodal = document.querySelector("#write-modal");
+        
+        if (background) {
+            background.remove();
+        }
+        if (writemodal) {
+            writemodal.remove();
+        }
+    });
+}
+
+
