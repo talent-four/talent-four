@@ -48,9 +48,16 @@ public class classPageServlet extends HttpServlet {
 				
 				 ClassPageService service = new ClassPageService();
                  try {
-                	
-                 	List<Class> classList = service.getAllClasses(orderTag);
-                 	req.setAttribute("classList", classList);
+                	 List<Class> classList;
+                	// 검색일 경우
+                	if(req.getParameter("query") != null) {
+                		String query = req.getParameter("query");
+                		classList = service.getQueryClasses(orderTag, query);
+                	} else {
+                		classList = service.getAllClasses(orderTag);
+                	}
+                	req.setAttribute("classList", classList);
+                 	
                  } catch (Exception e) {
                  	e.printStackTrace();
  				}

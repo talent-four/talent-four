@@ -87,6 +87,20 @@ public class ClassPageService {
 		
 		return result;
 	}
+
+	public List<Class> getQueryClasses(String orderTag, String query) throws Exception {
+		List<Class> classList;
+		
+		Connection conn = getConnection();
+		
+		String orderBy = sort(orderTag);
+		
+		classList = dao.getQueryClasses(conn, orderBy, query);
+		
+		close(conn);
+		
+		return classList;
+	}
 	
 
 }

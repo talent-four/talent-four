@@ -173,9 +173,49 @@ public class ClassPageDAO {
 		try {
 			String sql = prop.getProperty("getAllClasses") + orderBy;
 				
-			stmt = conn.prepareStatement(sql);
+			stmt = conn.createStatement();
 			
 			rs = stmt.executeQuery(sql);
+			
+			while(rs.next()) {
+				Class c = new Class();
+				c.setClassNo(rs.getInt(1));
+				c.setClassName(rs.getString(2));
+				c.setClassIntro(rs.getString(3));
+				c.setClassPhoto(rs.getString(4));
+				c.setClassUrl(rs.getString(5));
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+				c.setClassCreateDt(sdf.format(rs.getDate(6)));
+				c.setClassStatus(rs.getInt(7));
+				c.setClassPrice(rs.getInt(8));
+				c.setMemberNo(rs.getInt(9));
+				c.setCategoryCode(rs.getString(10));
+				c.setMemberNickname(rs.getString(11));
+				c.setReviews(rs.getInt(12));
+				c.setScore(rs.getFloat(13));
+				classList.add(c);
+			}
+			
+		} finally {
+			close(rs);
+			close(stmt);
+		}
+		
+		return classList;
+	}
+
+
+	public List<Class> getQueryClasses(Connection conn, String orderBy, String query) throws Exception {
+		List<Class> classList = new ArrayList<>();
+		
+		try {
+			String sql = prop.getProperty("getQueryClasses") + orderBy;
+				
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, "%" + query + "%");
+			
+			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
 				Class c = new Class();

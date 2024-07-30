@@ -32,6 +32,19 @@
 		WHERE CLASS_STATUS = 1
 	</entry>
 	
+	<!-- 검색된 클래스 가져오기 -->
+	<entry key="getQueryClasses">
+		SELECT C.*, M.MEMBER_NM, NVL(CR.리뷰수, 0) AS 리뷰수, NVL(TRUNC(CR.평점, 1), 0) AS 평점, C.CLASS_CREATE_DT AS 날짜
+		FROM CLASS C
+		JOIN MEMBER M ON C.MEMBER_NO = M.MEMBER_NO
+		LEFT JOIN (
+		    SELECT C.CLASS_NO, COUNT(R.CLASS_NO) AS 리뷰수, AVG(R.REVIEW_STAR) AS 평점
+		    FROM CLASS C
+		    LEFT JOIN REVIEW R ON C.CLASS_NO = R.CLASS_NO
+		    GROUP BY C.CLASS_NO) CR ON C.CLASS_NO = CR.CLASS_NO
+		WHERE CLASS_STATUS = 1 AND C.CLASS_NAME LIKE ?
+	</entry>
+	
 	
 	<!-- 대분류로 클래스 가져오기 -->
 	<entry key="getMainClasses">
