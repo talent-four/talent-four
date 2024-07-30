@@ -124,9 +124,13 @@ public class myPageController extends HttpServlet{
 					
 					if(secRes==1) {
 						// 회원 탈퇴 성공
-						req.setAttribute("message", "회원 탈퇴에 성공하였습니다.");
 						session.invalidate();
-						req.getRequestDispatcher("/index.jsp").forward(req, resp);
+						
+						session = req.getSession();
+						session.setAttribute("message", "회원 탈퇴 성공하였습니다.");
+
+						resp.sendRedirect(req.getContextPath());
+						
 					} else {
 						session.setAttribute("message", "회원 탈퇴에 실패하였습니다. 다시 시도해주세요.");
 						req.getRequestDispatcher("/WEB-INF/views/mypage/mypage.jsp").forward(req, resp);
