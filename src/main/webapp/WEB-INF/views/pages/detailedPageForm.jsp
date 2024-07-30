@@ -25,7 +25,10 @@
                             <div class="thumbnailBox">
                                 <label for="thumbnail">
                                     <!-- <img class="preview" src="${contextPath}${classInfo.classPhoto}"> -->
-                                    <img class="preview" src="">
+									<c:if test="${!empty classInfo.classPhoto}">
+										<c:set var="img" value="${contextPath}${classInfo.classPhoto}"></c:set>
+									</c:if>                                    
+                                    <img class="preview" src="${img}">
                                 </label>
                                 <input type="file" class="inputImage" id="thumbnail" accept="image/*" name="thumbnail">
                                 <input type="hidden" name="existingClassPhoto" value="${classInfo.classPhoto}">

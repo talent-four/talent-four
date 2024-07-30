@@ -46,8 +46,11 @@ public class detailedPageServlet extends HttpServlet {
 		DetailPageService service = new DetailPageService();
 		MemberService mService = new MemberService();
 		Member loginMember = (Member) session.getAttribute("loginMember");
+		int classNo = 0;
 		
-		int classNo =  Integer.parseInt(req.getParameter("classNo"));
+		if(req.getParameter("classNo") != null) {
+			classNo =  Integer.parseInt(req.getParameter("classNo"));
+		}
 		
 		try {
 			// classNo 페이지 조회

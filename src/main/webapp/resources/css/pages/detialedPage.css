@@ -95,7 +95,7 @@ a {
 }
 
 /* 클래스 본문 */
-.classDetail {
+#classDetail {
   display: inline-block;
   position: relative;
   width: 100%;
@@ -109,10 +109,10 @@ a {
 }
 
 .classDetailShow {
-  height: auto;
+  height: auto !important;
 }
 
-.classDetail > img {
+#classDetail img {
   min-width: 100%;
 }
 
