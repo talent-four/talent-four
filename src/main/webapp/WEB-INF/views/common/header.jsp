@@ -11,7 +11,7 @@
 	                <li><a href="${contextPath}/classPage/all">클래스</a></li>
 	                <li><a href="${contextPath}/groupMain">스터디 모집</a></li>
 	                <li><a href="${contextPath}/review">수강 후기</a></li>
-	                <li><a href="">궁금해요</a></li>
+	                <li><a href="${contextPath}/wonder/free">궁금해요</a></li>
 	            </ul>
 	        </div>
 	        <form action="${contextPath}/classPage/all">
