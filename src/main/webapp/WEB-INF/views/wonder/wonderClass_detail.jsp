@@ -23,20 +23,7 @@
             <h1>강의가 궁금해요 !!</h1>
             <div class="wonder-container">
                 <form method="post">
-                    <div class="wonder-detal1">
-                            <select id="wonder-classSelect" name="wonder-classSelect"> 
-                                <option value="Wclass1">강의 선택</option>
-                                <option value="Wclass2">강의1</option>
-                                <option value="Wclass3">강의231</option>
-                                <option value="Wclass4">강의133</option>
-                                <option value="Wclass5">강의144</option>
-                            </select>
-                            <div>
-                            <label for="private">비밀글 설정</label>
-                            <input type="checkbox" id="private" name="private">
-                            </div>
-                        </div>
-                        
+                    
                         <input type="text" id="title" name="title" placeholder="제목을 입력하세요.">
                         <input type="text" id="tags" name="tags" placeholder="#태그입력(10글자이하,띄어쓰기대신-사용)">
                         <textarea id="content" name="content" placeholder="내용입력"></textarea>

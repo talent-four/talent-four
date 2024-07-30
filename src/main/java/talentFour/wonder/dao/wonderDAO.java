@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -95,29 +96,65 @@ public class wonderDAO {
 	}
 
 	public wonderBoard getBoardById(Connection conn, String id) throws Exception {
-	    wonderBoard board = null;
-	    String sql = prop.getProperty("boardDetail"); // SQL 쿼리를 XML 파일에서 가져옵니다.
+		wonderBoard board = null;
+		String sql = prop.getProperty("boardDetail"); // SQL 쿼리를 XML 파일에서 가져옵니다.
 
-	    try (PreparedStatement pstmt = conn.prepareStatement(sql)) { // PreparedStatement 객체 생성
-	        pstmt.setString(1, id); // 게시글 ID를 설정합니다.
+		try (PreparedStatement pstmt = conn.prepareStatement(sql)) { // PreparedStatement 객체 생성
+			pstmt.setString(1, id); // 게시글 ID를 설정합니다.
 
-	        try (ResultSet rs = pstmt.executeQuery()) { // 쿼리 실행
-	            if (rs.next()) { // 결과가 있는 경우
-	                board = new wonderBoard();
-	                board.setBoardNo(rs.getInt("BOARD_NO")); 
-	                board.setBoardTitle(rs.getString("BOARD_TITLE"));
-	                board.setBoardContent(rs.getString("BOARD_CONTENT"));
-	                board.setCreateDate(rs.getString("CREATED_DT")); 
-	                board.setMemberNickname(rs.getString("MEMBER_NM"));
-	                board.setQaStatus(rs.getString("QA_STATUS"));
-	              
+			try (ResultSet rs = pstmt.executeQuery()) { // 쿼리 실행
+				if (rs.next()) { // 결과가 있는 경우
+					board = new wonderBoard();
+					board.setBoardNo(rs.getInt("BOARD_NO")); 
+					board.setBoardTitle(rs.getString("BOARD_TITLE"));
+					board.setBoardContent(rs.getString("BOARD_CONTENT"));
+					board.setCreateDate(rs.getString("CREATED_DT")); 
+					board.setMemberNickname(rs.getString("MEMBER_NM"));
+					board.setQaStatus(rs.getString("QA_STATUS"));
+
+				}
+			}
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+
+		return board;
+	}
+
+	/** 글쓰기 
+	 * @param conn
+	 * @param title
+	 * @param content
+	 * @param memberNo
+	 * @return
+	 * @throws Exception 
+	 */
+	public int insertBoard(Connection conn, String title, String content, int memberNo) throws Exception {
+	    int result = 0;
+	    String sql1 = prop.getProperty("boardWirte");
+	    String sql2 = prop.getProperty("boardWirte2");
+
+	    try (PreparedStatement pstmt1 = conn.prepareStatement(sql1, Statement.RETURN_GENERATED_KEYS);
+	         PreparedStatement pstmt2 = conn.prepareStatement(sql2)) {
+
+	        pstmt1.setString(1, title);
+	        pstmt1.setString(2, content);
+	        pstmt1.setInt(3, memberNo);
+	        
+	        result = pstmt1.executeUpdate();
+
+	        if (result > 0) {
+	            try (ResultSet rs = pstmt1.getGeneratedKeys()) {
+	                if (rs.next()) {
+	                    result = pstmt2.executeUpdate();
+	                }
 	            }
 	        }
-	    } finally {
-	    	close(rs);
-	    	close(pstmt);
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        throw new Exception("게시글 등록 중 오류가 발생했습니다.", e);
 	    }
-
-	    return board;
+	    return result;
 	}
 }
