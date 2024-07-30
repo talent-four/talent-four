@@ -39,9 +39,7 @@ function updateValidate1(){
 
     if(inputIntroduce.value.trim().length == 0){
         return printAlert(inputIntroduce, "튜터 소개를 입력해주세요");
-    } else if(!regExp4.test(inputIntroduce.value)){
-        return printAlert(inputIntroduce, "튜터 소개글은 10글자 이상 작성해주세요.");
-    }
+    } 
 
     if(accountName1.value.trim().length == 0){
         return printAlert(accountName1, "예금주명을 입력해주세요");

@@ -40,9 +40,15 @@
             <article class="category-areaH"> <!-- 카테고리 -->
                 <table class="category-tableH">
                     <tr class="categoryH">
-                        <td><a href="${contextPath}/tutor/register"><button id="tutor-btn"><i class="fa-solid fa-rocket"
-                                    style="color : #219EBC ;font-size:15pt; padding-right: 5px;"></i> <b>튜터 신청
-                                    하기</b></button></a></td>
+                        <c:choose>
+                            <c:when test="${loginMember.memberStatus==2}">
+                            </c:when>
+                            <c:otherwise>
+                                <td><a href="${contextPath}/tutor/register"><button id="tutor-btn"><i class="fa-solid fa-rocket"
+                                            style="color : #219EBC ;font-size:15pt; padding-right: 5px;"></i> <b>튜터 신청
+                                            하기</b></button></a></td>
+                            </c:otherwise>
+                        </c:choose>
                     </tr>
                     <tr class="categoryH selected" id="category-profile">
                         <td>
