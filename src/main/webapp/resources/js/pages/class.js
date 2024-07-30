@@ -81,21 +81,6 @@ function onPlayerReady(event) {
   }
 }
 
-// 플레이어의 상태가 변화될 때 호출되는 함수
-// var done = false;
-// function onPlayerStateChange(event) {
-//   if (event.data === YT.PlayerState.PLAYING && !done) {
-//     setTimeout(stopVideo, 6000);
-//     done = true;
-//   }
-// }
-
-// function stopVideo() {
-//   if (player) {
-//     player.stopVideo();
-//   }
-// }
-
 // 비디오를 로드하는 함수
 function loadVideo(videoId) {
   console.log("Loading video:", videoId);

@@ -111,11 +111,11 @@
 						<div class="d-review">
 							<div>
 								<div class="profileBox">
-									<c:if test="${empty item.profileImage}">
-										<img src="${contextPath}/resources/img/profile_all_re.png">
+									<c:if test="${item.profileImage == null}">
+										<img src="${contextPath}/resources/img/profile_all_re.PNG">
 									</c:if>
 
-									<c:if test="${!empty item.profileImage}">
+									<c:if test="${item.profileImage != null}">
 										<img src="${contextPath}${item.profileImage}">
 									</c:if>
 									<div>
