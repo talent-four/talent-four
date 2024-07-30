@@ -31,7 +31,7 @@ footer{
 /* ----------------------------------------------------------------------------------------- */
 main{
     width: 1280px;
-    height: 1700px;
+    height: 1600px;
 }
 
 .titleP{
@@ -322,14 +322,14 @@ option{
 
 .regist-career-areaP{
     width: 1280px;
-    height: 370px;
+    height: 280px;
     display: flex;
     border-bottom: 1px solid rgb(153, 153, 153);
 }
 
 .regist-career-areaP>div:nth-child(2){
     width: 980px;
-    height: 370px;
+    height: 280px;
 }
 
 .info-career-inputP{
@@ -396,7 +396,7 @@ input[type='file']{
     display: none;
 }
 
-#upload-universityP{
+#university-btn{
     display: inline-block;
     text-align: center;
     width: 80px;
@@ -408,40 +408,6 @@ input[type='file']{
 }
 
 
-/*190 남음*/
-
-.license-areaP{
-    width: 980px;
-    height: 80px;
-}
-
-.license-areaP>span{
-    font-weight: bold;
-}
-
-.license-areaP>span>span{
-    font-weight: normal;
-    margin: 0 0 0 20px;
-    color: rgb(103, 103, 103);
-}
-
-#license-nameP{
-    width: 505px;
-    height: 30px;
-    margin: 5px 0 0 0;
-    outline: none;
-}
-
-#upload-licenseP{
-    display: inline-block;
-    text-align: center;
-    width: 80px;
-    height: 30px;
-    background-color: transparent;
-    border: 1px solid rgb(153, 153, 153);
-    cursor: pointer;
-    padding: 2px 0 0 0;
-}
 
 /*-------------------------------------------------------------------------------*/
 /*110*/

@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Properties;
 
 import talentFour.group.dao.GroupDAO;
+import talentFour.member.model.vo.Member;
 import talentFour.tutor.model.vo.Dashboard;
 import talentFour.tutor.model.vo.TutorCalculate;
 import talentFour.tutor.model.vo.TutorClass;
@@ -786,16 +787,45 @@ public class TutorDAO {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, memberNo);
 			pstmt.setString(2, register.getAccountName());
-			pstmt.setString(3,register.getBankName());
-			pstmt.setString(4,register.getAccount());
+			pstmt.setString(3, register.getBankName());
+			pstmt.setString(4, register.getAccount());
 			
 			result3 = pstmt.executeUpdate();
-			System.out.println("result3:"+result3);
+			System.out.println("result3:"+ result3);
 			
 		} finally {
 			close(pstmt);
 		}
 		return result3;
+	}
+
+	/** 튜터등록한 맴버 정보 업데이트
+	 * @param conn
+	 * @param memberNo
+	 * @return
+	 * @throws Exception
+	 */
+	public Member updatetutor(Connection conn, int memberNo) throws Exception {
+		
+		Member loginmember2 = new Member();
+		try {
+			
+			String sql = prop.getProperty("updatetutor");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memberNo);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				loginmember2.setMemberStatus(rs.getInt(1));
+			}
+			
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return loginmember2;
 	}
 
 

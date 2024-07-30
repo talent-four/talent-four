@@ -115,8 +115,8 @@
                         <span>최종학력<span>대학교/대학원(학생증/재학,졸업증명서)</span></span><br>
                         <input type="text" name="university" id="university-nameP" placeholder="탈잉대학교">
                         <input type="text" name="university" id="university-major-nameP" placeholder="탈잉학과">
-                        <input type="file" id="university-btnP" name="university">
-                        <label for="university-btnP" id="upload-universityP">업로드</label>
+                        <input type="file" id="university">
+                        <label for="university" id="university-btn">업로드</label>
                     </div>
                     
                 </div>
