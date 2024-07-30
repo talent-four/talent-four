@@ -92,7 +92,7 @@
                 </div>
             </section>
             <section class="regist-btn-areaP">
-                <button id="cancel-saveP" type="button">취소</button>
+                <button id="cancel-saveP" type="button"><a href="${contextPath}">취소</a></button>
                 <button id="save-nextP">저장</button>
             </section>
         </form>

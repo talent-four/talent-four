@@ -437,6 +437,11 @@ input[type='file']{
     background-color: rgb(85, 85, 85);
 }
 
+#cancel-saveP>a{
+    text-decoration: none;
+    color: white;
+}
+
 #save-nextP{
     background-color: #219ebc;;
 }
