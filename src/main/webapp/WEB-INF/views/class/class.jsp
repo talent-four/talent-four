@@ -19,31 +19,32 @@
                     <a href="${contextPath}"><img src="${contextPath}/resources/img/logo2.png"></a>
                 </div>
                 <div class="title">
-                    <span id="classTitle">굉장히 엄청난 강의 제목</span>
+                    <span id="classTitle">${classInfo.className }</span>
                 </div>
                 <button id="sideBarBtn">
                     &gt;
                 </button>
             </div>
-            <div id="player"></div>
+            <div id="player">
+            	<div id="selectIndex">목차를 선택해주세요.</div>
+            </div>
         </div>
     	
         <div id="rightSide">
             <div class="index">
                 <h1>목차</h1>
                 <div>
-                    강의 제목<br>
-                    수강기간<br>
-                    몇강 중 몇강 수강
+                    ${classInfo.className }<br>
+                    총 <span id="totalClassCount"></span>강
                 </div>
             </div>
             <div id="subClassScroll">
-                <a class="subClass">
-                    예시 목차 1
-                </a>
             </div>
         </div>
     </div>
+    <script>
+    	const classUrl = "${classInfo.classUrl}";
+    </script>
     <script src="${contextPath}/resources/js/pages/class.js"></script>
 </body>
 </html>

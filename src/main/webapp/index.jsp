@@ -36,7 +36,7 @@
 			<div class="contentHeaderTitle">수강생들이 가장 많이 들은 수업</div>
 			<a href="${contextPath}/classPage/all?sort=review" class="contentHeaderShowAll">모두보기</a>
 		</div>
-
+		<a href="${contextPath}/class?classNo=1">수강페이지</a>
 		<div class="contentBoxs" id="contentSlider">
 			<c:forEach var="j" begin="0" end="2">
 				<div class="contentBoxsSet" id="contentBoxSet"><!-- 큰 박스 3번 반복 -->

@@ -278,6 +278,8 @@ function createWrite() {
                                     </div>
                                     <button id="write-btn1" type="submit">글 쓰기</button>
                                     <button id="write-btn2" type="button">취소</button>
+                                    <input type="hidden" name="writeMember" value="${loginMemberNo}">
+                                    <input type="hidden" name="parents" value="${parents}">
                             </form>
                         </div>
                     </div>`
