@@ -122,7 +122,6 @@
         </form>
     </main>
     <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
-    <script src="${contextPath}/resources/js/common/hf.js"></script>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1c527d868a1b47c46db5e096db9fda2e&libraries=LIBRARY"></script>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1c527d868a1b47c46db5e096db9fda2e"></script>
     <script src="${contextPath}/resources/js/group/groupCreate.js"></script>

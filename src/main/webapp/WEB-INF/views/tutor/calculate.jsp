@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,8 +28,7 @@
                         <span>정산 신청 가능 금액</span>
                     </div>
                     <div class="calculate-downP">
-                        <span id="now-calculate-moneyP">${tutorcalculate.ingsum}</span>
-                        <span>원</span>
+                        <span id="now-calculate-moneyP"><fmt:formatNumber value="${tutorcalculate.ingsum}" pattern="#,###원" /></span>
                     </div>
                 </div>
                 <div>
@@ -36,8 +36,7 @@
                         <span>정산 완료한 금액</span>
                     </div>
                     <div class="calculate-downP">
-                        <span id="fin-calculate-moneyP">${tutorcalculate.finsum}</span>
-                        <span>원</span>
+                        <span id="fin-calculate-moneyP"><fmt:formatNumber value="${tutorcalculate.finsum}" pattern="#,###원" /></span>
                     </div>
                 </div>
                 <div>
@@ -45,8 +44,7 @@
                         <span>총 정산 금액</span>
                     </div>
                     <div class="calculate-downP">
-                        <span id="all-calculate-moneyP">${tutorcalculate.allsum}</span>
-                        <span>원</span>
+                        <span id="all-calculate-moneyP"><fmt:formatNumber value="${tutorcalculate.allsum}" pattern="#,###원" /></span>
                     </div>
                 </div>
             </article>
@@ -100,6 +98,5 @@
     <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
     <script src="${contextPath}/resources/js/tutor/tutorCalculate.js"></script>
     <script src="${contextPath}/resources/js/tutor/calculateList.js"></script>
-    <script src="${contextPath}/resources/js/common/hf.js"></script>
 </body>
 </html>
