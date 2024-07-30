@@ -106,8 +106,8 @@ html, body {
     display: inline-block;
     height: 80px;
     width: 100%;
-    background-color: #ccc;
-    padding: 5px 0;
+    background-color: white;
+    padding: 5px 5px;
     border: 1px solid black;
     cursor: pointer;
 }
@@ -140,4 +140,21 @@ html, body {
 #subClassScroll::-webkit-scrollbar-thumb,
 #subClassScroll::-webkit-scrollbar-track{
     border-radius: 10px;
+}
+
+/* 비디오 박스 임시 */
+#player {
+	width: 100%;
+	height: 100%;
+}
+
+#selectIndex {
+	width: 100%;
+	height: 100%;
+	background-color: #282828;
+	color: white;
+	font-size: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

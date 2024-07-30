@@ -229,7 +229,7 @@ function reviewWrite() {
 // 리뷰 화면 만들기
 function createWrite() {
 
-    document.querySelector("#writeReview").insertAdjacentHTML("afterbegin",
+    document.querySelector("#dp-review").insertAdjacentHTML("afterbegin",
         `<div id="background-modal"></div>
                     
                     <div id="write-modal">
@@ -278,6 +278,8 @@ function createWrite() {
                                     </div>
                                     <button id="write-btn1" type="submit">글 쓰기</button>
                                     <button id="write-btn2" type="button">취소</button>
+                                    <input type="hidden" name="writeMember" value="${loginMemberNo}">
+                                    <input type="hidden" name="parents" value="${parents}">
                             </form>
                         </div>
                     </div>`
