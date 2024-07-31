@@ -14,11 +14,9 @@
 
 
 #credit{
-    
+	margin-top: 50px;
+    justify-content: space-around;
     display: flex;
-    justify-content: center;
-
-
 }
 
 #credit>section:nth-of-type(1){
@@ -90,17 +88,13 @@ input[name="selectMonth"]{
 }
 
 #discount{
-    border: 3px solid #ff1058;
+    border: 0;
     padding:5px;
     border-radius: 50px;
-    color:#ff1058;
+    color:#ffb703;
     font-weight: bold;
     margin-left: 100px;
 }
-
-
-
-
 
 
 
@@ -123,4 +117,16 @@ input[name="selectMonth"]{
     border-radius: 5px;
     margin:10px;
     cursor: pointer;
+}
+
+.craditCheck {
+	margin-top: 20px;
+}
+
+tbody td {
+	padding: 5px 0;
+}
+
+.checkBox {
+	text-align: center;
 }

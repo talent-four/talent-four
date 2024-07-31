@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>group-sql.xml</comment>
+
+	<entry key="selectBoardList">
+		SELECT STUDY_STATUS, STUDY_LOCATION, TO_CHAR(STUDY_START, 'MM"월" DD"일" PM HH'), BOARD_CONTENT, m.MEMBER_NM, STUDY_NM, READ_COUNT
+		FROM STUDYBOARD s
+		JOIN BOARD b ON s.BOARD_NO = b.BOARD_NO
+		JOIN MEMBER m ON b.MEMBER_NO = m.MEMBER_NO
+	</entry>
+
+
+</properties>

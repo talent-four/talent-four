@@ -9,6 +9,12 @@ body {
   width: 100%;
 }
 
+/* a태그 서식 */
+a {
+  text-decoration: none;
+  color: black;
+}
+
 /* 상단 슬라이드 */
 .infinitySlider img {
   width: 100%;
@@ -43,7 +49,7 @@ div {
   padding: 10px 20px;
   border-radius: 10px;
 
-  background-color:#023047;
+  background-color: #023047;
   color: white;
 }
 
@@ -72,27 +78,30 @@ div {
 
 .gridBoxContentUpper {
   display: flex;
+  justify-content: center;
   align-items: center;
   height: 40px;
   border-bottom: 1px solid #ddd;
 }
 
-.gridBoxContentUpper > *:nth-child(1){
+.gridBoxContentUpper > *:nth-child(1) {
+  display: flex;
   width: 130px;
 }
 
-.gridBoxContentUpper > *:nth-child(2){
+.gridBoxContentUpper > *:nth-child(2) {
   width: 100px;
 }
-.gridBoxContentUpper > *:nth-child(3){
+.gridBoxContentUpper > *:nth-child(3) {
   text-align: right;
   flex-grow: 1;
 }
 
 .gridBoxContentUpper img {
-  width: 30px;
+  width: 24px;
   border: 1px solid black;
   border-radius: 50%;
+  margin-right: 5px;
 }
 
 .gridBoxSub > * {
@@ -123,21 +132,21 @@ div {
 /* 해시태그, 해결여부 서식 */
 .unsolved {
   display: inline-block;
-  background-color: #F0B7B7;
+  background-color: #f0b7b7;
   border-radius: 5px;
   padding: 3px 5px;
 }
 
 .solved {
   display: inline-block;
-  background-color: #B7F0D5;
+  background-color: #b7f0d5;
   border-radius: 5px;
   padding: 3px 13px;
 }
 
 .hashtag {
   display: inline-block;
-  background-color: #B7DEF0;
+  background-color: #b7def0;
   padding: 3px 5px;
   border-radius: 20px;
 }
@@ -157,8 +166,8 @@ div {
 }
 
 .gridFadecontentBox img {
-  width: 500px;
-  height: 300px;
+  width: 500px !important;
+  height: 300px !important;
 }
 
 /* 그리드 페이드 조작 */
@@ -173,6 +182,19 @@ div {
   padding: 0 10px;
 }
 
-#fadeLeft, #fadeRight {
+#fadeLeft,
+#fadeRight {
   cursor: pointer;
+}
+
+.gridFadecontentBox {
+  display: none;
+}
+
+.gridFadecontentBox.active {
+  display: block;
+}
+
+.star {
+  color: #ffb703;
 }

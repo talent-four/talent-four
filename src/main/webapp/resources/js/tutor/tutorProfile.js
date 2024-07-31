@@ -1,13 +1,3 @@
-// 카테고리 바
-$("#showCategoryBar").on("click", function(){
-    if ($(".categoryBar").css("display") == "none"){
-        $(".categoryBar").slideDown(200);
-    } else {
-        $(".categoryBar").slideUp(200);
-    }
-    })
-      
-
 const sideCategory = document.querySelectorAll('.activeP'); /* 사이드 카테고리 영역 모음 */
 /* ---------------------------------------------------------------------------------- */
 const firstCategory = sideCategory[0]; /* 카테고리 영역 첫 번째 */
@@ -15,110 +5,51 @@ const secondCategory = sideCategory[1];
 const thirdCategory = sideCategory[2];
 const fourthCategory = sideCategory[3];
 const fifthCategory = sideCategory[4];
-const sixthCategory = sideCategory[5];
-const seventhCategory = sideCategory[6];
 /*------------------------------------------------------------------------------------*/
 
 secondCategory.classList.add('a-style');
 
 /* 공통 끝 */
 /*------------------------------------------------------------------------------------------------ */
-/*------------------------------------------------------------------------------------------------ */
-/*------------------------------------------------------------------------------------------------ */
-/* 낙네임 시작 */ /* 프로필 시작 */
-const NchangeBtn = document.getElementById("Nchange-btnP")
-const NhideArea = document.getElementById("Nhide-areaP")
-const changeArea = document.getElementById("change-areaP")
-const Ncheck = document.getElementById("NcheckP")
-const Ncancel = document.getElementById("NcancelP")
-const NP = document.getElementById("NP")
-const Nchangeinput = document.getElementById("Nchange-inputP")
-const Nchangecount = document.getElementById("Nchange-countP")
+/* 전화번호 수정하기 */ 
 
-NchangeBtn.addEventListener("click",function(){
-    changeArea.style.display ='none'
-    NhideArea.style.display ='block'
-    Nchangeinput.value = NP.innerText;
-})
+const telInfo = document.getElementById("tel-info")
+const telInput = document.getElementById("tel-input")
 
-Ncancel.addEventListener("click",function(){
-    changeArea.style.display ='block'
-    NhideArea.style.display ='none'
-    Nchangeinput.value =""
-})
-
-Ncheck.addEventListener("click",function(){
-    changeArea.style.display ='block'
-    NhideArea.style.display ='none'
-    NP.innerText = Nchangeinput.value;
-    Nchangeinput.value =""
-})
-
-Nchangeinput.addEventListener("input",function(){
-    Nchangecount.innerText = Nchangeinput.value.length
-    if(Nchangeinput.value.length >= 12){
-        Nchangecount.innerText ='12';
-        Nchangecount.style.color ='red'
-    }
-    if(Nchangeinput.value.length == 12){
-        Nchangecount.style.color ='red'
-    } else{
-        Nchangecount.style.color ='black'
-    }
-})
-
-/* 낙네임 끝 */ 
-/* -----------------------------------------------------------------------------------------------*/
-/* 튜터 소개 시작 */ 
-
-const Infowrite = document.getElementById("info-write-btnP")
-const Infocheck = document.getElementById("info-check-btnP")
-const Infocancel = document.getElementById("info-error-btnP")
-const Infocount = document.getElementById("input-countP")
-const Infocountarea = document.getElementById("info-count-areaP")
-const Infotextarea = document.getElementById("info-textareaP")
-const Infoinput = document.getElementById("info-inputP")
-const Infoinputarea = document.getElementById("info-input-areaP")
-
-function Infoadd(){
-    Infocheck.style.display ='block'
-    Infocancel.style.display ='block'
-    Infotextarea.style.display ='block'
-    Infocountarea.style.display ='block'
+function showWarning() {
+    telInfo.style.display = "block";
 }
 
-function Inforemove(){
-    Infocheck.style.display ='none'
-    Infocancel.style.display ='none'
-    Infotextarea.style.display ='none'
-    Infocountarea.style.display ='none'
+function hideWarning() {
+    telInfo.style.display = "none";
+}
+/*------------------------------------------------------------------------------------------------ */
+/* 튜터소개 수정하기 */ 
+const introduce = document.getElementById("introduce")
+const countArea = document.getElementById("countArea")
+const Infocount = document.getElementById("Infocount")
+
+function showCount() {
+    document.getElementById('countArea').style.display = 'block';
+    updateCount();  
 }
 
-Infowrite.addEventListener("click",function(){
-    Infoadd()
-    Infoinputarea.style.height = '220px';
-    Infowrite.style.display='none'
-    const str = Infoinput.innerText
-    Infotextarea.value = str
-})
+function hideCount() {
+    document.getElementById('countArea').style.display = 'none';
+}
 
-Infocheck.addEventListener("click",function(){
-    Inforemove()
-    Infoinputarea.style.height = '80px';
-    Infowrite.style.display ='block'
-    const Info = Infotextarea.value
-    Infoinput.innerText = Info
-})
+function updateCount() {
+    var textarea = document.getElementById('introduce');
+    var count = textarea.value.length;
+    document.getElementById('Infocount').innerText = count;
+}
 
-Infocancel.addEventListener("click",function(){
-    Inforemove()    
-    Infoinputarea.style.height = '80px';
-    Infowrite.style.display ='block'
-    Infotextarea.value =""
-})
+document.addEventListener('DOMContentLoaded', (event) => {
+    updateCount();
+});
 
-Infotextarea.addEventListener("keyup",function(){
-    const length = Infotextarea.value.length;
+introduce.addEventListener("input",function(){
+    const length = introduce.value.length;
     Infocount.innerText = length;
 
     if(length<250){
@@ -131,5 +62,54 @@ Infotextarea.addEventListener("keyup",function(){
 
 })
 
-/* 튜터 소개 끝 */ 
 /* -----------------------------------------------------------------------------------------------*/
+/* 전체 수정하기 */ 
+
+const tel = document.getElementById('tel-input')
+const accountName = document.getElementById('accountName')
+const accountNumber = document.getElementById('accountNumber')
+
+function updateValidate(){
+
+    // const regExp2 = /^[0-9]{10,11}$/;
+    const regExp1 = /^0(1[079]|2|[3-6][1-5]|70)\d{3,4}\d{4}$/; // 전화번호
+    const regExp2 = /^[가-힣]{2,16}$/; // 예금주명
+    const regExp3 = /^(?:\d{1,4}-?){0,3}\d{6,10}$/; // 계좌번호
+
+    if(tel.value.trim().length == 0){
+        return printAlert(tel, "전화번호를 입력해 주세요(- 제외)");
+    } else if(!regExp1.test(tel.value)){
+        return printAlert(tel, "전화번호 형식이 올바르지 않습니다.");
+    }
+
+    if(accountName.value.trim().length == 0){
+        return printAlert(accountName, "예금주명을 입력해주세요");
+    } else if(!regExp2.test(accountName.value)){
+        return printAlert(accountName, "예금주명을 다시한번 확인해주세요.");
+    }
+
+    if(accountNumber.value.trim().length == 0){
+        return printAlert(accountNumber, "계좌번호를 입력해주세요");
+    } else if(!regExp3.test(accountNumber.value)){
+        return printAlert(accountNumber, "계좌번호를 다시한번 확인해주세요.");
+    }
+
+    if(introduce.value.trim().length == 0){
+        return printAlert(introduce, "튜터 소개를 입력해주세요");
+    } 
+
+    return true;
+
+}
+
+function printAlert(el, message){ // 매개변수 el은 요소 
+    alert(message);
+    el.focus();
+    return false
+}
+
+/*------------------------------------------------------------------------------------ */
+/*취소하기 버튼 누르기 */
+function resetForm() {
+    location.reload();
+}

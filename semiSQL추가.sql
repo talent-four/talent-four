@@ -1,0 +1,13 @@
+UPDATE CLASS SET class_photo = '/resources/img/classes/thumbnail/sample1.png';
+
+INSERT INTO CHATTING VALUES (SEQ_CHAT_NO.NEXTVAL,1,100,'안녕하세요',SYSDATE);
+INSERT INTO CHATTING VALUES (SEQ_CHAT_NO.NEXTVAL,100,1,'안녕하세요 반가워요',SYSDATE);
+INSERT INTO CHATTING VALUES (SEQ_CHAT_NO.NEXTVAL,1,100,'강의 잘 들었어요! 다음강의도 계획있으신가요?',SYSDATE);
+INSERT INTO CHATTING VALUES (SEQ_CHAT_NO.NEXTVAL,100,1,'넵 내일 스프링 시작할예정입니다.',SYSDATE);
+INSERT INTO CHATTING VALUES (SEQ_CHAT_NO.NEXTVAL,1,100,'다음 것도 들을께요ㅎㅎ',SYSDATE);
+INSERT INTO CHATTING VALUES (SEQ_CHAT_NO.NEXTVAL,100,1,'네 감사합니다',SYSDATE);
+
+commit;
+select * from member order by member_no desc;
+
+select * from CHATTING;
